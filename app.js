@@ -13,6 +13,7 @@
     activeFilter: "all",
     searchQuery: "",
     sortBy: "default",
+    pinHoldings: true,
     expandAll: false,
     expandedSymbols: new Set(),
     theme: localStorage.getItem("us_watch_theme") || "light",
@@ -43,7 +44,9 @@
   const elWatchlistRows = document.getElementById("watchlist-rows-container");
   const elCioContainer = document.getElementById("cio-advisory-container");
   const elSearchInput = document.getElementById("search-ticker-input");
+  const elBtnPinHoldings = document.getElementById("btn-pin-holdings");
   const elSortSelect = document.getElementById("sort-watchlist-select");
+  const colSortButtons = Array.from(document.querySelectorAll(".col-sort-btn"));
   const tabButtons = Array.from(document.querySelectorAll(".tab-btn"));
 
   function formatNumber(num, decimals = 2) {
@@ -390,14 +393,54 @@
       copy.sort((a, b) => b.changePct - a.changePct);
     } else if (state.sortBy === "change-asc") {
       copy.sort((a, b) => a.changePct - b.changePct);
+    } else if (state.sortBy === "price-desc") {
+      copy.sort((a, b) => b.price - a.price);
+    } else if (state.sortBy === "price-asc") {
+      copy.sort((a, b) => a.price - b.price);
     } else if (state.sortBy === "buy-desc") {
       copy.sort((a, b) => b.sentiment.buyPct - a.sentiment.buyPct);
     } else if (state.sortBy === "sell-desc") {
       copy.sort((a, b) => b.sentiment.sellPct - a.sentiment.sellPct);
+    } else if (state.sortBy === "symbol-asc") {
+      copy.sort((a, b) => a.displaySymbol.localeCompare(b.displaySymbol));
+    } else if (state.sortBy === "symbol-desc") {
+      copy.sort((a, b) => b.displaySymbol.localeCompare(a.displaySymbol));
     } else {
       copy.sort((a, b) => a.originalIdx - b.originalIdx);
     }
     return copy;
+  }
+
+  function syncSortUiIndicators() {
+    if (elSortSelect && elSortSelect.value !== state.sortBy) {
+      elSortSelect.value = state.sortBy;
+    }
+
+    if (elBtnPinHoldings) {
+      elBtnPinHoldings.classList.toggle("active", state.pinHoldings);
+      elBtnPinHoldings.setAttribute("aria-pressed", String(state.pinHoldings));
+    }
+
+    const colStateMap = {
+      symbol:
+        state.sortBy === "symbol-asc" ? "▲" : state.sortBy === "symbol-desc" ? "▼" : null,
+      price:
+        state.sortBy === "price-desc" ? "▼" : state.sortBy === "price-asc" ? "▲" : null,
+      change:
+        state.sortBy === "change-desc" ? "▼" : state.sortBy === "change-asc" ? "▲" : null,
+      sentiment:
+        state.sortBy === "buy-desc" ? "▼" : state.sortBy === "sell-desc" ? "▲" : null,
+    };
+
+    colSortButtons.forEach((btn) => {
+      const col = btn.dataset.sortCol;
+      const arrowEl = btn.querySelector(".sort-arrow");
+      const activeArrow = colStateMap[col] || null;
+      btn.classList.toggle("active", Boolean(activeArrow));
+      if (arrowEl) {
+        arrowEl.textContent = activeArrow || "⇅";
+      }
+    });
   }
 
   function buildSingleRowHtml(item) {
@@ -539,34 +582,41 @@
       );
     }
 
+    syncSortUiIndicators();
+
     if (!list.length) {
       elWatchlistRows.innerHTML = `<div class="quiet-note">找不到符合條件的觀察標的。</div>`;
       return;
     }
 
-    // Always separate Holdings on Top vs Rest of Watchlist below
-    const holdingsGroup = sortItemsWithinGroup(list.filter((it) => it.isHolding));
-    const watchGroup = sortItemsWithinGroup(list.filter((it) => !it.isHolding));
-
     let htmlParts = [];
-    if (holdingsGroup.length) {
-      htmlParts.push(`
-        <div class="moomoo-group-banner">
-          <span>★ 我的核心持倉 (${holdingsGroup.length})</span>
-          <span>優先置頂監控</span>
-        </div>
-      `);
-      htmlParts.push(holdingsGroup.map(buildSingleRowHtml).join(""));
-    }
+    if (state.pinHoldings) {
+      // Keep Holdings pinned on top and sort within each section
+      const holdingsGroup = sortItemsWithinGroup(list.filter((it) => it.isHolding));
+      const watchGroup = sortItemsWithinGroup(list.filter((it) => !it.isHolding));
 
-    if (watchGroup.length) {
-      htmlParts.push(`
-        <div class="moomoo-group-banner">
-          <span>☆ 自選觀察名單 (${watchGroup.length})</span>
-          <span>市場焦點與潛在機會</span>
-        </div>
-      `);
-      htmlParts.push(watchGroup.map(buildSingleRowHtml).join(""));
+      if (holdingsGroup.length) {
+        htmlParts.push(`
+          <div class="moomoo-group-banner">
+            <span>★ 我的核心持倉 (${holdingsGroup.length})</span>
+            <span>優先置頂監控</span>
+          </div>
+        `);
+        htmlParts.push(holdingsGroup.map(buildSingleRowHtml).join(""));
+      }
+
+      if (watchGroup.length) {
+        htmlParts.push(`
+          <div class="moomoo-group-banner">
+            <span>☆ 自選觀察名單 (${watchGroup.length})</span>
+            <span>市場焦點與潛在機會</span>
+          </div>
+        `);
+        htmlParts.push(watchGroup.map(buildSingleRowHtml).join(""));
+      }
+    } else {
+      const mergedSorted = sortItemsWithinGroup(list);
+      htmlParts.push(mergedSorted.map(buildSingleRowHtml).join(""));
     }
 
     elWatchlistRows.innerHTML = htmlParts.join("");
@@ -917,6 +967,31 @@
   elSearchInput.addEventListener("input", (e) => {
     state.searchQuery = e.target.value || "";
     renderWatchlist();
+  });
+
+  if (elBtnPinHoldings) {
+    elBtnPinHoldings.addEventListener("click", () => {
+      state.pinHoldings = !state.pinHoldings;
+      renderWatchlist();
+    });
+  }
+
+  const colCycleMap = {
+    change: ["change-desc", "change-asc", "default"],
+    price: ["price-desc", "price-asc", "default"],
+    sentiment: ["buy-desc", "sell-desc", "default"],
+    symbol: ["symbol-asc", "symbol-desc", "default"],
+  };
+
+  colSortButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const col = btn.dataset.sortCol;
+      const cycle = colCycleMap[col];
+      if (!cycle) return;
+      const curIdx = cycle.indexOf(state.sortBy);
+      state.sortBy = curIdx === -1 ? cycle[0] : cycle[(curIdx + 1) % cycle.length];
+      renderWatchlist();
+    });
   });
 
   elSortSelect.addEventListener("change", (e) => {

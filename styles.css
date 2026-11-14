@@ -524,6 +524,81 @@ body {
   letter-spacing: 0.01em;
 }
 
+.col-sort-btn {
+  appearance: none;
+  background: transparent;
+  border: none;
+  padding: 4px 6px;
+  margin: -4px -6px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  user-select: none;
+  transition: color 0.14s ease, background-color 0.14s ease;
+}
+
+.col-sort-btn.align-right {
+  justify-content: flex-end;
+}
+
+.col-sort-btn:hover {
+  color: var(--text-primary);
+  background: var(--bg-hover);
+}
+
+.col-sort-btn.active {
+  color: var(--accent-link);
+  font-weight: 700;
+}
+
+.sort-arrow {
+  font-size: 0.68rem;
+  opacity: 0.55;
+  line-height: 1;
+}
+
+.col-sort-btn:hover .sort-arrow {
+  opacity: 0.85;
+}
+
+.col-sort-btn.active .sort-arrow {
+  opacity: 1;
+  color: var(--accent-link);
+}
+
+.pin-toggle-btn {
+  appearance: none;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.pin-toggle-btn:hover {
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+}
+
+.pin-toggle-btn.active {
+  background: var(--holding-bg);
+  border-color: transparent;
+  color: var(--holding-text);
+}
+
 .col-right {
   text-align: right;
 }
