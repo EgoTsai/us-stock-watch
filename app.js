@@ -1,7 +1,7 @@
 (() => {
   "use strict";
 
-  const REFRESH_INTERVAL_SEC = 15 * 60; // 15 minutes
+  const REFRESH_INTERVAL_SEC = 15 * 60;
 
   const state = {
     quotesData: null,
@@ -9,7 +9,8 @@
     activeFilter: "all",
     searchQuery: "",
     sortBy: "default",
-    compactMode: false,
+    expandAll: false,
+    expandedSymbols: new Set(),
     theme: localStorage.getItem("us_watch_theme") || "light",
     secondsLeft: REFRESH_INTERVAL_SEC,
     isRefreshing: false,
@@ -22,12 +23,13 @@
   const elInsightsUpdated = document.getElementById("insights-updated-label");
   const elBtnRefresh = document.getElementById("btn-refresh-now");
   const elRefreshText = document.getElementById("refresh-btn-text");
-  const elBtnCompact = document.getElementById("btn-compact-toggle");
+  const elBtnExpandAll = document.getElementById("btn-expand-all");
   const elBtnTheme = document.getElementById("btn-theme-toggle");
   const elIndicesSubtitle = document.getElementById("indices-subtitle");
   const elIndicesContainer = document.getElementById("indices-container");
   const elMarketHeadlines = document.getElementById("market-headlines-list");
-  const elWatchlistContainer = document.getElementById("watchlist-container");
+  const elWatchlistRows = document.getElementById("watchlist-rows-container");
+  const elCioContainer = document.getElementById("cio-advisory-container");
   const elSearchInput = document.getElementById("search-ticker-input");
   const elSortSelect = document.getElementById("sort-watchlist-select");
   const tabButtons = Array.from(document.querySelectorAll(".tab-btn"));
@@ -66,7 +68,6 @@
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("us_watch_theme", theme);
     elBtnTheme.textContent = theme === "dark" ? "淺色模式" : "深色模式";
-    // Redraw canvases so chart grid/colors match theme
     if (state.quotesData?.indices) {
       requestAnimationFrame(() => drawAllIndexCharts(state.quotesData.indices));
     }
@@ -127,7 +128,7 @@
     }
   }
 
-  // 1. Render Three Major US Indices + Interactive Canvas Charts
+  // 1. Three Major US Indices
   function renderIndices() {
     const indices = state.quotesData?.indices || [];
     if (!indices.length) return;
@@ -149,16 +150,14 @@
                 ${formatSignedNum(idx.change)} (${formatSignedPct(idx.changePct)})
               </span>
             </div>
-            <div class="index-price-row">
-              <div class="index-close">${formatNumber(idx.close)}</div>
-            </div>
+            <div class="index-close">${formatNumber(idx.close)}</div>
             <div class="chart-wrap">
               <canvas class="index-canvas" id="index-canvas-${i}" data-idx="${i}"></canvas>
               <div class="chart-tooltip" id="index-tooltip-${i}"></div>
             </div>
             <div class="index-range-footer">
               <span>昨收 ${formatNumber(idx.prevClose)}</span>
-              <span>區間 ${formatNumber(idx.low)} – ${formatNumber(idx.high)}</span>
+              <span>當日區間 ${formatNumber(idx.low)} – ${formatNumber(idx.high)}</span>
             </div>
           </article>
         `;
@@ -190,8 +189,8 @@
 
     const w = rect.width;
     const h = rect.height;
-    const padTop = 10;
-    const padBottom = 18;
+    const padTop = 8;
+    const padBottom = 16;
     const padX = 4;
     const plotW = w - padX * 2;
     const plotH = h - padTop - padBottom;
@@ -214,11 +213,10 @@
     const fillTop = idxData.isUp
       ? isDark ? "rgba(16, 185, 129, 0.25)" : "rgba(16, 185, 129, 0.16)"
       : isDark ? "rgba(239, 68, 68, 0.25)" : "rgba(239, 68, 68, 0.15)";
-    const fillBottom = "rgba(0, 0, 0, 0)";
 
     ctx.clearRect(0, 0, w, h);
 
-    // Previous Close dashed reference line
+    // Previous close reference line
     const yPrev = yAt(idxData.prevClose);
     ctx.save();
     ctx.strokeStyle = isDark ? "rgba(148, 163, 184, 0.35)" : "rgba(100, 116, 139, 0.35)";
@@ -230,10 +228,9 @@
     ctx.stroke();
     ctx.restore();
 
-    // Area fill under intraday curve
     const grad = ctx.createLinearGradient(0, padTop, 0, padTop + plotH);
     grad.addColorStop(0, fillTop);
-    grad.addColorStop(1, fillBottom);
+    grad.addColorStop(1, "rgba(0, 0, 0, 0)");
 
     ctx.beginPath();
     pts.forEach((pt, i) => {
@@ -248,7 +245,6 @@
     ctx.fillStyle = grad;
     ctx.fill();
 
-    // Crisp intraday price line
     ctx.beginPath();
     pts.forEach((pt, i) => {
       const x = xAt(i);
@@ -261,17 +257,15 @@
     ctx.lineJoin = "round";
     ctx.stroke();
 
-    // Time axis labels (09:30, 12:30, 16:00 ET)
     ctx.fillStyle = isDark ? "#64748b" : "#94a3b8";
     ctx.font = '10px "JetBrains Mono", monospace';
     ctx.textAlign = "left";
-    ctx.fillText("09:30", padX, h - 4);
+    ctx.fillText("09:30", padX, h - 3);
     ctx.textAlign = "center";
-    ctx.fillText("12:45", w / 2, h - 4);
+    ctx.fillText("12:45", w / 2, h - 3);
     ctx.textAlign = "right";
-    ctx.fillText("16:00", w - padX, h - 4);
+    ctx.fillText("16:00", w - padX, h - 3);
 
-    // Interactive hover marker
     if (hoverIndex !== null && pts[hoverIndex]) {
       const hp = pts[hoverIndex];
       const hx = xAt(hoverIndex);
@@ -287,7 +281,7 @@
 
       ctx.fillStyle = lineColor;
       ctx.beginPath();
-      ctx.arc(hx, hy, 3.8, 0, Math.PI * 2);
+      ctx.arc(hx, hy, 3.6, 0, Math.PI * 2);
       ctx.fill();
       ctx.restore();
 
@@ -321,7 +315,7 @@
     }
   }
 
-  // 2. Render Top US Market Headlines
+  // 2. Market Headlines
   function renderMarketHeadlines() {
     const items = state.insightsData?.marketHeadlines || [];
     if (!items.length) {
@@ -349,8 +343,8 @@
 
   function buildSparklineSvg(points, isUp) {
     if (!points || points.length < 2) return "";
-    const w = 84;
-    const h = 32;
+    const w = 82;
+    const h = 30;
     const min = Math.min(...points);
     const max = Math.max(...points);
     const span = max - min || 1;
@@ -361,13 +355,15 @@
         return `${x},${y}`;
       })
       .join(" ");
+    const firstY = (h - 4 - ((points[0] - min) / span) * (h - 8)).toFixed(1);
     const stroke = isUp ? "#10b981" : "#ef4444";
     return `
       <svg viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" aria-hidden="true">
+        <line x1="2" y1="${firstY}" x2="${w - 2}" y2="${firstY}" stroke="rgba(148,163,184,0.35)" stroke-width="1" stroke-dasharray="2,2" />
         <polyline
           fill="none"
           stroke="${stroke}"
-          stroke-width="1.75"
+          stroke-width="1.65"
           stroke-linecap="round"
           stroke-linejoin="round"
           points="${coords}"
@@ -376,7 +372,130 @@
     `;
   }
 
-  // 3, 4, 5. Render Watchlist Cards (15m Price + 6H Netizen Sentiment + 6H Headlines)
+  function sortItemsWithinGroup(arr) {
+    const copy = [...arr];
+    if (state.sortBy === "change-desc") {
+      copy.sort((a, b) => b.changePct - a.changePct);
+    } else if (state.sortBy === "change-asc") {
+      copy.sort((a, b) => a.changePct - b.changePct);
+    } else if (state.sortBy === "buy-desc") {
+      copy.sort((a, b) => b.sentiment.buyPct - a.sentiment.buyPct);
+    } else if (state.sortBy === "sell-desc") {
+      copy.sort((a, b) => b.sentiment.sellPct - a.sentiment.sellPct);
+    } else {
+      copy.sort((a, b) => a.originalIdx - b.originalIdx);
+    }
+    return copy;
+  }
+
+  function buildSingleRowHtml(item) {
+    const dirClass = item.isUp ? "up" : "down";
+    const sBadge = sessionBadgeClass(item.session);
+    const sent = item.sentiment;
+    const isBuyMore = sent.buyPct >= sent.sellPct;
+    const sentDomClass = isBuyMore ? "buy" : "sell";
+    const sentDomText = isBuyMore ? `想買 ${sent.buyPct}%` : `想賣 ${sent.sellPct}%`;
+    const sentMinorText = isBuyMore ? `賣 ${sent.sellPct}%` : `買 ${sent.buyPct}%`;
+
+    const isExpanded = state.expandAll || state.expandedSymbols.has(item.symbol);
+    const holdingBadgeHtml = item.isHolding
+      ? `<span class="holding-tag">${escapeHtml(item.holdingBadge || "持倉")}</span>`
+      : "";
+
+    let priceSubText = "";
+    if (item.extChangePct !== null && item.extChangePct !== undefined) {
+      priceSubText = `收盤 ${formatNumber(item.regularPrice)} · ${item.session} ${formatSignedPct(item.extChangePct)}`;
+    } else {
+      priceSubText = `高 ${formatNumber(item.dayHigh)} · 低 ${formatNumber(item.dayLow)}`;
+    }
+
+    const topHl = item.headlines[0];
+    const inlineHeadlineHtml = topHl
+      ? `<div class="inline-hl-wrap">
+          <span>${escapeHtml(topHl.title)}</span>
+          <span class="headline-age">(${escapeHtml(topHl.age)})</span>
+          <a class="source-link" href="${escapeHtml(topHl.url)}" target="_blank" rel="noopener noreferrer">[${escapeHtml(topHl.source)} ↗]</a>
+        </div>`
+      : `<span class="quiet-note" style="padding:0">近 6 小時暫無重大新聞</span>`;
+
+    const drawerHeadlinesHtml = item.headlines.length
+      ? `<ul class="drawer-news-list">
+          ${item.headlines
+            .map(
+              (hl) => `
+              <li class="drawer-news-item">
+                <span class="bullet-dot"></span>
+                <div class="headline-body">
+                  <span>${escapeHtml(hl.title)}</span>
+                  <span class="headline-age">(${escapeHtml(hl.age)})</span>
+                  <a class="source-link" href="${escapeHtml(hl.url)}" target="_blank" rel="noopener noreferrer">[${escapeHtml(hl.source)} ↗]</a>
+                </div>
+              </li>
+            `
+            )
+            .join("")}
+        </ul>`
+      : `<div class="quiet-note" style="padding:0">近 6 小時無突發新聞</div>`;
+
+    return `
+      <div class="moomoo-row ${item.isHolding ? "is-holding" : ""} ${isExpanded ? "expanded" : ""}" data-symbol="${escapeHtml(item.symbol)}">
+        <div class="moomoo-row-main" role="button" tabindex="0" aria-expanded="${isExpanded}">
+          <div class="cell-symbol">
+            <div class="symbol-line">
+              <span class="ticker-code">${escapeHtml(item.displaySymbol)}</span>
+              ${holdingBadgeHtml}
+              <span class="session-badge ${sBadge}">${escapeHtml(item.session)}</span>
+            </div>
+            <div class="company-cn" title="${escapeHtml(item.enName)}">${escapeHtml(item.name)}</div>
+          </div>
+
+          <div class="cell-spark">
+            ${buildSparklineSvg(item.sparkline, item.isUp)}
+          </div>
+
+          <div class="cell-price">
+            <div class="price-main">${formatNumber(item.price)}</div>
+            <div class="price-sub">${escapeHtml(priceSubText)}</div>
+          </div>
+
+          <div class="cell-change">
+            <span class="moomoo-chg-badge ${dirClass}">${formatSignedPct(item.changePct)}</span>
+            <span class="chg-amt-sub ${dirClass}">${formatSignedNum(item.change)}</span>
+          </div>
+
+          <div class="cell-sentiment">
+            <div class="sent-row-top">
+              <span class="sent-dominant ${sentDomClass}">${escapeHtml(sentDomText)}</span>
+              <span class="sent-minor">${escapeHtml(sentMinorText)}</span>
+            </div>
+            <div class="sent-dual-bar" title="想買 ${sent.buyPct}% / 想賣 ${sent.sellPct}%">
+              <div class="sent-dual-buy" style="width: ${sent.buyPct}%"></div>
+            </div>
+          </div>
+
+          <div class="cell-headline">
+            ${inlineHeadlineHtml}
+          </div>
+
+          <div class="cell-expand">
+            <span class="expand-pill">${isExpanded ? "▴" : "▾"} ${item.headlines.length}則</span>
+          </div>
+        </div>
+
+        <div class="moomoo-row-drawer">
+          <div class="drawer-meta-bar">
+            <span>正規收盤：<strong>${formatNumber(item.regularPrice)}</strong> (${formatSignedPct(item.regularChangePct)})</span>
+            <span>當日區間：<strong>${formatNumber(item.dayLow)} – ${formatNumber(item.dayHigh)}</strong></span>
+            <span>52週高點：<strong>${formatNumber(item.high52w)}</strong></span>
+            <span>情緒結構：${escapeHtml(sent.summary || "綜合買賣力道")}</span>
+          </div>
+          ${drawerHeadlinesHtml}
+        </div>
+      </div>
+    `;
+  }
+
+  // 3, 4, 5. Render Firstrade / Futu Moomoo Horizontal Watchlist (Holdings Pinned Top)
   function renderWatchlist() {
     const rawList = state.quotesData?.watchlist || [];
     const insightsMap = state.insightsData?.stocks || {};
@@ -388,7 +507,9 @@
       return { ...item, originalIdx, sentiment, headlines };
     });
 
-    if (state.activeFilter !== "all") {
+    if (state.activeFilter === "holdings") {
+      list = list.filter((it) => it.isHolding);
+    } else if (state.activeFilter !== "all") {
       list = list.filter((it) => it.category === state.activeFilter);
     }
 
@@ -403,119 +524,94 @@
       );
     }
 
-    if (state.sortBy === "change-desc") {
-      list.sort((a, b) => b.changePct - a.changePct);
-    } else if (state.sortBy === "change-asc") {
-      list.sort((a, b) => a.changePct - b.changePct);
-    } else if (state.sortBy === "buy-desc") {
-      list.sort((a, b) => b.sentiment.buyPct - a.sentiment.buyPct);
-    } else if (state.sortBy === "sell-desc") {
-      list.sort((a, b) => b.sentiment.sellPct - a.sentiment.sellPct);
-    } else {
-      list.sort((a, b) => a.originalIdx - b.originalIdx);
-    }
-
-    elWatchlistContainer.classList.toggle("compact-mode", state.compactMode);
-
     if (!list.length) {
-      elWatchlistContainer.innerHTML = `<div class="quiet-note">找不到符合條件的觀察標的。</div>`;
+      elWatchlistRows.innerHTML = `<div class="quiet-note">找不到符合條件的觀察標的。</div>`;
       return;
     }
 
-    elWatchlistContainer.innerHTML = list
-      .map((item) => {
-        const dirClass = item.isUp ? "up" : "down";
-        const sBadge = sessionBadgeClass(item.session);
-        const sent = item.sentiment;
-        const isBuyMore = sent.buyPct >= sent.sellPct;
-        const verdictClass = isBuyMore ? "buy" : "sell";
-        const verdictText = isBuyMore
-          ? `想買 ${sent.buyPct}%`
-          : `想賣 ${sent.sellPct}%`;
+    // Always separate Holdings on Top vs Rest of Watchlist below
+    const holdingsGroup = sortItemsWithinGroup(list.filter((it) => it.isHolding));
+    const watchGroup = sortItemsWithinGroup(list.filter((it) => !it.isHolding));
 
-        let subQuoteParts = [];
-        if (item.extChangePct !== null && item.extChangePct !== undefined) {
-          subQuoteParts.push(`正規收盤 ${formatNumber(item.regularPrice)} (${formatSignedPct(item.regularChangePct)})`);
-          subQuoteParts.push(`${item.session} ${formatSignedPct(item.extChangePct)}`);
-        } else {
-          subQuoteParts.push(`區間 ${formatNumber(item.dayLow)} – ${formatNumber(item.dayHigh)}`);
-          if (item.updatedAt) subQuoteParts.push(`${item.updatedAt}`);
-        }
+    let htmlParts = [];
+    if (holdingsGroup.length) {
+      htmlParts.push(`
+        <div class="moomoo-group-banner">
+          <span>★ 我的核心持倉 (${holdingsGroup.length})</span>
+          <span>優先置頂監控</span>
+        </div>
+      `);
+      htmlParts.push(holdingsGroup.map(buildSingleRowHtml).join(""));
+    }
 
-        const has6h = item.headlines.some((h) => h.within6h !== false);
-        const headlinesHeaderLabel = has6h ? "近 6 小時重點頭條" : "近期重點動態 (近 6 小時無突發新聞)";
+    if (watchGroup.length) {
+      htmlParts.push(`
+        <div class="moomoo-group-banner">
+          <span>☆ 自選觀察名單 (${watchGroup.length})</span>
+          <span>市場焦點與潛在機會</span>
+        </div>
+      `);
+      htmlParts.push(watchGroup.map(buildSingleRowHtml).join(""));
+    }
 
-        const newsHtml = item.headlines.length
-          ? `<ul class="stock-news-list">
-              ${item.headlines
-                .map(
-                  (hl) => `
-                  <li class="stock-news-item">
-                    <span class="bullet-dot"></span>
-                    <div class="headline-body">
-                      <span>${escapeHtml(hl.title)}</span>
-                      <span class="headline-age">(${escapeHtml(hl.age)})</span>
-                      <a class="source-link" href="${escapeHtml(hl.url)}" target="_blank" rel="noopener noreferrer">
-                        [${escapeHtml(hl.source)} ↗]
-                      </a>
-                    </div>
-                  </li>
-                `
-                )
-                .join("")}
-            </ul>`
-          : `<div class="quiet-note">近 6 小時暫無重大新聞</div>`;
+    elWatchlistRows.innerHTML = htmlParts.join("");
+  }
 
-        return `
-          <article class="stock-card" data-symbol="${escapeHtml(item.symbol)}">
-            <div class="stock-header">
-              <div class="stock-id-group">
-                <div class="ticker-row">
-                  <span class="stock-ticker">${escapeHtml(item.displaySymbol)}</span>
-                  <span class="session-badge ${sBadge}">${escapeHtml(item.session)}</span>
-                </div>
-                <div class="stock-name" title="${escapeHtml(item.enName)}">${escapeHtml(item.name)}</div>
-              </div>
+  // 6. Render CIO & CRO Institutional Tactical Advisory
+  function renderCioAdvisory() {
+    const cio = state.insightsData?.cioAdvisory;
+    if (!cio) {
+      elCioContainer.innerHTML = `<div class="quiet-note">正在載入投資長專業操作建議…</div>`;
+      return;
+    }
 
-              <div class="stock-quote-group">
-                <div class="quote-main-row">
-                  <span class="stock-price">${formatNumber(item.price)}</span>
-                  <span class="delta-pill ${dirClass}">${formatSignedPct(item.changePct)}</span>
-                </div>
-                <div class="quote-sub-row">${escapeHtml(subQuoteParts.join(" · "))}</div>
-              </div>
-            </div>
-
-            <div class="sentiment-strip">
-              <div class="sentiment-info">
-                <div class="sentiment-top-row">
-                  <span class="sentiment-title">6H 網友情緒指數</span>
-                  <span class="sentiment-verdict ${verdictClass}">${escapeHtml(verdictText)}</span>
-                </div>
-                <div class="sentiment-bar-track" title="想買 ${sent.buyPct}% / 想賣 ${sent.sellPct}%">
-                  <div class="sentiment-bar-buy" style="width: ${sent.buyPct}%"></div>
-                </div>
-                <div class="sentiment-meta-row">
-                  <span style="color: var(--up-text)">想買 ${sent.buyPct}%</span>
-                  <span>${escapeHtml(sent.summary || "")}</span>
-                  <span style="color: var(--down-text)">想賣 ${sent.sellPct}%</span>
-                </div>
-              </div>
-              <div class="sparkline-box">
-                ${buildSparklineSvg(item.sparkline, item.isUp)}
-              </div>
-            </div>
-
-            <div class="stock-headlines">
-              <div class="stock-headlines-label">
-                <span>${headlinesHeaderLabel}</span>
-              </div>
-              ${newsHtml}
-            </div>
-          </article>
-        `;
-      })
+    const cardsHtml = (cio.cards || [])
+      .map(
+        (c) => `
+        <article class="cio-action-card">
+          <div class="cio-card-head">
+            <span class="cio-card-title">${escapeHtml(c.title)}</span>
+            <span class="cio-stance-pill ${escapeHtml(c.actionType || "hold")}">${escapeHtml(c.action)}</span>
+          </div>
+          <p class="cio-card-body">${escapeHtml(c.detail)}</p>
+        </article>
+      `
+      )
       .join("");
+
+    const scannerHtml = (cio.scannerBullets || []).length
+      ? `
+        <div class="cio-scanner-box">
+          <div class="cio-scanner-title">觀察名單異動與逆向情緒掃描</div>
+          <ul class="cio-scanner-list">
+            ${cio.scannerBullets
+              .map(
+                (b) => `
+                <li class="cio-scanner-item">
+                  <span class="bullet-dot"></span>
+                  <span>${escapeHtml(b)}</span>
+                </li>
+              `
+              )
+              .join("")}
+          </ul>
+        </div>
+      `
+      : "";
+
+    elCioContainer.innerHTML = `
+      <div class="cio-regime-banner">
+        <div class="cio-regime-top">
+          <span class="cio-badge">投資長市場判讀</span>
+          <strong>${escapeHtml(cio.regimeTag || "")}</strong>
+        </div>
+        <p class="cio-regime-text">${escapeHtml(cio.regimeSummary || "")}</p>
+      </div>
+      <div class="cio-cards-grid">
+        ${cardsHtml}
+      </div>
+      ${scannerHtml}
+    `;
   }
 
   async function loadAllData(isManual = false) {
@@ -531,17 +627,14 @@
         fetch(`./data/insights.json?t=${bust}`, { cache: "no-store" }),
       ]);
 
-      if (qResp.ok) {
-        state.quotesData = await qResp.json();
-      }
-      if (iResp.ok) {
-        state.insightsData = await iResp.json();
-      }
+      if (qResp.ok) state.quotesData = await qResp.json();
+      if (iResp.ok) state.insightsData = await iResp.json();
 
       renderHeaderMeta();
       renderIndices();
       renderMarketHeadlines();
       renderWatchlist();
+      renderCioAdvisory();
       state.secondsLeft = REFRESH_INTERVAL_SEC;
     } catch (err) {
       console.error("Failed to load watchlist data:", err);
@@ -571,18 +664,37 @@
         state.secondsLeft -= 1;
         updateCountdownLabel();
       }
-      if (state.secondsLeft % 60 === 0) {
-        renderHeaderMeta();
-      }
+      if (state.secondsLeft % 60 === 0) renderHeaderMeta();
     }, 1000);
   }
 
-  // Event Listeners
+  // Delegate row click to expand/collapse drawer (ignoring direct clicks on news links)
+  elWatchlistRows.addEventListener("click", (e) => {
+    if (e.target.closest("a")) return;
+    const rowEl = e.target.closest(".moomoo-row");
+    if (!rowEl) return;
+    const sym = rowEl.dataset.symbol;
+    if (!sym) return;
+
+    if (state.expandAll) {
+      state.expandAll = false;
+      elBtnExpandAll.textContent = "展開全部頭條";
+      const allSyms = (state.quotesData?.watchlist || []).map((x) => x.symbol);
+      state.expandedSymbols = new Set(allSyms.filter((s) => s !== sym));
+    } else if (state.expandedSymbols.has(sym)) {
+      state.expandedSymbols.delete(sym);
+    } else {
+      state.expandedSymbols.add(sym);
+    }
+    renderWatchlist();
+  });
+
   elBtnRefresh.addEventListener("click", () => loadAllData(true));
 
-  elBtnCompact.addEventListener("click", () => {
-    state.compactMode = !state.compactMode;
-    elBtnCompact.textContent = state.compactMode ? "詳細檢視" : "精簡檢視";
+  elBtnExpandAll.addEventListener("click", () => {
+    state.expandAll = !state.expandAll;
+    state.expandedSymbols.clear();
+    elBtnExpandAll.textContent = state.expandAll ? "收合全部頭條" : "展開全部頭條";
     renderWatchlist();
   });
 
@@ -613,13 +725,10 @@
   window.addEventListener("resize", () => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
-      if (state.quotesData?.indices) {
-        drawAllIndexCharts(state.quotesData.indices);
-      }
+      if (state.quotesData?.indices) drawAllIndexCharts(state.quotesData.indices);
     }, 120);
   });
 
-  // Initialize
   applyTheme(state.theme);
   loadAllData(false);
   startTimers();

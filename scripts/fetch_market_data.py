@@ -4,9 +4,11 @@ US Stock Watchlist Data Pipeline
 Fetches:
 1. Previous/latest completed trading session intraday chart + closing price & % for Dow (^DJI), Nasdaq (^IXIC), S&P 500 (^GSPC)
 2. Top US market headlines (concise bullet points + source links, authoritative financial sources prioritized)
-3. 15-minute watchlist quotes across all sessions (夜盤 Overnight, 盤前 Pre-Market, 盤中 Regular, 盤後 After-Hours)
-4. Per-stock 6-hour key headlines (strict relevance filter, updated every 6h + 10 mins before US market open)
+3. 15-minute watchlist quotes across all sessions (夜盤 Overnight, 盤前 Pre-Market, 盤中 Regular, 盤後 After-Hours),
+   with user's portfolio holdings prioritized at the top
+4. Per-stock 6-hour key headlines (updated every 6h + 10 mins before US market open)
 5. Per-stock 6-hour netizen sentiment index (想買 % green vs 想賣 % red)
+6. Dynamic CIO (Chief Investment Officer) tactical portfolio & market advisory
 """
 
 from __future__ import annotations
@@ -41,72 +43,21 @@ INDICES = [
     {"symbol": "^GSPC", "displaySymbol": "SPX", "name": "標普 500 指數", "enName": "S&P 500 Index"},
 ]
 
+# Holdings prioritized at the very top, followed by the rest of the watchlist
 WATCHLIST = [
+    # === Group 1: 我的核心持倉 (Prioritized First) ===
     {
         "symbol": "GOOG",
         "displaySymbol": "GOOG",
         "name": "Alphabet (Google)",
         "enName": "ALPHABET INC-CL C",
         "category": "tech",
+        "isHolding": True,
+        "holdingBadge": "現股持倉",
         "twQuery": '"Google" OR "Alphabet" OR "GOOG"',
         "enQuery": '"GOOG" OR "Alphabet" OR "Google stock"',
         "mustMatch": ["goog", "google", "alphabet", "gemini", "waymo", "youtube", "tpu"],
         "pttKey": "GOOG",
-    },
-    {
-        "symbol": "MU",
-        "displaySymbol": "MU",
-        "name": "美光科技",
-        "enName": "MICRON TECHNOLOGY INC",
-        "category": "semi",
-        "twQuery": '"美光" OR "Micron"',
-        "enQuery": '"Micron" OR "MU stock"',
-        "mustMatch": ["美光", "micron", "hbm", "dram", "記憶體", "mu "],
-        "pttKey": "美光",
-    },
-    {
-        "symbol": "NVDA",
-        "displaySymbol": "NVDA",
-        "name": "輝達",
-        "enName": "NVIDIA CORP",
-        "category": "semi",
-        "twQuery": '"輝達" OR "NVDA"',
-        "enQuery": '"Nvidia" OR "NVDA"',
-        "mustMatch": ["輝達", "nvidia", "nvda", "blackwell", "rubin", "kress", "柯蕾絲", "克雷斯"],
-        "pttKey": "輝達",
-    },
-    {
-        "symbol": "QQQ",
-        "displaySymbol": "QQQ",
-        "name": "Invesco 納指100 ETF",
-        "enName": "INVESCO QQQ TRUST SERIES 1",
-        "category": "macro",
-        "twQuery": '"QQQ" OR "那斯達克" OR "納斯達克"',
-        "enQuery": '"QQQ" OR "Nasdaq 100" OR "Nasdaq"',
-        "mustMatch": ["qqq", "那斯達克", "納斯達克", "那指", "納指", "nasdaq", "科技股"],
-        "pttKey": "QQQ",
-    },
-    {
-        "symbol": "SPCX",
-        "displaySymbol": "SPCX",
-        "name": "太空探索技術 (SpaceX)",
-        "enName": "SPACE EXPLORATION TECHN-CL A",
-        "category": "tech",
-        "twQuery": '"SpaceX" OR "SPCX" OR "星艦"',
-        "enQuery": '"SPCX" OR "SpaceX" OR "Starlink"',
-        "mustMatch": ["spacex", "spcx", "starship", "starlink", "星艦", "星鏈", "太空探索"],
-        "pttKey": "SpaceX",
-    },
-    {
-        "symbol": "TSLA",
-        "displaySymbol": "TSLA",
-        "name": "特斯拉",
-        "enName": "TESLA INC",
-        "category": "tech",
-        "twQuery": '"特斯拉" OR "TSLA"',
-        "enQuery": '"Tesla" OR "TSLA"',
-        "mustMatch": ["特斯拉", "tesla", "tsla", "cybercab", "robotaxi", "optimus", "fsd"],
-        "pttKey": "特斯拉",
     },
     {
         "symbol": "TSM",
@@ -114,43 +65,105 @@ WATCHLIST = [
         "name": "台積電 ADR",
         "enName": "TAIWAN SEMICONDUCTOR-SP ADR",
         "category": "semi",
+        "isHolding": True,
+        "holdingBadge": "現股＋CC",
         "twQuery": '"台積電ADR" OR "台積電" 美股',
         "enQuery": '"TSMC" OR "TSM stock" OR "Taiwan Semiconductor"',
         "mustMatch": ["台積電", "台積", "tsmc", "tsm", "cowos", "魏哲家"],
         "pttKey": "台積",
     },
     {
+        "symbol": "TSLA",
+        "displaySymbol": "TSLA",
+        "name": "特斯拉",
+        "enName": "TESLA INC",
+        "category": "tech",
+        "isHolding": True,
+        "holdingBadge": "現股＋CC",
+        "twQuery": '"特斯拉" OR "TSLA"',
+        "enQuery": '"Tesla" OR "TSLA"',
+        "mustMatch": ["特斯拉", "tesla", "tsla", "cybercab", "robotaxi", "optimus", "fsd"],
+        "pttKey": "特斯拉",
+    },
+    {
+        "symbol": "NVDA",
+        "displaySymbol": "NVDA",
+        "name": "輝達",
+        "enName": "NVIDIA CORP",
+        "category": "semi",
+        "isHolding": True,
+        "holdingBadge": "賣Put持倉",
+        "twQuery": '"輝達" OR "NVDA"',
+        "enQuery": '"Nvidia" OR "NVDA"',
+        "mustMatch": ["輝達", "nvidia", "nvda", "blackwell", "rubin", "kress", "柯蕾絲", "克雷斯"],
+        "pttKey": "輝達",
+    },
+    {
+        "symbol": "TQQQ",
+        "displaySymbol": "TQQQ",
+        "name": "ProShares 納指3倍做多",
+        "enName": "PROSHARES ULTRAPRO QQQ",
+        "category": "macro",
+        "isHolding": True,
+        "holdingBadge": "衛星持倉",
+        "twQuery": '"TQQQ" OR "那斯達克" 槓桿 OR "那指"',
+        "enQuery": '"TQQQ" OR "ProShares UltraPro QQQ"',
+        "mustMatch": ["tqqq", "那斯達克", "納斯達克", "那指", "納指", "qqq", "nasdaq"],
+        "pttKey": "TQQQ",
+    },
+    {
+        "symbol": "BOXX",
+        "displaySymbol": "BOXX",
+        "name": "Alpha Architect 箱型套利現金池",
+        "enName": "ALPHA ARCHITECT 1-3M BOX ETF",
+        "category": "macro",
+        "isHolding": True,
+        "holdingBadge": "現金擔保池",
+        "twQuery": '"美債殖利率" OR "聯準會" 利率 OR "短債"',
+        "enQuery": '"BOXX ETF" OR "Treasury bills" yield OR "Fed rate"',
+        "mustMatch": ["boxx", "美債", "短債", "殖利率", "聯準會", "treasury", "fed", "yield"],
+        "pttKey": "美債",
+    },
+    {
+        "symbol": "IAU",
+        "displaySymbol": "IAU",
+        "name": "iShares 黃金信託 ETF",
+        "enName": "ISHARES GOLD TRUST",
+        "category": "macro",
+        "isHolding": True,
+        "holdingBadge": "黃金避險",
+        "twQuery": '"國際金價" OR "黃金價格" OR "現貨黃金"',
+        "enQuery": '"Gold price" OR "IAU ETF" OR "gold futures"',
+        "mustMatch": ["金價", "黃金", "gold", "iau", "盎司"],
+        "pttKey": "黃金",
+    },
+
+    # === Group 2: 自選觀察名單 ===
+    {
         "symbol": "VOO",
         "displaySymbol": "VOO",
         "name": "Vanguard 標普500 ETF",
         "enName": "VANGUARD S&P 500 ETF",
         "category": "macro",
+        "isHolding": False,
+        "holdingBadge": "",
         "twQuery": '"VOO" OR "標普500" OR "S&P 500"',
         "enQuery": '"VOO" OR "S&P 500"',
         "mustMatch": ["voo", "標普", "s&p 500", "s&p500", "sp500", "vanguard"],
         "pttKey": "VOO",
     },
     {
-        "symbol": "CL=F",
-        "displaySymbol": "CL @NYMEX",
-        "name": "NYMEX WTI 輕原油期貨",
-        "enName": "WTI CRUDE OIL FUTURES (NYMEX)",
+        "symbol": "QQQ",
+        "displaySymbol": "QQQ",
+        "name": "Invesco 納指100 ETF",
+        "enName": "INVESCO QQQ TRUST SERIES 1",
         "category": "macro",
-        "twQuery": '"國際油價" OR "紐約原油" OR "WTI原油" OR "西德州原油"',
-        "enQuery": '"WTI crude" OR "crude oil" OR "oil prices"',
-        "mustMatch": ["油價", "原油", "wti", "西德州", "布蘭特", "opec", "crude", "oil"],
-        "pttKey": "油價",
-    },
-    {
-        "symbol": "SOXL",
-        "displaySymbol": "SOXL",
-        "name": "Direxion 半導體3倍做多",
-        "enName": "DIREXION DAILY SEMI BULL 3X",
-        "category": "semi",
-        "twQuery": '"SOXL" OR "費城半導體" OR "費半"',
-        "enQuery": '"SOXL" OR "semiconductor ETF" OR "PHLX Semiconductor"',
-        "mustMatch": ["soxl", "費半", "費城半導體", "半導體", "semiconductor", "chip"],
-        "pttKey": "SOXL",
+        "isHolding": False,
+        "holdingBadge": "",
+        "twQuery": '"QQQ" OR "那斯達克" OR "納斯達克"',
+        "enQuery": '"QQQ" OR "Nasdaq 100" OR "Nasdaq"',
+        "mustMatch": ["qqq", "那斯達克", "納斯達克", "那指", "納指", "nasdaq", "科技股"],
+        "pttKey": "QQQ",
     },
     {
         "symbol": "MSFT",
@@ -158,6 +171,8 @@ WATCHLIST = [
         "name": "微軟",
         "enName": "MICROSOFT CORP",
         "category": "tech",
+        "isHolding": False,
+        "holdingBadge": "",
         "twQuery": '"微軟" OR "Microsoft" OR "MSFT"',
         "enQuery": '"Microsoft" OR "MSFT"',
         "mustMatch": ["微軟", "microsoft", "msft", "azure", "copilot", "openai"],
@@ -169,32 +184,38 @@ WATCHLIST = [
         "name": "Meta 平台",
         "enName": "META PLATFORMS INC-CLASS A",
         "category": "tech",
+        "isHolding": False,
+        "holdingBadge": "",
         "twQuery": '"Meta" 美股 OR "祖克柏"',
         "enQuery": '"Meta Platforms" OR "META stock"',
         "mustMatch": ["meta", "祖克柏", "zuckerberg", "llama", "instagram", "threads"],
         "pttKey": "META",
     },
     {
-        "symbol": "^VIX",
-        "displaySymbol": "VIX",
-        "name": "CBOE 波動率恐慌指數",
-        "enName": "CBOE VOLATILITY INDEX",
-        "category": "macro",
-        "twQuery": '"VIX" OR "恐慌指數"',
-        "enQuery": '"VIX" OR "volatility index" market',
-        "mustMatch": ["vix", "恐慌指數", "波動率", "volatility", "避險", "美股"],
-        "pttKey": "VIX",
+        "symbol": "SPCX",
+        "displaySymbol": "SPCX",
+        "name": "太空探索技術 (SpaceX)",
+        "enName": "SPACE EXPLORATION TECHN-CL A",
+        "category": "tech",
+        "isHolding": False,
+        "holdingBadge": "",
+        "twQuery": '"SpaceX" OR "SPCX" OR "星艦"',
+        "enQuery": '"SPCX" OR "SpaceX" OR "Starlink"',
+        "mustMatch": ["spacex", "spcx", "starship", "starlink", "星艦", "星鏈", "太空探索"],
+        "pttKey": "SpaceX",
     },
     {
-        "symbol": "IBIT",
-        "displaySymbol": "IBIT",
-        "name": "iShares 比特幣信託 ETF",
-        "enName": "ISHARES BITCOIN TRUST ETF",
-        "category": "macro",
-        "twQuery": '"比特幣" OR "IBIT"',
-        "enQuery": '"IBIT" OR "Bitcoin ETF" OR "Bitcoin"',
-        "mustMatch": ["比特幣", "bitcoin", "btc", "ibit", "加密貨幣"],
-        "pttKey": "比特幣",
+        "symbol": "MU",
+        "displaySymbol": "MU",
+        "name": "美光科技",
+        "enName": "MICRON TECHNOLOGY INC",
+        "category": "semi",
+        "isHolding": False,
+        "holdingBadge": "",
+        "twQuery": '"美光" OR "Micron"',
+        "enQuery": '"Micron" OR "MU stock"',
+        "mustMatch": ["美光", "micron", "hbm", "dram", "記憶體", "mu "],
+        "pttKey": "美光",
     },
     {
         "symbol": "AMD",
@@ -202,43 +223,12 @@ WATCHLIST = [
         "name": "超微半導體 (AMD)",
         "enName": "ADVANCED MICRO DEVICES",
         "category": "semi",
+        "isHolding": False,
+        "holdingBadge": "",
         "twQuery": '"超微" OR "蘇姿丰" OR "AMD"',
         "enQuery": '"AMD" OR "Advanced Micro Devices"',
         "mustMatch": ["超微", "amd", "蘇姿丰", "mi3", "mi4", "ryzen", "epyc"],
         "pttKey": "AMD",
-    },
-    {
-        "symbol": "INTC",
-        "displaySymbol": "INTC",
-        "name": "英特爾",
-        "enName": "INTEL CORP",
-        "category": "semi",
-        "twQuery": '"英特爾" OR "Intel" OR "INTC"',
-        "enQuery": '"Intel" OR "INTC"',
-        "mustMatch": ["英特爾", "intel", "intc", "18a", "晶圓代工"],
-        "pttKey": "INTC",
-    },
-    {
-        "symbol": "IAU",
-        "displaySymbol": "IAU",
-        "name": "iShares 黃金信託 ETF",
-        "enName": "ISHARES GOLD TRUST",
-        "category": "macro",
-        "twQuery": '"國際金價" OR "黃金價格" OR "現貨黃金"',
-        "enQuery": '"Gold price" OR "IAU ETF" OR "gold futures"',
-        "mustMatch": ["金價", "黃金", "gold", "iau", "盎司"],
-        "pttKey": "黃金",
-    },
-    {
-        "symbol": "UCO",
-        "displaySymbol": "UCO",
-        "name": "ProShares 兩倍做多原油",
-        "enName": "PROSHARES ULTRA BLOOMBERG CRUDE",
-        "category": "macro",
-        "twQuery": '"原油" OR "國際油價" OR "WTI"',
-        "enQuery": '"UCO" OR "Bloomberg Crude Oil" OR "crude oil ETF"',
-        "mustMatch": ["uco", "原油", "油價", "wti", "brent", "crude", "oil", "opec"],
-        "pttKey": "原油",
     },
     {
         "symbol": "AVGO",
@@ -246,10 +236,90 @@ WATCHLIST = [
         "name": "博通",
         "enName": "BROADCOM INC",
         "category": "semi",
+        "isHolding": False,
+        "holdingBadge": "",
         "twQuery": '"博通" OR "Broadcom" OR "AVGO"',
         "enQuery": '"Broadcom" OR "AVGO"',
         "mustMatch": ["博通", "broadcom", "avgo", "asic", "陳福陽"],
         "pttKey": "博通",
+    },
+    {
+        "symbol": "INTC",
+        "displaySymbol": "INTC",
+        "name": "英特爾",
+        "enName": "INTEL CORP",
+        "category": "semi",
+        "isHolding": False,
+        "holdingBadge": "",
+        "twQuery": '"英特爾" OR "Intel" OR "INTC"',
+        "enQuery": '"Intel" OR "INTC"',
+        "mustMatch": ["英特爾", "intel", "intc", "18a", "晶圓代工"],
+        "pttKey": "INTC",
+    },
+    {
+        "symbol": "SOXL",
+        "displaySymbol": "SOXL",
+        "name": "Direxion 半導體3倍做多",
+        "enName": "DIREXION DAILY SEMI BULL 3X",
+        "category": "semi",
+        "isHolding": False,
+        "holdingBadge": "",
+        "twQuery": '"SOXL" OR "費城半導體" OR "費半"',
+        "enQuery": '"SOXL" OR "semiconductor ETF" OR "PHLX Semiconductor"',
+        "mustMatch": ["soxl", "費半", "費城半導體", "半導體", "semiconductor", "chip"],
+        "pttKey": "SOXL",
+    },
+    {
+        "symbol": "IBIT",
+        "displaySymbol": "IBIT",
+        "name": "iShares 比特幣信託 ETF",
+        "enName": "ISHARES BITCOIN TRUST ETF",
+        "category": "macro",
+        "isHolding": False,
+        "holdingBadge": "",
+        "twQuery": '"比特幣" OR "IBIT"',
+        "enQuery": '"IBIT" OR "Bitcoin ETF" OR "Bitcoin"',
+        "mustMatch": ["比特幣", "bitcoin", "btc", "ibit", "加密貨幣"],
+        "pttKey": "比特幣",
+    },
+    {
+        "symbol": "CL=F",
+        "displaySymbol": "CL @NYMEX",
+        "name": "NYMEX WTI 輕原油期貨",
+        "enName": "WTI CRUDE OIL FUTURES (NYMEX)",
+        "category": "macro",
+        "isHolding": False,
+        "holdingBadge": "",
+        "twQuery": '"國際油價" OR "紐約原油" OR "WTI原油" OR "西德州原油"',
+        "enQuery": '"WTI crude" OR "crude oil" OR "oil prices"',
+        "mustMatch": ["油價", "原油", "wti", "西德州", "布蘭特", "opec", "crude", "oil"],
+        "pttKey": "油價",
+    },
+    {
+        "symbol": "UCO",
+        "displaySymbol": "UCO",
+        "name": "ProShares 兩倍做多原油",
+        "enName": "PROSHARES ULTRA BLOOMBERG CRUDE",
+        "category": "macro",
+        "isHolding": False,
+        "holdingBadge": "",
+        "twQuery": '"原油" OR "國際油價" OR "WTI"',
+        "enQuery": '"UCO" OR "Bloomberg Crude Oil" OR "crude oil ETF"',
+        "mustMatch": ["uco", "原油", "油價", "wti", "brent", "crude", "oil", "opec"],
+        "pttKey": "原油",
+    },
+    {
+        "symbol": "^VIX",
+        "displaySymbol": "VIX",
+        "name": "CBOE 波動率恐慌指數",
+        "enName": "CBOE VOLATILITY INDEX",
+        "category": "macro",
+        "isHolding": False,
+        "holdingBadge": "",
+        "twQuery": '"VIX" OR "恐慌指數"',
+        "enQuery": '"VIX" OR "volatility index" market',
+        "mustMatch": ["vix", "恐慌指數", "波動率", "volatility", "避險", "美股"],
+        "pttKey": "VIX",
     },
 ]
 
@@ -330,7 +400,7 @@ class YahooClient:
             return {}
 
     def get_option_call_ratio(self, symbol: str) -> tuple[float | None, int]:
-        if symbol in ("CL=F",) or not self.crumb:
+        if symbol in ("CL=F", "BOXX") or not self.crumb:
             return None, 0
         sym_q = urllib.parse.quote(symbol)
         crumb_q = urllib.parse.quote(self.crumb)
@@ -570,6 +640,8 @@ def build_stock_quote(yc: YahooClient, item_cfg: dict, q_map: dict[str, dict]) -
         "name": item_cfg["name"],
         "enName": item_cfg["enName"],
         "category": item_cfg["category"],
+        "isHolding": bool(item_cfg.get("isHolding", False)),
+        "holdingBadge": item_cfg.get("holdingBadge", ""),
         "price": round(latest_price, 2),
         "change": round(change, 2),
         "changePct": round(change_pct, 2),
@@ -581,6 +653,7 @@ def build_stock_quote(yc: YahooClient, item_cfg: dict, q_map: dict[str, dict]) -
         "extChangePct": round(ext_diff_pct, 2) if ext_diff_pct is not None else None,
         "dayHigh": round(float(q.get("regularMarketDayHigh") or meta.get("regularMarketDayHigh") or latest_price), 2),
         "dayLow": round(float(q.get("regularMarketDayLow") or meta.get("regularMarketDayLow") or latest_price), 2),
+        "high52w": round(float(q.get("fiftyTwoWeekHigh") or meta.get("fiftyTwoWeekHigh") or latest_price), 2),
         "sparkline": sparkline,
         "_volBuyRatio6h": round(vol_buy_ratio, 4),
     }
@@ -748,10 +821,8 @@ def fetch_market_headlines() -> list[dict]:
         fetch_google_news_rss(q1, "zh-TW", max_age_hours=26.0, must_match=mkt_must)
         + fetch_google_news_rss(q2, "zh-TW", max_age_hours=26.0, must_match=mkt_must)
     )
-    # Exclude blog/column noise if mainstream newsroom stories are plentiful
     tier_main = [p for p in pool if p["source"] not in BLOG_SOURCES]
     candidates = tier_main if len(tier_main) >= 8 else pool
-    # Sort by combination of tier & freshness (within last 18h, authoritative sources rank top)
     candidates.sort(key=lambda x: (x["tier"] * 14400 + x["pubTs"]), reverse=True)
 
     curated: list[dict] = []
@@ -842,7 +913,6 @@ def build_stock_insight(
     sym = item_cfg["symbol"]
     must_kw = item_cfg.get("mustMatch") or []
 
-    # 1. Strictly 6-hour headlines from Google News TW + Google News US + Yahoo Finance Ticker RSS
     tw_6h = fetch_google_news_rss(f"({item_cfg['twQuery']}) when:6h", "zh-TW", max_age_hours=6.5, must_match=must_kw)
     yh_6h = fetch_yahoo_ticker_rss(sym, max_age_hours=6.5)
     en_6h = fetch_google_news_rss(f"({item_cfg['enQuery']}) when:6h", "en-US", max_age_hours=6.5, must_match=must_kw)
@@ -853,7 +923,6 @@ def build_stock_insight(
     raw_texts_for_sentiment = [x["title"] for x in tw_6h[:10]] + [x["title"] for x in en_merged[:10]]
 
     selected: list[dict] = []
-    # Prefer authoritative TW newsrooms first
     tw_sorted = sorted(tw_6h, key=lambda x: (x["source"] not in BLOG_SOURCES, x["pubTs"]), reverse=True)
     for it in tw_sorted:
         if any(title_similarity(it["title"], s["title"]) > 0.42 for s in selected):
@@ -889,7 +958,6 @@ def build_stock_insight(
             if len(selected) >= 3:
                 break
 
-    # Quiet weekend/off-hours fallback: fetch latest relevant 24h headline clearly marked within6h=False
     if len(selected) == 0:
         fallback_pool = (
             fetch_google_news_rss(f"({item_cfg['twQuery']}) when:1d", "zh-TW", max_age_hours=36.0, must_match=must_kw)
@@ -908,7 +976,6 @@ def build_stock_insight(
                 }
             )
 
-    # 2. Multi-source 6H Netizen Sentiment Index (想買 % vs 想賣 %)
     weighted_scores: list[tuple[float, float]] = []
     detail_parts: list[str] = []
 
@@ -971,6 +1038,183 @@ def build_stock_insight(
     }
 
 
+def build_cio_advisory(
+    indices_data: list[dict],
+    stocks_quotes: list[dict],
+    stock_insights: dict[str, dict],
+) -> dict:
+    """Generates dynamic, data-driven institutional CIO & CRO tactical recommendations."""
+    s_map = {s["symbol"]: s for s in stocks_quotes}
+    i_map = {x["symbol"]: x for x in indices_data}
+
+    vix = s_map.get("^VIX", {}).get("price", 18.0)
+    vix_chg = s_map.get("^VIX", {}).get("changePct", 0.0)
+    spx_chg = i_map.get("^GSPC", {}).get("changePct", 0.0)
+    ixic_chg = i_map.get("^IXIC", {}).get("changePct", 0.0)
+
+    goog = s_map.get("GOOG", {})
+    tsm = s_map.get("TSM", {})
+    tsla = s_map.get("TSLA", {})
+    nvda = s_map.get("NVDA", {})
+    tqqq = s_map.get("TQQQ", {})
+    voo = s_map.get("VOO", {})
+
+    # 1. Macro & Volatility Regime Verdict
+    if vix >= 23:
+        regime_tag = "高波動防禦期 (VIX ≥ 23)"
+        regime_tone = "caution"
+        regime_summary = (
+            f"恐慌指數 VIX 升至 {vix:.2f} ({vix_chg:+.2f}%)，選擇權隱含波動率 (IV) 極度肥美。"
+            "嚴禁追買 3 倍槓桿 ETF，優先運用現金擔保池於極端支撐位收租 (Sell Put)，或分批承接大盤指數。"
+        )
+    elif vix >= 18:
+        regime_tag = "震盪分歧・賣方收租優勢期"
+        regime_tone = "neutral"
+        regime_summary = (
+            f"目前 VIX 處於 {vix:.2f} ({vix_chg:+.2f}%)，標普 {spx_chg:+.2f}%、納指 {ixic_chg:+.2f}%，科技權值股進入事件與估值重估震盪。"
+            "權利金溢價高於歷史均值，最有利於核心持股 Covered Call 收斂時間價值 (Theta)，不宜在平盤附近盲目消耗現金池。"
+        )
+    else:
+        regime_tag = "低波動順風期 (VIX < 18)"
+        regime_tone = "bull"
+        regime_summary = (
+            f"VIX 回落至 {vix:.2f} 穩定區間，市場風險偏好回溫。"
+            "核心科技股續抱讓獲利奔跑；賣出 Covered Call 履約價宜拉遠至 Delta 0.15–0.20，避免主升段被提前買走。"
+        )
+
+    # 2. Core Holdings Tactical Cards
+    holdings_notes = []
+
+    # GOOG + TSM
+    goog_p = goog.get("price", 0)
+    tsm_p = tsm.get("price", 0)
+    holdings_notes.append(
+        {
+            "title": f"GOOG (${goog_p:.2f}) ＆ TSM (${tsm_p:.2f}) — AI 基建雙核心",
+            "action": "續抱收租",
+            "actionType": "hold",
+            "detail": (
+                "輝達管理層震盪加速雲端巨頭自研 ASIC / TPU 佈局，GOOG 直接受惠；"
+                f"無論 GPU 或 ASIC 市佔如何消長，先進製程與 CoWoS 訂單皆由台積電獨攬。TSM 現價距上方 $430 / $460 掩護買權具充足緩衝，靜待時間價值收斂。"
+            ),
+        }
+    )
+
+    # TSLA
+    tsla_p = tsla.get("price", 0)
+    tsla_buf = ((410.0 - tsla_p) / tsla_p * 100) if tsla_p else 0
+    if tsla_p >= 408:
+        tsla_act, tsla_type = "留意轉倉 ($410C)", "watch"
+        tsla_txt = f"現價 ${tsla_p:.2f} 已逼近 $410 Covered Call 履約區，若帶量站穩 $415 可考慮向上向外轉倉 (Roll Up & Out) 鎖住價差與新權利金。"
+    else:
+        tsla_act, tsla_type = "安全收租中", "hold"
+        tsla_txt = f"現價 ${tsla_p:.2f} 距離 $410 Covered Call 尚有 +{tsla_buf:.1f}% 安全墊，短線拉回正好讓賣方選擇權快速獲利，無須額外動作。"
+    holdings_notes.append(
+        {
+            "title": f"TSLA (${tsla_p:.2f}) — 波段持股與掩護買權",
+            "action": tsla_act,
+            "actionType": tsla_type,
+            "detail": tsla_txt,
+        }
+    )
+
+    # NVDA Short Put Risk Control
+    nvda_p = nvda.get("price", 0)
+    if nvda_p <= 155:
+        nvda_act, nvda_type = "高度警戒・考慮降級轉倉", "alert"
+        nvda_txt = (
+            f"現價 ${nvda_p:.2f} 已跌破 $160 履約價並逼近 $151.38 損平防線與 $148.95 關鍵支撐！"
+            "財報與臨時 CEO 展望公布前波動劇烈，建議將 $160 Put 向下向外轉倉 (Roll Down & Out) 至 $135–$140 安全區。"
+        )
+    elif nvda_p <= 165:
+        nvda_act, nvda_type = "財報前嚴守風控", "watch"
+        nvda_txt = (
+            f"現價 ${nvda_p:.2f} 正處於 $160 Put 履約價邊緣（距損平線 $151.38 尚有約 ${nvda_p - 151.38:.1f} 緩衝）。"
+            "下週財報與換帥後首場法說會前存在跳空風險：保守者可趁盤中反彈平倉撤退；續抱者務必緊盯 $149 頸線，失守即執行向下轉倉。"
+        )
+    else:
+        nvda_act, nvda_type = "趁反彈停利減碼", "bull"
+        nvda_txt = (
+            f"現價反彈至 ${nvda_p:.2f}，已脫離 $160 Put 威脅區。鑑於永久 CEO 未定、創辦人溢價壓縮，"
+            "建議於權利金獲利達 50%–65% 時提前買回平倉，將保證金釋放給確定性更高的 TSM 或 VOO。"
+        )
+    holdings_notes.append(
+        {
+            "title": f"NVDA (${nvda_p:.2f}) — 賣出 $160 Put 風控焦點",
+            "action": nvda_act,
+            "actionType": nvda_type,
+            "detail": nvda_txt,
+        }
+    )
+
+    # BOXX -> VOO Deployment & TQQQ Leverage Check
+    voo_p = voo.get("price", 689.0)
+    voo_high = max(voo.get("high52w", 718.47), voo_p)
+    voo_dd_52w = ((voo_p - voo_high) / voo_high * 100) if voo_high else 0.0
+    month_ref = max(voo.get("dayHigh", 698.8), 696.0)
+    buy_zone_1 = round(month_ref * 0.97, 0)  # -3% from recent swing high (~$675-$678)
+    buy_zone_2 = round(month_ref * 0.95, 0)  # -5% from recent swing high (~$661-$664)
+
+    if voo_p <= buy_zone_1:
+        voo_act, voo_type = "觸發第一批現股買點！", "bull"
+        voo_txt = (
+            f"VOO 現價 ${voo_p:.2f} 已跌入近月高點回檔 -3% 擊球區 (≤ ${buy_zone_1:.0f}，距歷史高點 ${voo_high:.2f} 修正 {voo_dd_52w:.1f}%)！"
+            f"可賣出部分 BOXX 啟動第一批 VOO 長線現股建倉；第二批加碼點設於 ${buy_zone_2:.0f}。"
+        )
+    else:
+        voo_act, voo_type = "按兵不動・BOXX 領息", "hold"
+        voo_txt = (
+            f"VOO 現價 ${voo_p:.2f}（距 52 週高點 ${voo_high:.2f} 回落 {voo_dd_52w:.1f}%），尚未觸及近月波段 -3% 目標買點 (${buy_zone_1:.0f})。"
+            f"維持紀律續抱 BOXX 穩領 ~4.3% 免扣稅收益並充當保證金防彈衣，等回測 ${buy_zone_1:.0f} / ${buy_zone_2:.0f} 再分批換倉現股；"
+            f"TQQQ (${tqqq.get('price', 0):.2f}) 維持輕倉，逢納指反彈分批降槓桿。"
+        )
+    holdings_notes.append(
+        {
+            "title": f"BOXX 現金池 ➔ VOO (${voo_p:.2f}) ＆ TQQQ 槓桿控管",
+            "action": voo_act,
+            "actionType": voo_type,
+            "detail": voo_txt,
+        }
+    )
+
+    # 3. Watchlist Opportunity & Contrarian Sentiment Scanner
+    non_holdings = [s for s in stocks_quotes if not s.get("isHolding") and s["symbol"] not in ("^VIX", "CL=F", "UCO")]
+    biggest_drop = min(non_holdings, key=lambda x: x["changePct"], default=None)
+    strongest_gain = max(non_holdings, key=lambda x: x["changePct"], default=None)
+
+    scanner_bullets = []
+    if biggest_drop and biggest_drop["changePct"] <= -4.0:
+        bd_sym = biggest_drop["symbol"]
+        bd_sent = stock_insights.get(bd_sym, {}).get("sentiment", {})
+        scanner_bullets.append(
+            f"重挫觀察：{biggest_drop['displaySymbol']} ({biggest_drop['name']}) 單日回落 {biggest_drop['changePct']:+.2f}% "
+            f"(6H 網友想賣 {bd_sent.get('sellPct', 50)}%)。3 倍槓桿或高估值晶片股急跌時切忌盲目接刀，若欲收租應等單日止跌紅 K 再評估價外深處 Put。"
+        )
+    if strongest_gain and strongest_gain["changePct"] >= 1.0:
+        sg_sym = strongest_gain["symbol"]
+        sg_sent = stock_insights.get(sg_sym, {}).get("sentiment", {})
+        scanner_bullets.append(
+            f"相對強勢：{strongest_gain['displaySymbol']} ({strongest_gain['name']}) 逆勢表現 {strongest_gain['changePct']:+.2f}% "
+            f"(6H 網友想買 {sg_sent.get('buyPct', 50)}%)，展現資金避風港與輪動韌性。"
+        )
+
+    spcx = s_map.get("SPCX")
+    if spcx:
+        spcx_sent = stock_insights.get("SPCX", {}).get("sentiment", {})
+        scanner_bullets.append(
+            f"熱門題材追蹤：SPCX (SpaceX) 最新報 ${spcx['price']:.2f} ({spcx['changePct']:+.2f}%，網友想買 {spcx_sent.get('buyPct', 50)}%)，"
+            "目前處於高本益比與高波動消化期，適合列入右側突破觀察，暫不納入重倉核心。"
+        )
+
+    return {
+        "regimeTag": regime_tag,
+        "regimeTone": regime_tone,
+        "regimeSummary": regime_summary,
+        "cards": holdings_notes,
+        "scannerBullets": scanner_bullets,
+    }
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Fetch US Stock Watchlist quotes & 6H insights.")
     parser.add_argument("--mode", choices=["all", "quotes", "insights"], default="all")
@@ -1030,17 +1274,20 @@ def main() -> None:
             ]
             stock_insights = dict(f.result() for f in ins_futures)
 
+        cio_advisory = build_cio_advisory(indices_data, stocks_quotes, stock_insights)
+
         insights_payload = {
             "generatedAt": now_iso,
             "updatedAtTW": now_tw_str,
             "scheduleNote": "每 6 小時自動更新 ＋ 美股開盤前 10 分鐘 (09:20 ET) 強制更新",
             "marketHeadlines": market_headlines,
             "stocks": stock_insights,
+            "cioAdvisory": cio_advisory,
         }
         (data_dir / "insights.json").write_text(
             json.dumps(insights_payload, ensure_ascii=False, indent=2), encoding="utf-8"
         )
-        print(f"[ok] Wrote data/insights.json ({len(market_headlines)} market headlines, {len(stock_insights)} stocks)")
+        print(f"[ok] Wrote data/insights.json ({len(market_headlines)} market headlines, {len(stock_insights)} stocks, CIO advisory included)")
 
 
 if __name__ == "__main__":

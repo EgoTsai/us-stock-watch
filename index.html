@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>美股即時觀察站 — 三大指數走勢・自選報價・6H頭條與網友情緒</title>
-  <meta name="description" content="清爽簡潔的美股線上觀察名單：即時追蹤道瓊、納斯達克、標普500前一交易日走勢與收盤漲跌，每15分鐘更新自選股夜盤/盤前/盤中/盤後報價，整合6小時個股重點頭條與網友買賣情緒指數。" />
+  <title>美股即時觀察站 — 三大指數・核心持倉與觀察名單・投資長操作建議</title>
+  <meta name="description" content="清爽簡潔的美股線上觀察站：追蹤道瓊、納斯達克、標普500走勢與收盤，Firstrade/富途Moomoo橫列式自選股報價（持倉置頂、每15分鐘更新夜盤/盤前/盤中/盤後），整合6小時頭條、網友買賣情緒指數與投資長專業操作建議。" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -23,14 +23,14 @@
 
       <div class="header-controls">
         <div class="sync-meta">
-          <span id="quotes-updated-label">報價更新：--</span>
+          <span id="quotes-updated-label">股價更新：--</span>
           <span id="insights-updated-label">6H頭條/情緒：--</span>
         </div>
         <button type="button" class="btn" id="btn-refresh-now" title="立即重新同步最新報價">
           <span id="refresh-btn-text">立即更新 (15:00)</span>
         </button>
-        <button type="button" class="btn" id="btn-compact-toggle" title="切換詳細卡片或精簡模式">
-          精簡檢視
+        <button type="button" class="btn" id="btn-expand-all" title="展開或收合所有個股6H完整頭條">
+          展開全部頭條
         </button>
         <button type="button" class="btn" id="btn-theme-toggle" title="切換淺色/深色介面">
           深色模式
@@ -46,9 +46,7 @@
         <h2 class="section-title" id="heading-indices">美股三大市場走勢與收盤</h2>
         <span class="section-subtitle" id="indices-subtitle">前一完整交易日正規盤走勢 · 漲綠跌紅</span>
       </div>
-      <div class="indices-grid" id="indices-container">
-        <!-- Populated by app.js -->
-      </div>
+      <div class="indices-grid" id="indices-container"></div>
     </section>
 
     <!-- 2. 美股頭條重點整理 -->
@@ -58,25 +56,24 @@
         <span class="section-subtitle">重點條列 · 點擊來源開啟原文</span>
       </div>
       <div class="headlines-panel">
-        <ul class="market-headline-list" id="market-headlines-list">
-          <!-- Populated by app.js -->
-        </ul>
+        <ul class="market-headline-list" id="market-headlines-list"></ul>
       </div>
     </section>
 
-    <!-- 3, 4, 5. 觀察名單 (15m 報價 + 6H 頭條 + 6H 網友情緒) -->
+    <!-- 3, 4, 5. 核心觀察名單 (Firstrade / 富途 Moomoo 橫列式 + 持倉置頂) -->
     <section class="section-block" aria-labelledby="heading-watchlist">
       <div class="section-header">
-        <h2 class="section-title" id="heading-watchlist">核心觀察名單</h2>
-        <span class="section-subtitle">每 15 分鐘更新股價（含夜盤 / 盤前 / 盤中 / 盤後）· 每 6 小時與開盤前 10 分鐘更新頭條與網友情緒</span>
+        <h2 class="section-title" id="heading-watchlist">核心觀察名單（持倉優先置頂）</h2>
+        <span class="section-subtitle">每 15 分鐘更新夜盤 / 盤前 / 盤中 / 盤後價 · 點擊任一橫列可展開完整 6H 頭條</span>
       </div>
 
       <div class="watchlist-toolbar">
         <div class="filter-tabs" role="tablist" aria-label="觀察名單分類">
-          <button type="button" class="tab-btn active" id="tab-all" data-filter="all">全部 (19)</button>
+          <button type="button" class="tab-btn active" id="tab-all" data-filter="all">全部 (21)</button>
+          <button type="button" class="tab-btn" id="tab-holdings" data-filter="holdings">我的持倉 (7)</button>
           <button type="button" class="tab-btn" id="tab-tech" data-filter="tech">科技巨頭 (5)</button>
           <button type="button" class="tab-btn" id="tab-semi" data-filter="semi">半導體 (7)</button>
-          <button type="button" class="tab-btn" id="tab-macro" data-filter="macro">ETF / 期貨 / 波動率 (7)</button>
+          <button type="button" class="tab-btn" id="tab-macro" data-filter="macro">ETF / 期貨 / 波動率 (9)</button>
         </div>
 
         <div class="toolbar-right">
@@ -84,27 +81,45 @@
             type="search"
             class="search-input"
             id="search-ticker-input"
-            placeholder="搜尋代號或名稱 (如 NVDA, 台積電)…"
+            placeholder="搜尋代號或名稱…"
             aria-label="搜尋股票代號或名稱"
           />
-          <select class="sort-select" id="sort-watchlist-select" aria-label="排序方式">
-            <option value="default">預設觀察順序</option>
-            <option value="change-desc">漲幅由高至低</option>
-            <option value="change-asc">跌幅由深至淺</option>
-            <option value="buy-desc">網友想買比例最高</option>
-            <option value="sell-desc">網友想賣比例最高</option>
+          <select class="sort-select" id="sort-watchlist-select" aria-label="組內排序方式">
+            <option value="default">持倉置頂 · 預設順序</option>
+            <option value="change-desc">持倉置頂 · 漲幅由高至低</option>
+            <option value="change-asc">持倉置頂 · 跌幅由深至淺</option>
+            <option value="buy-desc">持倉置頂 · 網友想買最高</option>
+            <option value="sell-desc">持倉置頂 · 網友想賣最高</option>
           </select>
         </div>
       </div>
 
-      <div class="watchlist-grid" id="watchlist-container">
-        <!-- Populated by app.js -->
+      <div class="moomoo-table-wrap">
+        <div class="moomoo-col-header" aria-hidden="true">
+          <div>名稱 / 代號</div>
+          <div class="col-center">分時走勢</div>
+          <div class="col-right">最新價 / 盤別</div>
+          <div class="col-right">漲跌幅</div>
+          <div>6H 網友情緒 (買/賣)</div>
+          <div>近 6 小時重點頭條</div>
+          <div class="col-right">明細</div>
+        </div>
+        <div id="watchlist-rows-container"></div>
       </div>
     </section>
 
+    <!-- 6. 投資長 (CIO & CRO) 專業操作建議 -->
+    <section class="section-block" aria-labelledby="heading-cio">
+      <div class="section-header">
+        <h2 class="section-title" id="heading-cio">投資長 (CIO &amp; CRO) 專業操作建議</h2>
+        <span class="section-subtitle">依據最新收盤 / 盤後價位、波動率 (VIX) 與期權防線動態更新</span>
+      </div>
+      <div class="cio-panel" id="cio-advisory-container"></div>
+    </section>
+
     <footer class="site-footer">
-      <span>美股顏色規範：<strong style="color: var(--up-text)">綠色＝上漲 / 想買居多</strong> · <strong style="color: var(--down-text)">紅色＝下跌 / 想賣居多</strong></span>
-      <span>自動排程：股價每 15 分鐘同步 · 個股 6H 頭條與網友情緒每 6 小時及美股開盤前 10 分鐘 (09:20 ET) 自動更新</span>
+      <span>美股規範：<strong style="color: var(--up-text)">綠色＝上漲 / 想買居多</strong> · <strong style="color: var(--down-text)">紅色＝下跌 / 想賣居多</strong></span>
+      <span>排程：股價每 15 分鐘更新 · 6H 頭條、網友情緒與投資長建議每 6 小時及美股開盤前 10 分鐘 (09:20 ET) 自動同步</span>
     </footer>
   </main>
 
