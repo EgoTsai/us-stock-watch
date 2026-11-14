@@ -22,6 +22,8 @@ import http.cookiejar
 import json
 import re
 import sys
+import threading
+import time
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
@@ -304,8 +306,8 @@ WATCHLIST = [
         "isHolding": False,
         "holdingBadge": "",
         "twQuery": '"原油" OR "國際油價" OR "WTI"',
-        "enQuery": '"UCO" OR "Bloomberg Crude Oil" OR "crude oil ETF"',
-        "mustMatch": ["uco", "原油", "油價", "wti", "brent", "crude", "oil", "opec"],
+        "enQuery": '"UCO ETF" OR "Bloomberg Crude Oil" OR "crude oil ETF"',
+        "mustMatch": ["uco ", "uco)", "原油", "油價", "wti", "brent", "crude", "oil", "opec"],
         "pttKey": "原油",
     },
     {
@@ -325,6 +327,8 @@ WATCHLIST = [
 
 TABLOID_BLACKLIST = [
     "炎亞綸", "男友", "女友", "女星", "男星", "藝人", "娛樂", "星座", "生肖", "命理", "風水", "減肥", "糖尿病", "八點檔",
+    "股市爆料同學會", "爆料同學會", "[free-tv]", "ncaa", "college football", "live stream",
+    "stock price, news, quote", "quote & history", " by tk ",
 ]
 
 TIER1_SOURCES = {
@@ -332,7 +336,7 @@ TIER1_SOURCES = {
     "中央社", "MoneyDJ理財網", "財訊", "聯合新聞網", "科技新報", "商周", "今周刊",
     "Reuters", "Bloomberg", "CNBC", "WSJ", "The Wall Street Journal", "MarketWatch", "Barron's", "Yahoo Finance",
 }
-BLOG_SOURCES = {"CMoney投資網誌", "鉅亨號", "方格子", "Vocus", "Facebook", "Threads"}
+BLOG_SOURCES = {"CMoney", "CMoney投資網誌", "股市爆料同學會", "鉅亨號", "方格子", "Vocus", "Facebook", "Threads"}
 
 BULL_WORDS = [
     "大漲", "飆漲", "飆升", "強彈", "反彈", "走高", "收紅", "創高", "新高", "買進", "加碼",
@@ -659,17 +663,116 @@ def build_stock_quote(yc: YahooClient, item_cfg: dict, q_map: dict[str, dict]) -
     }
 
 
+_TRANSLATE_SEM = threading.Semaphore(3)
+_TRANSLATE_CACHE: dict[str, str] = {}
+
+ALLOWED_EN_TERMS = {
+    "ai", "agi", "llm", "gpu", "cpu", "tpu", "npu", "asic", "hbm", "hbm3e", "hbm4", "dram", "nand",
+    "cowos", "etf", "adr", "ipo", "ceo", "cfo", "coo", "fed", "fomc", "cpi", "pce", "gdp", "sec", "doj", "ftc",
+    "aws", "azure", "gcp", "openai", "chatgpt", "gemini", "claude", "llama", "deepseek", "anthropic",
+    "apple", "iphone", "ipad", "mac", "macbook", "ios", "microsoft", "windows", "nvidia", "nvda", "blackwell", "rubin",
+    "google", "alphabet", "goog", "waymo", "youtube", "meta", "tesla", "tsla", "fsd", "optimus", "cybercab",
+    "tsmc", "tsm", "amd", "avgo", "broadcom", "intel", "intc", "micron", "mu", "qualcomm", "qcom",
+    "oracle", "orcl", "netflix", "nflx", "salesforce", "crm", "cisco", "csco", "ibm", "palantir", "pltr",
+    "spacex", "spcx", "starlink", "uber", "adobe", "adbe", "crowdstrike", "crwd", "linux", "gcc",
+    "voo", "qqq", "tqqq", "soxl", "boxx", "iau", "ibit", "uco", "wti", "nymex", "opec", "vix", "nasdaq",
+}
+
+
+def cjk_char_count(text: str) -> int:
+    return sum(1 for ch in (text or "") if "\u4e00" <= ch <= "\u9fff")
+
+
+def needs_zh_translation(text: str) -> bool:
+    if not text:
+        return False
+    cjk_cnt = cjk_char_count(text)
+    if cjk_cnt == 0:
+        return True
+    en_words = [w.lower() for w in re.findall(r"[A-Za-z]{2,}", text)]
+    ordinary_en = [w for w in en_words if w not in ALLOWED_EN_TERMS]
+    if cjk_cnt < 4 and len(ordinary_en) >= 2:
+        return True
+    if len(ordinary_en) >= 4:
+        return True
+    return False
+
+
+def post_polish_zh(text: str) -> str:
+    if not text:
+        return ""
+    replacements = {
+        "英偉達": "輝達",
+        "美聯儲": "聯準會",
+        "特斯聯": "特斯拉",
+        "超威半導體": "超微 (AMD)",
+        "博通公司": "博通",
+        "谷歌": "Google",
+        "元平台": "Meta",
+    }
+    for src_w, dst_w in replacements.items():
+        text = text.replace(src_w, dst_w)
+    return text.strip()
+
+
 def translate_en_to_zhtw(text: str) -> str:
-    if not text or any("\u4e00" <= ch <= "\u9fff" for ch in text):
-        return text
-    try:
+    text = (text or "").strip()
+    if not text:
+        return ""
+    if not needs_zh_translation(text):
+        return post_polish_zh(text)
+    if text in _TRANSLATE_CACHE:
+        return _TRANSLATE_CACHE[text]
+
+    with _TRANSLATE_SEM:
+        if text in _TRANSLATE_CACHE:
+            return _TRANSLATE_CACHE[text]
+
         q = urllib.parse.quote(text)
-        url = f"https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=zh-TW&dt=t&q={q}"
-        req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-        raw = json.loads(urllib.request.urlopen(req, timeout=5).read().decode("utf-8"))
-        return "".join(seg[0] for seg in raw[0] if seg and seg[0]).strip()
-    except Exception:
-        return text
+        # Primary endpoint: translate.googleapis.com (sl=en preserves existing Chinese while translating all English phrases)
+        for attempt in range(2):
+            try:
+                url = f"https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=zh-TW&dt=t&q={q}"
+                req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+                raw = json.loads(urllib.request.urlopen(req, timeout=7).read().decode("utf-8"))
+                out = post_polish_zh("".join(seg[0] for seg in raw[0] if seg and seg[0]))
+                if cjk_char_count(out) >= 2:
+                    _TRANSLATE_CACHE[text] = out
+                    return out
+            except Exception:
+                time.sleep(0.35 * (attempt + 1))
+
+        # Secondary fallback endpoint: clients5.google.com
+        try:
+            url2 = f"https://clients5.google.com/translate_a/t?client=dict-chrome-ex&sl=en&tl=zh-TW&q={q}"
+            req2 = urllib.request.Request(url2, headers={"User-Agent": USER_AGENT})
+            raw2 = json.loads(urllib.request.urlopen(req2, timeout=7).read().decode("utf-8"))
+            if isinstance(raw2, list) and raw2:
+                first = raw2[0]
+                out2 = post_polish_zh(first[0] if isinstance(first, list) else str(first))
+                if cjk_char_count(out2) >= 2:
+                    _TRANSLATE_CACHE[text] = out2
+                    return out2
+        except Exception:
+            pass
+
+    return post_polish_zh(text)
+
+
+def extract_clean_summary(raw_desc: str, clean_title: str) -> str:
+    if not raw_desc:
+        return ""
+    txt = html.unescape(re.sub(r"<.*?>", " ", raw_desc))
+    txt = re.sub(r"\s+", " ", txt).strip()
+    txt = re.sub(r"^Key Takeaways\s*:?\s*", "", txt, flags=re.I).strip()
+    if len(txt) < 18:
+        return ""
+    if title_similarity(txt[: len(clean_title) + 10], clean_title) > 0.55:
+        return ""
+    if len(txt) > 160:
+        cut = txt[:160].rsplit(" ", 1)[0] if " " in txt[:160] else txt[:160]
+        txt = cut.rstrip(".,;:") + "…"
+    return txt
 
 
 def clean_headline_title(title: str, source: str) -> str:
@@ -680,12 +783,11 @@ def clean_headline_title(title: str, source: str) -> str:
         parts = title.rsplit(" - ", 1)
         if len(parts[1]) <= 24:
             title = parts[0].strip()
-    if " | " in title:
-        title = title.split(" | ")[0].strip()
+    if "|" in title:
+        title = title.split("|")[0].strip()
     for noise_tag in ("（不斷更新）", "(不斷更新)", "【不斷更新】"):
         title = title.replace(noise_tag, "").strip()
-    title = title.replace("英偉達", "輝達")
-    return title
+    return post_polish_zh(title)
 
 
 def is_tabloid_or_simplified(title: str, check_simplified: bool = True) -> bool:
@@ -752,6 +854,7 @@ def fetch_google_news_rss(
             items.append(
                 {
                     "title": title,
+                    "summary": "",
                     "source": source,
                     "url": link,
                     "pubTs": int(pub_dt.timestamp()),
@@ -767,7 +870,11 @@ def fetch_google_news_rss(
     return items
 
 
-def fetch_yahoo_ticker_rss(symbol: str, max_age_hours: float = 6.5) -> list[dict]:
+def fetch_yahoo_ticker_rss(
+    symbol: str,
+    max_age_hours: float = 6.5,
+    must_match: list[str] | None = None,
+) -> list[dict]:
     sym_q = urllib.parse.quote(symbol)
     url = f"https://feeds.finance.yahoo.com/rss/2.0/headline?s={sym_q}&region=US&lang=en-US"
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
@@ -777,10 +884,16 @@ def fetch_yahoo_ticker_rss(symbol: str, max_age_hours: float = 6.5) -> list[dict
         xml_bytes = urllib.request.urlopen(req, timeout=7).read()
         root = ET.fromstring(xml_bytes)
         for el in root.findall("./channel/item"):
-            title = html.unescape(el.findtext("title") or "").strip()
+            raw_title = el.findtext("title") or ""
+            raw_desc = el.findtext("description") or ""
             link = (el.findtext("link") or "").strip()
             pub_str = el.findtext("pubDate") or ""
+            title = clean_headline_title(raw_title, "Yahoo Finance")
             if not title or not link:
+                continue
+            if is_tabloid_or_simplified(title, check_simplified=False):
+                continue
+            if must_match and not matches_keywords(f"{title} {raw_desc}", must_match):
                 continue
             try:
                 pub_dt = email.utils.parsedate_to_datetime(pub_str).astimezone(UTC_TZ)
@@ -792,6 +905,7 @@ def fetch_yahoo_ticker_rss(symbol: str, max_age_hours: float = 6.5) -> list[dict
             items.append(
                 {
                     "title": title,
+                    "summary": extract_clean_summary(raw_desc, title),
                     "source": "Yahoo Finance",
                     "url": link,
                     "pubTs": int(pub_dt.timestamp()),
@@ -832,11 +946,14 @@ def fetch_market_headlines() -> list[dict]:
 
     curated: list[dict] = []
     for item in candidates:
-        if any(title_similarity(item["title"], c["title"]) > 0.40 for c in curated):
+        zh_title = clean_headline_title(translate_en_to_zhtw(item["title"]), item["source"])
+        if cjk_char_count(zh_title) < 2:
+            continue
+        if any(title_similarity(zh_title, c["title"]) > 0.40 for c in curated):
             continue
         curated.append(
             {
-                "title": item["title"],
+                "title": zh_title,
                 "source": item["source"],
                 "url": item["url"],
                 "age": format_age_label(item["ageHours"]),
@@ -909,6 +1026,26 @@ def score_headlines_sentiment(texts: list[str]) -> tuple[float | None, int]:
     return bull / (bull + bear), hits
 
 
+def _format_translated_headline_entry(it: dict, within_6h: bool) -> dict | None:
+    zh_title = clean_headline_title(translate_en_to_zhtw(it["title"]), it["source"])
+    if cjk_char_count(zh_title) < 2:
+        return None
+    if is_tabloid_or_simplified(zh_title, check_simplified=False):
+        return None
+    raw_sum = it.get("summary") or ""
+    zh_sum = translate_en_to_zhtw(raw_sum) if raw_sum else ""
+    if zh_sum and (cjk_char_count(zh_sum) < 2 or title_similarity(zh_sum, zh_title) > 0.55):
+        zh_sum = ""
+    return {
+        "title": zh_title,
+        "summary": zh_sum,
+        "source": it["source"],
+        "url": it["url"],
+        "age": format_age_label(it["ageHours"]),
+        "within6h": within_6h,
+    }
+
+
 def build_stock_insight(
     yc: YahooClient,
     item_cfg: dict,
@@ -919,7 +1056,7 @@ def build_stock_insight(
     must_kw = item_cfg.get("mustMatch") or []
 
     tw_6h = fetch_google_news_rss(f"({item_cfg['twQuery']}) when:6h", "zh-TW", max_age_hours=6.5, must_match=must_kw)
-    yh_6h = fetch_yahoo_ticker_rss(sym, max_age_hours=6.5)
+    yh_6h = fetch_yahoo_ticker_rss(sym, max_age_hours=6.5, must_match=must_kw)
     en_6h = fetch_google_news_rss(f"({item_cfg['enQuery']}) when:6h", "en-US", max_age_hours=6.5, must_match=must_kw)
 
     en_merged = yh_6h + en_6h
@@ -928,58 +1065,48 @@ def build_stock_insight(
     raw_texts_for_sentiment = [x["title"] for x in tw_6h[:10]] + [x["title"] for x in en_merged[:10]]
 
     selected: list[dict] = []
-    tw_sorted = sorted(tw_6h, key=lambda x: (x["source"] not in BLOG_SOURCES, x["pubTs"]), reverse=True)
+    tw_non_blog = [x for x in tw_6h if x["source"] not in BLOG_SOURCES]
+    tw_sorted = sorted(tw_non_blog, key=lambda x: (x["tier"], x["pubTs"]), reverse=True)
     for it in tw_sorted:
-        if any(title_similarity(it["title"], s["title"]) > 0.42 for s in selected):
+        entry = _format_translated_headline_entry(it, within_6h=True)
+        if not entry:
             continue
-        selected.append(
-            {
-                "title": it["title"],
-                "source": it["source"],
-                "url": it["url"],
-                "age": format_age_label(it["ageHours"]),
-                "within6h": True,
-            }
-        )
+        if any(title_similarity(entry["title"], s["title"]) > 0.42 for s in selected):
+            continue
+        selected.append(entry)
         if len(selected) >= 3:
             break
 
     if len(selected) < 3:
         for it in en_merged:
-            zh_title = translate_en_to_zhtw(it["title"])
-            if is_tabloid_or_simplified(zh_title, check_simplified=False):
+            if it["source"] in BLOG_SOURCES:
                 continue
-            if any(title_similarity(zh_title, s["title"]) > 0.42 for s in selected):
+            entry = _format_translated_headline_entry(it, within_6h=True)
+            if not entry:
                 continue
-            selected.append(
-                {
-                    "title": zh_title,
-                    "source": it["source"],
-                    "url": it["url"],
-                    "age": format_age_label(it["ageHours"]),
-                    "within6h": True,
-                }
-            )
+            if any(title_similarity(entry["title"], s["title"]) > 0.42 for s in selected):
+                continue
+            selected.append(entry)
             if len(selected) >= 3:
                 break
 
     if len(selected) == 0:
         fallback_pool = (
             fetch_google_news_rss(f"({item_cfg['twQuery']}) when:1d", "zh-TW", max_age_hours=36.0, must_match=must_kw)
-            + fetch_yahoo_ticker_rss(sym, max_age_hours=48.0)
+            + fetch_yahoo_ticker_rss(sym, max_age_hours=48.0, must_match=must_kw)
         )
-        for it in fallback_pool[:2]:
-            zh_title = translate_en_to_zhtw(it["title"]) if it["lang"] == "en-US" else it["title"]
+        for it in fallback_pool:
+            if it["source"] in BLOG_SOURCES:
+                continue
+            entry = _format_translated_headline_entry(it, within_6h=False)
+            if not entry:
+                continue
+            if any(title_similarity(entry["title"], s["title"]) > 0.42 for s in selected):
+                continue
             raw_texts_for_sentiment.append(it["title"])
-            selected.append(
-                {
-                    "title": zh_title,
-                    "source": it["source"],
-                    "url": it["url"],
-                    "age": format_age_label(it["ageHours"]),
-                    "within6h": False,
-                }
-            )
+            selected.append(entry)
+            if len(selected) >= 2:
+                break
 
     weighted_scores: list[tuple[float, float]] = []
     detail_parts: list[str] = []
@@ -1382,11 +1509,9 @@ def fetch_tech30_flash() -> list[dict]:
         if ticker_counts.get(primary_key, 0) >= max_cap:
             continue
 
-        zh_title = (
-            clean_headline_title(translate_en_to_zhtw(raw_t), it["source"])
-            if it["lang"] == "en-US"
-            else raw_t
-        )
+        zh_title = clean_headline_title(translate_en_to_zhtw(raw_t), it["source"])
+        if cjk_char_count(zh_title) < 2:
+            continue
         if any(cb in zh_title.lower() for cb in FLASH_CLICKBAIT_NOISE):
             continue
         if any(title_similarity(zh_title, s["title"]) > 0.38 for s in selected):

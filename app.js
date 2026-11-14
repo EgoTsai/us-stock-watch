@@ -341,7 +341,7 @@
         <li class="market-headline-item">
           <span class="bullet-dot"></span>
           <div class="headline-body">
-            <span>${escapeHtml(h.title)}</span>
+            <span class="js-zh-guard">${escapeHtml(h.title)}</span>
             <span class="headline-age">(${escapeHtml(h.age)})</span>
             <a class="source-link" href="${escapeHtml(h.url)}" target="_blank" rel="noopener noreferrer">
               [${escapeHtml(h.source)} ↗]
@@ -424,7 +424,7 @@
     const topHl = item.headlines[0];
     const inlineHeadlineHtml = topHl
       ? `<div class="inline-hl-wrap">
-          <span>${escapeHtml(topHl.title)}</span>
+          <span class="js-zh-guard">${escapeHtml(topHl.title)}</span>
           <span class="headline-age">(${escapeHtml(topHl.age)})</span>
           <a class="source-link" href="${escapeHtml(topHl.url)}" target="_blank" rel="noopener noreferrer">[${escapeHtml(topHl.source)} ↗]</a>
         </div>`
@@ -438,9 +438,12 @@
               <li class="drawer-news-item">
                 <span class="bullet-dot"></span>
                 <div class="headline-body">
-                  <span>${escapeHtml(hl.title)}</span>
-                  <span class="headline-age">(${escapeHtml(hl.age)})</span>
-                  <a class="source-link" href="${escapeHtml(hl.url)}" target="_blank" rel="noopener noreferrer">[${escapeHtml(hl.source)} ↗]</a>
+                  <div>
+                    <span class="js-zh-guard">${escapeHtml(hl.title)}</span>
+                    <span class="headline-age">(${escapeHtml(hl.age)})</span>
+                    <a class="source-link" href="${escapeHtml(hl.url)}" target="_blank" rel="noopener noreferrer">[${escapeHtml(hl.source)} ↗]</a>
+                  </div>
+                  ${hl.summary ? `<div class="drawer-news-summary js-zh-guard">${escapeHtml(hl.summary)}</div>` : ""}
                 </div>
               </li>
             `
@@ -567,6 +570,7 @@
     }
 
     elWatchlistRows.innerHTML = htmlParts.join("");
+    hydrateUntranslatedDom();
   }
 
   // 6. Render CIO & CRO Institutional Tactical Advisory
@@ -676,7 +680,7 @@
         <a class="flash-tape-item" href="${escapeHtml(it.url)}" target="_blank" rel="noopener noreferrer">
           <span class="flash-time-mono">${escapeHtml(it.clockTW || it.age)}</span>
           ${buildFlashTagsHtml(it)}
-          <span class="flash-tape-title">${escapeHtml(it.title)}</span>
+          <span class="flash-tape-title js-zh-guard">${escapeHtml(it.title)}</span>
           <span class="flash-tape-src">(${escapeHtml(it.source)} ↗)</span>
         </a>
         <span class="flash-tape-sep" aria-hidden="true">•</span>
@@ -715,7 +719,7 @@
             ${buildFlashTagsHtml(it)}
           </div>
           <div class="flash-timeline-body">
-            <span>${escapeHtml(it.title)}</span>
+            <span class="js-zh-guard">${escapeHtml(it.title)}</span>
             <span class="headline-age">(${escapeHtml(it.age)})</span>
             <a class="source-link" href="${escapeHtml(it.url)}" target="_blank" rel="noopener noreferrer">[${escapeHtml(it.source)} ↗]</a>
           </div>
@@ -723,6 +727,59 @@
       `
       )
       .join("");
+  }
+
+  // Client-side safety net: auto-translates any news title/summary that still contains untranslated English sentences
+  const clientZhCache = new Map();
+  const ALLOWED_EN_SET = new Set([
+    "ai", "agi", "llm", "gpu", "cpu", "tpu", "npu", "asic", "hbm", "hbm3e", "dram", "cowos",
+    "etf", "adr", "ipo", "ceo", "cfo", "fed", "fomc", "cpi", "pce", "gdp", "sec", "doj", "ftc",
+    "aws", "azure", "gcp", "openai", "chatgpt", "gemini", "claude", "llama", "deepseek", "anthropic",
+    "apple", "iphone", "ipad", "mac", "microsoft", "windows", "nvidia", "nvda", "blackwell", "rubin",
+    "google", "alphabet", "goog", "waymo", "youtube", "meta", "tesla", "tsla", "fsd", "optimus", "cybercab",
+    "tsmc", "tsm", "amd", "avgo", "broadcom", "intel", "intc", "micron", "mu", "qualcomm", "qcom",
+    "oracle", "orcl", "netflix", "nflx", "salesforce", "crm", "cisco", "csco", "ibm", "palantir", "pltr",
+    "spacex", "spcx", "starlink", "uber", "adobe", "adbe", "crowdstrike", "crwd", "linux", "gcc",
+    "voo", "qqq", "tqqq", "soxl", "boxx", "iau", "ibit", "uco", "wti", "nymex", "opec", "vix", "nasdaq",
+  ]);
+
+  function textNeedsZh(str) {
+    if (!str) return false;
+    const cjk = (str.match(/[\u4e00-\u9fff]/g) || []).length;
+    if (cjk === 0) return /[A-Za-z]{3,}/.test(str);
+    const words = (str.match(/[A-Za-z]{2,}/g) || []).map((w) => w.toLowerCase());
+    const ordinary = words.filter((w) => !ALLOWED_EN_SET.has(w));
+    return (cjk < 4 && ordinary.length >= 2) || ordinary.length >= 5;
+  }
+
+  async function hydrateUntranslatedDom() {
+    const nodes = Array.from(document.querySelectorAll(".js-zh-guard"));
+    for (const el of nodes) {
+      const raw = (el.textContent || "").trim();
+      if (!textNeedsZh(raw)) continue;
+      if (clientZhCache.has(raw)) {
+        el.textContent = clientZhCache.get(raw);
+        continue;
+      }
+      try {
+        const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=zh-TW&dt=t&q=${encodeURIComponent(raw)}`;
+        const resp = await fetch(url);
+        if (!resp.ok) continue;
+        const data = await resp.json();
+        const zh = (data[0] || [])
+          .map((seg) => (seg && seg[0] ? seg[0] : ""))
+          .join("")
+          .replace(/英偉達/g, "輝達")
+          .replace(/美聯儲/g, "聯準會")
+          .trim();
+        if (zh && /[\u4e00-\u9fff]/.test(zh)) {
+          clientZhCache.set(raw, zh);
+          el.textContent = zh;
+        }
+      } catch {
+        // Ignore transient client fetch error
+      }
+    }
   }
 
   async function loadAllData(isManual = false) {
@@ -749,6 +806,7 @@
       renderMarketHeadlines();
       renderWatchlist();
       renderCioAdvisory();
+      hydrateUntranslatedDom();
       state.secondsLeft = REFRESH_INTERVAL_SEC;
     } catch (err) {
       console.error("Failed to load watchlist data:", err);

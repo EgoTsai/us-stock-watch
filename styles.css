@@ -821,6 +821,13 @@ body {
   color: var(--text-secondary);
 }
 
+.drawer-news-summary {
+  margin-top: 2px;
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
 /* =========================================================
    6. CIO Institutional Advisory Panel (Bottom Section)
    ========================================================= */
