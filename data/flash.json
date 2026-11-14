@@ -1,9 +1,41 @@
 {
-  "generatedAt": "2026-11-14T22:13:44.819461+00:00",
-  "updatedAtTW": "2026-11-15 06:13",
+  "generatedAt": "2026-11-14T23:18:07.702539+00:00",
+  "updatedAtTW": "2026-11-15 07:18",
   "refreshIntervalMinutes": 15,
   "universeNote": "嚴選美國前 30 大市值科技股動態 ＆ 聯準會升降息/重大宏觀政策快報",
   "items": [
+    {
+      "title": "熱門族群》後黃仁勳時代來了！ ASIC廠撿到槍",
+      "source": "自由時報",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1aeWEzUDlrQk85cVQyUDBYbjc4S3NXc29xRnpIRnlNdmpyTUxJUU81NFNWLVNJcExFYWpVLTV2bU1fejFRYVVRY0xtV2VFME5QWGtKN0ZlN1E?oc=5",
+      "tags": [
+        "NVDA"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": true,
+      "timeTW": "11/15 07:00",
+      "clockTW": "07:00",
+      "age": "18分鐘前",
+      "pubTs": 1794697200
+    },
+    {
+      "title": "黃仁勳下台後輝達首迎財報！Anthropic也將上市　AI泡沫迎2大考驗",
+      "source": "NOWnews今日新聞",
+      "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE91ZnFrX1VoRnJHTE1uS2pHUjNpb1lBZnlhYnY1aVA3R0UtaUtQY040cUhRcFdDT0xBX1dlQjgtczYxM0t1bXRKVnp2bnbSAVJBVV95cUxPRHpScUI3aEFUOUZ3dEd0M0FSby02amZBdjlyVWNGZmdOZTlPLTFKVU0xMC05bUJwd3dfQ0RFY1RScFBob3BUSDU3Sk5YZjMxMVJ3?oc=5",
+      "tags": [
+        "NVDA"
+      ],
+      "urgent": true,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": true,
+      "timeTW": "11/15 06:37",
+      "clockTW": "06:37",
+      "age": "40分鐘前",
+      "pubTs": 1794695861
+    },
     {
       "title": "微軟全球大故障！Outlook、Teams 癱瘓日本企業急改傳真機通訊",
       "source": "巴士的報",
@@ -18,25 +50,8 @@
       "affectsHoldings": false,
       "timeTW": "11/15 04:25",
       "clockTW": "04:25",
-      "age": "1小時前",
-      "pubTs": 1794687957
-    },
-    {
-      "title": "圖解DATA．輝達婚外情｜ 黃仁勳捲中國女間諜風波醜聞發酵兩周終辭職曾游說放寬對華晶片出口",
-      "source": "追光者 Pulse HK News",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5feGtreG5ubzZYQURyT0IwbDBIa2o2X3JFZ09JbXdFY3hiVlJRcjJTOFJiS3BTeFlsUzNfeklxUkQ1UDJad0FrNndIT0tNME1wUHR3?oc=5",
-      "tags": [
-        "FED/宏觀",
-        "NVDA"
-      ],
-      "urgent": true,
-      "isOutage": false,
-      "isMacro": true,
-      "affectsHoldings": true,
-      "timeTW": "11/15 03:16",
-      "clockTW": "03:16",
       "age": "2小時前",
-      "pubTs": 1794683796
+      "pubTs": 1794687957
     },
     {
       "title": "華許大刀改革聯準會 「1意外後果」恐終結牛市",
@@ -51,25 +66,8 @@
       "affectsHoldings": true,
       "timeTW": "11/15 03:14",
       "clockTW": "03:14",
-      "age": "2小時前",
-      "pubTs": 1794683686
-    },
-    {
-      "title": "放任輝達晶片出口大陸 貝森特點名盧特尼克失職",
-      "source": "經濟日報",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5neXYxdy1kTE1heUpjdjdzdTBRaURxajVGSXpTRU95ZG93d01yZ245MkhUU19UNVhzSjBDd2VCYlV2YzhsQmh4NUxWYnBBQmYtY2xLVk82N3Z3d9IBX0FVX3lxTFA5eWJndHlTQWxTMEFrODJrNXN3Xzg0VF8tVzQ5dXNVR2Z0VDNDeXdmS0k1U3V0QTE3VTRDTjI4TjgtSDdHU0YzVjZubHVNUkthTWR3UWMtR2pLVGgwOHZz?oc=5",
-      "tags": [
-        "FED/宏觀",
-        "NVDA"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": true,
-      "affectsHoldings": true,
-      "timeTW": "11/15 01:38",
-      "clockTW": "01:38",
       "age": "4小時前",
-      "pubTs": 1794677932
+      "pubTs": 1794683686
     },
     {
       "title": "Fed 官員發表鷹派談話、通膨升溫 恐連兩月升息市場熱議",
@@ -84,7 +82,7 @@
       "affectsHoldings": true,
       "timeTW": "11/15 01:26",
       "clockTW": "01:26",
-      "age": "4小時前",
+      "age": "5小時前",
       "pubTs": 1794677188
     },
     {
@@ -100,7 +98,7 @@
       "affectsHoldings": true,
       "timeTW": "11/14 23:35",
       "clockTW": "23:35",
-      "age": "6小時前",
+      "age": "7小時前",
       "pubTs": 1794670502
     },
     {
@@ -116,7 +114,7 @@
       "affectsHoldings": false,
       "timeTW": "11/14 22:00",
       "clockTW": "22:00",
-      "age": "8小時前",
+      "age": "9小時前",
       "pubTs": 1794664852
     },
     {
@@ -132,7 +130,7 @@
       "affectsHoldings": false,
       "timeTW": "11/14 21:05",
       "clockTW": "21:05",
-      "age": "9小時前",
+      "age": "10小時前",
       "pubTs": 1794661519
     },
     {
@@ -148,7 +146,7 @@
       "affectsHoldings": true,
       "timeTW": "11/14 19:48",
       "clockTW": "19:48",
-      "age": "10小時前",
+      "age": "11小時前",
       "pubTs": 1794656907
     },
     {
@@ -164,7 +162,7 @@
       "affectsHoldings": false,
       "timeTW": "11/14 18:19",
       "clockTW": "18:19",
-      "age": "11小時前",
+      "age": "12小時前",
       "pubTs": 1794651584
     },
     {
@@ -180,7 +178,7 @@
       "affectsHoldings": true,
       "timeTW": "11/14 17:00",
       "clockTW": "17:00",
-      "age": "13小時前",
+      "age": "14小時前",
       "pubTs": 1794646806
     },
     {
@@ -197,7 +195,7 @@
       "affectsHoldings": true,
       "timeTW": "11/14 14:20",
       "clockTW": "14:20",
-      "age": "15小時前",
+      "age": "16小時前",
       "pubTs": 1794637204
     },
     {
@@ -213,7 +211,7 @@
       "affectsHoldings": false,
       "timeTW": "11/14 12:01",
       "clockTW": "12:01",
-      "age": "18小時前",
+      "age": "19小時前",
       "pubTs": 1794628874
     },
     {
@@ -229,7 +227,7 @@
       "affectsHoldings": false,
       "timeTW": "11/14 12:00",
       "clockTW": "12:00",
-      "age": "18小時前",
+      "age": "19小時前",
       "pubTs": 1794628810
     }
   ]
