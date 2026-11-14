@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-11-14T19:09:24.859267+00:00",
-  "updatedAtTW": "2026-11-15 03:09",
+  "generatedAt": "2026-11-14T19:28:52.620042+00:00",
+  "updatedAtTW": "2026-11-15 03:28",
   "refreshIntervalMinutes": 15,
   "universeNote": "嚴選美國前 30 大市值科技股動態 ＆ 聯準會升降息/重大宏觀政策快報",
   "items": [
     {
-      "title": "微軟全球大死機修復 揭過度依賴單一科技巨頭風險",
-      "source": "Singtaousa",
-      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOX1JUMlJoYkFRYmNzazRxOG52UlFOWFdCSGNaem5obDBKRkxrc0ZDN19FQnVpVmx6OXplTTNBZUR2NnNPbDdpMGJuTG9CVmFYRFVoQVFYZjB3aXVDNHZydHI1SHBnYnJjOC0wZUtJWTBpaWUzY3FMbmVTc21aS1JETmlKeXJwR1RQeWVMcDR3cmNqNWRvNFZ0YzdZdF9EOWZnck1UdnBwNlA5N1lfTmRueW1VaU02Wkg5Y1E?oc=5",
+      "title": "微軟宣布全球大當機落幕 服務全面恢復並警示釣魚郵件詐騙",
+      "source": "民視新聞網",
+      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE14RkRTU0hsMkdvMkgxaG9VcTdwYjA3QjBNbG83M3BpbmQ3Q1R2VE9sT0NiMHdKdDBxVzg3ZExHelpMSEFsY2JnaTF3S2k3S24zUGR5NUUwbkIxMHljTTY0Vg?oc=5",
       "tags": [
         "當機/異常",
         "MSFT"
@@ -16,10 +16,26 @@
       "isOutage": true,
       "isMacro": false,
       "affectsHoldings": false,
-      "timeTW": "11/15 02:41",
-      "clockTW": "02:41",
-      "age": "28分鐘前",
-      "pubTs": 1794681676
+      "timeTW": "11/15 03:16",
+      "clockTW": "03:16",
+      "age": "13分鐘前",
+      "pubTs": 1794683780
+    },
+    {
+      "title": "華許大刀改革聯準會 「1意外後果」恐終結牛市",
+      "source": "三立新聞網SETN.com",
+      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBUb0lIWVRRc0xRcmxJZFhuLWEtelFvdDZTYUh5UnNOUENTT0swR18wMlFUZVZHODNMMGc3azNvb1BzNzZUSjFPSEl1UQ?oc=5",
+      "tags": [
+        "FED/宏觀"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsHoldings": true,
+      "timeTW": "11/15 03:14",
+      "clockTW": "03:14",
+      "age": "15分鐘前",
+      "pubTs": 1794683647
     },
     {
       "title": "放任輝達晶片出口大陸 貝森特點名盧特尼克失職",
@@ -51,11 +67,11 @@
       "affectsHoldings": true,
       "timeTW": "11/15 01:26",
       "clockTW": "01:26",
-      "age": "1小時前",
+      "age": "2小時前",
       "pubTs": 1794677188
     },
     {
-      "title": "輝達領導危機引發對人工智慧半導體獲利和美國出口限制的擔憂",
+      "title": "Nvidia Leadership Crisis Raises Concerns Over AI Semiconductor Earnings and US Export Restrictions",
       "source": "Yahoo Finance",
       "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNMjRxTk8wODRNNEd3QXA2X2FnQ1pjbzcwOV9HdXN5a0xpWlRyVWVuYk1iMXVfTmRPTlF1eEtJNk9MTEYycXc2TjM5RVpPU2VnVXBjSTNCNTVYcXRRdC1TbW04a1otY012MlZGY0tLQTVsdkc2Y0puVUxrU1M1UXNzT1hnVXFTRVQ1NzZzZ25XTjU0SUl6T0lBUG9zZ0lLbmFQMXNkcXE0MA?oc=5",
       "tags": [
@@ -67,7 +83,7 @@
       "affectsHoldings": true,
       "timeTW": "11/15 00:10",
       "clockTW": "00:10",
-      "age": "2小時前",
+      "age": "3小時前",
       "pubTs": 1794672600
     },
     {
@@ -147,7 +163,7 @@
       "affectsHoldings": false,
       "timeTW": "11/14 18:19",
       "clockTW": "18:19",
-      "age": "8小時前",
+      "age": "9小時前",
       "pubTs": 1794651584
     },
     {
@@ -167,9 +183,26 @@
       "pubTs": 1794646806
     },
     {
+      "title": "馬斯克給SpaceX投資人的新考量：算力若變便宜 營收恐受衝擊",
+      "source": "鉅亨網",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1XWmZzMktJdjN4TGM1cXpvYzNXTXdsc2JzbDQwZHdxRDN4endOWTdqODlqemo5cDJYdUk5cUNxU1NhQ2lKb3hNcnV2cXBCUEU?oc=5",
+      "tags": [
+        "TSLA",
+        "SPCX"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": true,
+      "timeTW": "11/14 14:30",
+      "clockTW": "14:30",
+      "age": "12小時前",
+      "pubTs": 1794637805
+    },
+    {
       "title": "傳蘋果晶片大將斯魯吉成輝達CEO潛在人選！8大候選人名單曝光",
       "source": "鉅亨網",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE00Xzk5akxPZWFHUXBabjkwbnBoaFFta2xsTENkd29ZTE5pZlctUGxGT1BCd1NUbm9zWGJONVU3cHloaTFMd3pjU0JMTHpiUU0?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9mc3RHUTJVMUlSSm9PaGNnM2VySnhvN0pTMFBfNnhBajZZdGlDMUdrejZYZ3kxaGgtOFBXb3Z4UExDVjJiaVM1UUdlWQ?oc=5",
       "tags": [
         "AAPL",
         "NVDA"
@@ -180,40 +213,8 @@
       "affectsHoldings": true,
       "timeTW": "11/14 14:20",
       "clockTW": "14:20",
-      "age": "12小時前",
-      "pubTs": 1794637204
-    },
-    {
-      "title": "升息辯論已轉向明年1月！Fed官員密集放鷹 市場甚至押注一路連升至3月",
-      "source": "鉅亨網",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBaMXRXLUlzMEs0eU1NOXIzb2FnanExbDJZcy1BUjNoR3UyM2Nwa2RMRTFYeWxGak9aRFJVX3VyZVMzTWh2R3lmWXk5N0V2UFU?oc=5",
-      "tags": [
-        "FED/宏觀"
-      ],
-      "urgent": true,
-      "isOutage": false,
-      "isMacro": true,
-      "affectsHoldings": true,
-      "timeTW": "11/14 13:50",
-      "clockTW": "13:50",
       "age": "13小時前",
-      "pubTs": 1794635402
-    },
-    {
-      "title": "亞馬遜不只賣自家商品！傳打造全球商品資料庫 搶下AI購物搜尋入口",
-      "source": "優分析UAnalyze",
-      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE51MHpQQnRVdENseWV6SF9Nb0xjTEpzUTRkYmdOVVJudmxiQlVtOVRPaGV1MDNLak9mamtOY0lMLUtMdDlUX29mZTdVMEF1Ty04dDhCam5R?oc=5",
-      "tags": [
-        "AMZN"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": false,
-      "timeTW": "11/14 12:01",
-      "clockTW": "12:01",
-      "age": "15小時前",
-      "pubTs": 1794628874
+      "pubTs": 1794637204
     },
     {
       "title": "SpaceX星艦雙級回收受挫助推器海面上方爆炸、上段開始部署衛星",
