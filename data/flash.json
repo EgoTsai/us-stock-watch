@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-14T19:28:52.620042+00:00",
-  "updatedAtTW": "2026-11-15 03:28",
+  "generatedAt": "2026-11-14T19:31:41.894746+00:00",
+  "updatedAtTW": "2026-11-15 03:31",
   "refreshIntervalMinutes": 15,
   "universeNote": "嚴選美國前 30 大市值科技股動態 ＆ 聯準會升降息/重大宏觀政策快報",
   "items": [
@@ -18,7 +18,7 @@
       "affectsHoldings": false,
       "timeTW": "11/15 03:16",
       "clockTW": "03:16",
-      "age": "13分鐘前",
+      "age": "16分鐘前",
       "pubTs": 1794683780
     },
     {
@@ -34,7 +34,7 @@
       "affectsHoldings": true,
       "timeTW": "11/15 03:14",
       "clockTW": "03:14",
-      "age": "15分鐘前",
+      "age": "17分鐘前",
       "pubTs": 1794683647
     },
     {
@@ -71,7 +71,7 @@
       "pubTs": 1794677188
     },
     {
-      "title": "Nvidia Leadership Crisis Raises Concerns Over AI Semiconductor Earnings and US Export Restrictions",
+      "title": "輝達領導危機引發對人工智慧半導體獲利和美國出口限制的擔憂",
       "source": "Yahoo Finance",
       "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNMjRxTk8wODRNNEd3QXA2X2FnQ1pjbzcwOV9HdXN5a0xpWlRyVWVuYk1iMXVfTmRPTlF1eEtJNk9MTEYycXc2TjM5RVpPU2VnVXBjSTNCNTVYcXRRdC1TbW04a1otY012MlZGY0tLQTVsdkc2Y0puVUxrU1M1UXNzT1hnVXFTRVQ1NzZzZ25XTjU0SUl6T0lBUG9zZ0lLbmFQMXNkcXE0MA?oc=5",
       "tags": [
@@ -196,7 +196,7 @@
       "affectsHoldings": true,
       "timeTW": "11/14 14:30",
       "clockTW": "14:30",
-      "age": "12小時前",
+      "age": "13小時前",
       "pubTs": 1794637805
     },
     {
