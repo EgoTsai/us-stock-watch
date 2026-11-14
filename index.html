@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>美股即時觀察站 — 三大指數走勢・自選報價・6H頭條與網友情緒</title>
+  <meta name="description" content="清爽簡潔的美股線上觀察名單：即時追蹤道瓊、納斯達克、標普500前一交易日走勢與收盤漲跌，每15分鐘更新自選股夜盤/盤前/盤中/盤後報價，整合6小時個股重點頭條與網友買賣情緒指數。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-group">
+        <h1 class="brand-title">美股即時觀察站</h1>
+        <div class="market-status-tag" id="market-status-pill">
+          <span class="status-dot" id="market-status-dot"></span>
+          <span id="market-status-text">載入市場狀態中…</span>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <div class="sync-meta">
+          <span id="quotes-updated-label">報價更新：--</span>
+          <span id="insights-updated-label">6H頭條/情緒：--</span>
+        </div>
+        <button type="button" class="btn" id="btn-refresh-now" title="立即重新同步最新報價">
+          <span id="refresh-btn-text">立即更新 (15:00)</span>
+        </button>
+        <button type="button" class="btn" id="btn-compact-toggle" title="切換詳細卡片或精簡模式">
+          精簡檢視
+        </button>
+        <button type="button" class="btn" id="btn-theme-toggle" title="切換淺色/深色介面">
+          深色模式
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- 1. 美股三大市場前一交易日走勢與收盤 -->
+    <section class="section-block" aria-labelledby="heading-indices">
+      <div class="section-header">
+        <h2 class="section-title" id="heading-indices">美股三大市場走勢與收盤</h2>
+        <span class="section-subtitle" id="indices-subtitle">前一完整交易日正規盤走勢 · 漲綠跌紅</span>
+      </div>
+      <div class="indices-grid" id="indices-container">
+        <!-- Populated by app.js -->
+      </div>
+    </section>
+
+    <!-- 2. 美股頭條重點整理 -->
+    <section class="section-block" aria-labelledby="heading-headlines">
+      <div class="section-header">
+        <h2 class="section-title" id="heading-headlines">美股頭條重點整理</h2>
+        <span class="section-subtitle">重點條列 · 點擊來源開啟原文</span>
+      </div>
+      <div class="headlines-panel">
+        <ul class="market-headline-list" id="market-headlines-list">
+          <!-- Populated by app.js -->
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3, 4, 5. 觀察名單 (15m 報價 + 6H 頭條 + 6H 網友情緒) -->
+    <section class="section-block" aria-labelledby="heading-watchlist">
+      <div class="section-header">
+        <h2 class="section-title" id="heading-watchlist">核心觀察名單</h2>
+        <span class="section-subtitle">每 15 分鐘更新股價（含夜盤 / 盤前 / 盤中 / 盤後）· 每 6 小時與開盤前 10 分鐘更新頭條與網友情緒</span>
+      </div>
+
+      <div class="watchlist-toolbar">
+        <div class="filter-tabs" role="tablist" aria-label="觀察名單分類">
+          <button type="button" class="tab-btn active" id="tab-all" data-filter="all">全部 (19)</button>
+          <button type="button" class="tab-btn" id="tab-tech" data-filter="tech">科技巨頭 (5)</button>
+          <button type="button" class="tab-btn" id="tab-semi" data-filter="semi">半導體 (7)</button>
+          <button type="button" class="tab-btn" id="tab-macro" data-filter="macro">ETF / 期貨 / 波動率 (7)</button>
+        </div>
+
+        <div class="toolbar-right">
+          <input
+            type="search"
+            class="search-input"
+            id="search-ticker-input"
+            placeholder="搜尋代號或名稱 (如 NVDA, 台積電)…"
+            aria-label="搜尋股票代號或名稱"
+          />
+          <select class="sort-select" id="sort-watchlist-select" aria-label="排序方式">
+            <option value="default">預設觀察順序</option>
+            <option value="change-desc">漲幅由高至低</option>
+            <option value="change-asc">跌幅由深至淺</option>
+            <option value="buy-desc">網友想買比例最高</option>
+            <option value="sell-desc">網友想賣比例最高</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="watchlist-grid" id="watchlist-container">
+        <!-- Populated by app.js -->
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <span>美股顏色規範：<strong style="color: var(--up-text)">綠色＝上漲 / 想買居多</strong> · <strong style="color: var(--down-text)">紅色＝下跌 / 想賣居多</strong></span>
+      <span>自動排程：股價每 15 分鐘同步 · 個股 6H 頭條與網友情緒每 6 小時及美股開盤前 10 分鐘 (09:20 ET) 自動更新</span>
+    </footer>
+  </main>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
