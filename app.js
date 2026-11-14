@@ -13,7 +13,6 @@
     activeFilter: "all",
     searchQuery: "",
     sortBy: "default",
-    pinHoldings: true,
     expandAll: false,
     expandedSymbols: new Set(),
     theme: localStorage.getItem("us_watch_theme") || "light",
@@ -44,9 +43,9 @@
   const elWatchlistRows = document.getElementById("watchlist-rows-container");
   const elCioContainer = document.getElementById("cio-advisory-container");
   const elSearchInput = document.getElementById("search-ticker-input");
-  const elBtnPinHoldings = document.getElementById("btn-pin-holdings");
   const elSortSelect = document.getElementById("sort-watchlist-select");
-  const colSortButtons = Array.from(document.querySelectorAll(".col-sort-btn"));
+  const elColHeader = document.getElementById("moomoo-col-header");
+  const colSortHeaders = Array.from(document.querySelectorAll(".col-sortable"));
   const tabButtons = Array.from(document.querySelectorAll(".tab-btn"));
 
   function formatNumber(num, decimals = 2) {
@@ -389,22 +388,27 @@
 
   function sortItemsWithinGroup(arr) {
     const copy = [...arr];
-    if (state.sortBy === "change-desc") {
-      copy.sort((a, b) => b.changePct - a.changePct);
-    } else if (state.sortBy === "change-asc") {
-      copy.sort((a, b) => a.changePct - b.changePct);
+    const num = (v) => (Number.isFinite(Number(v)) ? Number(v) : 0);
+    if (state.sortBy === "change-desc" || state.sortBy === "all-change-desc") {
+      copy.sort((a, b) => num(b.changePct) - num(a.changePct));
+    } else if (state.sortBy === "change-asc" || state.sortBy === "all-change-asc") {
+      copy.sort((a, b) => num(a.changePct) - num(b.changePct));
     } else if (state.sortBy === "price-desc") {
-      copy.sort((a, b) => b.price - a.price);
+      copy.sort((a, b) => num(b.price) - num(a.price));
     } else if (state.sortBy === "price-asc") {
-      copy.sort((a, b) => a.price - b.price);
+      copy.sort((a, b) => num(a.price) - num(b.price));
     } else if (state.sortBy === "buy-desc") {
-      copy.sort((a, b) => b.sentiment.buyPct - a.sentiment.buyPct);
+      copy.sort((a, b) => num(b.sentiment?.buyPct) - num(a.sentiment?.buyPct));
     } else if (state.sortBy === "sell-desc") {
-      copy.sort((a, b) => b.sentiment.sellPct - a.sentiment.sellPct);
+      copy.sort((a, b) => num(b.sentiment?.sellPct) - num(a.sentiment?.sellPct));
     } else if (state.sortBy === "symbol-asc") {
-      copy.sort((a, b) => a.displaySymbol.localeCompare(b.displaySymbol));
+      copy.sort((a, b) =>
+        String(a.displaySymbol || a.symbol).localeCompare(String(b.displaySymbol || b.symbol))
+      );
     } else if (state.sortBy === "symbol-desc") {
-      copy.sort((a, b) => b.displaySymbol.localeCompare(a.displaySymbol));
+      copy.sort((a, b) =>
+        String(b.displaySymbol || b.symbol).localeCompare(String(a.displaySymbol || a.symbol))
+      );
     } else {
       copy.sort((a, b) => a.originalIdx - b.originalIdx);
     }
@@ -416,30 +420,26 @@
       elSortSelect.value = state.sortBy;
     }
 
-    if (elBtnPinHoldings) {
-      elBtnPinHoldings.classList.toggle("active", state.pinHoldings);
-      elBtnPinHoldings.setAttribute("aria-pressed", String(state.pinHoldings));
-    }
-
-    const colStateMap = {
+    const colDirMap = {
       symbol:
-        state.sortBy === "symbol-asc" ? "▲" : state.sortBy === "symbol-desc" ? "▼" : null,
+        state.sortBy === "symbol-asc" ? "asc" : state.sortBy === "symbol-desc" ? "desc" : null,
       price:
-        state.sortBy === "price-desc" ? "▼" : state.sortBy === "price-asc" ? "▲" : null,
+        state.sortBy === "price-desc" ? "desc" : state.sortBy === "price-asc" ? "asc" : null,
       change:
-        state.sortBy === "change-desc" ? "▼" : state.sortBy === "change-asc" ? "▲" : null,
+        state.sortBy === "change-desc" || state.sortBy === "all-change-desc"
+          ? "desc"
+          : state.sortBy === "change-asc" || state.sortBy === "all-change-asc"
+          ? "asc"
+          : null,
       sentiment:
-        state.sortBy === "buy-desc" ? "▼" : state.sortBy === "sell-desc" ? "▲" : null,
+        state.sortBy === "buy-desc" ? "desc" : state.sortBy === "sell-desc" ? "asc" : null,
     };
 
-    colSortButtons.forEach((btn) => {
-      const col = btn.dataset.sortCol;
-      const arrowEl = btn.querySelector(".sort-arrow");
-      const activeArrow = colStateMap[col] || null;
-      btn.classList.toggle("active", Boolean(activeArrow));
-      if (arrowEl) {
-        arrowEl.textContent = activeArrow || "⇅";
-      }
+    colSortHeaders.forEach((hdr) => {
+      const col = hdr.dataset.sortCol;
+      const dir = colDirMap[col] || null;
+      hdr.classList.toggle("sort-asc", dir === "asc");
+      hdr.classList.toggle("sort-desc", dir === "desc");
     });
   }
 
@@ -590,7 +590,8 @@
     }
 
     let htmlParts = [];
-    if (state.pinHoldings) {
+    const mergeAll = state.sortBy.startsWith("all-");
+    if (!mergeAll) {
       // Keep Holdings pinned on top and sort within each section
       const holdingsGroup = sortItemsWithinGroup(list.filter((it) => it.isHolding));
       const watchGroup = sortItemsWithinGroup(list.filter((it) => !it.isHolding));
@@ -969,13 +970,6 @@
     renderWatchlist();
   });
 
-  if (elBtnPinHoldings) {
-    elBtnPinHoldings.addEventListener("click", () => {
-      state.pinHoldings = !state.pinHoldings;
-      renderWatchlist();
-    });
-  }
-
   const colCycleMap = {
     change: ["change-desc", "change-asc", "default"],
     price: ["price-desc", "price-asc", "default"],
@@ -983,16 +977,32 @@
     symbol: ["symbol-asc", "symbol-desc", "default"],
   };
 
-  colSortButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const col = btn.dataset.sortCol;
-      const cycle = colCycleMap[col];
-      if (!cycle) return;
-      const curIdx = cycle.indexOf(state.sortBy);
-      state.sortBy = curIdx === -1 ? cycle[0] : cycle[(curIdx + 1) % cycle.length];
-      renderWatchlist();
+  function toggleColumnSort(col) {
+    const cycle = colCycleMap[col];
+    if (!cycle) return;
+    const normalizedCur = state.sortBy.startsWith("all-")
+      ? state.sortBy.replace("all-", "")
+      : state.sortBy;
+    const curIdx = cycle.indexOf(normalizedCur);
+    state.sortBy = curIdx === -1 ? cycle[0] : cycle[(curIdx + 1) % cycle.length];
+    renderWatchlist();
+  }
+
+  if (elColHeader) {
+    elColHeader.addEventListener("click", (e) => {
+      const hdr = e.target.closest("[data-sort-col]");
+      if (!hdr) return;
+      toggleColumnSort(hdr.dataset.sortCol);
     });
-  });
+
+    elColHeader.addEventListener("keydown", (e) => {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      const hdr = e.target.closest("[data-sort-col]");
+      if (!hdr) return;
+      e.preventDefault();
+      toggleColumnSort(hdr.dataset.sortCol);
+    });
+  }
 
   elSortSelect.addEventListener("change", (e) => {
     state.sortBy = e.target.value || "default";

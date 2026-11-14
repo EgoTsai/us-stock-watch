@@ -524,79 +524,65 @@ body {
   letter-spacing: 0.01em;
 }
 
-.col-sort-btn {
-  appearance: none;
+.col-sortable {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 100%;
+  cursor: pointer;
+  user-select: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
   background: transparent;
   border: none;
-  padding: 4px 6px;
-  margin: -4px -6px;
-  border-radius: var(--radius-sm);
-  font-family: var(--font-sans);
-  font-size: 0.74rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  white-space: nowrap;
-  user-select: none;
-  transition: color 0.14s ease, background-color 0.14s ease;
+  outline: none;
+  transition: color 0.14s ease;
 }
 
-.col-sort-btn.align-right {
+.col-sortable.col-right {
   justify-content: flex-end;
 }
 
-.col-sort-btn:hover {
+.col-sortable:hover,
+.col-sortable.sort-asc,
+.col-sortable.sort-desc {
   color: var(--text-primary);
-  background: var(--bg-hover);
 }
 
-.col-sort-btn.active {
-  color: var(--accent-link);
-  font-weight: 700;
+.col-sortable:focus-visible {
+  text-decoration: underline;
 }
 
-.sort-arrow {
-  font-size: 0.68rem;
-  opacity: 0.55;
-  line-height: 1;
+.sort-svg {
+  flex-shrink: 0;
+  display: block;
 }
 
-.col-sort-btn:hover .sort-arrow {
-  opacity: 0.85;
+.sort-svg path {
+  fill: currentColor;
+  opacity: 0.36;
+  transition: opacity 0.14s ease;
 }
 
-.col-sort-btn.active .sort-arrow {
+.col-sortable:hover .sort-svg path {
+  opacity: 0.6;
+}
+
+.col-sortable.sort-asc .sort-up {
   opacity: 1;
-  color: var(--accent-link);
 }
 
-.pin-toggle-btn {
-  appearance: none;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-muted);
-  font-family: var(--font-sans);
-  font-size: 0.78rem;
-  font-weight: 600;
-  padding: 6px 10px;
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  white-space: nowrap;
-  transition: all 0.15s ease;
+.col-sortable.sort-asc .sort-down {
+  opacity: 0.16;
 }
 
-.pin-toggle-btn:hover {
-  border-color: var(--border-strong);
-  color: var(--text-primary);
+.col-sortable.sort-desc .sort-down {
+  opacity: 1;
 }
 
-.pin-toggle-btn.active {
-  background: var(--holding-bg);
-  border-color: transparent;
-  color: var(--holding-text);
+.col-sortable.sort-desc .sort-up {
+  opacity: 0.16;
 }
 
 .col-right {

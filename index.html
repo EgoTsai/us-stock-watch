@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./styles.css?v=20261114v3" />
 </head>
 <body>
   <header class="site-header">
@@ -122,15 +122,6 @@
             placeholder="搜尋代號或名稱…"
             aria-label="搜尋股票代號或名稱"
           />
-          <button
-            type="button"
-            class="pin-toggle-btn active"
-            id="btn-pin-holdings"
-            aria-pressed="true"
-            title="開啟時「我的核心持倉」固定置頂並於組內排序；關閉時 21 檔合併全表排序"
-          >
-            ★ 持倉置頂
-          </button>
           <select class="sort-select" id="sort-watchlist-select" aria-label="排序方式">
             <option value="default">排序：預設順序</option>
             <option value="change-desc">漲跌幅：漲 ➔ 跌</option>
@@ -141,36 +132,42 @@
             <option value="sell-desc">網友情緒：想賣 ➔ 想買</option>
             <option value="symbol-asc">代號：A ➔ Z</option>
             <option value="symbol-desc">代號：Z ➔ A</option>
+            <option value="all-change-desc">全表合併：漲 ➔ 跌 (不置頂)</option>
+            <option value="all-change-asc">全表合併：跌 ➔ 漲 (不置頂)</option>
           </select>
         </div>
       </div>
 
       <div class="moomoo-table-wrap">
-        <div class="moomoo-col-header">
-          <div>
-            <button type="button" class="col-sort-btn" data-sort-col="symbol" title="點擊依代號排序">
-              <span>名稱 / 代號</span>
-              <span class="sort-arrow" data-arrow-for="symbol">⇅</span>
-            </button>
+        <div class="moomoo-col-header" id="moomoo-col-header">
+          <div class="col-sortable" role="button" tabindex="0" data-sort-col="symbol" title="點擊依代號排序">
+            <span>名稱 / 代號</span>
+            <svg class="sort-svg" viewBox="0 0 8 11" width="7" height="10" aria-hidden="true">
+              <path class="sort-up" d="M4 0.8L7.2 4.4H0.8L4 0.8Z" />
+              <path class="sort-down" d="M4 10.2L0.8 6.6H7.2L4 10.2Z" />
+            </svg>
           </div>
           <div class="col-center">分時走勢</div>
-          <div class="col-right">
-            <button type="button" class="col-sort-btn align-right" data-sort-col="price" title="點擊依最新價排序">
-              <span>最新價 / 盤別</span>
-              <span class="sort-arrow" data-arrow-for="price">⇅</span>
-            </button>
+          <div class="col-right col-sortable" role="button" tabindex="0" data-sort-col="price" title="點擊依最新價排序">
+            <span>最新價 / 盤別</span>
+            <svg class="sort-svg" viewBox="0 0 8 11" width="7" height="10" aria-hidden="true">
+              <path class="sort-up" d="M4 0.8L7.2 4.4H0.8L4 0.8Z" />
+              <path class="sort-down" d="M4 10.2L0.8 6.6H7.2L4 10.2Z" />
+            </svg>
           </div>
-          <div class="col-right">
-            <button type="button" class="col-sort-btn align-right" data-sort-col="change" title="點擊依漲跌幅排序（漲 ➔ 跌 / 跌 ➔ 漲）">
-              <span>漲跌幅</span>
-              <span class="sort-arrow" data-arrow-for="change">⇅</span>
-            </button>
+          <div class="col-right col-sortable" role="button" tabindex="0" data-sort-col="change" title="點擊依漲跌幅排序（漲 ➔ 跌 / 跌 ➔ 漲）">
+            <span>漲跌幅</span>
+            <svg class="sort-svg" viewBox="0 0 8 11" width="7" height="10" aria-hidden="true">
+              <path class="sort-up" d="M4 0.8L7.2 4.4H0.8L4 0.8Z" />
+              <path class="sort-down" d="M4 10.2L0.8 6.6H7.2L4 10.2Z" />
+            </svg>
           </div>
-          <div>
-            <button type="button" class="col-sort-btn" data-sort-col="sentiment" title="點擊依 6H 網友買賣情緒排序">
-              <span>6H 網友情緒 (買/賣)</span>
-              <span class="sort-arrow" data-arrow-for="sentiment">⇅</span>
-            </button>
+          <div class="col-sortable" role="button" tabindex="0" data-sort-col="sentiment" title="點擊依 6H 網友買賣情緒排序">
+            <span>6H 網友情緒 (買/賣)</span>
+            <svg class="sort-svg" viewBox="0 0 8 11" width="7" height="10" aria-hidden="true">
+              <path class="sort-up" d="M4 0.8L7.2 4.4H0.8L4 0.8Z" />
+              <path class="sort-down" d="M4 10.2L0.8 6.6H7.2L4 10.2Z" />
+            </svg>
           </div>
           <div>近 6 小時重點頭條</div>
           <div class="col-right">明細</div>
@@ -194,6 +191,6 @@
     </footer>
   </main>
 
-  <script src="./app.js" defer></script>
+  <script src="./app.js?v=20261114v3" defer></script>
 </body>
 </html>
