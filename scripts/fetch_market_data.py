@@ -680,6 +680,11 @@ def clean_headline_title(title: str, source: str) -> str:
         parts = title.rsplit(" - ", 1)
         if len(parts[1]) <= 24:
             title = parts[0].strip()
+    if " | " in title:
+        title = title.split(" | ")[0].strip()
+    for noise_tag in ("（不斷更新）", "(不斷更新)", "【不斷更新】"):
+        title = title.replace(noise_tag, "").strip()
+    title = title.replace("英偉達", "輝達")
     return title
 
 
@@ -1215,9 +1220,220 @@ def build_cio_advisory(
     }
 
 
+TOP30_TECH_ENTITIES: list[tuple[str, str, list[str]]] = [
+    ("AAPL", "蘋果", ["apple", "iphone", "ipad", "macbook", "蘋果", "庫克", "tim cook"]),
+    ("MSFT", "微軟", ["microsoft", "azure", "outlook", "windows", "teams", "copilot", "微軟", "納德拉", "nadella"]),
+    ("NVDA", "輝達", ["nvidia", "nvda", "blackwell", "rubin", "輝達", "黃仁勳", "jensen huang", "colette kress"]),
+    ("GOOG", "Google", ["alphabet", "google", "waymo", "gemini", "youtube", "谷歌", "deepmind"]),
+    ("AMZN", "亞馬遜", ["amazon", "aws", "亞馬遜", "jassy"]),
+    ("META", "Meta", ["meta", "facebook", "instagram", "whatsapp", "llama", "祖克柏", "zuckerberg"]),
+    ("TSLA", "特斯拉", ["tesla", "tsla", "cybercab", "robotaxi", "optimus", "特斯拉", "馬斯克", "musk"]),
+    ("AVGO", "博通", ["broadcom", "avgo", "博通", "陳福陽", "hock tan"]),
+    ("ORCL", "甲骨文", ["oracle", "orcl", "甲骨文", "艾利森", "ellison"]),
+    ("NFLX", "Netflix", ["netflix", "nflx", "網飛"]),
+    ("CRM", "Salesforce", ["salesforce", "benioff"]),
+    ("AMD", "AMD", ["amd", "advanced micro", "超微", "蘇姿丰", "lisa su"]),
+    ("CSCO", "思科", ["cisco", "csco", "思科"]),
+    ("IBM", "IBM", ["ibm"]),
+    ("PLTR", "Palantir", ["palantir", "pltr", "karp"]),
+    ("NOW", "ServiceNow", ["servicenow"]),
+    ("SPCX", "SpaceX", ["spacex", "spcx", "starlink", "starship", "星鏈", "星艦"]),
+    ("UBER", "Uber", ["uber", "優步"]),
+    ("INTU", "Intuit", ["intuit", "turbotax", "quickbooks"]),
+    ("ADBE", "Adobe", ["adobe", "adbe", "firefly"]),
+    ("QCOM", "高通", ["qualcomm", "qcom", "snapdragon", "高通"]),
+    ("TXN", "德儀", ["texas instruments", "德州儀器", "德儀"]),
+    ("AMAT", "應材", ["applied materials", "amat", "應用材料", "應材"]),
+    ("MU", "美光", ["micron", "美光", "hbm"]),
+    ("PANW", "PaloAlto", ["palo alto networks", "panw", "派拓"]),
+    ("ANET", "Arista", ["arista networks", "anet"]),
+    ("LRCX", "科林", ["lam research", "lrcx", "科林研發"]),
+    ("KLAC", "科磊", ["kla corp", "klac", "科磊"]),
+    ("CRWD", "CrowdStrike", ["crowdstrike", "crwd"]),
+    ("INTC", "英特爾", ["intel", "intc", "英特爾", "陳立武", "lip-bu tan"]),
+]
+
+FLASH_FED_ENTITIES = [
+    "聯準會", "鮑爾", "鮑威爾", "fomc", "federal reserve", "fed ", "fed官員", "powell",
+]
+
+FLASH_TECH_POLICY_KEYWORDS = [
+    "晶片禁令", "晶片出口", "出口管制", "晶片關稅", "科技關稅", "美國商務部", "美國司法部",
+]
+
+FLASH_FOREIGN_CB_NOISE = [
+    "英格蘭銀行", "英國央行", "歐洲央行", "日本央行", "日銀", "澳洲央行", "加拿大央行", "韓國央行",
+]
+
+FLASH_OUTAGE_KEYWORDS = [
+    "當機", "大當機", "死機", "癱瘓", "斷線", "中斷", "藍白畫面", "故障", "駭客", "資安", "漏洞",
+    "outage", "disruption", "restored", "cyberattack", "data breach", "service down",
+]
+
+FLASH_URGENT_KEYWORDS = FLASH_OUTAGE_KEYWORDS + [
+    "升息", "降息", "升降息", "利率決議", "放鷹", "放鴿", "rate hike", "rate cut",
+    "緊急", "辭職", "卸任", "換帥", "禁令", "出口管制", "反壟斷", "調查",
+    "重挫", "暴跌", "飆漲", "財報", "上修", "下修", "財測",
+]
+
+FLASH_TW_LOCAL_NOISE = [
+    "台股", "漲停", "跌停", "外資買超", "外資賣超", "投信", "三大法人",
+    "0050", "00878", "00919", "00929", "00940", "緯創", "廣達", "技嘉", "鴻海",
+    "奇鋐", "雙鴻", "老ai", "概念股", "台指期", "盤中速報",
+]
+
+FLASH_CLICKBAIT_NOISE = [
+    "here's what", "here’s what", "what it does mean", "what to know", "what you need to know",
+    "should you buy", "why i'm buying", "millionaire", "motley fool", "stocks to buy",
+    "這對你來說意味著什麼", "該買嗎", "討論區", "股票評論", "股吧", "交流社區", "美元：", "匯市", "股價預測",
+]
+
+FLASH_BLOCKED_SOURCES = BLOG_SOURCES | {
+    "Moomoo", "moomoo.com", "www.tmgm.com", "TMGM", "FXStreet", "DailyFX", "LiteFinance",
+}
+
+FLASH_EN_TRUSTED_SOURCES = {
+    "WSJ", "The Wall Street Journal", "Reuters", "Bloomberg", "CNBC", "Yahoo Finance",
+    "Financial Times", "Barron's", "MarketWatch", "TechCrunch", "The Verge", "AP News",
+}
+
+HOLDING_TECH_TICKERS = {"GOOG", "TSLA", "NVDA"}
+
+
+def fetch_tech30_flash() -> list[dict]:
+    """Fetches high-signal breaking news strictly relevant to Top-30 US Tech stocks & US Fed/Tech-Policy catalysts."""
+    queries = [
+        (
+            '("聯準會" OR "鮑爾" OR "FOMC" OR "Fed" OR "晶片出口" OR "晶片禁令") (升息 OR 降息 OR 利率 OR 美股 OR 科技股 OR 晶片) when:2d',
+            "zh-TW",
+            36.0,
+        ),
+        (
+            '("微軟" OR "蘋果" OR "Google" OR "亞馬遜" OR "Meta" OR "輝達" OR "特斯拉") ("當機" OR "死機" OR "癱瘓" OR "故障" OR "財報" OR "裁員" OR "收購" OR "禁令" OR "反壟斷" OR "重挫" OR "大漲") when:2d',
+            "zh-TW",
+            30.0,
+        ),
+        (
+            '("蘋果" OR "微軟" OR "Google" OR "亞馬遜" OR "Meta" OR "博通" OR "甲骨文" OR "Netflix") (AI OR 晶片 OR 雲端 OR 財報 OR 股價) when:1d',
+            "zh-TW",
+            28.0,
+        ),
+        (
+            '("超微" OR "AMD" OR "美光" OR "高通" OR "英特爾" OR "Palantir" OR "SpaceX" OR "思科" OR "Salesforce" OR "Adobe" OR "CrowdStrike") 美股 when:2d',
+            "zh-TW",
+            36.0,
+        ),
+        (
+            '("Microsoft" OR "Azure" OR "AWS" OR "Google Cloud" OR "Apple" OR "Meta" OR "CrowdStrike" OR "Nvidia") (outage OR disruption OR restored OR antitrust OR export) when:2d',
+            "en-US",
+            30.0,
+        ),
+        (
+            '("Federal Reserve" OR "Powell" OR "FOMC") ("rate hike" OR "rate cut" OR inflation) tech when:2d',
+            "en-US",
+            30.0,
+        ),
+    ]
+
+    pool: list[dict] = []
+    with concurrent.futures.ThreadPoolExecutor(max_workers=6) as ex:
+        futs = [ex.submit(fetch_google_news_rss, q, lang, max_h) for q, lang, max_h in queries]
+        for f in futs:
+            pool.extend(f.result())
+
+    sorted_pool = sorted(pool, key=lambda x: (x["tier"] * 10800 + x["pubTs"]), reverse=True)
+    selected: list[dict] = []
+    ticker_counts: dict[str, int] = {}
+    seen_outage_keys: set[str] = set()
+
+    for it in sorted_pool:
+        src = it["source"]
+        if src in FLASH_BLOCKED_SOURCES or "tmgm" in src.lower() or "fx" in src.lower():
+            continue
+        if it["lang"] == "en-US" and src not in FLASH_EN_TRUSTED_SOURCES:
+            continue
+
+        raw_t = clean_headline_title(it["title"], src)
+        low = f" {raw_t.lower()} "
+        if any(bad in low for bad in FLASH_TW_LOCAL_NOISE):
+            continue
+        if any(cb in low for cb in FLASH_CLICKBAIT_NOISE):
+            continue
+
+        matched_tickers = [sym for sym, _, kws in TOP30_TECH_ENTITIES if any(k in low for k in kws)]
+        is_fed = any(fk in low for fk in FLASH_FED_ENTITIES)
+        is_policy = any(pk in low for pk in FLASH_TECH_POLICY_KEYWORDS)
+        if any(fcb in low for fcb in FLASH_FOREIGN_CB_NOISE) and not is_fed and not matched_tickers:
+            continue
+
+        is_macro = is_fed or is_policy
+        is_outage = any(ok in low for ok in FLASH_OUTAGE_KEYWORDS)
+
+        if not matched_tickers and not is_macro:
+            continue
+
+        primary_key = matched_tickers[0] if matched_tickers else "FED"
+        if is_outage:
+            outage_key = f"outage:{primary_key}"
+            if outage_key in seen_outage_keys:
+                continue
+
+        max_cap = 3 if primary_key == "FED" else 2
+        if ticker_counts.get(primary_key, 0) >= max_cap:
+            continue
+
+        zh_title = (
+            clean_headline_title(translate_en_to_zhtw(raw_t), it["source"])
+            if it["lang"] == "en-US"
+            else raw_t
+        )
+        if any(cb in zh_title.lower() for cb in FLASH_CLICKBAIT_NOISE):
+            continue
+        if any(title_similarity(zh_title, s["title"]) > 0.38 for s in selected):
+            continue
+
+        ticker_counts[primary_key] = ticker_counts.get(primary_key, 0) + 1
+        if is_outage:
+            seen_outage_keys.add(f"outage:{primary_key}")
+
+        tags: list[str] = []
+        if is_outage:
+            tags.append("當機/異常")
+        elif is_macro and "FED" not in tags:
+            tags.append("FED/宏觀")
+        tags.extend(matched_tickers[:2])
+        if not tags:
+            tags.append("科技30")
+
+        urgent = any(uk in low for uk in FLASH_URGENT_KEYWORDS)
+        affects_holdings = bool(is_macro or (set(matched_tickers) & HOLDING_TECH_TICKERS))
+
+        selected.append(
+            {
+                "title": zh_title,
+                "source": it["source"],
+                "url": it["url"],
+                "tags": tags[:2],
+                "urgent": urgent,
+                "isOutage": is_outage,
+                "isMacro": is_macro,
+                "affectsHoldings": affects_holdings,
+                "timeTW": dt.datetime.fromtimestamp(it["pubTs"], TW_TZ).strftime("%m/%d %H:%M"),
+                "clockTW": dt.datetime.fromtimestamp(it["pubTs"], TW_TZ).strftime("%H:%M"),
+                "age": format_age_label(it["ageHours"]),
+                "pubTs": it["pubTs"],
+            }
+        )
+        if len(selected) >= 14:
+            break
+
+    selected.sort(key=lambda x: x["pubTs"], reverse=True)
+    return selected
+
+
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Fetch US Stock Watchlist quotes & 6H insights.")
-    parser.add_argument("--mode", choices=["all", "quotes", "insights"], default="all")
+    parser = argparse.ArgumentParser(description="Fetch US Stock Watchlist quotes, Tech-30 flash & 6H insights.")
+    parser.add_argument("--mode", choices=["all", "quotes", "insights", "flash"], default="all")
     parser.add_argument(
         "--preopen-check",
         action="store_true",
@@ -1235,18 +1451,22 @@ def main() -> None:
     data_dir = root_dir / "data"
     data_dir.mkdir(parents=True, exist_ok=True)
 
-    yc = YahooClient()
-    all_symbols = [x["symbol"] for x in INDICES] + [x["symbol"] for x in WATCHLIST]
-    q_map = yc.get_quotes(all_symbols)
-
     now_tw_str = dt.datetime.now(TW_TZ).strftime("%Y-%m-%d %H:%M")
     now_iso = dt.datetime.now(UTC_TZ).isoformat()
 
-    with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
-        idx_futures = [pool.submit(build_index_data, yc, cfg, q_map) for cfg in INDICES]
-        stk_futures = [pool.submit(build_stock_quote, yc, cfg, q_map) for cfg in WATCHLIST]
-        indices_data = [f.result() for f in idx_futures]
-        stocks_quotes = [f.result() for f in stk_futures]
+    indices_data: list[dict] = []
+    stocks_quotes: list[dict] = []
+
+    if args.mode in ("all", "quotes", "insights"):
+        yc = YahooClient()
+        all_symbols = [x["symbol"] for x in INDICES] + [x["symbol"] for x in WATCHLIST]
+        q_map = yc.get_quotes(all_symbols)
+
+        with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
+            idx_futures = [pool.submit(build_index_data, yc, cfg, q_map) for cfg in INDICES]
+            stk_futures = [pool.submit(build_stock_quote, yc, cfg, q_map) for cfg in WATCHLIST]
+            indices_data = [f.result() for f in idx_futures]
+            stocks_quotes = [f.result() for f in stk_futures]
 
     if args.mode in ("all", "quotes"):
         clean_stocks = [{k: v for k, v in sq.items() if not k.startswith("_")} for sq in stocks_quotes]
@@ -1262,6 +1482,20 @@ def main() -> None:
             json.dumps(quotes_payload, ensure_ascii=False, indent=2), encoding="utf-8"
         )
         print(f"[ok] Wrote data/quotes.json ({len(clean_stocks)} stocks, {len(indices_data)} indices)")
+
+    if args.mode in ("all", "quotes", "flash"):
+        flash_items = fetch_tech30_flash()
+        flash_payload = {
+            "generatedAt": now_iso,
+            "updatedAtTW": now_tw_str,
+            "refreshIntervalMinutes": 15,
+            "universeNote": "嚴選美國前 30 大市值科技股動態 ＆ 聯準會升降息/重大宏觀政策快報",
+            "items": flash_items,
+        }
+        (data_dir / "flash.json").write_text(
+            json.dumps(flash_payload, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+        print(f"[ok] Wrote data/flash.json ({len(flash_items)} Tech-30 & Fed flash items)")
 
     if args.mode in ("all", "insights"):
         apewisdom = fetch_apewisdom_map()

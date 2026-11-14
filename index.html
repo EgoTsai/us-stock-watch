@@ -40,6 +40,44 @@
   </header>
 
   <main class="container">
+    <!-- 0. 美國前 30 大科技股・聯準會重磅快報 (智慧跑馬燈 + 展開式 7×24 快訊匣) -->
+    <section class="flash-wire-section" aria-label="美國前30大科技股與宏觀重磅快報">
+      <div class="flash-ticker-bar">
+        <div class="flash-label-box">
+          <span class="flash-live-dot" aria-hidden="true"></span>
+          <span class="flash-label-title">科技30・重磅快報</span>
+          <span class="flash-cadence-pill">15m</span>
+        </div>
+
+        <div class="flash-marquee-viewport" id="flash-marquee-viewport">
+          <div class="flash-marquee-track" id="flash-marquee-track">
+            <span class="flash-loading-text">載入美國前 30 大科技股與聯準會快報中…</span>
+          </div>
+        </div>
+
+        <div class="flash-actions">
+          <button type="button" class="flash-ctrl-btn" id="btn-flash-pause" title="暫停或繼續滾動跑馬燈" aria-label="暫停跑馬燈">
+            ⏸
+          </button>
+          <button type="button" class="flash-ctrl-btn flash-list-btn" id="btn-flash-drawer" aria-expanded="false">
+            <span id="flash-drawer-btn-text">快報列表 ▾</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="flash-wire-drawer" id="flash-wire-drawer" hidden>
+        <div class="flash-drawer-toolbar">
+          <div class="flash-filter-group" role="tablist" aria-label="快報篩選">
+            <button type="button" class="flash-filter-pill active" data-flash-filter="all">全部快報</button>
+            <button type="button" class="flash-filter-pill" data-flash-filter="urgent">重磅・升降息・當機</button>
+            <button type="button" class="flash-filter-pill" data-flash-filter="holdings">關聯我的持倉</button>
+          </div>
+          <span class="flash-drawer-note" id="flash-updated-note">嚴選美國前 30 大科技股 ＆ 聯準會升降息/政策衝擊 · 每 15 分鐘自動掃描</span>
+        </div>
+        <ul class="flash-timeline-list" id="flash-timeline-list"></ul>
+      </div>
+    </section>
+
     <!-- 1. 美股三大市場前一交易日走勢與收盤 -->
     <section class="section-block" aria-labelledby="heading-indices">
       <div class="section-header">

@@ -6,6 +6,10 @@
   const state = {
     quotesData: null,
     insightsData: null,
+    flashData: null,
+    flashPaused: false,
+    flashDrawerOpen: false,
+    flashFilter: "all",
     activeFilter: "all",
     searchQuery: "",
     sortBy: "default",
@@ -25,6 +29,14 @@
   const elRefreshText = document.getElementById("refresh-btn-text");
   const elBtnExpandAll = document.getElementById("btn-expand-all");
   const elBtnTheme = document.getElementById("btn-theme-toggle");
+  const elFlashTrack = document.getElementById("flash-marquee-track");
+  const elBtnFlashPause = document.getElementById("btn-flash-pause");
+  const elBtnFlashDrawer = document.getElementById("btn-flash-drawer");
+  const elFlashDrawerBtnText = document.getElementById("flash-drawer-btn-text");
+  const elFlashDrawer = document.getElementById("flash-wire-drawer");
+  const elFlashUpdatedNote = document.getElementById("flash-updated-note");
+  const elFlashTimeline = document.getElementById("flash-timeline-list");
+  const flashFilterButtons = Array.from(document.querySelectorAll(".flash-filter-pill"));
   const elIndicesSubtitle = document.getElementById("indices-subtitle");
   const elIndicesContainer = document.getElementById("indices-container");
   const elMarketHeadlines = document.getElementById("market-headlines-list");
@@ -614,6 +626,105 @@
     `;
   }
 
+  function flashTagClass(tagStr, item) {
+    if (tagStr.includes("當機") || item.isOutage) return "outage";
+    if (tagStr.includes("FED") || item.isMacro) return "macro";
+    if (item.affectsHoldings) return "holding";
+    return "";
+  }
+
+  function buildFlashTagsHtml(item) {
+    const urgentHtml = item.urgent ? `<span class="flash-urgent-pill">重磅</span>` : "";
+    const tagsHtml = (item.tags || [])
+      .map(
+        (t) =>
+          `<span class="flash-tag-pill ${flashTagClass(t, item)}">${escapeHtml(t)}</span>`
+      )
+      .join("");
+    return `${urgentHtml}${tagsHtml}`;
+  }
+
+  // 0. Render Top-30 US Tech & Fed Breaking News Flash Ticker + 7x24 Wire Drawer
+  function renderFlashWire() {
+    const items = state.flashData?.items || [];
+    const totalCount = items.length;
+
+    if (elFlashDrawerBtnText) {
+      elFlashDrawerBtnText.textContent = state.flashDrawerOpen
+        ? `收合快報 (${totalCount}) ▴`
+        : `快報列表 (${totalCount}) ▾`;
+    }
+
+    if (elFlashUpdatedNote && state.flashData?.updatedAtTW) {
+      elFlashUpdatedNote.textContent = `嚴選美國前 30 大科技股 ＆ 聯準會升降息/政策衝擊 · 最新掃描：${state.flashData.updatedAtTW} (每15分)`;
+    }
+
+    if (!items.length) {
+      elFlashTrack.innerHTML = `<span class="flash-loading-text">目前暫無最新美國前 30 大科技股與聯準會突發快報。</span>`;
+      elFlashTrack.style.animation = "none";
+      renderFlashDrawer();
+      return;
+    }
+
+    const durationSec = Math.max(42, Math.round(items.length * 6.8));
+    elFlashTrack.style.setProperty("--flash-duration", `${durationSec}s`);
+    elFlashTrack.style.animation = "";
+
+    const singlePassHtml = items
+      .map(
+        (it) => `
+        <a class="flash-tape-item" href="${escapeHtml(it.url)}" target="_blank" rel="noopener noreferrer">
+          <span class="flash-time-mono">${escapeHtml(it.clockTW || it.age)}</span>
+          ${buildFlashTagsHtml(it)}
+          <span class="flash-tape-title">${escapeHtml(it.title)}</span>
+          <span class="flash-tape-src">(${escapeHtml(it.source)} ↗)</span>
+        </a>
+        <span class="flash-tape-sep" aria-hidden="true">•</span>
+      `
+      )
+      .join("");
+
+    // Duplicate track content once for seamless -50% infinite loop
+    elFlashTrack.innerHTML = singlePassHtml + singlePassHtml;
+    elFlashTrack.classList.toggle("paused", state.flashPaused);
+
+    renderFlashDrawer();
+  }
+
+  function renderFlashDrawer() {
+    if (!elFlashTimeline) return;
+    let items = state.flashData?.items || [];
+
+    if (state.flashFilter === "urgent") {
+      items = items.filter((it) => it.urgent || it.isMacro || it.isOutage);
+    } else if (state.flashFilter === "holdings") {
+      items = items.filter((it) => it.affectsHoldings);
+    }
+
+    if (!items.length) {
+      elFlashTimeline.innerHTML = `<li class="quiet-note" style="grid-column: 1 / -1; padding: 6px 2px;">目前此分類暫無快報項目。</li>`;
+      return;
+    }
+
+    elFlashTimeline.innerHTML = items
+      .map(
+        (it) => `
+        <li class="flash-timeline-item">
+          <div class="flash-timeline-meta">
+            <span class="flash-time-mono" title="${escapeHtml(it.timeTW)}">${escapeHtml(it.clockTW || it.age)}</span>
+            ${buildFlashTagsHtml(it)}
+          </div>
+          <div class="flash-timeline-body">
+            <span>${escapeHtml(it.title)}</span>
+            <span class="headline-age">(${escapeHtml(it.age)})</span>
+            <a class="source-link" href="${escapeHtml(it.url)}" target="_blank" rel="noopener noreferrer">[${escapeHtml(it.source)} ↗]</a>
+          </div>
+        </li>
+      `
+      )
+      .join("");
+  }
+
   async function loadAllData(isManual = false) {
     if (state.isRefreshing) return;
     state.isRefreshing = true;
@@ -622,15 +733,18 @@
 
     try {
       const bust = Date.now();
-      const [qResp, iResp] = await Promise.all([
+      const [qResp, iResp, fResp] = await Promise.all([
         fetch(`./data/quotes.json?t=${bust}`, { cache: "no-store" }),
         fetch(`./data/insights.json?t=${bust}`, { cache: "no-store" }),
+        fetch(`./data/flash.json?t=${bust}`, { cache: "no-store" }),
       ]);
 
       if (qResp.ok) state.quotesData = await qResp.json();
       if (iResp.ok) state.insightsData = await iResp.json();
+      if (fResp.ok) state.flashData = await fResp.json();
 
       renderHeaderMeta();
+      renderFlashWire();
       renderIndices();
       renderMarketHeadlines();
       renderWatchlist();
@@ -667,6 +781,37 @@
       if (state.secondsLeft % 60 === 0) renderHeaderMeta();
     }, 1000);
   }
+
+  // Flash ticker pause & 7x24 drawer controls
+  if (elBtnFlashPause) {
+    elBtnFlashPause.addEventListener("click", () => {
+      state.flashPaused = !state.flashPaused;
+      elFlashTrack.classList.toggle("paused", state.flashPaused);
+      elBtnFlashPause.textContent = state.flashPaused ? "▶" : "⏸";
+      elBtnFlashPause.setAttribute("aria-label", state.flashPaused ? "繼續播放跑馬燈" : "暫停跑馬燈");
+    });
+  }
+
+  if (elBtnFlashDrawer) {
+    elBtnFlashDrawer.addEventListener("click", () => {
+      state.flashDrawerOpen = !state.flashDrawerOpen;
+      elFlashDrawer.hidden = !state.flashDrawerOpen;
+      elBtnFlashDrawer.setAttribute("aria-expanded", String(state.flashDrawerOpen));
+      const cnt = (state.flashData?.items || []).length;
+      elFlashDrawerBtnText.textContent = state.flashDrawerOpen
+        ? `收合快報 (${cnt}) ▴`
+        : `快報列表 (${cnt}) ▾`;
+    });
+  }
+
+  flashFilterButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      flashFilterButtons.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      state.flashFilter = btn.dataset.flashFilter || "all";
+      renderFlashDrawer();
+    });
+  });
 
   // Delegate row click to expand/collapse drawer (ignoring direct clicks on news links)
   elWatchlistRows.addEventListener("click", (e) => {
