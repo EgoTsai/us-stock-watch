@@ -1,9 +1,42 @@
 {
-  "generatedAt": "2026-11-15T21:57:51.957236+00:00",
-  "updatedAtTW": "2026-11-16 05:57",
+  "generatedAt": "2026-11-15T22:42:25.881287+00:00",
+  "updatedAtTW": "2026-11-16 06:42",
   "refreshIntervalMinutes": 15,
   "universeNote": "嚴選美國前 30 大市值科技股動態 ＆ 聯準會升降息/重大宏觀政策快報",
   "items": [
+    {
+      "title": "火神火箭升空十分鐘故障 亞馬遜40枚網路衛星全數損毀",
+      "source": "Yahoo股市",
+      "url": "https://news.google.com/rss/articles/CBMi8wJBVV95cUxNUl9pVEZWRzZUX1lHbTA1cl9Od09XakJ3UWZqRnJCRE5IQTVQbmZWNVhsUVc4NWZqZzNMYk1GYlFaRlpCVUdKX21tcjdoeGFad082ZDdVZEZsbVlWRzA2aGZhbzh1SUk0ZDQyeWZIYXFoamppSzlYZ1duRi1fSURoSVI5b2NpSFJKUThFZGNyRE9JclVzNmh6VzU0ZGpGM3UtYTBsaU9sNGN4cUNRd19lTnBNWHdrZUFsZ2doWGxLZl80cUNGT2tDcFlpQXMxOEZtTll4RTRyeWhWUnhGWk1HelVzWWxxUnBQcmRjMkhodENMMGtDZlplN3ktajRMeGIySnppTHIwdmsyYmlid1VPYW9xS1dmLVdzU3p2U1FFaDBPVTVpMDRRZVoyVFBTSkppMVRmZ1k4WWRnREgwWk81THVSWHdLT3dyRVI5Z1JwRGVpVFJyNmtVX1BpYUJlaXA5dXRKd3cwc3ZyNFhvYTlqckV2dw?oc=5",
+      "tags": [
+        "當機/異常",
+        "AMZN"
+      ],
+      "urgent": true,
+      "isOutage": true,
+      "isMacro": false,
+      "affectsHoldings": false,
+      "timeTW": "11/16 06:35",
+      "clockTW": "06:35",
+      "age": "7分鐘前",
+      "pubTs": 1794782127
+    },
+    {
+      "title": "《彭博社》：Apple Glass 智慧眼鏡傳出將於 WWDC 2027 亮相！",
+      "source": "三嘻行動哇 Yipee!",
+      "url": "https://news.google.com/rss/articles/CBMirAJBVV95cUxPV3NFYkI5djlLQUJneDFuRjVrZG55RFU3X2QwVk5MM2FJMVFxTDU5NkxkSE93elUtXzJ6Y3RZbWh2dzRVeXVPVHUyQVhxQzlwMWtjTnF3OFFJWUx2RWhiVGxrMWpXMl9TM2hhYVNnd0RPcnRSN1lMU0ttd0NqbTVUNEM5UWE4dlNyY3RtU0w4OTJieW5lQzQ2QndhZ2VwTGtlaDUyNGstWmpnaW92NWhiUE04REhPd1NMNHB6bzZIQklnZHlkM3FId1JRTERyamRjMWdrd3lfcXl4cnlPckZqaHdNQ0RXcGxHX09xNS1KNk9XUzJyR0dBWWViRHZaOXctRUc0OFVfUlg4SlJGRVRvUnRGWm1kVHRUQ0l1OW9jbDBZOXVublotQUtuRHk?oc=5",
+      "tags": [
+        "AAPL"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": false,
+      "timeTW": "11/16 06:24",
+      "clockTW": "06:24",
+      "age": "18分鐘前",
+      "pubTs": 1794781450
+    },
     {
       "title": "輝達本週公布財報 觀察四重點",
       "source": "聚財網",
@@ -17,7 +50,7 @@
       "affectsHoldings": true,
       "timeTW": "11/16 05:40",
       "clockTW": "05:40",
-      "age": "18分鐘前",
+      "age": "1小時前",
       "pubTs": 1794778805
     },
     {
@@ -34,7 +67,7 @@
       "affectsHoldings": false,
       "timeTW": "11/16 03:10",
       "clockTW": "03:10",
-      "age": "2小時前",
+      "age": "3小時前",
       "pubTs": 1794769800
     },
     {
@@ -50,7 +83,7 @@
       "affectsHoldings": true,
       "timeTW": "11/16 03:07",
       "clockTW": "03:07",
-      "age": "2小時前",
+      "age": "3小時前",
       "pubTs": 1794769650
     },
     {
@@ -66,24 +99,8 @@
       "affectsHoldings": true,
       "timeTW": "11/16 03:00",
       "clockTW": "03:00",
-      "age": "2小時前",
-      "pubTs": 1794769200
-    },
-    {
-      "title": "KC聯儲主席表示，聯準會“在通膨方面還有一些工作要做”",
-      "source": "Reuters",
-      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxORXg3dWdlUEMzckhPaldaYlFrSXlzQnVLeEJLRGtnMFFpeWh5VXI3akUxWEtLQ3JwSk92b2pvWi1FdjNFWVpBZm9Jck56NDUwQkZDUGZpUG01X3RDLS02enpGcWpnXzc3ZWctengxamdOTDY1MzdYMzgxR0V2THk3Zl9xbXZhTEcyWHEzRDU2YWZ2dTZVaFVpNA?oc=5",
-      "tags": [
-        "FED/宏觀"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": true,
-      "affectsHoldings": true,
-      "timeTW": "11/16 02:43",
-      "clockTW": "02:43",
       "age": "3小時前",
-      "pubTs": 1794768223
+      "pubTs": 1794769200
     },
     {
       "title": "生成式AI幻覺造成誹謗，業者應否負責？美國伊利諾州法院Keene v. Google LLC案",
@@ -98,7 +115,7 @@
       "affectsHoldings": true,
       "timeTW": "11/16 00:00",
       "clockTW": "00:00",
-      "age": "5小時前",
+      "age": "6小時前",
       "pubTs": 1794758444
     },
     {
@@ -131,7 +148,7 @@
       "affectsHoldings": true,
       "timeTW": "11/15 22:39",
       "clockTW": "22:39",
-      "age": "7小時前",
+      "age": "8小時前",
       "pubTs": 1794753596
     },
     {
@@ -147,24 +164,8 @@
       "affectsHoldings": false,
       "timeTW": "11/15 22:00",
       "clockTW": "22:00",
-      "age": "7小時前",
-      "pubTs": 1794751230
-    },
-    {
-      "title": "蘋果智慧眼鏡 N50 為什麼被稱臉上的 AirPods？解析 Siri 與供應鏈量產進度",
-      "source": "Mashdigi",
-      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE83aWJpVm5EODZVWk80blBoVjU4cTkyejM3QV9lR1VGdHdBR0tNbUlwU3Q5cWdyTUNYTW94Y1lpcWpoeVgzcEc5OXc3b1hTWjZjakZNX2ZjNDZhNGFTOFVlV29OX0ZQa2FFdlV5NDZ3?oc=5",
-      "tags": [
-        "AAPL"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": false,
-      "timeTW": "11/15 21:13",
-      "clockTW": "21:13",
       "age": "8小時前",
-      "pubTs": 1794748415
+      "pubTs": 1794751230
     },
     {
       "title": "矽谷科技巨頭押注川普恐踢鐵板！OpenAI、Meta政治豪賭埋下AI產業隱憂",
@@ -183,6 +184,22 @@
       "pubTs": 1794746678
     },
     {
+      "title": "銅期貨跌至四個月低點 聯準會升息預期與AI需求不振夾擊",
+      "source": "ENN台灣電報",
+      "url": "https://news.google.com/rss/articles/CBMiOkFVX3lxTFBKUEEzLXVjZnlXU1Mxc2lGdDRDWE9aam1sbVdOc2p5UjJ3OGI2VE1XVDFWS3hxQUJ6bHc?oc=5",
+      "tags": [
+        "FED/宏觀"
+      ],
+      "urgent": true,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsHoldings": true,
+      "timeTW": "11/15 15:39",
+      "clockTW": "15:39",
+      "age": "15小時前",
+      "pubTs": 1794728394
+    },
+    {
       "title": "聯準會升息風暴殺到！科技股竟逆勢狂飆野村：這恐怕只是反彈假象- 國際",
       "source": "工商時報",
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE83d01rLTJMV3hxNTdrTEpmRWRwMXJrbHRZZ0J6cHJIT1hIMXByb2JuT295V3llNUJQanpWVEU0T1N4VG5SQUd6X2c1cVdycE5RX2UxMTdUdkwtVi1zekxB?oc=5",
@@ -195,7 +212,7 @@
       "affectsHoldings": true,
       "timeTW": "11/15 15:37",
       "clockTW": "15:37",
-      "age": "14小時前",
+      "age": "15小時前",
       "pubTs": 1794728220
     },
     {
@@ -211,24 +228,8 @@
       "affectsHoldings": false,
       "timeTW": "11/15 15:10",
       "clockTW": "15:10",
-      "age": "14小時前",
-      "pubTs": 1794726607
-    },
-    {
-      "title": "週末去哪裡？NOVA 帶你搶先體驗微軟 Microsoft 365 Copilot AI",
-      "source": "NOVA資訊廣場",
-      "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5DbmwyUzdpNVJOMmdkUlNyazN0VDZYS0RPdHVPWG5sdi15QlJaWm9oNnMtQXhMY05mTHlTZGtqZ000RXhOemhiTEJ3YmRxeEVfbGFaRl9hVQ?oc=5",
-      "tags": [
-        "MSFT"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": false,
-      "timeTW": "11/15 14:25",
-      "clockTW": "14:25",
       "age": "15小時前",
-      "pubTs": 1794723917
+      "pubTs": 1794726607
     }
   ]
 }
