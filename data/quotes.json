@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-11-15T05:58:09.553850+00:00",
-  "updatedAtTW": "2026-11-15 13:58",
+  "generatedAt": "2026-11-15T10:28:14.318503+00:00",
+  "updatedAtTW": "2026-11-15 18:28",
   "refreshIntervalMinutes": 15,
   "marketSession": {
     "statusText": "週末休市（週日 20:00 ET 夜盤開盤）",
     "sessionCode": "WEEKEND",
-    "etTime": "2026-11-15 00:58 ET",
-    "twTime": "2026-11-15 13:58 台灣時間"
+    "etTime": "2026-11-15 05:28 ET",
+    "twTime": "2026-11-15 18:28 台灣時間"
   },
   "indices": [
     {
