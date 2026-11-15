@@ -1,9 +1,90 @@
 {
-  "generatedAt": "2026-11-15T17:22:05.741513+00:00",
-  "updatedAtTW": "2026-11-16 01:22",
+  "generatedAt": "2026-11-15T21:57:51.957236+00:00",
+  "updatedAtTW": "2026-11-16 05:57",
   "refreshIntervalMinutes": 15,
   "universeNote": "嚴選美國前 30 大市值科技股動態 ＆ 聯準會升降息/重大宏觀政策快報",
   "items": [
+    {
+      "title": "輝達本週公布財報 觀察四重點",
+      "source": "聚財網",
+      "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE5KcVVzWkt1TkxNaHV2SzFZZFN3dW0tYlFlQzRlWWhZbm9RUTBNWjhXUU40eUhPOElZeWdJY3hGNVZsYzBfcTRaQVdKR20?oc=5",
+      "tags": [
+        "NVDA"
+      ],
+      "urgent": true,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": true,
+      "timeTW": "11/16 05:40",
+      "clockTW": "05:40",
+      "age": "18分鐘前",
+      "pubTs": 1794778805
+    },
+    {
+      "title": "一切都可以被打破嗎？噴射機停飛、微軟停電、人工智慧混亂令人驚嘆",
+      "source": "AP News",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQbUFCdzU3WWxqWDJyOThxR0pfSENwbHdjWE50LVZfX0xSUUZFZnpTemtWN2RRckNlOW56TnZwT2pmUHpPYnU0cGtiaUJ4aFpzLXZ4OHN0a3UxVEpNenFlc0VETFE2UDJkdy1Ld0ZSU2V2MHJxNE9WN3VFMjA2U1lLRThOdE5kSWk2UVdpektzb00yV3ZjUjhOeWpiNA?oc=5",
+      "tags": [
+        "當機/異常",
+        "MSFT"
+      ],
+      "urgent": true,
+      "isOutage": true,
+      "isMacro": false,
+      "affectsHoldings": false,
+      "timeTW": "11/16 03:10",
+      "clockTW": "03:10",
+      "age": "2小時前",
+      "pubTs": 1794769800
+    },
+    {
+      "title": "聯準會升息預期升溫，亞洲債券殖利率上升",
+      "source": "WSJ",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOY0lWUTNMTnpyanJUcWctaTM1TjBEajVySEdCRG9FTVVtNmFJYkdULXo1cll5Yi1UbVZRVmg2UmZBZkJESG1pelM1NHluMG1OVVI5Z3hkamRIU0xFVVZvd1Q5Ymdma3J6MFRoVWNMUS1HZlhXaThDWG16aGh3Zllfd0dkUlJrTnE4bVhYY2QyNW9Ha3VvV3Flb2RoYVFwazZBUWM0?oc=5",
+      "tags": [
+        "FED/宏觀"
+      ],
+      "urgent": true,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsHoldings": true,
+      "timeTW": "11/16 03:07",
+      "clockTW": "03:07",
+      "age": "2小時前",
+      "pubTs": 1794769650
+    },
+    {
+      "title": "輝達財報、法說將登場外資看法冰火兩重天- 日報",
+      "source": "工商時報",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9tV0JYMHJEYmNxc1pNTVQwREtrVTQ2cFZVVFBFRlFXcks3am5kcmNFeUhrd0U2b1R0NG0zaFp0S1FrUE55U2EtNVRLRDh6djk4ZFZUUVh4aGFtWHp1WmdJ?oc=5",
+      "tags": [
+        "NVDA"
+      ],
+      "urgent": true,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": true,
+      "timeTW": "11/16 03:00",
+      "clockTW": "03:00",
+      "age": "2小時前",
+      "pubTs": 1794769200
+    },
+    {
+      "title": "KC聯儲主席表示，聯準會“在通膨方面還有一些工作要做”",
+      "source": "Reuters",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxORXg3dWdlUEMzckhPaldaYlFrSXlzQnVLeEJLRGtnMFFpeWh5VXI3akUxWEtLQ3JwSk92b2pvWi1FdjNFWVpBZm9Jck56NDUwQkZDUGZpUG01X3RDLS02enpGcWpnXzc3ZWctengxamdOTDY1MzdYMzgxR0V2THk3Zl9xbXZhTEcyWHEzRDU2YWZ2dTZVaFVpNA?oc=5",
+      "tags": [
+        "FED/宏觀"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsHoldings": true,
+      "timeTW": "11/16 02:43",
+      "clockTW": "02:43",
+      "age": "3小時前",
+      "pubTs": 1794768223
+    },
     {
       "title": "生成式AI幻覺造成誹謗，業者應否負責？美國伊利諾州法院Keene v. Google LLC案",
       "source": "北美智權",
@@ -17,25 +98,8 @@
       "affectsHoldings": true,
       "timeTW": "11/16 00:00",
       "clockTW": "00:00",
-      "age": "1小時前",
+      "age": "5小時前",
       "pubTs": 1794758444
-    },
-    {
-      "title": "公司表示，微軟服務在大規模中斷後已恢復",
-      "source": "WSJ",
-      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9SZmZCcS1rWDBlU1EtNTRYbFY4TE00cEVObWk3ak9jcnNsaWtabW83MjNuemxSUk1WWXZ5Q2VubUtCZ2Y5YnZkN2dNR3htVEhHUkpPbjNuczc0VmpDb1dIZ0Z3TVFaTW43Z1hrc00tTWFQQ0M5cFd4SUd6TG1ldw?oc=5",
-      "tags": [
-        "當機/異常",
-        "MSFT"
-      ],
-      "urgent": true,
-      "isOutage": true,
-      "isMacro": false,
-      "affectsHoldings": false,
-      "timeTW": "11/15 23:57",
-      "clockTW": "23:57",
-      "age": "1小時前",
-      "pubTs": 1794758269
     },
     {
       "title": "Meta 的「Rapture」可能讓高薪員工提前退休",
@@ -50,7 +114,7 @@
       "affectsHoldings": false,
       "timeTW": "11/15 22:58",
       "clockTW": "22:58",
-      "age": "2小時前",
+      "age": "7小時前",
       "pubTs": 1794754681
     },
     {
@@ -67,7 +131,7 @@
       "affectsHoldings": true,
       "timeTW": "11/15 22:39",
       "clockTW": "22:39",
-      "age": "2小時前",
+      "age": "7小時前",
       "pubTs": 1794753596
     },
     {
@@ -83,40 +147,24 @@
       "affectsHoldings": false,
       "timeTW": "11/15 22:00",
       "clockTW": "22:00",
-      "age": "3小時前",
+      "age": "7小時前",
       "pubTs": 1794751230
     },
     {
-      "title": "本週操盤筆記：AI交易關鍵時刻！輝達首份無黃仁勳財報、Anthropic重磅IPO 「川習普」三方會議登場",
-      "source": "鉅亨網",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9tc2drU2l6SEJOSHRJWGdvWGxQeEdQd0MtbHJBUlhHMDJPVzRIdzFBeEFrRnFUaFVYd21XM1k0XzR5YVFBSEFhQi1femFXS2M?oc=5",
+      "title": "蘋果智慧眼鏡 N50 為什麼被稱臉上的 AirPods？解析 Siri 與供應鏈量產進度",
+      "source": "Mashdigi",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE83aWJpVm5EODZVWk80blBoVjU4cTkyejM3QV9lR1VGdHdBR0tNbUlwU3Q5cWdyTUNYTW94Y1lpcWpoeVgzcEc5OXc3b1hTWjZjakZNX2ZjNDZhNGFTOFVlV29OX0ZQa2FFdlV5NDZ3?oc=5",
       "tags": [
-        "NVDA"
+        "AAPL"
       ],
-      "urgent": true,
+      "urgent": false,
       "isOutage": false,
       "isMacro": false,
-      "affectsHoldings": true,
-      "timeTW": "11/15 21:30",
-      "clockTW": "21:30",
-      "age": "3小時前",
-      "pubTs": 1794749404
-    },
-    {
-      "title": "輝達財報表現將牽動晶片股後市- 國際",
-      "source": "工商時報",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE80QWlBd2dQZ3paOG4wbnJVa2tuOTdrRUFVcnVjLUlNZ2xqeGtmVGxsZUhrVDd2Um1hQUJHcE1UX2p6eGVmOG5fTDBYUHM3ZE5ia0VnUHhlRWhuWWJzOGI4?oc=5",
-      "tags": [
-        "NVDA"
-      ],
-      "urgent": true,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": true,
-      "timeTW": "11/15 21:20",
-      "clockTW": "21:20",
-      "age": "4小時前",
-      "pubTs": 1794748800
+      "affectsHoldings": false,
+      "timeTW": "11/15 21:13",
+      "clockTW": "21:13",
+      "age": "8小時前",
+      "pubTs": 1794748415
     },
     {
       "title": "矽谷科技巨頭押注川普恐踢鐵板！OpenAI、Meta政治豪賭埋下AI產業隱憂",
@@ -131,40 +179,8 @@
       "affectsHoldings": false,
       "timeTW": "11/15 20:44",
       "clockTW": "20:44",
-      "age": "4小時前",
+      "age": "9小時前",
       "pubTs": 1794746678
-    },
-    {
-      "title": "Evercore：蘋果擁有制勝個人AI代理競賽的關鍵資產 作者 Investing.com",
-      "source": "Investing.com 香港 - 股市報價& 財經新聞",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9JbVZlTE96M3VCUEJHOWtfMHlmNEJ1OGdZeWJKSmpGVC1CX1A1QU8weW9heUUwVFo1X0xZNUp5M281RUZLcV82MjE1M1l1clJ3Sk8tdktMbklrbGJoak1FeERVQVJTZHBSUDZYUndVbVk?oc=5",
-      "tags": [
-        "AAPL"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": false,
-      "timeTW": "11/15 15:42",
-      "clockTW": "15:42",
-      "age": "9小時前",
-      "pubTs": 1794728540
-    },
-    {
-      "title": "銅期貨跌至四個月低點 聯準會升息預期與AI需求不振夾擊",
-      "source": "ENN台灣電報",
-      "url": "https://news.google.com/rss/articles/CBMiOkFVX3lxTFBKUEEzLXVjZnlXU1Mxc2lGdDRDWE9aam1sbVdOc2p5UjJ3OGI2VE1XVDFWS3hxQUJ6bHc?oc=5",
-      "tags": [
-        "FED/宏觀"
-      ],
-      "urgent": true,
-      "isOutage": false,
-      "isMacro": true,
-      "affectsHoldings": true,
-      "timeTW": "11/15 15:39",
-      "clockTW": "15:39",
-      "age": "9小時前",
-      "pubTs": 1794728394
     },
     {
       "title": "聯準會升息風暴殺到！科技股竟逆勢狂飆野村：這恐怕只是反彈假象- 國際",
@@ -179,7 +195,7 @@
       "affectsHoldings": true,
       "timeTW": "11/15 15:37",
       "clockTW": "15:37",
-      "age": "9小時前",
+      "age": "14小時前",
       "pubTs": 1794728220
     },
     {
@@ -195,7 +211,7 @@
       "affectsHoldings": false,
       "timeTW": "11/15 15:10",
       "clockTW": "15:10",
-      "age": "10小時前",
+      "age": "14小時前",
       "pubTs": 1794726607
     },
     {
@@ -211,24 +227,8 @@
       "affectsHoldings": false,
       "timeTW": "11/15 14:25",
       "clockTW": "14:25",
-      "age": "10小時前",
+      "age": "15小時前",
       "pubTs": 1794723917
-    },
-    {
-      "title": "比特幣週末跌破6.4萬美元 市場押注聯準會12月升息、一小時爆倉6.9億美元",
-      "source": "蕃新聞",
-      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFB3eVE1N0hXSE56eHBSbWRUdzU3RmFRa293MW1aUjlvcW80b3QwUksyZXg4WTJaYkNHN1NKbEJieFVrRU0zRkVDeEdnTjBhekZ0OWc?oc=5",
-      "tags": [
-        "FED/宏觀"
-      ],
-      "urgent": true,
-      "isOutage": false,
-      "isMacro": true,
-      "affectsHoldings": true,
-      "timeTW": "11/15 10:45",
-      "clockTW": "10:45",
-      "age": "14小時前",
-      "pubTs": 1794710714
     }
   ]
 }
