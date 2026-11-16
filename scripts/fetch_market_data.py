@@ -1641,7 +1641,7 @@ def main() -> None:
         quotes_payload = {
             "generatedAt": now_iso,
             "updatedAtTW": now_tw_str,
-            "refreshIntervalMinutes": 15,
+            "refreshIntervalMinutes": 3,
             "marketSession": get_market_session_overview(),
             "indices": indices_data,
             "watchlist": clean_stocks,
@@ -1656,7 +1656,7 @@ def main() -> None:
         flash_payload = {
             "generatedAt": now_iso,
             "updatedAtTW": now_tw_str,
-            "refreshIntervalMinutes": 15,
+            "refreshIntervalMinutes": 3,
             "universeNote": "嚴選美國前 30 大市值科技股動態 ＆ 聯準會升降息/重大宏觀政策快報",
             "items": flash_items,
         }

@@ -1,7 +1,9 @@
 (() => {
   "use strict";
 
-  const REFRESH_INTERVAL_SEC = 15 * 60;
+  const REFRESH_INTERVAL_SEC = 3 * 60;
+  const LIVE_REPO = "EgoTsai/us-stock-watch";
+  const LIVE_BRANCH = "live-data";
 
   const state = {
     quotesData: null,
@@ -135,7 +137,7 @@
     elStatusDot.classList.toggle("active", status.active);
 
     if (state.quotesData?.updatedAtTW) {
-      elQuotesUpdated.textContent = `股價更新：${state.quotesData.updatedAtTW} (每15分)`;
+      elQuotesUpdated.textContent = `股價更新：${state.quotesData.updatedAtTW} (每3分)`;
     }
     if (state.insightsData?.updatedAtTW) {
       elInsightsUpdated.textContent = `頭條/情緒：${state.insightsData.updatedAtTW} (6H/開盤前10分)`;
@@ -711,7 +713,7 @@
     }
 
     if (elFlashUpdatedNote && state.flashData?.updatedAtTW) {
-      elFlashUpdatedNote.textContent = `嚴選美國前 30 大科技股 ＆ 聯準會升降息/政策衝擊 · 最新掃描：${state.flashData.updatedAtTW} (每15分)`;
+      elFlashUpdatedNote.textContent = `嚴選美國前 30 大科技股 ＆ 聯準會升降息/政策衝擊 · 最新掃描：${state.flashData.updatedAtTW} (每3分)`;
     }
 
     if (!items.length) {
@@ -833,6 +835,67 @@
     }
   }
 
+  function pickFresherPayload(...candidates) {
+    let best = null;
+    let bestTs = -1;
+    for (const c of candidates) {
+      if (!c || typeof c !== "object") continue;
+      const ts = Date.parse(c.generatedAt || "") || 0;
+      if (ts > bestTs) {
+        bestTs = ts;
+        best = c;
+      }
+    }
+    return best;
+  }
+
+  async function fetchJsonSafe(url) {
+    try {
+      const resp = await fetch(url, { cache: "no-store" });
+      if (!resp.ok) return null;
+      return await resp.json();
+    } catch {
+      return null;
+    }
+  }
+
+  async function resolveLiveRawBaseUrl(isManual = false) {
+    const cacheKey = "us_watch_live_sha_v1";
+    if (!isManual) {
+      try {
+        const cached = JSON.parse(localStorage.getItem(cacheKey) || "null");
+        if (cached?.sha && Date.now() - cached.ts < 45_000) {
+          return `https://raw.githubusercontent.com/${LIVE_REPO}/${cached.sha}/data`;
+        }
+      } catch {
+        // ignore storage error
+      }
+    }
+
+    try {
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), 3500);
+      const refUrl = `https://api.github.com/repos/${LIVE_REPO}/commits?sha=${LIVE_BRANCH}&per_page=1&_=${Date.now()}`;
+      const resp = await fetch(refUrl, { cache: "no-store", signal: ctrl.signal });
+      clearTimeout(timer);
+      if (resp.ok) {
+        const arr = await resp.json();
+        const sha = Array.isArray(arr) && arr[0]?.sha ? arr[0].sha : null;
+        if (sha) {
+          try {
+            localStorage.setItem(cacheKey, JSON.stringify({ sha, ts: Date.now() }));
+          } catch {
+            // ignore storage quota
+          }
+          return `https://raw.githubusercontent.com/${LIVE_REPO}/${sha}/data`;
+        }
+      }
+    } catch {
+      // fallback to branch-level raw URL if GitHub API rate-limited or unreachable
+    }
+    return `https://raw.githubusercontent.com/${LIVE_REPO}/${LIVE_BRANCH}/data`;
+  }
+
   async function loadAllData(isManual = false) {
     if (state.isRefreshing) return;
     state.isRefreshing = true;
@@ -841,15 +904,34 @@
 
     try {
       const bust = Date.now();
-      const [qResp, iResp, fResp] = await Promise.all([
-        fetch(`./data/quotes.json?t=${bust}`, { cache: "no-store" }),
-        fetch(`./data/insights.json?t=${bust}`, { cache: "no-store" }),
-        fetch(`./data/flash.json?t=${bust}`, { cache: "no-store" }),
+      const liveBasePromise = resolveLiveRawBaseUrl(isManual);
+
+      const localPromises = Promise.all([
+        fetchJsonSafe(`./data/quotes.json?t=${bust}`),
+        fetchJsonSafe(`./data/insights.json?t=${bust}`),
+        fetchJsonSafe(`./data/flash.json?t=${bust}`),
       ]);
 
-      if (qResp.ok) state.quotesData = await qResp.json();
-      if (iResp.ok) state.insightsData = await iResp.json();
-      if (fResp.ok) state.flashData = await fResp.json();
+      const liveBase = await liveBasePromise;
+      const isShaUrl = !liveBase.endsWith(`/${LIVE_BRANCH}/data`);
+      const qSuffix = isShaUrl ? "" : `?t=${bust}`;
+
+      const [[localQ, localI, localF], [liveQ, liveI, liveF]] = await Promise.all([
+        localPromises,
+        Promise.all([
+          fetchJsonSafe(`${liveBase}/quotes.json${qSuffix}`),
+          fetchJsonSafe(`${liveBase}/insights.json${qSuffix}`),
+          fetchJsonSafe(`${liveBase}/flash.json${qSuffix}`),
+        ]),
+      ]);
+
+      const nextQ = pickFresherPayload(liveQ, localQ, state.quotesData);
+      const nextI = pickFresherPayload(liveI, localI, state.insightsData);
+      const nextF = pickFresherPayload(liveF, localF, state.flashData);
+
+      if (nextQ) state.quotesData = nextQ;
+      if (nextI) state.insightsData = nextI;
+      if (nextF) state.flashData = nextF;
 
       renderHeaderMeta();
       renderFlashWire();

@@ -1,21 +1,28 @@
-name: Update Watchlist Quotes (Every 15m)
+name: Live Watchlist Quotes Daemon (Every 3m)
 
 on:
   schedule:
-    - cron: "2,17,32,47 * * * *"
+    - cron: "5 * * * *"
+    - cron: "35 * * * *"
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/update-quotes-15m.yml"
+      - "scripts/fetch_market_data.py"
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: market-data-sync
-  cancel-in-progress: false
+  group: live-quotes-daemon
+  cancel-in-progress: true
 
 jobs:
-  update-quotes:
+  stream-live-quotes:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 340
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -27,18 +34,70 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Fetch latest 15m quotes & Top-30 US Tech flash wire
-        run: python3 scripts/fetch_market_data.py --mode quotes
-
-      - name: Commit and push updated quotes & flash wire
+      - name: Continuous 3-minute quote & Tech-30 flash publisher (bridges GitHub cron lag)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/quotes.json data/flash.json
-          if git diff --staged --quiet; then
-            echo "No quote or flash changes to commit."
-            exit 0
-          fi
-          git commit -m "chore(data): update 15m quotes & tech30 flash [skip ci]"
-          git pull --rebase origin main
-          git push origin main
+          set -u
+          publish_live_branch() {
+            rm -rf /tmp/live-publish
+            mkdir -p /tmp/live-publish/data
+            cp data/quotes.json data/flash.json /tmp/live-publish/data/
+            if [ -f data/insights.json ]; then
+              cp data/insights.json /tmp/live-publish/data/
+            fi
+            (
+              cd /tmp/live-publish
+              git init -q -b live-data
+              git config user.name "github-actions[bot]"
+              git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+              git add data/
+              git commit -q -m "chore(live-data): update 3m quotes & flash [skip ci]"
+              git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git"
+              git push -q --force origin live-data
+            )
+          }
+
+          # Run up to 105 cycles × 3 minutes (~5h 15m) to completely bridge GitHub Actions cron delays
+          MAX_CYCLES=105
+          for ((i=1; i<=MAX_CYCLES; i++)); do
+            CYCLE_START=$(date +%s)
+            echo "=== [Cycle ${i}/${MAX_CYCLES}] $(TZ=Asia/Taipei date '+%Y-%m-%d %H:%M:%S TW') ==="
+
+            # Sync newer 6H insights.json from origin/main if available
+            git fetch -q origin main 2>/dev/null || true
+            python3 -c 'import json, subprocess; a=json.load(open("data/insights.json"))["generatedAt"] if __import__("os").path.exists("data/insights.json") else ""; b=json.loads(subprocess.check_output(["git","show","origin/main:data/insights.json"],text=True))["generatedAt"]; open("data/insights.json","w").write(subprocess.check_output(["git","show","origin/main:data/insights.json"],text=True)) if b>a else None' 2>/dev/null || true
+
+            # Auto-refresh insights if insights.json is older than 6.2 hours (safety net against 6H cron lag)
+            NEED_INSIGHTS=$(python3 -c 'import json, os, datetime as dt; age=((dt.datetime.now(dt.timezone.utc)-dt.datetime.fromisoformat(json.load(open("data/insights.json"))["generatedAt"])).total_seconds()/3600.0) if os.path.exists("data/insights.json") else 999; print("1" if age > 6.2 else "0")' 2>/dev/null || echo "0")
+
+            if [ "$NEED_INSIGHTS" = "1" ]; then
+              echo "[info] Insights > 6.2h old, running full refresh (--mode all)..."
+              python3 scripts/fetch_market_data.py --mode all || python3 scripts/fetch_market_data.py --mode quotes
+            else
+              python3 scripts/fetch_market_data.py --mode quotes || true
+            fi
+
+            if [ -f data/quotes.json ] && [ -f data/flash.json ]; then
+              publish_live_branch || echo "[warn] publish_live_branch transient error"
+              echo "[ok] Published live quotes & flash to branch live-data"
+            fi
+
+            # Check if US market is in full weekend closure (Sat or Sun before 17:30 ET)
+            SHOULD_STAY_AWAKE=$(python3 -c 'import datetime as dt; from zoneinfo import ZoneInfo; n=dt.datetime.now(ZoneInfo("America/New_York")); wd,hm=n.weekday(),n.hour*60+n.minute; print("0" if (wd==5 or (wd==6 and hm<1050) or (wd==4 and hm>=1215)) else "1")')
+
+            if [ "$SHOULD_STAY_AWAKE" = "0" ]; then
+              echo "[sleep] US markets in weekend closure; single sync done, exiting cleanly."
+              break
+            fi
+
+            if [ "$i" -lt "$MAX_CYCLES" ]; then
+              ELAPSED=$(( $(date +%s) - CYCLE_START ))
+              SLEEP_SEC=$(( 180 - ELAPSED ))
+              if [ "$SLEEP_SEC" -lt 20 ]; then
+                SLEEP_SEC=20
+              fi
+              sleep "$SLEEP_SEC"
+            fi
+          done
