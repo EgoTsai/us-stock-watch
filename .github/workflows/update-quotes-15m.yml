@@ -57,6 +57,9 @@ jobs:
               git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git"
               git push -q --force origin live-data
             )
+            curl -fsS "https://purge.jsdelivr.net/gh/${REPO}@live-data/data/quotes.json" >/dev/null 2>&1 || true
+            curl -fsS "https://purge.jsdelivr.net/gh/${REPO}@live-data/data/flash.json" >/dev/null 2>&1 || true
+            curl -fsS "https://purge.jsdelivr.net/gh/${REPO}@live-data/data/insights.json" >/dev/null 2>&1 || true
           }
 
           # Run up to 105 cycles × 3 minutes (~5h 15m) to completely bridge GitHub Actions cron delays

@@ -190,7 +190,7 @@
       "tags": [
         "AMZN"
       ],
-      "urgent": false,
+      "urgent": true,
       "isOutage": false,
       "isMacro": false,
       "affectsHoldings": false,

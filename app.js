@@ -1,11 +1,12 @@
 (() => {
   "use strict";
 
-  const REFRESH_INTERVAL_SEC = 3 * 60;
+  const REFRESH_INTERVAL_SEC = 60;
   const LIVE_REPO = "EgoTsai/us-stock-watch";
   const LIVE_BRANCH = "live-data";
 
   const state = {
+    baseQuotesData: null,
     quotesData: null,
     insightsData: null,
     flashData: null,
@@ -20,6 +21,7 @@
     theme: localStorage.getItem("us_watch_theme") || "light",
     secondsLeft: REFRESH_INTERVAL_SEC,
     isRefreshing: false,
+    realtimeActive: false,
   };
 
   // DOM Elements
@@ -137,11 +139,19 @@
     elStatusDot.classList.toggle("active", status.active);
 
     if (state.quotesData?.updatedAtTW) {
-      elQuotesUpdated.textContent = `股價更新：${state.quotesData.updatedAtTW} (每3分)`;
+      const modeTag = state.realtimeActive ? "(即時連線)" : "(每3分)";
+      elQuotesUpdated.textContent = `股價更新：${state.quotesData.updatedAtTW} ${modeTag}`;
     }
     if (state.insightsData?.updatedAtTW) {
       elInsightsUpdated.textContent = `頭條/情緒：${state.insightsData.updatedAtTW} (6H/開盤前10分)`;
     }
+  }
+
+  function parseEtMinutesFromOpen(etStr) {
+    if (!etStr || typeof etStr !== "string" || !etStr.includes(":")) return null;
+    const [hh, mm] = etStr.split(":").map((n) => parseInt(n, 10));
+    if (Number.isNaN(hh) || Number.isNaN(mm)) return null;
+    return Math.max(0, Math.min(390, hh * 60 + mm - 570));
   }
 
   // 1. Three Major US Indices
@@ -150,17 +160,24 @@
     if (!indices.length) return;
 
     const sessionDate = indices[0].sessionDate || "";
-    elIndicesSubtitle.textContent = `交易日 ${sessionDate} 正規盤完整走勢 (09:30–16:00 ET) · 漲綠跌紅`;
+    const anyLive = indices.some((idx) => idx.isLive);
+    const lastEt = indices[0].lastTimeET || "";
+    elIndicesSubtitle.textContent = anyLive
+      ? `交易日 ${sessionDate} 盤中即時走勢 (${lastEt} ET 更新) · 漲綠跌紅`
+      : `交易日 ${sessionDate} 正規盤收盤走勢 (09:30–16:00 ET) · 漲綠跌紅`;
 
     elIndicesContainer.innerHTML = indices
       .map((idx, i) => {
         const dirClass = idx.isUp ? "up" : "down";
+        const statusMetaHtml = idx.isLive
+          ? `<span class="live-idx-badge">● 盤中即時 ${escapeHtml(idx.lastTimeET || "")} ET</span>`
+          : `<span>${escapeHtml(idx.sessionDate)} 收盤</span>`;
         return `
           <article class="index-card">
             <div class="index-top">
               <div>
                 <div class="index-name">${escapeHtml(idx.name)}</div>
-                <div class="index-date">${escapeHtml(idx.enName)} · ${escapeHtml(idx.sessionDate)} 收盤</div>
+                <div class="index-date"><span>${escapeHtml(idx.enName)} ·</span>${statusMetaHtml}</div>
               </div>
               <span class="delta-pill ${dirClass}">
                 ${formatSignedNum(idx.change)} (${formatSignedPct(idx.changePct)})
@@ -221,7 +238,15 @@
     }
     const range = maxVal - minVal;
 
-    const xAt = (i) => padX + (i / (pts.length - 1)) * plotW;
+    const xAt = (i) => {
+      if (idxData.isLive) {
+        const m = parseEtMinutesFromOpen(pts[i]?.et);
+        if (m !== null) {
+          return padX + (m / 390) * plotW;
+        }
+      }
+      return padX + (i / (pts.length - 1)) * plotW;
+    };
     const yAt = (v) => padTop + (1 - (v - minVal) / range) * plotH;
 
     const isDark = state.theme === "dark";
@@ -273,6 +298,22 @@
     ctx.lineJoin = "round";
     ctx.stroke();
 
+    // Live pulsing tip dot during regular session
+    if (idxData.isLive && pts.length > 0) {
+      const lx = xAt(pts.length - 1);
+      const ly = yAt(pts[pts.length - 1].p);
+      ctx.save();
+      ctx.fillStyle = idxData.isUp ? "rgba(16, 185, 129, 0.25)" : "rgba(239, 68, 68, 0.25)";
+      ctx.beginPath();
+      ctx.arc(lx, ly, 6, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = lineColor;
+      ctx.beginPath();
+      ctx.arc(lx, ly, 2.8, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+
     ctx.fillStyle = isDark ? "#64748b" : "#94a3b8";
     ctx.font = '10px "JetBrains Mono", monospace';
     ctx.textAlign = "left";
@@ -315,8 +356,16 @@
       const handleMove = (clientX) => {
         const r = canvas.getBoundingClientRect();
         const relX = Math.max(0, Math.min(r.width, clientX - r.left));
-        const idx = Math.round((relX / r.width) * (pts.length - 1));
-        drawSingleIndexChart(canvas, tooltip, idxData, idx);
+        let bestIdx = 0;
+        let bestDist = Infinity;
+        for (let k = 0; k < pts.length; k++) {
+          const d = Math.abs(xAt(k) - relX);
+          if (d < bestDist) {
+            bestDist = d;
+            bestIdx = k;
+          }
+        }
+        drawSingleIndexChart(canvas, tooltip, idxData, bestIdx);
       };
       canvas.addEventListener("mousemove", (e) => handleMove(e.clientX));
       canvas.addEventListener("mouseleave", () => drawSingleIndexChart(canvas, tooltip, idxData, null));
@@ -924,6 +973,352 @@
     }
   }
 
+  const CNBC_INDEX_MAP = {
+    "^DJI": ".DJI",
+    "^IXIC": ".IXIC",
+    "^GSPC": ".SPX",
+  };
+
+  const CNBC_STOCK_MAP = {
+    "CL=F": "@CL.1",
+    "^VIX": ".VIX",
+  };
+
+  function round2(n) {
+    return Math.round(Number(n) * 100) / 100;
+  }
+
+  function parseCnbcNum(val) {
+    if (val === null || val === undefined || val === "") return null;
+    const cleaned = String(val).replace(/[,%]/g, "").trim();
+    if (!cleaned) return null;
+    const n = Number.parseFloat(cleaned);
+    return Number.isFinite(n) ? n : null;
+  }
+
+  function formatEtDateStr(ms) {
+    const parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: "America/New_York",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    }).formatToParts(new Date(ms));
+    const m = Object.fromEntries(parts.map((p) => [p.type, p.value]));
+    return `${m.year}-${m.month}-${m.day}`;
+  }
+
+  function formatEtHmStr(ms) {
+    const parts = new Intl.DateTimeFormat("en-GB", {
+      timeZone: "America/New_York",
+      hour: "2-digit",
+      minute: "2-digit",
+      hourCycle: "h23",
+    }).formatToParts(new Date(ms));
+    const m = Object.fromEntries(parts.map((p) => [p.type, p.value]));
+    return `${m.hour}:${m.minute}`;
+  }
+
+  function formatTwFullStr(ms) {
+    const parts = new Intl.DateTimeFormat("en-GB", {
+      timeZone: "Asia/Taipei",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hourCycle: "h23",
+    }).formatToParts(new Date(ms));
+    const m = Object.fromEntries(parts.map((p) => [p.type, p.value]));
+    return `${m.year}-${m.month}-${m.day} ${m.hour}:${m.minute}:${m.second}`;
+  }
+
+  function formatTwShortStr(ms) {
+    const parts = new Intl.DateTimeFormat("en-GB", {
+      timeZone: "Asia/Taipei",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      hourCycle: "h23",
+    }).formatToParts(new Date(ms));
+    const m = Object.fromEntries(parts.map((p) => [p.type, p.value]));
+    return `${m.month}/${m.day} ${m.hour}:${m.minute}`;
+  }
+
+  function getEtSessionCodeNow() {
+    try {
+      const parts = new Intl.DateTimeFormat("en-US", {
+        timeZone: "America/New_York",
+        weekday: "short",
+        hour: "2-digit",
+        minute: "2-digit",
+        hourCycle: "h23",
+      }).formatToParts(new Date());
+      const m = Object.fromEntries(parts.map((p) => [p.type, p.value]));
+      const wd = m.weekday;
+      const hm = parseInt(m.hour, 10) * 60 + parseInt(m.minute, 10);
+      if (wd === "Sat") return "WEEKEND";
+      if (wd === "Sun") return hm >= 1200 ? "OVERNIGHT" : "WEEKEND";
+      if (hm < 240) return "OVERNIGHT";
+      if (hm < 570) return "PRE";
+      if (hm < 960) return "REGULAR";
+      if (hm < 1200) return "POST";
+      return wd === "Fri" ? "WEEKEND" : "OVERNIGHT";
+    } catch {
+      return "REGULAR";
+    }
+  }
+
+  async function fetchCnbcIntradayIndexBars(cnbcSym, targetDateStr, closePrice, prevClose, lastTimeET, isLive, quoteTs) {
+    try {
+      const startYmd = formatEtDateStr(Date.now() - 5 * 86400_000).replace(/-/g, "");
+      const endYmd = formatEtDateStr(Date.now() + 86400_000).replace(/-/g, "");
+      const url = `https://ts-api.cnbc.com/harmony/app/bars/${encodeURIComponent(cnbcSym)}/5M/${startYmd}093000/${endYmd}160500/adjusted/EST5EDT.json?_=${Date.now()}`;
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), 4500);
+      const resp = await fetch(url, { cache: "no-store", signal: ctrl.signal });
+      clearTimeout(timer);
+      if (!resp.ok) return null;
+      const data = await resp.json();
+      const rawBars = data?.barData?.priceBars;
+      if (!Array.isArray(rawBars) || !rawBars.length) return null;
+
+      const byYmd = new Map();
+      for (const b of rawBars) {
+        const tt = String(b.tradeTime || "");
+        if (tt.length < 12) continue;
+        const ymd = tt.slice(0, 8);
+        const hhmmss = tt.slice(8, 14).padEnd(6, "0");
+        if (hhmmss < "093000" || hhmmss > "160000") continue;
+        const closeVal = Number.parseFloat(b.close);
+        if (!Number.isFinite(closeVal) || closeVal <= 0) continue;
+        const dtCheck = new Date(`${ymd.slice(0, 4)}-${ymd.slice(4, 6)}-${ymd.slice(6, 8)}T12:00:00Z`);
+        const dow = dtCheck.getUTCDay();
+        if (dow === 0 || dow === 6) continue;
+        if (!byYmd.has(ymd)) byYmd.set(ymd, []);
+        byYmd.get(ymd).push({
+          t: Math.floor((Number(b.tradeTimeinMills) || Date.now()) / 1000),
+          et: `${tt.slice(8, 10)}:${tt.slice(10, 12)}`,
+          p: round2(closeVal),
+        });
+      }
+
+      if (!byYmd.size) return null;
+      const wantedYmd = (targetDateStr || "").replace(/-/g, "");
+      const sortedYmds = Array.from(byYmd.keys()).sort();
+      const chosenYmd = byYmd.has(wantedYmd) ? wantedYmd : sortedYmds[sortedYmds.length - 1];
+      const pts = byYmd.get(chosenYmd) || [];
+      if (!pts.length) return null;
+
+      if (isLive) {
+        const tail = pts[pts.length - 1];
+        if (Math.abs(tail.p - closePrice) > 0.005 || tail.et !== lastTimeET) {
+          pts.push({ t: quoteTs || tail.t + 60, et: lastTimeET || tail.et, p: closePrice });
+        }
+        if (pts.length === 1) {
+          pts.unshift({ t: (quoteTs || Date.now() / 1000) - 60, et: "09:30", p: prevClose || closePrice });
+        }
+      } else if (Math.abs(pts[pts.length - 1].p - closePrice) > 0.01) {
+        pts.push({ t: pts[pts.length - 1].t + 60, et: "16:00", p: closePrice });
+      }
+
+      return {
+        sessionDate: `${chosenYmd.slice(0, 4)}-${chosenYmd.slice(4, 6)}-${chosenYmd.slice(6, 8)}`,
+        points: pts,
+      };
+    } catch {
+      return null;
+    }
+  }
+
+  async function applyRealtimeBrowserQuotes(quotesObj) {
+    if (!quotesObj || typeof quotesObj !== "object") return false;
+    try {
+      const idxList = quotesObj.indices || [];
+      const watchList = quotesObj.watchlist || [];
+      const cnbcSymbols = [
+        ...idxList.map((idx) => CNBC_INDEX_MAP[idx.symbol] || idx.symbol),
+        ...watchList.map((st) => CNBC_STOCK_MAP[st.symbol] || st.symbol),
+      ];
+      if (!cnbcSymbols.length) return false;
+
+      const url =
+        "https://quote.cnbc.com/quote-html-webservice/restQuote/symbolType/symbol?symbols=" +
+        encodeURIComponent(cnbcSymbols.join("|")) +
+        `&requestMethod=itv&noform=1&partnerId=2&fund=1&exthrs=1&output=json&events=1&_=${Date.now()}`;
+
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), 4500);
+      const resp = await fetch(url, { cache: "no-store", signal: ctrl.signal });
+      clearTimeout(timer);
+      if (!resp.ok) return false;
+
+      const payload = await resp.json();
+      const rawQuotes = payload?.FormattedQuoteResult?.FormattedQuote;
+      if (!Array.isArray(rawQuotes) || !rawQuotes.length) return false;
+
+      const qBySym = new Map();
+      for (const rq of rawQuotes) {
+        if (rq?.symbol) qBySym.set(String(rq.symbol).toUpperCase(), rq);
+      }
+
+      let anyUpdated = false;
+      const etSessionNow = getEtSessionCodeNow();
+
+      // 1. Update Three Major US Indices + fetch real-time 5M intraday charts in parallel
+      const barTasks = [];
+      for (const idxObj of idxList) {
+        const cSym = (CNBC_INDEX_MAP[idxObj.symbol] || idxObj.symbol).toUpperCase();
+        const cq = qBySym.get(cSym);
+        if (!cq) continue;
+
+        const regPrice = parseCnbcNum(cq.last);
+        const regMs = cq.last_time ? Date.parse(cq.last_time) : 0;
+        const regTs = regMs ? Math.floor(regMs / 1000) : 0;
+        if (regPrice === null) continue;
+
+        const mktStatus = String(cq.curmktstatus || "").toUpperCase();
+        const isLive = mktStatus === "REG_MKT";
+        const cnbcDate = regMs ? formatEtDateStr(regMs) : idxObj.sessionDate;
+        const cnbcHm = regMs ? formatEtHmStr(regMs) : idxObj.lastTimeET || "16:00";
+
+        if (regTs >= (idxObj.quoteTs || 0) - 5 || cnbcDate > (idxObj.sessionDate || "")) {
+          const prevC = parseCnbcNum(cq.previous_day_closing) ?? idxObj.prevClose ?? regPrice;
+          const chg = parseCnbcNum(cq.change) ?? regPrice - prevC;
+          const chgPct = parseCnbcNum(cq.change_pct) ?? (prevC ? (chg / prevC) * 100 : 0);
+          const hi = parseCnbcNum(cq.high);
+          const lo = parseCnbcNum(cq.low);
+
+          idxObj.close = round2(regPrice);
+          idxObj.prevClose = round2(prevC);
+          idxObj.change = round2(chg);
+          idxObj.changePct = round2(chgPct);
+          idxObj.high = round2(hi !== null ? Math.max(hi, regPrice) : Math.max(idxObj.high || regPrice, regPrice));
+          idxObj.low = round2(lo !== null ? Math.min(lo, regPrice) : Math.min(idxObj.low || regPrice, regPrice));
+          idxObj.isUp = idxObj.change >= 0;
+          idxObj.sessionDate = cnbcDate;
+          idxObj.isLive = isLive;
+          idxObj.statusLabel = isLive ? "盤中即時" : "收盤";
+          idxObj.lastTimeET = isLive ? cnbcHm : "16:00";
+          idxObj.quoteTs = regTs;
+          anyUpdated = true;
+
+          barTasks.push(
+            fetchCnbcIntradayIndexBars(cSym, cnbcDate, idxObj.close, idxObj.prevClose, idxObj.lastTimeET, isLive, regTs).then(
+              (barRes) => {
+                if (barRes?.points?.length >= 2) {
+                  idxObj.sessionDate = barRes.sessionDate;
+                  idxObj.points = barRes.points;
+                }
+              }
+            )
+          );
+        }
+      }
+
+      // 2. Update all 21 Watchlist stocks/ETFs/futures (preserving fresher Yahoo Overnight quotes during 20:00-04:00 ET)
+      for (const st of watchList) {
+        const cSym = (CNBC_STOCK_MAP[st.symbol] || st.symbol).toUpperCase();
+        const cq = qBySym.get(cSym);
+        if (!cq) continue;
+
+        const regPrice = parseCnbcNum(cq.last);
+        const regMs = cq.last_time ? Date.parse(cq.last_time) : 0;
+        const regTs = regMs ? Math.floor(regMs / 1000) : 0;
+        if (regPrice === null) continue;
+
+        const prevClose = parseCnbcNum(cq.previous_day_closing) ?? st.prevClose ?? regPrice;
+        const regChg = parseCnbcNum(cq.change) ?? regPrice - prevClose;
+        const regChgPct = parseCnbcNum(cq.change_pct) ?? (prevClose ? (regChg / prevClose) * 100 : 0);
+        const mktStatus = String(cq.curmktstatus || "").toUpperCase();
+
+        let bestTs = regTs;
+        let bestPrice = regPrice;
+        let bestSession = mktStatus === "REG_MKT" ? "盤中" : "收盤";
+        let useExtended = false;
+
+        const ext = cq.ExtendedMktQuote;
+        if (ext && mktStatus !== "REG_MKT" && st.symbol !== "^VIX" && st.symbol !== "CL=F") {
+          const extP = parseCnbcNum(ext.last);
+          const extMs = ext.last_time ? Date.parse(ext.last_time) : 0;
+          const extTs = extMs ? Math.floor(extMs / 1000) : 0;
+          if (extP !== null && extTs > regTs + 10) {
+            bestTs = extTs;
+            bestPrice = extP;
+            const extType = String(ext.type || "").toUpperCase();
+            bestSession = extType.includes("PRE") ? "盤前" : "盤後";
+            useExtended = true;
+          }
+        }
+
+        if (st.symbol === "CL=F") {
+          if (mktStatus === "REG_MKT") {
+            if (etSessionNow === "OVERNIGHT") bestSession = "期貨夜盤";
+            else if (etSessionNow === "PRE") bestSession = "期貨盤前";
+            else bestSession = "期貨盤中";
+          } else {
+            bestSession = "期貨收盤";
+          }
+        } else if (st.symbol === "^VIX") {
+          bestSession = mktStatus === "REG_MKT" ? "盤中" : "收盤";
+        }
+
+        // Only apply if CNBC quote is at least as fresh as existing quoteTs (preserves Blue Ocean ATS 夜盤!)
+        if (bestTs >= (st.quoteTs || 0) - 5) {
+          let chg = regChg;
+          let chgPct = regChgPct;
+          let extDiffPct = null;
+
+          if (useExtended) {
+            extDiffPct = parseCnbcNum(ext.change_pct) ?? (regPrice ? ((bestPrice - regPrice) / regPrice) * 100 : 0);
+            if (bestSession === "盤前") {
+              chg = parseCnbcNum(ext.change) ?? bestPrice - regPrice;
+              chgPct = extDiffPct;
+            } else {
+              const base = prevClose || regPrice;
+              chg = bestPrice - base;
+              chgPct = base ? (chg / base) * 100 : 0;
+            }
+          }
+
+          const hi = parseCnbcNum(cq.high);
+          const lo = parseCnbcNum(cq.low);
+
+          st.price = round2(bestPrice);
+          st.prevClose = round2(prevClose);
+          st.regularPrice = round2(regPrice);
+          st.regularChangePct = round2(regChgPct);
+          st.change = round2(chg);
+          st.changePct = round2(chgPct);
+          st.extChangePct = extDiffPct !== null ? round2(extDiffPct) : null;
+          st.isUp = st.changePct >= 0;
+          st.session = bestSession;
+          st.quoteTs = bestTs;
+          if (bestTs > 0) st.updatedAt = formatTwShortStr(bestTs * 1000);
+          if (hi !== null) st.dayHigh = round2(Math.max(hi, bestPrice));
+          if (lo !== null) st.dayLow = round2(Math.min(lo, bestPrice));
+
+          if (Array.isArray(st.sparkline) && st.sparkline.length >= 2) {
+            st.sparkline[st.sparkline.length - 1] = st.price;
+          }
+          anyUpdated = true;
+        }
+      }
+
+      if (barTasks.length > 0) {
+        await Promise.all(barTasks);
+      }
+
+      if (anyUpdated) {
+        quotesObj.updatedAtTW = formatTwFullStr(Date.now());
+      }
+      return anyUpdated;
+    } catch {
+      return false;
+    }
+  }
+
   async function resolveLiveRawBaseUrl(isManual = false) {
     const cacheKey = "us_watch_live_sha_v1";
     if (!isManual) {
@@ -939,7 +1334,7 @@
 
     try {
       const ctrl = new AbortController();
-      const timer = setTimeout(() => ctrl.abort(), 3500);
+      const timer = setTimeout(() => ctrl.abort(), 3000);
       const refUrl = `https://api.github.com/repos/${LIVE_REPO}/commits?sha=${LIVE_BRANCH}&per_page=1&_=${Date.now()}`;
       const resp = await fetch(refUrl, { cache: "no-store", signal: ctrl.signal });
       clearTimeout(timer);
@@ -956,7 +1351,7 @@
         }
       }
     } catch {
-      // fallback to branch-level raw URL if GitHub API rate-limited or unreachable
+      // fallback to jsDelivr + branch raw URL if GitHub API rate-limited
     }
     return `https://raw.githubusercontent.com/${LIVE_REPO}/${LIVE_BRANCH}/data`;
   }
@@ -965,11 +1360,19 @@
     if (state.isRefreshing) return;
     state.isRefreshing = true;
     elBtnRefresh.disabled = true;
-    elRefreshText.textContent = "同步中…";
+    elRefreshText.textContent = "即時同步中…";
 
     try {
       const bust = Date.now();
-      const liveBasePromise = resolveLiveRawBaseUrl(isManual);
+      const jsDelivrBase = `https://cdn.jsdelivr.net/gh/${LIVE_REPO}@${LIVE_BRANCH}/data`;
+      if (isManual) {
+        await Promise.race([
+          fetch(`https://purge.jsdelivr.net/gh/${LIVE_REPO}@${LIVE_BRANCH}/data/quotes.json`, { cache: "no-store" }).catch(
+            () => {}
+          ),
+          new Promise((r) => setTimeout(r, 350)),
+        ]);
+      }
 
       const localPromises = Promise.all([
         fetchJsonSafe(`./data/quotes.json?t=${bust}`),
@@ -977,24 +1380,38 @@
         fetchJsonSafe(`./data/flash.json?t=${bust}`),
       ]);
 
-      const liveBase = await liveBasePromise;
-      const isShaUrl = !liveBase.endsWith(`/${LIVE_BRANCH}/data`);
-      const qSuffix = isShaUrl ? "" : `?t=${bust}`;
+      const cdnPromises = Promise.all([
+        fetchJsonSafe(`${jsDelivrBase}/quotes.json?t=${bust}`),
+        fetchJsonSafe(`${jsDelivrBase}/insights.json?t=${bust}`),
+        fetchJsonSafe(`${jsDelivrBase}/flash.json?t=${bust}`),
+      ]);
 
-      const [[localQ, localI, localF], [liveQ, liveI, liveF]] = await Promise.all([
-        localPromises,
-        Promise.all([
+      const [[localQ, localI, localF], [cdnQ, cdnI, cdnF]] = await Promise.all([localPromises, cdnPromises]);
+
+      let liveQ = null;
+      let liveI = null;
+      let liveF = null;
+      if (!cdnQ) {
+        const liveBase = await resolveLiveRawBaseUrl(isManual);
+        const isShaUrl = !liveBase.endsWith(`/${LIVE_BRANCH}/data`);
+        const qSuffix = isShaUrl ? "" : `?t=${bust}`;
+        [liveQ, liveI, liveF] = await Promise.all([
           fetchJsonSafe(`${liveBase}/quotes.json${qSuffix}`),
           fetchJsonSafe(`${liveBase}/insights.json${qSuffix}`),
           fetchJsonSafe(`${liveBase}/flash.json${qSuffix}`),
-        ]),
-      ]);
+        ]);
+      }
 
-      const nextQ = pickFresherPayload(liveQ, localQ, state.quotesData);
-      const nextI = pickFresherPayload(liveI, localI, state.insightsData);
-      const nextF = pickFresherPayload(liveF, localF, state.flashData);
+      const nextBaseQ = pickFresherPayload(cdnQ, liveQ, localQ, state.baseQuotesData);
+      const nextI = pickFresherPayload(cdnI, liveI, localI, state.insightsData);
+      const nextF = pickFresherPayload(cdnF, liveF, localF, state.flashData);
 
-      if (nextQ) state.quotesData = nextQ;
+      if (nextBaseQ) {
+        state.baseQuotesData = nextBaseQ;
+        const workingQ = JSON.parse(JSON.stringify(nextBaseQ));
+        state.realtimeActive = await applyRealtimeBrowserQuotes(workingQ);
+        state.quotesData = workingQ;
+      }
       if (nextI) state.insightsData = nextI;
       if (nextF) state.flashData = nextF;
 
@@ -1015,7 +1432,7 @@
       elBtnRefresh.disabled = false;
       updateCountdownLabel();
       if (isManual) {
-        elRefreshText.textContent = "已更新 ✓";
+        elRefreshText.textContent = "已即時更新 ✓";
         setTimeout(updateCountdownLabel, 1400);
       }
     }

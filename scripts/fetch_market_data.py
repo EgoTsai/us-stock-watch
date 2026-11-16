@@ -500,6 +500,8 @@ def build_index_data(yc: YahooClient, idx_cfg: dict, q_map: dict[str, dict]) -> 
         h = highs[i] if i < len(highs) and highs[i] is not None else c
         l = lows[i] if i < len(lows) and lows[i] is not None else c
         d_et = dt.datetime.fromtimestamp(ts, NY_TZ)
+        if d_et.weekday() >= 5:
+            continue
         hm = d_et.hour * 60 + d_et.minute
         if 9 * 60 + 30 <= hm <= 16 * 60 + 5:
             d_key = d_et.strftime("%Y-%m-%d")
@@ -511,34 +513,65 @@ def build_index_data(yc: YahooClient, idx_cfg: dict, q_map: dict[str, dict]) -> 
     hm_now = now_et.hour * 60 + now_et.minute
 
     target_date = sorted_dates[-1] if sorted_dates else today_key
-    if target_date == today_key and hm_now < 16 * 60 and len(sorted_dates) >= 2:
+    if not by_date.get(target_date) and len(sorted_dates) >= 2:
         target_date = sorted_dates[-2]
 
     bars = by_date.get(target_date, [])
     target_idx = sorted_dates.index(target_date) if target_date in sorted_dates else -1
     prev_bars = by_date[sorted_dates[target_idx - 1]] if target_idx > 0 else []
 
-    q_reg_time = q.get("regularMarketTime") or 0
+    q_reg_time = int(q.get("regularMarketTime") or 0)
     q_reg_date = dt.datetime.fromtimestamp(q_reg_time, NY_TZ).strftime("%Y-%m-%d") if q_reg_time else ""
+    market_state = (q.get("marketState") or "").upper()
+    is_live = bool(
+        (target_date == today_key or q_reg_date == today_key)
+        and now_et.weekday() < 5
+        and (market_state == "REGULAR" or (9 * 60 + 30 <= hm_now < 16 * 60))
+    )
 
     if q_reg_date == target_date and q.get("regularMarketPrice") is not None:
         close_price = round(float(q["regularMarketPrice"]), 2)
         prev_close = round(float(q.get("regularMarketPreviousClose") or (prev_bars[-1][1] if prev_bars else close_price)), 2)
+    elif is_live and q.get("regularMarketPrice") is not None:
+        target_date = q_reg_date or today_key
+        close_price = round(float(q["regularMarketPrice"]), 2)
+        prev_close = round(float(q.get("regularMarketPreviousClose") or (bars[-1][1] if bars else close_price)), 2)
+        bars = by_date.get(target_date, [])
     else:
         close_price = round(bars[-1][1], 2) if bars else round(float(q.get("regularMarketPrice") or 0), 2)
         prev_close = round(prev_bars[-1][1], 2) if prev_bars else round(float(q.get("regularMarketPreviousClose") or close_price), 2)
 
     change = round(close_price - prev_close, 2)
     change_pct = round((change / prev_close * 100) if prev_close else 0.0, 2)
-    day_high = round(max((b[2] for b in bars), default=close_price), 2)
-    day_low = round(min((b[3] for b in bars), default=close_price), 2)
+    bar_high = max((b[2] for b in bars), default=close_price)
+    bar_low = min((b[3] for b in bars), default=close_price)
+    if q_reg_date == target_date:
+        if q.get("regularMarketDayHigh") is not None:
+            bar_high = max(bar_high, float(q["regularMarketDayHigh"]), close_price)
+        if q.get("regularMarketDayLow") is not None:
+            bar_low = min(bar_low, float(q["regularMarketDayLow"]), close_price)
+    day_high = round(bar_high, 2)
+    day_low = round(bar_low, 2)
 
     points = []
     for ts, c, _, _ in bars:
         t_et = dt.datetime.fromtimestamp(ts, NY_TZ).strftime("%H:%M")
         points.append({"t": ts, "et": t_et, "p": round(c, 2)})
-    if points and abs(points[-1]["p"] - close_price) > 0.01:
-        points.append({"t": points[-1]["t"] + 60, "et": "16:00", "p": close_price})
+
+    if is_live:
+        live_ts = q_reg_time or int(now_et.timestamp())
+        live_et = dt.datetime.fromtimestamp(live_ts, NY_TZ).strftime("%H:%M")
+        if not points or abs(points[-1]["p"] - close_price) > 0.005 or points[-1]["et"] != live_et:
+            points.append({"t": live_ts, "et": live_et, "p": close_price})
+        if len(points) == 1:
+            open_val = round(float(q.get("regularMarketOpen") or prev_close), 2)
+            points.insert(0, {"t": live_ts - 60, "et": "09:30", "p": open_val})
+    else:
+        if points and abs(points[-1]["p"] - close_price) > 0.01:
+            points.append({"t": points[-1]["t"] + 60, "et": "16:00", "p": close_price})
+
+    last_time_et = points[-1]["et"] if points else ("16:00" if not is_live else now_et.strftime("%H:%M"))
+    quote_ts = q_reg_time or (points[-1]["t"] if points else 0)
 
     return {
         "symbol": sym,
@@ -546,6 +579,10 @@ def build_index_data(yc: YahooClient, idx_cfg: dict, q_map: dict[str, dict]) -> 
         "name": idx_cfg["name"],
         "enName": idx_cfg["enName"],
         "sessionDate": target_date,
+        "isLive": is_live,
+        "statusLabel": "盤中即時" if is_live else "收盤",
+        "lastTimeET": last_time_et,
+        "quoteTs": int(quote_ts),
         "close": close_price,
         "prevClose": prev_close,
         "change": change,
@@ -694,6 +731,8 @@ def build_stock_quote(yc: YahooClient, item_cfg: dict, q_map: dict[str, dict]) -
         "changePct": round(change_pct, 2),
         "isUp": change_pct >= 0,
         "session": session_label,
+        "quoteTs": int(latest_ts),
+        "prevClose": round(float(reg_prev_close), 2),
         "updatedAt": dt.datetime.fromtimestamp(latest_ts, TW_TZ).strftime("%m/%d %H:%M") if latest_ts else "",
         "regularPrice": round(float(reg_price), 2),
         "regularChangePct": round(reg_change_pct, 2),
