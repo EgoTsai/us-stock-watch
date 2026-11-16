@@ -328,7 +328,7 @@ WATCHLIST = [
 TABLOID_BLACKLIST = [
     "炎亞綸", "男友", "女友", "女星", "男星", "藝人", "娛樂", "星座", "生肖", "命理", "風水", "減肥", "糖尿病", "八點檔",
     "股市爆料同學會", "爆料同學會", "[free-tv]", "ncaa", "college football", "live stream",
-    "stock price, news, quote", "quote & history", " by tk ",
+    "stock price, news, quote", "quote & history", " by tk ", "#導購推薦", "本影片講述了",
 ]
 
 TIER1_SOURCES = {
@@ -706,7 +706,7 @@ def build_stock_quote(yc: YahooClient, item_cfg: dict, q_map: dict[str, dict]) -
     }
 
 
-_TRANSLATE_SEM = threading.Semaphore(3)
+_TRANSLATE_SEM = threading.Semaphore(2)
 _TRANSLATE_CACHE: dict[str, str] = {}
 
 ALLOWED_EN_TERMS = {
@@ -719,6 +719,7 @@ ALLOWED_EN_TERMS = {
     "oracle", "orcl", "netflix", "nflx", "salesforce", "crm", "cisco", "csco", "ibm", "palantir", "pltr",
     "spacex", "spcx", "starlink", "uber", "adobe", "adbe", "crowdstrike", "crwd", "linux", "gcc",
     "voo", "qqq", "tqqq", "soxl", "boxx", "iau", "ibit", "uco", "wti", "nymex", "opec", "vix", "nasdaq",
+    "vanguard", "russell", "invesco", "proshares", "ishares", "blackrock", "spdr", "vonv", "nyse",
 }
 
 
@@ -731,13 +732,17 @@ def needs_zh_translation(text: str) -> bool:
         return False
     cjk_cnt = cjk_char_count(text)
     if cjk_cnt == 0:
-        return True
+        return bool(re.search(r"[A-Za-z]{3,}", text))
     en_words = [w.lower() for w in re.findall(r"[A-Za-z]{2,}", text)]
     ordinary_en = [w for w in en_words if w not in ALLOWED_EN_TERMS]
     if cjk_cnt < 4 and len(ordinary_en) >= 2:
         return True
-    if len(ordinary_en) >= 4:
+    if len(ordinary_en) >= 4 and len(ordinary_en) > cjk_cnt * 0.35:
         return True
+    for clause in re.findall(r"(?:[A-Za-z][A-Za-z0-9'-]*[\s,;:]+){3,}[A-Za-z][A-Za-z0-9'-]*", text):
+        c_words = [w.lower() for w in re.findall(r"[A-Za-z]{2,}", clause)]
+        if sum(1 for w in c_words if w not in ALLOWED_EN_TERMS) >= 3:
+            return True
     return False
 
 
@@ -758,6 +763,34 @@ def post_polish_zh(text: str) -> str:
     return text.strip()
 
 
+def _translate_single_call(chunk: str) -> str:
+    q = urllib.parse.quote(chunk)
+    for attempt in range(2):
+        try:
+            url = f"https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=zh-TW&dt=t&q={q}"
+            req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+            raw = json.loads(urllib.request.urlopen(req, timeout=7).read().decode("utf-8"))
+            out = post_polish_zh("".join(seg[0] for seg in raw[0] if seg and seg[0]))
+            if cjk_char_count(out) >= 2:
+                time.sleep(0.05)
+                return out
+        except Exception:
+            time.sleep(0.35 * (attempt + 1))
+
+    try:
+        url2 = f"https://clients5.google.com/translate_a/t?client=dict-chrome-ex&sl=en&tl=zh-TW&q={q}"
+        req2 = urllib.request.Request(url2, headers={"User-Agent": USER_AGENT})
+        raw2 = json.loads(urllib.request.urlopen(req2, timeout=7).read().decode("utf-8"))
+        if isinstance(raw2, list) and raw2:
+            first = raw2[0]
+            out2 = post_polish_zh(first[0] if isinstance(first, list) else str(first))
+            if cjk_char_count(out2) >= 2:
+                return out2
+    except Exception:
+        pass
+    return post_polish_zh(chunk)
+
+
 def translate_en_to_zhtw(text: str) -> str:
     text = (text or "").strip()
     if not text:
@@ -771,35 +804,23 @@ def translate_en_to_zhtw(text: str) -> str:
         if text in _TRANSLATE_CACHE:
             return _TRANSLATE_CACHE[text]
 
-        q = urllib.parse.quote(text)
-        # Primary endpoint: translate.googleapis.com (sl=en preserves existing Chinese while translating all English phrases)
-        for attempt in range(2):
-            try:
-                url = f"https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=zh-TW&dt=t&q={q}"
-                req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-                raw = json.loads(urllib.request.urlopen(req, timeout=7).read().decode("utf-8"))
-                out = post_polish_zh("".join(seg[0] for seg in raw[0] if seg and seg[0]))
-                if cjk_char_count(out) >= 2:
-                    _TRANSLATE_CACHE[text] = out
-                    return out
-            except Exception:
-                time.sleep(0.35 * (attempt + 1))
+        out = _translate_single_call(text)
+        # If multi-sentence output still leaves an untranslated English sentence, translate sentence-by-sentence
+        if needs_zh_translation(out):
+            parts = re.split(r"(?<=[。！？.!?])\s*", out)
+            if len(parts) > 1:
+                fixed_parts = [
+                    _translate_single_call(p) if needs_zh_translation(p) else post_polish_zh(p)
+                    for p in parts
+                    if p.strip()
+                ]
+                out = "".join(
+                    fp if fp.endswith(("。", "！", "？", "…", ".")) else fp + " "
+                    for fp in fixed_parts
+                ).strip()
 
-        # Secondary fallback endpoint: clients5.google.com
-        try:
-            url2 = f"https://clients5.google.com/translate_a/t?client=dict-chrome-ex&sl=en&tl=zh-TW&q={q}"
-            req2 = urllib.request.Request(url2, headers={"User-Agent": USER_AGENT})
-            raw2 = json.loads(urllib.request.urlopen(req2, timeout=7).read().decode("utf-8"))
-            if isinstance(raw2, list) and raw2:
-                first = raw2[0]
-                out2 = post_polish_zh(first[0] if isinstance(first, list) else str(first))
-                if cjk_char_count(out2) >= 2:
-                    _TRANSLATE_CACHE[text] = out2
-                    return out2
-        except Exception:
-            pass
-
-    return post_polish_zh(text)
+        _TRANSLATE_CACHE[text] = out
+        return out
 
 
 def extract_clean_summary(raw_desc: str, clean_title: str) -> str:

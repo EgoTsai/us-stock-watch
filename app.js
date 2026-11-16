@@ -785,15 +785,16 @@
   // Client-side safety net: auto-translates any news title/summary that still contains untranslated English sentences
   const clientZhCache = new Map();
   const ALLOWED_EN_SET = new Set([
-    "ai", "agi", "llm", "gpu", "cpu", "tpu", "npu", "asic", "hbm", "hbm3e", "dram", "cowos",
-    "etf", "adr", "ipo", "ceo", "cfo", "fed", "fomc", "cpi", "pce", "gdp", "sec", "doj", "ftc",
+    "ai", "agi", "llm", "gpu", "cpu", "tpu", "npu", "asic", "hbm", "hbm3e", "hbm4", "dram", "nand", "cowos",
+    "etf", "adr", "ipo", "ceo", "cfo", "coo", "fed", "fomc", "cpi", "pce", "gdp", "sec", "doj", "ftc",
     "aws", "azure", "gcp", "openai", "chatgpt", "gemini", "claude", "llama", "deepseek", "anthropic",
-    "apple", "iphone", "ipad", "mac", "microsoft", "windows", "nvidia", "nvda", "blackwell", "rubin",
+    "apple", "iphone", "ipad", "mac", "macbook", "ios", "microsoft", "windows", "nvidia", "nvda", "blackwell", "rubin",
     "google", "alphabet", "goog", "waymo", "youtube", "meta", "tesla", "tsla", "fsd", "optimus", "cybercab",
     "tsmc", "tsm", "amd", "avgo", "broadcom", "intel", "intc", "micron", "mu", "qualcomm", "qcom",
     "oracle", "orcl", "netflix", "nflx", "salesforce", "crm", "cisco", "csco", "ibm", "palantir", "pltr",
     "spacex", "spcx", "starlink", "uber", "adobe", "adbe", "crowdstrike", "crwd", "linux", "gcc",
     "voo", "qqq", "tqqq", "soxl", "boxx", "iau", "ibit", "uco", "wti", "nymex", "opec", "vix", "nasdaq",
+    "vanguard", "russell", "invesco", "proshares", "ishares", "blackrock", "spdr", "vonv", "nyse",
   ]);
 
   function textNeedsZh(str) {
@@ -802,7 +803,91 @@
     if (cjk === 0) return /[A-Za-z]{3,}/.test(str);
     const words = (str.match(/[A-Za-z]{2,}/g) || []).map((w) => w.toLowerCase());
     const ordinary = words.filter((w) => !ALLOWED_EN_SET.has(w));
-    return (cjk < 4 && ordinary.length >= 2) || ordinary.length >= 5;
+    if (cjk < 4 && ordinary.length >= 2) return true;
+    if (ordinary.length >= 4 && ordinary.length > cjk * 0.35) return true;
+    const clauses = str.match(/(?:[A-Za-z][A-Za-z0-9'-]*[\s,;:]+){3,}[A-Za-z][A-Za-z0-9'-]*/g) || [];
+    for (const cl of clauses) {
+      const cw = (cl.match(/[A-Za-z]{2,}/g) || []).map((w) => w.toLowerCase());
+      if (cw.filter((w) => !ALLOWED_EN_SET.has(w)).length >= 3) return true;
+    }
+    return false;
+  }
+
+  async function translateChunkClient(chunk) {
+    const raw = (chunk || "").trim();
+    if (!raw || !textNeedsZh(raw)) return raw;
+    if (clientZhCache.has(raw)) return clientZhCache.get(raw);
+    try {
+      const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=zh-TW&dt=t&q=${encodeURIComponent(raw)}`;
+      const resp = await fetch(url);
+      if (!resp.ok) return raw;
+      const data = await resp.json();
+      const zh = (data[0] || [])
+        .map((seg) => (seg && seg[0] ? seg[0] : ""))
+        .join("")
+        .replace(/英偉達/g, "輝達")
+        .replace(/美聯儲/g, "聯準會")
+        .trim();
+      if (zh && /[\u4e00-\u9fff]/.test(zh)) {
+        clientZhCache.set(raw, zh);
+        return zh;
+      }
+    } catch {
+      // Ignore transient client fetch error
+    }
+    return raw;
+  }
+
+  async function translateTextClient(raw) {
+    const trimmed = (raw || "").trim();
+    if (!trimmed || !textNeedsZh(trimmed)) return trimmed;
+    let out = await translateChunkClient(trimmed);
+    if (textNeedsZh(out)) {
+      const parts = out.split(/(?<=[。！？.!?])\s*/).filter(Boolean);
+      if (parts.length > 1) {
+        const fixed = [];
+        for (const p of parts) {
+          fixed.push(textNeedsZh(p) ? await translateChunkClient(p) : p);
+        }
+        out = fixed.join(" ").trim();
+        clientZhCache.set(trimmed, out);
+      }
+    }
+    return out;
+  }
+
+  async function sanitizeDataTranslations() {
+    const tasks = [];
+    const queueField = (obj, key) => {
+      if (obj && typeof obj[key] === "string" && textNeedsZh(obj[key])) {
+        tasks.push(
+          translateTextClient(obj[key]).then((zh) => {
+            obj[key] = zh;
+          })
+        );
+      }
+    };
+
+    if (state.flashData?.items) {
+      for (const it of state.flashData.items) queueField(it, "title");
+    }
+    if (state.insightsData?.marketHeadlines) {
+      for (const h of state.insightsData.marketHeadlines) {
+        queueField(h, "title");
+        queueField(h, "summary");
+      }
+    }
+    if (state.insightsData?.stocks) {
+      for (const st of Object.values(state.insightsData.stocks)) {
+        for (const h of st.headlines || []) {
+          queueField(h, "title");
+          queueField(h, "summary");
+        }
+      }
+    }
+    if (tasks.length > 0) {
+      await Promise.all(tasks);
+    }
   }
 
   async function hydrateUntranslatedDom() {
@@ -810,28 +895,8 @@
     for (const el of nodes) {
       const raw = (el.textContent || "").trim();
       if (!textNeedsZh(raw)) continue;
-      if (clientZhCache.has(raw)) {
-        el.textContent = clientZhCache.get(raw);
-        continue;
-      }
-      try {
-        const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=zh-TW&dt=t&q=${encodeURIComponent(raw)}`;
-        const resp = await fetch(url);
-        if (!resp.ok) continue;
-        const data = await resp.json();
-        const zh = (data[0] || [])
-          .map((seg) => (seg && seg[0] ? seg[0] : ""))
-          .join("")
-          .replace(/英偉達/g, "輝達")
-          .replace(/美聯儲/g, "聯準會")
-          .trim();
-        if (zh && /[\u4e00-\u9fff]/.test(zh)) {
-          clientZhCache.set(raw, zh);
-          el.textContent = zh;
-        }
-      } catch {
-        // Ignore transient client fetch error
-      }
+      const zh = await translateTextClient(raw);
+      if (zh && zh !== raw) el.textContent = zh;
     }
   }
 
@@ -933,13 +998,15 @@
       if (nextI) state.insightsData = nextI;
       if (nextF) state.flashData = nextF;
 
+      await sanitizeDataTranslations();
+
       renderHeaderMeta();
       renderFlashWire();
       renderIndices();
       renderMarketHeadlines();
       renderWatchlist();
       renderCioAdvisory();
-      hydrateUntranslatedDom();
+      await hydrateUntranslatedDom();
       state.secondsLeft = REFRESH_INTERVAL_SEC;
     } catch (err) {
       console.error("Failed to load watchlist data:", err);

@@ -1,13 +1,29 @@
 {
-  "generatedAt": "2026-11-16T04:31:14.416965+00:00",
-  "updatedAtTW": "2026-11-16 12:31",
+  "generatedAt": "2026-11-16T05:14:00.969931+00:00",
+  "updatedAtTW": "2026-11-16 13:14",
   "refreshIntervalMinutes": 3,
   "universeNote": "嚴選美國前 30 大市值科技股動態 ＆ 聯準會升降息/重大宏觀政策快報",
   "items": [
     {
+      "title": "微軟Windows本機AI模型將改用Aion Instruct，輸入上下文上限擴大逾9倍",
+      "source": "iThome",
+      "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9tMC1TOHZlUkhFc1JYV3dZWFhXQzJfVDhjaVVvUGV1MHFPTGpzUlZzQThvbnFpQ010QllQMGR3eUIxYUlDd2huZGp4NVR2Zw?oc=5",
+      "tags": [
+        "MSFT"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": false,
+      "timeTW": "11/16 12:48",
+      "clockTW": "12:48",
+      "age": "26分鐘前",
+      "pubTs": 1794804513
+    },
+    {
       "title": "Meta 旗下 Muse AI 升級 能替用戶打電話訂位預約",
-      "source": "LIFE 生活網",
-      "url": "https://news.google.com/rss/articles/CBMijwJBVV95cUxPMklIZnhkbWFfSTR4cjQ3TTdwdHZ1YXgzZkYwU2psQ1dNOXNENnNZUGluTXpDWUZ4T2ZuWDhRWFZ6anpqSm5CSWlUSGd3QXlHcks5WDYzR251T0tpV0FUUmpzTnAxd2RBRndQMGx1YjNiNjlmcXR2WHdqSS1uVGtWYU5kNmMxZDk3Z0NBY01BdU9SX25yOF9pcWZkMU11VlEwcUxlN1RiOVZTdmFIQ1NycnAxUnhrZGI5ZzM0aE0ya1RLZUlqS3M1d2k5WExmci1NRnNfc3dSQTZyZkR3ZlBLbDdxMUxPT0hFV1c5b0Fpdkt2ZUVGN3hFOU8xd1Z6c1dYS2w5QkhxRFZsSlhuVXBB?oc=5",
+      "source": "Yahoo股市",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNbmg2RDJ2QUVHOWhaamZZWjJ6VXk5S0dnVFdVTG1WNkNGYXptTWJvcGxlUXJJd2E5TWI0NnU1MTd4MDRvTEh5VFVPLWdSYkZ3Y2xxV3hiQ0VmUFRoMHh3U0lYMVJmYS1LbFRuSFRYaHFGUS0wS01aZW9nWlJBcnRXUUpZN0tKZ054alJiaHduc1dJQWYzSU9sS2RuMnVEdw?oc=5",
       "tags": [
         "META"
       ],
@@ -15,26 +31,26 @@
       "isOutage": false,
       "isMacro": false,
       "affectsHoldings": false,
-      "timeTW": "11/16 12:19",
-      "clockTW": "12:19",
-      "age": "11分鐘前",
-      "pubTs": 1794802785
+      "timeTW": "11/16 12:30",
+      "clockTW": "12:30",
+      "age": "44分鐘前",
+      "pubTs": 1794803400
     },
     {
-      "title": "黃仁勳要回歸？輝達股價還能重新站上200美元嗎？｜點經",
-      "source": "香港01",
-      "url": "https://news.google.com/rss/articles/CBMihANBVV95cUxQVlo2SENCMTIwd1NaS2ZsMjBMdkM2V1pjZVdfLUoyYVR2akktT0VoY2Z4SGFIRGFrZ0E5bmliU3dfdjdKNDg5TFRUc1NQcG5CNjBkWlZJbFdMeTJreDdjaXExMUVNcWdQQTM0MXp4bWNEdnYxSjczUG5FUlI3R2lVcmRPQk15cnZ5MTRhekdqMTg0Tklodlh0WFNiQVRrRWV3dnIzMTNHNnhWaHZJMjNBZkQ2YkV3VDdLQnBMd1BWS0N5M3RvdE1wb2pMYWx0aFc2a2xlV2RvNzQzdkdfMFFrNlplcDNOREhCZVpxVUlHSTZzNVAtNjJmeUt2a2VvaW10TWJ6Y29aZzF0dV9rRXlubkJOa09Ocm9VU2FpWUFIZjFvZkJEVnRkWndTQjVJRU85THF6N3YyVFFac2R2NVlKRWU1X0FIekZVMjZKc2o4c0VWVENyR2plWjBYVGdVVnpUSUlIbFRkWHF1eUowRTdhVDU2bXJLdVNiSVNyT1M5RUdTNTdB?oc=5",
+      "title": "輝達財報倒數 黃仁勳不在了訂單還在嗎？4大看點總整理",
+      "source": "緯來新聞網",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPazNCS2lISmo1TU1nX2ltbEZzU2E5OG1EM3NwbWx0TUZpTWkzb0tkUVJCMjZVSGwyZ3VzbGZlbUo4OFNlYVFlR2p3Y0M1OEFUa0g0SlN3YUJnY0I5a1dORVYyNjNQQ2I4NlpsdTJvVzBwbUF5ZDlnYXBGOTlGQVBoZmhDVjJsUQ?oc=5",
       "tags": [
         "NVDA"
       ],
-      "urgent": false,
+      "urgent": true,
       "isOutage": false,
       "isMacro": false,
       "affectsHoldings": true,
-      "timeTW": "11/16 12:09",
-      "clockTW": "12:09",
-      "age": "22分鐘前",
-      "pubTs": 1794802164
+      "timeTW": "11/16 12:03",
+      "clockTW": "12:03",
+      "age": "1小時前",
+      "pubTs": 1794801780
     },
     {
       "title": "蘋果智慧眼鏡鎖定2027亮相！主打Siri語音操控第三方App，動口就能叫車、點咖啡",
@@ -49,7 +65,7 @@
       "affectsHoldings": false,
       "timeTW": "11/16 12:00",
       "clockTW": "12:00",
-      "age": "31分鐘前",
+      "age": "1小時前",
       "pubTs": 1794801600
     },
     {
@@ -66,7 +82,7 @@
       "affectsHoldings": true,
       "timeTW": "11/16 11:52",
       "clockTW": "11:52",
-      "age": "39分鐘前",
+      "age": "1小時前",
       "pubTs": 1794801121
     },
     {
@@ -83,7 +99,7 @@
       "affectsHoldings": false,
       "timeTW": "11/16 11:48",
       "clockTW": "11:48",
-      "age": "43分鐘前",
+      "age": "1小時前",
       "pubTs": 1794800896
     },
     {
@@ -99,7 +115,7 @@
       "affectsHoldings": false,
       "timeTW": "11/16 11:45",
       "clockTW": "11:45",
-      "age": "46分鐘前",
+      "age": "1小時前",
       "pubTs": 1794800700
     },
     {
@@ -115,25 +131,8 @@
       "affectsHoldings": true,
       "timeTW": "11/16 11:35",
       "clockTW": "11:35",
-      "age": "56分鐘前",
+      "age": "1小時前",
       "pubTs": 1794800100
-    },
-    {
-      "title": "思科 AI 營收上看 90 億美元，微軟、阿里雲怎麼用同一顆晶片？",
-      "source": "口袋證券",
-      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9qemo1VzkyNGptYXhWT2ZQaV9VS3hlMkxxUUFKS1NFeGpMV19yeUZJWU9kMFFsdHdSTE54cEhjY09WS29Za3YzSlpTYlN0TFhwZDFvYnptZHM5aEVUNmg5ZVpibmI0QQ?oc=5",
-      "tags": [
-        "MSFT",
-        "CSCO"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": false,
-      "timeTW": "11/16 11:32",
-      "clockTW": "11:32",
-      "age": "59分鐘前",
-      "pubTs": 1794799962
     },
     {
       "title": "Google TPU 能見度上看 2029！郭明錤：聯發科獨拿 v9、v10 訂單成最大贏家",
@@ -168,6 +167,23 @@
       "pubTs": 1794799128
     },
     {
+      "title": "LMSYS 成立 SGLang 聯盟，輝達、AMD、Google、Meta 等八家業者共推開源 AI 推論",
+      "source": "TechNews 科技新報",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOWHdHOV8zbXRZeGxMVjNQNFVaOXBmbXBaXzlxSy1wWjdtLVpYNklKbkhTUm5tVDVHU0xWWElsY2lONWdnMGZFNXRxSUJKUFdNV1NTeVRLbWh0amw2WkFUd2lGR1FXUUJnRmo0VFRsM2I0b3RaSmIzOGFTNEdqNFNpNDN0cE9aUFkxdWFBQUNITlZJZHpPTnVINUoyR0x4S2JwVHFXS1JYT1llZw?oc=5",
+      "tags": [
+        "NVDA",
+        "GOOG"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": true,
+      "timeTW": "11/16 11:17",
+      "clockTW": "11:17",
+      "age": "1小時前",
+      "pubTs": 1794799052
+    },
+    {
       "title": "英特爾遭股東集體訴訟！遭控隱瞞PC銷售疲軟、股價單日暴跌28.6%",
       "source": "鉅亨網",
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE91cE0weVdKTU0xX1F4ekJ5WmlEMV90MV9CZXhPSV9udXN4bkZNbU9LZzJiNGliaGpmSzV6U3lCTE1idmxGMk1UT2duVmcyWkk?oc=5",
@@ -184,23 +200,6 @@
       "pubTs": 1794798993
     },
     {
-      "title": "輝達 CEO 搜尋因 Bessent 的「改組」號召而引發爭議",
-      "source": "Bloomberg",
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOZVBETnNKak9BME5HaDEzOXN3TzctS3kzWUVadDVaem9wVDExVFJqb0NSMEdoZG01cXFmLTJSaFJzSkhxOTRYelRQcXYxSTl6OUdzaTE3LW9KM3FTRWh0bUZWY1BKMmNaUWVvN1luaTczdVhWTXZHVnFJSWwzZ3Z5R1JIYVljbUl5UmY3bGZfWW1tZnJOaUMwYnpQVElIekFHMjJyUDR3a0NBYVNKZkhtbGdJSQ?oc=5",
-      "tags": [
-        "NVDA",
-        "AMZN"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": true,
-      "timeTW": "11/16 10:22",
-      "clockTW": "10:22",
-      "age": "2小時前",
-      "pubTs": 1794795720
-    },
-    {
       "title": "聯準會升息步調有變？波士頓聯準銀行總裁：未來一年利率恐高於預期",
       "source": "鉅亨網",
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5Lc0JqMWhQVnAwejZVTlYtU1BXemtSYTJrQmVxZ0xRNDl6RFlxcUFpYzFtVF9XbHJyMEtwNEhFSlhKazNCaE9aS2Q3OVd0ZVk?oc=5",
@@ -213,7 +212,7 @@
       "affectsHoldings": true,
       "timeTW": "11/16 10:10",
       "clockTW": "10:10",
-      "age": "2小時前",
+      "age": "3小時前",
       "pubTs": 1794795004
     },
     {
@@ -229,7 +228,7 @@
       "affectsHoldings": false,
       "timeTW": "11/16 08:34",
       "clockTW": "08:34",
-      "age": "3小時前",
+      "age": "4小時前",
       "pubTs": 1794789278
     }
   ]
