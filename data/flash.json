@@ -1,9 +1,89 @@
 {
-  "generatedAt": "2026-11-16T05:14:00.969931+00:00",
-  "updatedAtTW": "2026-11-16 13:14",
+  "generatedAt": "2026-11-16T05:57:48.359866+00:00",
+  "updatedAtTW": "2026-11-16 13:57",
   "refreshIntervalMinutes": 3,
   "universeNote": "嚴選美國前 30 大市值科技股動態 ＆ 聯準會升降息/重大宏觀政策快報",
   "items": [
+    {
+      "title": "被指阻撓晶片出口限制 盧特尼克將隨特朗普訪華",
+      "source": "on.cc東網",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQOUpEdDJJNXZXbkFBOThKZzd0UWFSdFJISE5LWHotNmVMSFJUWWlsX2Z1NE5YNnk5MW91NTB1ZnFKWHFJcDVFR1dwSmE1UFBqbFUyVjZ0bElsbkhDMUV1NW5LZDNQWHJkLTVaRVBHQlFxWjVjNThTVTF5ejVPUVBCOFNMVFBBMm93RW53UVFGOA?oc=5",
+      "tags": [
+        "FED/宏觀"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsHoldings": true,
+      "timeTW": "11/16 13:48",
+      "clockTW": "13:48",
+      "age": "9分鐘前",
+      "pubTs": 1794808125
+    },
+    {
+      "title": "沒有黃仁勳的輝達法說會！市場爆大震盪要來了 股價已崩「這麼多」",
+      "source": "自由時報",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBBeUk3YnR6bVRZdlN6R2FoeF96T1pMQnliTzRIaFVXRDJvckxaNFBIUlMyMnRZWnE1Sl92ZjBzWEZ0M3FFR215MGEzZFYtUFBsQ3JsdUdLQ2M?oc=5",
+      "tags": [
+        "NVDA"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": true,
+      "timeTW": "11/16 13:43",
+      "clockTW": "13:43",
+      "age": "15分鐘前",
+      "pubTs": 1794807784
+    },
+    {
+      "title": "聯準會官員輪番放鷹施壓，紐約期金及現貨金週線齊挫逾4%",
+      "source": "富聯網",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNZWRYQ1FOOE9iZVBmUFNZTEMzSGxuSkZWUjc1eUtkeW9sZEVXdDJRSmViS2Y4WWhmTUIxemkxSGxNYU1vWVNZa29lQWM5a0VZQThmM1FycnpqMVI2YXhjTWpyMnNSTXVnd2VPZkhsUXQtRDViYlVJUGNsSnVZZU9uX1EtdFlrdw?oc=5",
+      "tags": [
+        "FED/宏觀"
+      ],
+      "urgent": true,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsHoldings": true,
+      "timeTW": "11/16 13:34",
+      "clockTW": "13:34",
+      "age": "23分鐘前",
+      "pubTs": 1794807290
+    },
+    {
+      "title": "中國AI硬體股遭拋售！光通訊龍頭重挫7.7%，輝達財報成市場關鍵考驗",
+      "source": "鉅亨網",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5lN2g5MXFvcDZHMEotclpzaG1lWEdUMDdLcF9BNGs4TTB3U0tKTmVURWNVajJILS1pRDZyMTJ4cmpkNERWZ0c4Q01zeDdYTzg?oc=5",
+      "tags": [
+        "NVDA"
+      ],
+      "urgent": true,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": true,
+      "timeTW": "11/16 13:30",
+      "clockTW": "13:30",
+      "age": "28分鐘前",
+      "pubTs": 1794807014
+    },
+    {
+      "title": "Fed 12 月升息機率衝上 92%！美元創 19 個月新高，比特幣反彈再遇逆風？",
+      "source": "區塊客",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPZ0MtcGJUNy00RFp3TUJBNWpET1VMRloxV0lqRmhIZ3gxWmNyc3lORmFaT1dhQzk0RllHdnFSZEVBWjlLQ09UTmc3R0RqMDg3SXdHanhsc2hsU2FubHhab2FmRXZmc3RIb0c2Skx5MGVfVXN5aGVZMW1yb3ZnNWdwTXllOFpPRktW?oc=5",
+      "tags": [
+        "FED/宏觀"
+      ],
+      "urgent": true,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsHoldings": true,
+      "timeTW": "11/16 13:16",
+      "clockTW": "13:16",
+      "age": "41分鐘前",
+      "pubTs": 1794806195
+    },
     {
       "title": "微軟Windows本機AI模型將改用Aion Instruct，輸入上下文上限擴大逾9倍",
       "source": "iThome",
@@ -17,7 +97,7 @@
       "affectsHoldings": false,
       "timeTW": "11/16 12:48",
       "clockTW": "12:48",
-      "age": "26分鐘前",
+      "age": "1小時前",
       "pubTs": 1794804513
     },
     {
@@ -33,24 +113,8 @@
       "affectsHoldings": false,
       "timeTW": "11/16 12:30",
       "clockTW": "12:30",
-      "age": "44分鐘前",
-      "pubTs": 1794803400
-    },
-    {
-      "title": "輝達財報倒數 黃仁勳不在了訂單還在嗎？4大看點總整理",
-      "source": "緯來新聞網",
-      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPazNCS2lISmo1TU1nX2ltbEZzU2E5OG1EM3NwbWx0TUZpTWkzb0tkUVJCMjZVSGwyZ3VzbGZlbUo4OFNlYVFlR2p3Y0M1OEFUa0g0SlN3YUJnY0I5a1dORVYyNjNQQ2I4NlpsdTJvVzBwbUF5ZDlnYXBGOTlGQVBoZmhDVjJsUQ?oc=5",
-      "tags": [
-        "NVDA"
-      ],
-      "urgent": true,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": true,
-      "timeTW": "11/16 12:03",
-      "clockTW": "12:03",
       "age": "1小時前",
-      "pubTs": 1794801780
+      "pubTs": 1794803400
     },
     {
       "title": "蘋果智慧眼鏡鎖定2027亮相！主打Siri語音操控第三方App，動口就能叫車、點咖啡",
@@ -82,7 +146,7 @@
       "affectsHoldings": true,
       "timeTW": "11/16 11:52",
       "clockTW": "11:52",
-      "age": "1小時前",
+      "age": "2小時前",
       "pubTs": 1794801121
     },
     {
@@ -99,7 +163,7 @@
       "affectsHoldings": false,
       "timeTW": "11/16 11:48",
       "clockTW": "11:48",
-      "age": "1小時前",
+      "age": "2小時前",
       "pubTs": 1794800896
     },
     {
@@ -115,7 +179,7 @@
       "affectsHoldings": false,
       "timeTW": "11/16 11:45",
       "clockTW": "11:45",
-      "age": "1小時前",
+      "age": "2小時前",
       "pubTs": 1794800700
     },
     {
@@ -131,57 +195,8 @@
       "affectsHoldings": true,
       "timeTW": "11/16 11:35",
       "clockTW": "11:35",
-      "age": "1小時前",
+      "age": "2小時前",
       "pubTs": 1794800100
-    },
-    {
-      "title": "Google TPU 能見度上看 2029！郭明錤：聯發科獨拿 v9、v10 訂單成最大贏家",
-      "source": "鏈新聞 ABMedia",
-      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxONjNsTHFuR0VyTkhPOXBYZGZXXzlZaVVlV3RmYXZIQnlheDBRZlY3NUNCQkFtZkg4NlhCWk0wV3JmY0JFRURTV0QtM2ZWTUNSNk5NbTVVY2ZPNGtSSDBwQkEzQkE3eUhEZWFsR3dkczJtTjdrS19xNmpuY1hlc05ONWd2U2dKSC1VOTNQX2pR?oc=5",
-      "tags": [
-        "GOOG"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": true,
-      "timeTW": "11/16 11:24",
-      "clockTW": "11:24",
-      "age": "1小時前",
-      "pubTs": 1794799452
-    },
-    {
-      "title": "Meta 員工緊盯 2027 年股票歸屬大限，百萬美元分紅入袋釀「提早退休潮」",
-      "source": "TechNews 科技新報",
-      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQM3hYYkYzTUxYd0k5MWduUmVCNHJvU3p4Ny1DZl9PSHlIa19Ma2RkcWN0alZVWXBWbldVQmx5QlRQOEpVWWlGS01Tcnd2ME50MWk2eTZRRWJmUVpqSU5lNEN6OUk2eVRxZkd5bUpRSjlGb3QxelBRSm9iRU81ZmthcXVTVTJqUDQ3ZWFVR1RIdXBBUy1GcDNEc21NRmtYYTV4eGxMY09rNA?oc=5",
-      "tags": [
-        "META"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": false,
-      "timeTW": "11/16 11:18",
-      "clockTW": "11:18",
-      "age": "1小時前",
-      "pubTs": 1794799128
-    },
-    {
-      "title": "LMSYS 成立 SGLang 聯盟，輝達、AMD、Google、Meta 等八家業者共推開源 AI 推論",
-      "source": "TechNews 科技新報",
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOWHdHOV8zbXRZeGxMVjNQNFVaOXBmbXBaXzlxSy1wWjdtLVpYNklKbkhTUm5tVDVHU0xWWElsY2lONWdnMGZFNXRxSUJKUFdNV1NTeVRLbWh0amw2WkFUd2lGR1FXUUJnRmo0VFRsM2I0b3RaSmIzOGFTNEdqNFNpNDN0cE9aUFkxdWFBQUNITlZJZHpPTnVINUoyR0x4S2JwVHFXS1JYT1llZw?oc=5",
-      "tags": [
-        "NVDA",
-        "GOOG"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": true,
-      "timeTW": "11/16 11:17",
-      "clockTW": "11:17",
-      "age": "1小時前",
-      "pubTs": 1794799052
     },
     {
       "title": "英特爾遭股東集體訴訟！遭控隱瞞PC銷售疲軟、股價單日暴跌28.6%",
@@ -196,24 +211,8 @@
       "affectsHoldings": false,
       "timeTW": "11/16 11:16",
       "clockTW": "11:16",
-      "age": "1小時前",
+      "age": "2小時前",
       "pubTs": 1794798993
-    },
-    {
-      "title": "聯準會升息步調有變？波士頓聯準銀行總裁：未來一年利率恐高於預期",
-      "source": "鉅亨網",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5Lc0JqMWhQVnAwejZVTlYtU1BXemtSYTJrQmVxZ0xRNDl6RFlxcUFpYzFtVF9XbHJyMEtwNEhFSlhKazNCaE9aS2Q3OVd0ZVk?oc=5",
-      "tags": [
-        "FED/宏觀"
-      ],
-      "urgent": true,
-      "isOutage": false,
-      "isMacro": true,
-      "affectsHoldings": true,
-      "timeTW": "11/16 10:10",
-      "clockTW": "10:10",
-      "age": "3小時前",
-      "pubTs": 1794795004
     },
     {
       "title": "車用晶片誰是老大？高通單季營收暴增89%直逼英飛凌霸主地位 僅差8000萬美元",
@@ -228,7 +227,7 @@
       "affectsHoldings": false,
       "timeTW": "11/16 08:34",
       "clockTW": "08:34",
-      "age": "4小時前",
+      "age": "5小時前",
       "pubTs": 1794789278
     }
   ]
