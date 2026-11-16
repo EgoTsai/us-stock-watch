@@ -1,9 +1,73 @@
 {
-  "generatedAt": "2026-11-16T01:41:45.254837+00:00",
-  "updatedAtTW": "2026-11-16 09:41",
+  "generatedAt": "2026-11-16T02:45:52.182707+00:00",
+  "updatedAtTW": "2026-11-16 10:45",
   "refreshIntervalMinutes": 15,
   "universeNote": "嚴選美國前 30 大市值科技股動態 ＆ 聯準會升降息/重大宏觀政策快報",
   "items": [
+    {
+      "title": "黃仁勳離開輝達台廠變卦？無視AI禁令、執行長空缺爆衝擊…外資調升「這伺服器黑馬」EPS預估、目標價",
+      "source": "FTNN",
+      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1wZE9obnlyd0dtRjcxdGJ5TlVObDZ1dlkyTWw3TVdKNkRqekxDOHhPa1U0WFBNamRMZ1dIZnFfWjlFenlraVpfMVF0TQ?oc=5",
+      "tags": [
+        "NVDA"
+      ],
+      "urgent": true,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": true,
+      "timeTW": "11/16 10:40",
+      "clockTW": "10:40",
+      "age": "6分鐘前",
+      "pubTs": 1794796800
+    },
+    {
+      "title": "聯準會升息步調有變？波士頓聯準銀行總裁：未來一年利率恐高於預期",
+      "source": "鉅亨網",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5Lc0JqMWhQVnAwejZVTlYtU1BXemtSYTJrQmVxZ0xRNDl6RFlxcUFpYzFtVF9XbHJyMEtwNEhFSlhKazNCaE9aS2Q3OVd0ZVk?oc=5",
+      "tags": [
+        "FED/宏觀"
+      ],
+      "urgent": true,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsHoldings": true,
+      "timeTW": "11/16 10:10",
+      "clockTW": "10:10",
+      "age": "36分鐘前",
+      "pubTs": 1794795004
+    },
+    {
+      "title": "蘋果 AI 智慧眼鏡原型機更多細節曝光！無需專屬 App，透過 Siri 就能操控 iPhone 應用程式",
+      "source": "電腦王阿達",
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBqdTVPWnFLTk1PSHN5WUJEUDdWQzNMQkF1TDdzNlNDMHdxOENaR0d2MzJ4T0hhRkRMVmNrY0lEYzd0X3JwUnE1RzRERC0xZlczVEE?oc=5",
+      "tags": [
+        "AAPL"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": false,
+      "timeTW": "11/16 10:01",
+      "clockTW": "10:01",
+      "age": "45分鐘前",
+      "pubTs": 1794794472
+    },
+    {
+      "title": "華許重塑美聯準會的計劃：減少利率表決，增加深入思考",
+      "source": "华尔街日报中文网",
+      "url": "https://news.google.com/rss/articles/CBMi5AJBVV95cUxQNkJVSnMzWUhHcERGdEdvYlpxVF9aUDN1dWEtclJFYm5zS0ZTb2FDajVOS29xS2dhaVhaSHM1WHRiNGxpREhhQmhIdGJ4RHJ3ODIwcVdkYXphREtybG5Jb19kWWVnWTlvUzEtWEdQZHlNTWVCRUJOSnJjVXhsdmtneUZOWV9vbXNaQjdzdHExcm1WMGU5YURvN0xhM1JrV0FGSm1OSW1hdFByUFZ6T1phV3FaUE5EMEFOSFpTbGR6cm5mYWdVS2pGdll0VUs2X1hCM3hMWGpPdGs1NjVoZ3JXNGt4N1F5bkNRT2lIR2cybnQ3UFVkUi1QVHZkMUNlUEdxNV9WbGRnT3N3bkdFVGxLa3VoY09mUHhrRE1DenRzT2txaDRISXNseVJkNHNXMGJWT0FPNlQtSGNaWXhDVTRxSnJUbTV0UG5BSTd1TmhMdEc4c1VFRXh3cG9uRjFfZjdxMnVRYQ?oc=5",
+      "tags": [
+        "FED/宏觀"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsHoldings": true,
+      "timeTW": "11/16 09:54",
+      "clockTW": "09:54",
+      "age": "51分鐘前",
+      "pubTs": 1794794079
+    },
     {
       "title": "微軟Microsoft 365全球當機逾30小時，禍因網路升級瑕疵",
       "source": "聚財網",
@@ -18,7 +82,7 @@
       "affectsHoldings": false,
       "timeTW": "11/16 09:31",
       "clockTW": "09:31",
-      "age": "10分鐘前",
+      "age": "1小時前",
       "pubTs": 1794792715
     },
     {
@@ -34,40 +98,24 @@
       "affectsHoldings": true,
       "timeTW": "11/16 09:14",
       "clockTW": "09:14",
-      "age": "28分鐘前",
+      "age": "1小時前",
       "pubTs": 1794791640
     },
     {
-      "title": "法人觀點：美銀預估聯準會連三次升息，利率攀升至4.5%至4.75%區間",
-      "source": "富聯網",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPYmVQUUM1TW5BUFBNOHZFSC1jRmZLWHpyUmE0MEhWVExsZVROWUhIdElVVDRQMnlmQ1dsZURJeS11c1BhbktoWTNhc0xVRmVELWJOekZENTh4clBUeWx3TTlIZjF0NGhrVTBRX3VfcjJXYk0zYWlMOFR3dnFQRU55dEVXQUdUV0Iy?oc=5",
-      "tags": [
-        "FED/宏觀"
-      ],
-      "urgent": true,
-      "isOutage": false,
-      "isMacro": true,
-      "affectsHoldings": true,
-      "timeTW": "11/16 09:08",
-      "clockTW": "09:08",
-      "age": "34分鐘前",
-      "pubTs": 1794791280
-    },
-    {
-      "title": "股東控隱瞞PC銷售疲弱　英特爾遭集體訴訟",
+      "title": "股東集體怒告英特爾！稱隱瞞 PC 銷售疲軟涉欺騙 害股價單日重挫近29%",
       "source": "經濟日報",
-      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1sSzFYRG8zamxJRnYwMS1CTnJqdG01dDcwWlUzdXVjSElSazY0R2tCM1huMWtDQUJJMVpWWFJpWWRfMXN6Q2kwa2tyaFpLb3JFU3dPd21NUVl2bmww0gFiQVVfeXFMUHlkM1luekFKZjl5ckhXX3BNNWFwVjI2aXAzZWJRUlRndzBUTDgwWk1ydGhwT3VhMDRkS2x4U1ZLRS1vc3puN2Mwa1c0T19VRVRwZU0taUdPbTFpSl9FRHRscWc?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1lRUpJdFVGM1dyVnlJTGpKOWJiNFRrUnpWYk9BdnFwVTZMWHRSTnZabTU3bUljSWpWajVFdFAyWndWWXpGckc1SVhLZTl6RWZvTWlNTnNoSzVJRDR00gFiQVVfeXFMTkVnSE1CZzcwUmR1bW83Qm1KSUtwYUhnMi16cXJzSjUyMjI4U2ZoR2lhUmF5M05Cblg2VGY3ekxDWnNiMXd0bzlTX0FXejk2UVlFdzl1WUJCVENIb0pIQ0NTeXc?oc=5",
       "tags": [
         "INTC"
       ],
-      "urgent": false,
+      "urgent": true,
       "isOutage": false,
       "isMacro": false,
       "affectsHoldings": false,
-      "timeTW": "11/16 08:54",
-      "clockTW": "08:54",
-      "age": "47分鐘前",
-      "pubTs": 1794790464
+      "timeTW": "11/16 09:05",
+      "clockTW": "09:05",
+      "age": "1小時前",
+      "pubTs": 1794791123
     },
     {
       "title": "蘋果前 CPU 大將創業，Nuvacore 瞄準 AI 資料中心處理器",
@@ -82,7 +130,7 @@
       "affectsHoldings": false,
       "timeTW": "11/16 08:47",
       "clockTW": "08:47",
-      "age": "54分鐘前",
+      "age": "1小時前",
       "pubTs": 1794790049
     },
     {
@@ -98,13 +146,13 @@
       "affectsHoldings": false,
       "timeTW": "11/16 08:34",
       "clockTW": "08:34",
-      "age": "1小時前",
+      "age": "2小時前",
       "pubTs": 1794789278
     },
     {
       "title": "ULA火神火箭升空途中故障 亞馬遜40顆衛星全數摧毀",
-      "source": "LINE TODAY",
-      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5VeVVndEloNnN0aG5uTl9UampPNHNnbU5rcHRjMnFOVG1Xc2JVckxwbHd3eGNiQTE2ME5wZXRkdjMtb0R6VkFXNHZzN20xT3lqUlRxX3lR?oc=5",
+      "source": "民視新聞網",
+      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9GTW0wa2N0T09CVkM3LTRrY0pSNmFYTk5NOS01ZVMtVk1QM0RvM1R5ZWlNY2N6MWdxb3hCS3VULU1ZcmxQVG9DXzZwQjR4bHRXWUhNWE1Fd0otYVFXLUZzVw?oc=5",
       "tags": [
         "當機/異常",
         "AMZN"
@@ -113,26 +161,10 @@
       "isOutage": true,
       "isMacro": false,
       "affectsHoldings": false,
-      "timeTW": "11/16 08:18",
-      "clockTW": "08:18",
-      "age": "1小時前",
-      "pubTs": 1794788312
-    },
-    {
-      "title": "據報美商務部長晶片出口決策 或涉家族利益",
-      "source": "on.cc東網",
-      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQUS1EWGs4dnU3ZXR3VFZIcGR4QkJid0xUU1VSSEIwSDdUUDVmV3VkV2pNazZTYlZ3a0RWcHBrV2FCZmJnbnUxU0x6SjZxbElpNlE1YjBlenF6QjM2TUJFYXJkUGxMcWxYemJwUGVqSVZPWnN3dE9laVNaRncybFN0d3lYbW1YRzhNZFBQMG1oUQ?oc=5",
-      "tags": [
-        "FED/宏觀"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": true,
-      "affectsHoldings": true,
-      "timeTW": "11/16 08:15",
-      "clockTW": "08:15",
-      "age": "1小時前",
-      "pubTs": 1794788118
+      "timeTW": "11/16 08:14",
+      "clockTW": "08:14",
+      "age": "2小時前",
+      "pubTs": 1794788043
     },
     {
       "title": "Google Gemini串聯錢包查帳理財 OpenAI推AI代客結帳",
@@ -147,24 +179,8 @@
       "affectsHoldings": true,
       "timeTW": "11/16 08:12",
       "clockTW": "08:12",
-      "age": "1小時前",
+      "age": "2小時前",
       "pubTs": 1794787944
-    },
-    {
-      "title": "貝森特要求輝達大改組！稱新執行長「應外聘」、10天內交代晶片違規交易疑雲",
-      "source": "鉅亨網",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5BZzEyU1owVXowbV9vT1lGb3JZZ293RWZscllKS2NrdTd1eHNoTUNpdmhTZF94bWhVbkRuUkhjUDByZXF2bjlwNjNDNUNQQ00?oc=5",
-      "tags": [
-        "NVDA"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": true,
-      "timeTW": "11/16 08:10",
-      "clockTW": "08:10",
-      "age": "1小時前",
-      "pubTs": 1794787813
     },
     {
       "title": "輝達 CEO 搜尋因 Bessent 的「改組」號召而引發爭議",
@@ -180,40 +196,8 @@
       "affectsHoldings": true,
       "timeTW": "11/16 08:00",
       "clockTW": "08:00",
-      "age": "1小時前",
-      "pubTs": 1794787200
-    },
-    {
-      "title": "AI巨獸IPO／成立5年身價逼近特斯拉！為何7大科技巨頭砸260億美元押寶？",
-      "source": "鏡週刊Mirror Media",
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9qR19MSmJoOTJhbEFIWF9lT2ZTSTFOZXNqQkNweXZPSVRDeDdZWFMwcENBQWUwQjljSzZidWVPNVZUcnRXaGg2Ulp2dW1HRFRCNFl2enI3WkRvdzY3NGVsNlpmWEHSAWhBVV95cUxOVWdoWGFFNDlfRC1IaFNTT3N6a0NnaU1GZVlaVHR2OUNuUFdVU0dvZGp3X09rUVFUNm1lUXlGNlY0OUJXby16OUphZUlwMWR1Y01CM1hrVnRMZkp3SFlQVENvVEdxbHJzMQ?oc=5",
-      "tags": [
-        "TSLA"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": true,
-      "timeTW": "11/16 06:57",
-      "clockTW": "06:57",
       "age": "2小時前",
-      "pubTs": 1794783420
-    },
-    {
-      "title": "《彭博社》：Apple Glass 智慧眼鏡傳出將於 WWDC 2027 亮相！",
-      "source": "三嘻行動哇 Yipee!",
-      "url": "https://news.google.com/rss/articles/CBMirAJBVV95cUxPV3NFYkI5djlLQUJneDFuRjVrZG55RFU3X2QwVk5MM2FJMVFxTDU5NkxkSE93elUtXzJ6Y3RZbWh2dzRVeXVPVHUyQVhxQzlwMWtjTnF3OFFJWUx2RWhiVGxrMWpXMl9TM2hhYVNnd0RPcnRSN1lMU0ttd0NqbTVUNEM5UWE4dlNyY3RtU0w4OTJieW5lQzQ2QndhZ2VwTGtlaDUyNGstWmpnaW92NWhiUE04REhPd1NMNHB6bzZIQklnZHlkM3FId1JRTERyamRjMWdrd3lfcXl4cnlPckZqaHdNQ0RXcGxHX09xNS1KNk9XUzJyR0dBWWViRHZaOXctRUc0OFVfUlg4SlJGRVRvUnRGWm1kVHRUQ0l1OW9jbDBZOXVublotQUtuRHk?oc=5",
-      "tags": [
-        "AAPL"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": false,
-      "timeTW": "11/16 06:24",
-      "clockTW": "06:24",
-      "age": "3小時前",
-      "pubTs": 1794781450
+      "pubTs": 1794787200
     },
     {
       "title": "SpaceX 首度完成太空船回收 NASA：更接近再次登月目標",
@@ -228,8 +212,24 @@
       "affectsHoldings": false,
       "timeTW": "11/16 02:05",
       "clockTW": "02:05",
-      "age": "7小時前",
+      "age": "8小時前",
       "pubTs": 1794765902
+    },
+    {
+      "title": "Meta Platforms, Inc. (META) 股價、新聞、報價和記錄",
+      "source": "Yahoo 財經",
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9oeEczVEFlUFAxU3hmalg3UmVEUVdsbzFEeE5HZ2dIeFFKNUJSNktoVFNYTm9iLTJVOEd5d2kxY1EyQ05mYmZuektFNFFTYlNsN2c?oc=5",
+      "tags": [
+        "META"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": false,
+      "timeTW": "11/15 21:21",
+      "clockTW": "21:21",
+      "age": "13小時前",
+      "pubTs": 1794748882
     }
   ]
 }

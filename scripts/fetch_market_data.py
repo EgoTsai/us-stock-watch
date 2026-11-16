@@ -370,25 +370,34 @@ class YahooClient:
             self.opener.open("https://fc.yahoo.com", timeout=6)
         except Exception:
             pass
-        try:
-            resp = self.opener.open("https://query2.finance.yahoo.com/v1/test/getcrumb", timeout=8)
-            self.crumb = resp.read().decode("utf-8").strip()
-        except Exception as exc:
-            print(f"[warn] crumb init failed: {exc}", file=sys.stderr)
+        for host in ("query2.finance.yahoo.com", "query1.finance.yahoo.com"):
+            try:
+                resp = self.opener.open(f"https://{host}/v1/test/getcrumb", timeout=8)
+                crumb_val = resp.read().decode("utf-8").strip()
+                if crumb_val:
+                    self.crumb = crumb_val
+                    break
+            except Exception as exc:
+                print(f"[warn] crumb init ({host}) failed: {exc}", file=sys.stderr)
 
     def get_quotes(self, symbols: list[str]) -> dict[str, dict]:
         if not self.crumb:
             return {}
         sym_str = urllib.parse.quote(",".join(symbols), safe=",")
         crumb_q = urllib.parse.quote(self.crumb)
-        url = f"https://query2.finance.yahoo.com/v7/finance/quote?symbols={sym_str}&crumb={crumb_q}"
-        try:
-            raw = self.opener.open(url, timeout=12).read().decode("utf-8")
-            items = json.loads(raw).get("quoteResponse", {}).get("result", [])
-            return {it["symbol"]: it for it in items if "symbol" in it}
-        except Exception as exc:
-            print(f"[warn] get_quotes failed: {exc}", file=sys.stderr)
-            return {}
+        for host in ("query2.finance.yahoo.com", "query1.finance.yahoo.com"):
+            url = (
+                f"https://{host}/v7/finance/quote"
+                f"?symbols={sym_str}&overnightPrice=true&crumb={crumb_q}"
+            )
+            try:
+                raw = self.opener.open(url, timeout=12).read().decode("utf-8")
+                items = json.loads(raw).get("quoteResponse", {}).get("result", [])
+                if items:
+                    return {it["symbol"]: it for it in items if "symbol" in it}
+            except Exception as exc:
+                print(f"[warn] get_quotes ({host}) failed: {exc}", file=sys.stderr)
+        return {}
 
     def get_chart(self, symbol: str, interval: str = "5m", range_str: str = "2d", prepost: bool = True) -> dict:
         sym_q = urllib.parse.quote(symbol)
@@ -564,6 +573,8 @@ def build_stock_quote(yc: YahooClient, item_cfg: dict, q_map: dict[str, dict]) -
         reg_lbl = "盤中" if market_state == "REGULAR" else "收盤"
         candidates.append((reg_time, float(reg_price), reg_lbl))
 
+    cur_session_code = get_market_session_overview()["sessionCode"]
+
     for field_p, field_t, lbl in [
         ("preMarketPrice", "preMarketTime", "盤前"),
         ("postMarketPrice", "postMarketTime", "盤後"),
@@ -571,8 +582,21 @@ def build_stock_quote(yc: YahooClient, item_cfg: dict, q_map: dict[str, dict]) -
     ]:
         val = q.get(field_p)
         ts = int(q.get(field_t) or 0)
-        if val is not None and ts > 0:
-            candidates.append((ts, float(val), lbl))
+        if val is not None:
+            if ts <= 0 and lbl == "夜盤" and (market_state == "OVERNIGHT" or cur_session_code == "OVERNIGHT"):
+                ts = int(time.time())
+            if ts > 0:
+                candidates.append((ts, float(val), lbl))
+
+    # Zero-crumb fallback: Yahoo chart meta exposes live Blue Ocean ATS price via fulldayPrice during OVERNIGHT
+    if (
+        cur_session_code == "OVERNIGHT"
+        and sym not in ("CL=F", "^VIX")
+        and not any(lbl == "夜盤" for _, _, lbl in candidates)
+    ):
+        fullday_p = meta.get("fulldayPrice")
+        if fullday_p is not None and float(fullday_p) > 0:
+            candidates.append((int(time.time()), float(fullday_p), "夜盤"))
 
     timestamps = chart.get("timestamp") or []
     quote_ind = (chart.get("indicators", {}).get("quote") or [{}])[0]
@@ -602,21 +626,40 @@ def build_stock_quote(yc: YahooClient, item_cfg: dict, q_map: dict[str, dict]) -
     else:
         latest_ts, latest_price, session_label = 0, 0.0, "收盤"
 
-    if sym == "CL=F" and session_label in ("盤中", "盤後", "夜盤", "盤前"):
-        session_label = "期貨盤中" if market_state == "REGULAR" else "期貨收盤"
+    if sym == "CL=F" and session_label in ("盤中", "盤後", "夜盤", "盤前", "電子盤"):
+        if market_state == "REGULAR":
+            if cur_session_code == "OVERNIGHT":
+                session_label = "期貨夜盤"
+            elif cur_session_code == "PRE":
+                session_label = "期貨盤前"
+            else:
+                session_label = "期貨盤中"
+        else:
+            session_label = "期貨收盤"
     elif sym == "^VIX":
         session_label = "盤中" if market_state == "REGULAR" else "收盤"
 
-    if session_label in ("盤前", "夜盤") and reg_time > 0 and (latest_ts - reg_time) > 3.5 * 3600:
-        base_close = float(reg_price)
+    if session_label == "夜盤" and q.get("overnightMarketChange") is not None and q.get("overnightMarketChangePercent") is not None:
+        change = float(q["overnightMarketChange"])
+        change_pct = float(q["overnightMarketChangePercent"])
+    elif session_label == "盤前" and q.get("preMarketChange") is not None and q.get("preMarketChangePercent") is not None:
+        change = float(q["preMarketChange"])
+        change_pct = float(q["preMarketChangePercent"])
     else:
-        base_close = float(reg_prev_close) if reg_prev_close else float(reg_price)
-
-    change = latest_price - base_close
-    change_pct = (change / base_close * 100.0) if base_close else 0.0
+        if session_label in ("盤前", "夜盤") and reg_price:
+            base_close = float(reg_price)
+        else:
+            base_close = float(reg_prev_close) if reg_prev_close else float(reg_price)
+        change = latest_price - base_close
+        change_pct = (change / base_close * 100.0) if base_close else 0.0
 
     reg_change_pct = float(q.get("regularMarketChangePercent") or ((reg_price - reg_prev_close) / reg_prev_close * 100 if reg_prev_close else 0.0))
-    ext_diff_pct = ((latest_price - reg_price) / reg_price * 100.0) if (reg_price and session_label not in ("盤中", "收盤", "期貨盤中", "期貨收盤")) else None
+    if session_label == "夜盤" and q.get("overnightMarketChangePercent") is not None:
+        ext_diff_pct = float(q["overnightMarketChangePercent"])
+    elif reg_price and session_label not in ("盤中", "收盤", "期貨盤中", "期貨夜盤", "期貨盤前", "期貨收盤"):
+        ext_diff_pct = (latest_price - reg_price) / reg_price * 100.0
+    else:
+        ext_diff_pct = None
 
     spark_raw = [b[2] for b in valid_bars[-96:]]
     step = max(1, len(spark_raw) // 48)

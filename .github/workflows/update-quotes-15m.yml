@@ -2,7 +2,7 @@ name: Update Watchlist Quotes (Every 15m)
 
 on:
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: "2,17,32,47 * * * *"
   workflow_dispatch:
 
 permissions:
