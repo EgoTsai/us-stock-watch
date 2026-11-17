@@ -1,79 +1,13 @@
 {
-  "generatedAt": "2026-11-17T01:49:08.364502+00:00",
-  "updatedAtTW": "2026-11-17 09:49",
+  "generatedAt": "2026-11-17T04:46:35.317515+00:00",
+  "updatedAtTW": "2026-11-17 12:46",
   "refreshIntervalMinutes": 3,
   "universeNote": "嚴選美國前 30 大市值科技股動態 ＆ 聯準會升降息/重大宏觀政策快報",
   "items": [
     {
-      "title": "法人觀點：道明證券估聯準會升息與美債殖利率走高支撐美元，持續看空歐元表現",
-      "source": "富聯網",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOQ0JsZk0zRzh2WHFGY2JJVDJkLXJ0Z0puV3NEdGpfeWJ6by1JeUtaeDZ2NU1rZnlxMThxQ3J4YTNVTEl1ZDB6c1FJNWFPTWF3bDVnMElEVzNrd1UxMGhtbDl0MVpUXzJQZlFIcDBnY1BvNHNjT0NQZ1F4MFVzZm10LVVaNEoxaVpH?oc=5",
-      "tags": [
-        "FED/宏觀"
-      ],
-      "urgent": true,
-      "isOutage": false,
-      "isMacro": true,
-      "affectsHoldings": true,
-      "timeTW": "11/17 09:41",
-      "clockTW": "09:41",
-      "age": "8分鐘前",
-      "pubTs": 1794879660
-    },
-    {
-      "title": "輝達第三季美股持股縮水23.8%！大砍英特爾、加碼SpaceX",
-      "source": "鉅亨網",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBmbkdCTWw4MUJBT3Y0ZmZGenM0clBIdzhoQzBNZkRTbnBzVVE4UG16T3BOMnBUSEVnT2Qwcjh0dldIQXVBWkF4SWh0c2Qxc0E?oc=5",
-      "tags": [
-        "NVDA",
-        "SPCX"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": true,
-      "timeTW": "11/17 09:40",
-      "clockTW": "09:40",
-      "age": "9分鐘前",
-      "pubTs": 1794879625
-    },
-    {
-      "title": "擔憂聯準會將大幅升息 金價面臨短期修正",
-      "source": "Yahoo股市",
-      "url": "https://news.google.com/rss/articles/CBMitAJBVV95cUxNODNQSmNvenZZT2FqVGxKcFhVU0U3Si1DOENNcExKY24yc1g3TUJERjBHdmxnbzJrNmdpMzNfM1BuSXFlVF82Q3BwSzVnSlJLNHdKOFljcS10MnhVSjlrS3lSem5RYUJXTzdldGZuYmlpLXZqaHRyeTRNZXdhN0hoMHVjbFlTcXFCOVYyMHlkWFNOVGFPa0Q2cWh6cXlJRmV2TFVNdGJEOEVGeUNlUzJmV0JtZjZQZlhMaDlvWUZGTjVlUFViV3NsZUNKYzlYeDdESXluakVVVzVvZ2lsVXd5VHFtd1R1OG9tNGNPb3JhVWdqTEZXRDMtWTV6NE9JUkNwWUNhNWRnWVZHUnUzYXVPMEZ0WGZhdmJtQUFwZGNrWmI3V0Z3S0lOS19Ob29UVC1fNm5HbA?oc=5",
-      "tags": [
-        "FED/宏觀"
-      ],
-      "urgent": true,
-      "isOutage": false,
-      "isMacro": true,
-      "affectsHoldings": true,
-      "timeTW": "11/17 09:26",
-      "clockTW": "09:26",
-      "age": "23分鐘前",
-      "pubTs": 1794878791
-    },
-    {
-      "title": "美擴大晶片禁令衝擊科技股 亞洲股市走跌輝達財報成焦點",
-      "source": "民視新聞網",
-      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBMM0xwTUJLNzlKUWprZDVVbFBjMC1xSUtWRGtrV3VjYjdDdzRCUVJfekRKWFFyTmFrMXo3cktlQlc1MGZKNl9LeERjNWF0bzNkdG9GbUVERTI1bnAxRWJmdA?oc=5",
-      "tags": [
-        "FED/宏觀",
-        "NVDA"
-      ],
-      "urgent": true,
-      "isOutage": false,
-      "isMacro": true,
-      "affectsHoldings": true,
-      "timeTW": "11/17 09:21",
-      "clockTW": "09:21",
-      "age": "28分鐘前",
-      "pubTs": 1794878473
-    },
-    {
-      "title": "公司表示，微軟服務在大規模中斷後已恢復",
-      "source": "WSJ",
-      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9SZmZCcS1rWDBlU1EtNTRYbFY4TE00cEVObWk3ak9jcnNsaWtabW83MjNuemxSUk1WWXZ5Q2VubUtCZ2Y5YnZkN2dNR3htVEhHUkpPbjNuczc0VmpDb1dIZ0Z3TVFaTW43Z1hrc00tTWFQQ0M5cFd4SUd6TG1ldw?oc=5",
+      "title": "微軟全球大當機 外媒揭：漏洞7月就在卻沒人發現",
+      "source": "聚財網",
+      "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE9PQVE4eGprZU9CdXR3TGNVX3NZdWJsOUsydkgtOTRrWlgxeGVxZ0xuR2NWRXlFemtkQkkxY0QtdkU3NjZOVlpGdm9BUXk?oc=5",
       "tags": [
         "當機/異常",
         "MSFT"
@@ -82,15 +16,15 @@
       "isOutage": true,
       "isMacro": false,
       "affectsHoldings": false,
-      "timeTW": "11/17 08:57",
-      "clockTW": "08:57",
-      "age": "52分鐘前",
-      "pubTs": 1794877070
+      "timeTW": "11/17 12:36",
+      "clockTW": "12:36",
+      "age": "10分鐘前",
+      "pubTs": 1794890191
     },
     {
-      "title": "美參議員批商務部放寬晶片禁令 放任中國繞道海外訓練AI",
-      "source": "商傳媒",
-      "url": "https://news.google.com/rss/articles/CBMilwNBVV95cUxPSFFxbnVyOHhEZVF2Z0VjVEhuMW84SnBxU3VYUGMyN1cxTnkxUWZsQmQ4b2dzV21TSlhSOVQ3Y0VzbC1jZ0xqVDZSRkNvMnRfTjlobVpwRWhENU5iYldPZFl2Y1FrWW1aSFpfZTR0eWxnNDhWckVoNkc1NWxoZU4zdld5QXpOdHVPamNfaWR4bHlMWUc2d2ptSGU2NDFOeDU3Zk1SR3diOHVOXzlYa2NwU3NRYkt3UkczUWZGRnRtaUx5YldqS25qRllvZGZ2Vm4xVGo0MzM5bnVKLXluMVZPMkJmUVk0Z2FmQ3B1SnBWQzFKem1kNkk0QXJEQ3Z6dlY3cnN1V1pLcHhSRTJvOFRaOTNIZVFnMWdyQnB5Q096WklWRTk4RFVaVFVJd3hsWkswcWlSVTBFeFNRRF8xSXZHLVFYNnJhUEhNVl8tNFRmMERWVlpRUTdBWGQwZEVRSUxzNGxNbGNtVWpGdm50RnBZdHYyVG8zTTRmcTFSMWJkTk9rVWR4WGZ0ejRjY1JEa0VnRmVMU2Z5cw?oc=5",
+      "title": "《國際經濟》押注聯準會升息 美元再創「對等關稅」來19月新高",
+      "source": "富聯網",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNLTEtSE5ZenpBbU45ckFqbjMyYVB1bUNxZUJJeVVDTUZUQy1yUlZlaVJYc1V2ckdIQVNIaW03c0kwQy0yMGxmYWRVS19SV1NXWkV5M2gtQ2J3Vmd6MUVGLUthZ21xM3NPNmUzSTZBTnlfWHRCVU5aT1JjeS1DVW12OTl4MWpPRHVY?oc=5",
       "tags": [
         "FED/宏觀"
       ],
@@ -98,140 +32,206 @@
       "isOutage": false,
       "isMacro": true,
       "affectsHoldings": true,
-      "timeTW": "11/17 08:56",
-      "clockTW": "08:56",
-      "age": "52分鐘前",
-      "pubTs": 1794877018
+      "timeTW": "11/17 12:36",
+      "clockTW": "12:36",
+      "age": "11分鐘前",
+      "pubTs": 1794890160
     },
     {
-      "title": "SpaceX完成星艦歷史性捕捉 股價為何不漲反跌？",
+      "title": "輝達投資人將在「沒有黃仁勳」的財報會議上追問這些關鍵",
       "source": "鉅亨網",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1saW1uSk9Kb09FamhxNkY5Y3lrX2t5b3FlY3daeXcyWFhhZVRCdy10MkFPZVI5ZlRzanJ0bjRLOHhUVkZMcGctQUNwMmdZZFE?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5hNnhsRVRNN29FWFJzN1ZhT2lveVpyQ1JIdm9Ta1QyTENaNlc2Q3RVMVFxSy1XdVNqMzBfX2pBMGdPbU1YMjItcmh5VGRqNW8?oc=5",
       "tags": [
-        "SPCX"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": false,
-      "timeTW": "11/17 06:31",
-      "clockTW": "06:31",
-      "age": "3小時前",
-      "pubTs": 1794868295
-    },
-    {
-      "title": "美法院駁回三星、SK海力士與美光撤訴動議 DRAM反壟斷案續審",
-      "source": "鉅亨網",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE10SEJiWE80dGpsUl9kWEVsQkhUVEgtNnhNbzJaWTRBTVd6aER6ZGlBWm5ldUFORHoxYzBja2phclA4enJCd3VKLXMzcUVGRUE?oc=5",
-      "tags": [
-        "MU"
+        "NVDA"
       ],
       "urgent": true,
       "isOutage": false,
       "isMacro": false,
-      "affectsHoldings": false,
-      "timeTW": "11/17 05:36",
-      "clockTW": "05:36",
-      "age": "4小時前",
-      "pubTs": 1794864990
+      "affectsHoldings": true,
+      "timeTW": "11/17 12:30",
+      "clockTW": "12:30",
+      "age": "17分鐘前",
+      "pubTs": 1794889804
     },
     {
-      "title": "美光還能翻倍？13檔美股目標價曝光 威騰電子、希捷也入列",
-      "source": "鉅亨網",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9jRDRhc1pTTFczaTM4blhiRi15b20xeGRQQmZBbGdQR0VMYTdvaEtCOGhPOVR1SG5pVTF2R0diTXZseElueEFCTUxMaHptU2s?oc=5",
+      "title": "蘋果Siri AI不能無限用了！iPhone設上限、付iCloud可提高20倍",
+      "source": "NOWnews今日新聞",
+      "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE1nYVJETFczRWMtUG5UYnA0aXJOcFVqNFcxMHRyNGMtMndRV3ZaeVh2ZVpuWUFtdE9Xa1JKWnNLbjZ4c01yeVB6UkxaM2zSAVJBVV95cUxQaXBmNjUza3h1LUlsdGNQSlZfUnMtU01ua2NhM1NLdmI5UHA4R25kVjE3R0V6czNQcXhyMUxyeGdZYkdPU0hQVWxVUjI4bWlZN2FR?oc=5",
       "tags": [
-        "MU"
+        "AAPL"
       ],
       "urgent": false,
       "isOutage": false,
       "isMacro": false,
       "affectsHoldings": false,
-      "timeTW": "11/17 04:11",
-      "clockTW": "04:11",
-      "age": "5小時前",
-      "pubTs": 1794859898
+      "timeTW": "11/17 12:23",
+      "clockTW": "12:23",
+      "age": "23分鐘前",
+      "pubTs": 1794889426
     },
     {
-      "title": "美股動向｜美收緊AI晶片出口限制，英特爾、AMD等晶片股受壓",
-      "source": "etnet 經濟通",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOaTNzVUZzNDh3SmNxR1VhM2VLMHZUeXRFb0JUWmNtdWY1QWx4MzJtQUl4ZXpSSnN6bUx1WUFOcm5mUWNyNGxYbmozYXliem1ld2lPVl9FQS1LcENUWkFsZU5sa0Zsd3B4YVA1THdVVl9hUW1qZHJRTzA3SDJwQTBadXh4bkZPaGpJTUVyQVF5UE53VmVVVGc5ZG13ZHdLMXZv?oc=5",
+      "title": "美國遠端存取新規防堵中國租用 AI 算力，新加坡、馬來西亞等 5 國晶片出口改採許可制",
+      "source": "INSIDE",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOendPZERBWUdnVmRnOHM5aGNtOC1nalpDeXBnc2VSeTU4T3JFX3Z2YWxZMjFHbGhVeTAyR3RxTFVsU1RTV2tVS2hNbGhETVpaQ0RDVk14cUc5dndKWW1fZk42eG5wYk10b2hoTkdZWFlmQ2JHTjRYY3pjWmNwLVpjQ0NOMWlEOG9rWE56NVhadlJZYzV2c3QzM0xNQ0tLT1BueDRZ?oc=5",
       "tags": [
-        "FED/宏觀",
-        "AMD"
+        "FED/宏觀"
       ],
       "urgent": false,
       "isOutage": false,
       "isMacro": true,
       "affectsHoldings": true,
-      "timeTW": "11/17 01:29",
-      "clockTW": "01:29",
-      "age": "8小時前",
-      "pubTs": 1794850140
+      "timeTW": "11/17 12:22",
+      "clockTW": "12:22",
+      "age": "24分鐘前",
+      "pubTs": 1794889349
     },
     {
-      "title": "【美股盤前】星艦本體回收里程碑！SpaceX值得長抱10年？",
-      "source": "Yahoo新聞",
-      "url": "https://news.google.com/rss/articles/CBMiuAJBVV95cUxPOURheXUxODNabnJsZGVFbWVkU3dlWENaYWc2MHg4ZnBNS1hzRlZmRlNqQU92VXVQbmpnU0tYODBTaFZoeXVPWmZINEQtbWIwQ1ZvLTRQQmFMT0ZHWlZWQ0pseldiYXRJY1hfNzZQOG8weDZTSFZtQU52QklpNjNKZDBPU2dxa09IQnFPdExCZkhaaVE4Z1dtWnpzVkVlZUhhR3dLQU9xbGx0ZGRCckdNZTdHZWFXX3dUV0FkdktBX0dIdU0xWk9kX0JLZ3p3ZjZybE1feUNOdTV2NWhNWnpnV1NoOEVMRldmQkNSQmtxZUJueFV3eWlYa0xDcWlGa1ZOZFpIa1ZIZVBtY2FJN0t2aXlNWmNIWUJkQ3A0UldEeFlXYkF3aWNPd2tUSmcyTnlJZjl0NENVZ2Q?oc=5",
+      "title": "Google 首度發現 AI 自動化攻擊：無人介入就能從修補程式反推漏洞、發動攻擊",
+      "source": "TechOrange 科技報橘",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPelo4N0tOVXlEZE5pZ1hXcDhPQ2ZSWmxUbTNpWlZwZlU3XzU1V3AtdmRuZ0h2WWo4MWlLbG14cWthZHJOeVNWV2syQ1lkNkVMV2lYQ2p2RUlkNm5uRnRYdkhLT25SSE13eUIzWjVVUjM4cmVERGdiYjZwZ21ZcDJIM3FXN1V2eXZ3VldDZGhMbVNXVzBTZDU0WDJDNFZYZUk?oc=5",
       "tags": [
+        "當機/異常",
+        "GOOG"
+      ],
+      "urgent": true,
+      "isOutage": true,
+      "isMacro": false,
+      "affectsHoldings": true,
+      "timeTW": "11/17 12:17",
+      "clockTW": "12:17",
+      "age": "29分鐘前",
+      "pubTs": 1794889068
+    },
+    {
+      "title": "波克夏第三季 13F，蘋果股數持平，權重為何升至 25%？",
+      "source": "口袋證券",
+      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5kUnA1RnlWb3ljWjZmeDFhN2hfMG1hdmZ1anRVUzR6b2EyWVd3VW1vaFpfbEFiU2pxeUU5RFd0Skk4anVqbW9ETkNlWnJuTG1FZU9YX1NnSEtRUDNLeUxHUXRzTlZWZw?oc=5",
+      "tags": [
+        "AAPL"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": false,
+      "timeTW": "11/17 12:17",
+      "clockTW": "12:17",
+      "age": "29分鐘前",
+      "pubTs": 1794889055
+    },
+    {
+      "title": "澳洲生醫晶片廠赴美取經 拜會 Google 等科技巨頭尋求落地",
+      "source": "商傳媒",
+      "url": "https://news.google.com/rss/articles/CBMijANBVV95cUxOMmVsdkNmRTFMbF9vLU1uQllRcXVqMlRnNUkxRy1rOFJVYzN5ZzRMUk5xbWdjQU9TYTNMMUdiX2RCdVJpX1U2c1NNM0hXZU54SFBlUWo1NkpJTFI0UExNVlhjX2duUjFfaVFieFZmbXdfMnhNRmtSZm0tZVY2RlpPdFlYNnpDdWZvTDdpdDJDdlppY3BSWDRMX3kyaW1JT2lDdGJqTjFGUEhZRGNVOVk5Q2twbFR2UmE4UWRISmhjN0Rwa09qWWFGVHE4Mmp6Q1M3T2VMcFREdEtnR1l3Sk5MRHVEYV80OFZpVUtoVGNOTWpKbDI5MjJRaWxrLXNxWk5hMkI2RmIwVS1OZWRUYmZ6MXBWMXFrM1BSS3E3VWtiZElZakxVS3gwNUxnNmFVZ3lVN2pWTGgxOV9OSXdWX08zeGNUdktZN3NuVUJycTJjbFNyXzZDc1BhMDhnbERmYWVXRUdNR2RFTWxfQVNUM19hN3NHMjVUU3BIOVJZY2o5ZFpVMGVXdFVBUDNoNDA?oc=5",
+      "tags": [
+        "GOOG"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": true,
+      "timeTW": "11/17 12:03",
+      "clockTW": "12:03",
+      "age": "43分鐘前",
+      "pubTs": 1794888192
+    },
+    {
+      "title": "輝達投資大洗牌！英特爾持股遭砍25％、SpaceX加碼6％ 1.59兆布局曝光",
+      "source": "自由財經",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1CbzBKZERpU0VLbm9DTXQ0empqZ3ZOVDlBRlR4d2ZaYVZBR3ItR3VlOVNfVS1UVTRPcFFwYXM1RUY0UFBYbklQS2NOYmEwSkcydlZQYXp5TkZieFJlNUtj0gFkQVVfeXFMUHlDTUF5OEgxck1MYlF6UHl4bmliRV9sUW5nTUJUd3FGVjNDeERLWXlkN2RGOWYtUHJVSmdhZGNKY0xQMkl4ZUlSMkNGdEZ4Q0RYUVpfN1Z1RFNUVTdSSjZGNmVKSA?oc=5",
+      "tags": [
+        "NVDA",
         "SPCX"
       ],
       "urgent": false,
       "isOutage": false,
       "isMacro": false,
-      "affectsHoldings": false,
-      "timeTW": "11/16 21:15",
-      "clockTW": "21:15",
-      "age": "12小時前",
-      "pubTs": 1794834900
+      "affectsHoldings": true,
+      "timeTW": "11/17 11:59",
+      "clockTW": "11:59",
+      "age": "47分鐘前",
+      "pubTs": 1794887977
     },
     {
-      "title": "Palantir Technologies Inc. (PLTR) 股價、新聞、報價和記錄",
-      "source": "Yahoo 財經",
-      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5TMWN0VF9jb1dha29acnZGWXlCRGRTbXVjVTFIRWc3bTVhWTE0dTNzTW14ZmRoVjlaS05TU0pPMVJsd2p1cHNSSWJVWFlBb3ZjSXc?oc=5",
+      "title": "黑石REIT收購亞馬遜數據中心多數股權 估值約50億美元 (11:31)",
+      "source": "明報財經網",
+      "url": "https://news.google.com/rss/articles/CBMi9wJBVV95cUxNOVZJbnRHSzZUbDNYSFAtX2lIU3E2alRBdVU3eHk3dzdESTI3cThTcE9lMW9MYVBDQVVFeEd3OEctOWNudHl4cm9nM2lIeVlza3ZYMEVMOWpGWExoZlpEcUxxOGFtMVVrUEIzX09nTjd0WVZSelA4TUtyR3VJcWIwRk54b2ZaczVtbExDX1ZiTmxwY2NlVzhTQUYydWRIWWtZcmMyTS1KcDd3V1FvcHBHWWNZTUZhYnQtNl9tWVdlSk1ZLVRMQmV0ZlBBdnhPVERCQ2RnOW91WHBYSkZueGphSkNoYzhCNmIxSl8tUXp2TGdJSmpJZ2NYZl9kX1YzWUlNMnNCR25teWFsa3ZzS2ROaFl6TzhGT3BUdFQyWjRmdnZlUkxJSHE5WnJXZ0wyQ0N3U1JXLURUV2FCRy1UdnhFQmxiaFBMeU5PeFh4NFYxOTZrNnRka3RTMzl0ZEZGY2xIVW9ZdHdrZHNIUUxCaTlRZHg1SWR6c2s?oc=5",
       "tags": [
-        "PLTR"
+        "AMZN"
       ],
       "urgent": false,
       "isOutage": false,
       "isMacro": false,
       "affectsHoldings": false,
-      "timeTW": "11/16 21:10",
-      "clockTW": "21:10",
-      "age": "12小時前",
-      "pubTs": 1794834652
+      "timeTW": "11/17 11:38",
+      "clockTW": "11:38",
+      "age": "1小時前",
+      "pubTs": 1794886688
     },
     {
-      "title": "川普入股英特爾也踢鐵板！股價重挫讓美國政府持股蒸發115億美元",
-      "source": "鉅亨網",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE92dDVwY1diNVhmQWgyQkx6VXA4WVNJUjFzMWNHZHgxRzZ2a1dWVGpia0d2bFoweC1yLUktZzRXaE52NE9acWJxV0ljQXd2UFk?oc=5",
+      "title": "川普亞洲行前出重拳！美收緊AI晶片出口管制 嚴防中企借道海外資料中心",
+      "source": "Yahoo股市",
+      "url": "https://news.google.com/rss/articles/CBMiyANBVV95cUxQOXJ6Si1SbVFacHBrY1ZicmxvX0lCSW5wVlFrY2RLbThnaTNxU3lHX1JxMTFSVTBiNWx3YWlaWDFjT3V5YXNZREdsOHN0RVpVZHhndjU0dExKdXRKOER2eWlvTnBGZmtkeVVmZlg0dDJLeHRPRWt4bUtNTFBPWl9jV2YtMXI4R0VwUWt5cU5HOW5ILUFZQngzaW55ME53RFBra0U2RHB6WXRvYlBXVFdxbjV1NkQ4NFZkdXhjSk83QnFjYWhhMzJSM0xGd2hteDh4akNSWXVjM0MxTmFSTEtfcHNTUDFXRnJFbDhhdUdsQ1c4alBKU2pzcTdGekNjQnoxSjVpMTNtVEVNNDJyd3pmQW94Rk1SdHRhbHhsVmRJSy1MemhmY1cxVXpsRF9kRkpySTlvdEtwbEdmS0NScDkwUC1sWlZXaGtkU1k0WFpWU3J0MFZqRGNjb1RCUGpvOGFIWU1pOUxJX01yc1B6ZW5uU2tzLXQ4dTZjNjB5dG1zUkwwY3FXMWtqMDZfTDhxbmNpU3BIdENwNXA4RVE5eXdYRHVoRTlCYi1iUUpnaHZaY0V4WWtHNEdTUjQ1RFBxeF9tMEtPSVF4QUo?oc=5",
       "tags": [
-        "INTC"
+        "FED/宏觀"
       ],
       "urgent": true,
       "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": false,
-      "timeTW": "11/16 20:30",
-      "clockTW": "20:30",
-      "age": "13小時前",
-      "pubTs": 1794832210
+      "isMacro": true,
+      "affectsHoldings": true,
+      "timeTW": "11/17 11:29",
+      "clockTW": "11:29",
+      "age": "1小時前",
+      "pubTs": 1794886170
     },
     {
-      "title": "美股盤前／晶片股走跌！台積電ADR、超微、英特爾挫逾4%",
-      "source": "TVBS新聞網",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1PbUlUNFdyOTQ4NllvUXd1Q2wwdjJORXFzR1dLRXRzVW41dzh3Y3RxRVZRZHZabC00aXY4S2RYaV9aS2J0NnFWNkVxMkVLcTg?oc=5",
+      "title": "微軟『股權綁定』、輝達『影子銀行』：千億美元AI基建背後的表外曝險黑盒與系統性槓桿全解析｜股市話題",
+      "source": "永豐金證券",
+      "url": "https://news.google.com/rss/articles/CBMi6ARBVV95cUxOd0Y4VVJYdExPMzg4aE14MVAza1F2c3ZQWlV0YWVGdW5UWE1VbjRPTWF2Q1FFcGd1X2RnRlB4QS1uQVBYZ1QtMVMtMm42TURkVFVZX1dfemZpVHQ2WC12Vm9CaWlkVHIySWtmMG1Gbnd2R0phOE9pc1NXZi1NMHRraVhMaEwydDRMSzgtX05VaVItdEJkSlFnd2lKQU5reUtLWGdIanJ0WUxMdk8tblU4ZjZ2bG5aYW9OMVFPUW1YN1hPbE5UQUVfRTFKTm5MOUIwN0drdzgtblhmU0M3MkVTcERtclFTZ1hfYzV1TFNiSGpaN2NVdFlfb19RcGV1emM2SFNweHhkX1hNNXoxUVZoVmRSdk1UamZTNW0tcDNkSUR0Yk5ZZVZ0dXNGTS1vOUpScjRPZ3JyNFVZZXc1cWYzenEtNlc2VHFyWW5Jd1A5ZDBnX21aUWhwR05YWE5LSHl0Vk5TZWNHOFRGU3Y0c0dGUkEwbzJwR0FtaVRabXhXemtTNXhOMWhKVXJpaFdJbDdRRVpaTFN4YzI2bDJMQ2pQQlNtekdQOHNwS1FBbG1JdW8xTUZJMGpVOWV6dzdGcU1rVzlJZU5nRUsyQ0tNZy1SOU1YYmVHX0RSMGxrVkVDNGhYUl92TFB0aEV5ak1JN0hBNFBpTmNmUHhzWHFUYzFCd183YlVETkJGdWlndHp0RmZXOGNVU0w4WktMa3ctZFcwalljTUxELTBnRDcycTNRM1RuU0U2ZDZmaUdYTDd5elR4RTFLVWhVcVBRM1RSN2R2RHFNRUdwU2JpYTlNdjNFdlZ5cVdvVjVp?oc=5",
       "tags": [
-        "AMD",
-        "INTC"
+        "MSFT",
+        "NVDA"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": true,
+      "timeTW": "11/17 11:19",
+      "clockTW": "11:19",
+      "age": "1小時前",
+      "pubTs": 1794885598
+    },
+    {
+      "title": "AI泡沫論｜滙豐85折沽3億美元甲骨文數據中心項目貸款",
+      "source": "香港01",
+      "url": "https://news.google.com/rss/articles/CBMi-gJBVV95cUxNdDFnc0xpaEJvZ3k1cGJnZFNWbXVmeTN3VWpFb1ktWHduQnFyTmt3Q1U3NFkyTTdxdGM4a3l5cy1NbXUxSTNlNjZVUmw5SWhPaFRSOEFHT1kyOTgtVWZaa2pkTWlZcFJLVC00YzB2Um8tcUVUZVRXZ1R4cVlIaHNMOFVhN2xnQVBlMDFLOTNEMWV3MW1ka1pDalhMaGJKQVoyOGNQZXJHTmFzM041dFJGRjNjLVFWZDdPYUdLMm8wTlo5WWVkMlNSdzlVM3RNUkZtdl9aOHhPSWlYSUNuVzVJYmtxVDV2bjRLQ0I3ZzdTMXpkdUt2dm5xaVVsQWFrcGkwTm15NXpoSDlNZExLVFozNlVqOFFZWGMxVTd3NTR4U2p4TDZ4aFEtN1cxYXpNZWZKdnRGWHFQcldNLTVWeVZqRmRPYlFSOW5UdXo2bmZMUFRYOG4xZEJnZUFsVUtFZ2xfd1BQNi1IT05kT3E2UjJENHhWYUJyNFJuc0E?oc=5",
+      "tags": [
+        "ORCL"
       ],
       "urgent": false,
       "isOutage": false,
       "isMacro": false,
       "affectsHoldings": false,
-      "timeTW": "11/16 18:10",
-      "clockTW": "18:10",
-      "age": "15小時前",
-      "pubTs": 1794823800
+      "timeTW": "11/17 11:12",
+      "clockTW": "11:12",
+      "age": "1小時前",
+      "pubTs": 1794885143
+    },
+    {
+      "title": "消息稱三星電子正為Meta自研AI芯片開發定製化HBM",
+      "source": "TradingView",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE56X3ByOWpHd1FNNXUtQ3NpYlN6NzRpVzNQeV9BYWtjQ1FGcmp5QWs2czBvUGFRRjdhT0FteUVsaEpGZU5ZVHp2LWtDeHBCVXFYYkNuRXh6Z3NEWXduNmE5M2Zpc3lxUDYtN0E?oc=5",
+      "tags": [
+        "META",
+        "MU"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": false,
+      "timeTW": "11/17 11:03",
+      "clockTW": "11:03",
+      "age": "1小時前",
+      "pubTs": 1794884592
     }
   ]
 }

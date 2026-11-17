@@ -7,6 +7,8 @@ on:
     # 10 minutes before US Market Open (09:20 AM ET) - EDT (UTC-4) & EST (UTC-5)
     - cron: "18 13 * * 1-5"
     - cron: "18 14 * * 1-5"
+    # 10 minutes before TW Market Open (08:50 AM TW = 00:50 UTC)
+    - cron: "50 0 * * 1-5"
   workflow_dispatch:
 
 permissions:
@@ -45,11 +47,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/quotes.json data/insights.json data/flash.json
+          git add data/quotes.json data/insights.json data/flash.json data/tw_quotes.json data/tw_insights.json data/tw_flash.json
           if git diff --staged --quiet; then
             echo "No insight changes to commit."
             exit 0
           fi
-          git commit -m "chore(data): update 6h headlines & sentiment [skip ci]"
+          git commit -m "chore(data): update 6h US & TW headlines & sentiment [skip ci]"
           git pull --rebase origin main
           git push origin main

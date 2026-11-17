@@ -5,7 +5,20 @@
   const LIVE_REPO = "EgoTsai/us-stock-watch";
   const LIVE_BRANCH = "live-data";
 
+  const urlParams = new URLSearchParams(window.location.search);
+  const initialMarket =
+    urlParams.get("market") === "tw" || window.location.hash === "#tw"
+      ? "tw"
+      : urlParams.get("market") === "us" || window.location.hash === "#us"
+      ? "us"
+      : localStorage.getItem("stock_watch_market") || "us";
+
   const state = {
+    market: initialMarket === "tw" ? "tw" : "us",
+    cache: {
+      us: { baseQuotes: null, quotes: null, insights: null, flash: null, realtime: false },
+      tw: { baseQuotes: null, quotes: null, insights: null, flash: null, realtime: false },
+    },
     baseQuotesData: null,
     quotesData: null,
     insightsData: null,
@@ -25,6 +38,10 @@
   };
 
   // DOM Elements
+  const elBrandTitle = document.getElementById("brand-title-text");
+  const elBtnMarketUs = document.getElementById("btn-market-us");
+  const elBtnMarketTw = document.getElementById("btn-market-tw");
+  const elBtnQuickSwitch = document.getElementById("btn-quick-switch-market");
   const elStatusDot = document.getElementById("market-status-dot");
   const elStatusText = document.getElementById("market-status-text");
   const elQuotesUpdated = document.getElementById("quotes-updated-label");
@@ -33,24 +50,35 @@
   const elRefreshText = document.getElementById("refresh-btn-text");
   const elBtnExpandAll = document.getElementById("btn-expand-all");
   const elBtnTheme = document.getElementById("btn-theme-toggle");
+  const elFlashLabelTitle = document.getElementById("flash-label-title");
   const elFlashTrack = document.getElementById("flash-marquee-track");
   const elBtnFlashPause = document.getElementById("btn-flash-pause");
   const elBtnFlashDrawer = document.getElementById("btn-flash-drawer");
   const elFlashDrawerBtnText = document.getElementById("flash-drawer-btn-text");
   const elFlashDrawer = document.getElementById("flash-wire-drawer");
+  const elFlashPillUrgent = document.getElementById("flash-pill-urgent");
+  const elFlashPillHoldings = document.getElementById("flash-pill-holdings");
   const elFlashUpdatedNote = document.getElementById("flash-updated-note");
   const elFlashTimeline = document.getElementById("flash-timeline-list");
   const flashFilterButtons = Array.from(document.querySelectorAll(".flash-filter-pill"));
+  const elHeadingIndices = document.getElementById("heading-indices");
   const elIndicesSubtitle = document.getElementById("indices-subtitle");
   const elIndicesContainer = document.getElementById("indices-container");
+  const elHeadingHeadlines = document.getElementById("heading-headlines");
   const elMarketHeadlines = document.getElementById("market-headlines-list");
+  const elHeadingWatchlist = document.getElementById("heading-watchlist");
+  const elWatchlistSubtitle = document.getElementById("watchlist-subtitle");
+  const elWatchlistFilterTabs = document.getElementById("watchlist-filter-tabs");
   const elWatchlistRows = document.getElementById("watchlist-rows-container");
+  const elHeadingCio = document.getElementById("heading-cio");
+  const elCioSubtitle = document.getElementById("cio-subtitle");
   const elCioContainer = document.getElementById("cio-advisory-container");
+  const elFooterColorRule = document.getElementById("footer-color-rule");
+  const elFooterScheduleNote = document.getElementById("footer-schedule-note");
   const elSearchInput = document.getElementById("search-ticker-input");
   const elSortSelect = document.getElementById("sort-watchlist-select");
   const elColHeader = document.getElementById("moomoo-col-header");
   const colSortHeaders = Array.from(document.querySelectorAll(".col-sortable"));
-  const tabButtons = Array.from(document.querySelectorAll(".tab-btn"));
 
   function formatNumber(num, decimals = 2) {
     if (num === null || num === undefined || Number.isNaN(Number(num))) return "--";
@@ -81,6 +109,20 @@
       .replace(/'/g, "&#39;");
   }
 
+  function getUpDownStroke(isUp) {
+    const isTw = state.market === "tw";
+    if (isTw) {
+      return isUp ? "#ef4444" : "#10b981";
+    }
+    return isUp ? "#10b981" : "#ef4444";
+  }
+
+  function getUpDownRgba(isUp, alpha) {
+    const isTw = state.market === "tw";
+    const useRed = isTw ? isUp : !isUp;
+    return useRed ? `rgba(239, 68, 68, ${alpha})` : `rgba(16, 185, 129, ${alpha})`;
+  }
+
   function applyTheme(theme) {
     state.theme = theme;
     document.documentElement.setAttribute("data-theme", theme);
@@ -91,15 +133,191 @@
     }
   }
 
+  function renderFilterTabsForMarket() {
+    if (!elWatchlistFilterTabs) return;
+    const rawList = state.quotesData?.watchlist || [];
+    const total = rawList.length;
+    const holdCnt = rawList.filter((x) => x.isHolding).length;
+
+    let tabsConfig = [];
+    if (state.market === "tw") {
+      const semiCnt = rawList.filter((x) => x.category === "semi").length;
+      const aiCnt = rawList.filter((x) => x.category === "ai").length;
+      const etfCnt = rawList.filter((x) => x.category === "etf").length;
+      tabsConfig = [
+        { id: "tab-all", filter: "all", label: `全部 (${total || 16})` },
+        { id: "tab-holdings", filter: "holdings", label: `核心焦點 (${holdCnt || 8})` },
+        { id: "tab-semi", filter: "semi", label: `IC設計 / 晶圓封測 (${semiCnt || 5})` },
+        { id: "tab-ai", filter: "ai", label: `AI伺服器 / 散熱 (${aiCnt || 7})` },
+        { id: "tab-etf", filter: "etf", label: `市值 / 科技 ETF (${etfCnt || 4})` },
+      ];
+    } else {
+      const techCnt = rawList.filter((x) => x.category === "tech").length;
+      const semiCnt = rawList.filter((x) => x.category === "semi").length;
+      const macroCnt = rawList.filter((x) => x.category === "macro").length;
+      tabsConfig = [
+        { id: "tab-all", filter: "all", label: `全部 (${total || 21})` },
+        { id: "tab-holdings", filter: "holdings", label: `我的持倉 (${holdCnt || 7})` },
+        { id: "tab-tech", filter: "tech", label: `科技巨頭 (${techCnt || 5})` },
+        { id: "tab-semi", filter: "semi", label: `半導體 (${semiCnt || 7})` },
+        { id: "tab-macro", filter: "macro", label: `ETF / 期貨 / 波動率 (${macroCnt || 9})` },
+      ];
+    }
+
+    if (!tabsConfig.some((t) => t.filter === state.activeFilter)) {
+      state.activeFilter = "all";
+    }
+
+    elWatchlistFilterTabs.innerHTML = tabsConfig
+      .map(
+        (t) =>
+          `<button type="button" class="tab-btn ${state.activeFilter === t.filter ? "active" : ""}" id="${t.id}" data-filter="${t.filter}">${escapeHtml(t.label)}</button>`
+      )
+      .join("");
+  }
+
+  function applyMarketStaticLabels() {
+    const isTw = state.market === "tw";
+    document.documentElement.setAttribute("data-market", state.market);
+    localStorage.setItem("stock_watch_market", state.market);
+
+    if (elBrandTitle) {
+      elBrandTitle.textContent = isTw ? "台股即時觀察站" : "美股即時觀察站";
+    }
+    document.title = isTw
+      ? "台股即時觀察站 — 加權/0050/0052走勢・AI半導體供應鏈・投資長操作建議"
+      : "美股即時觀察站 — 三大指數・核心持倉與觀察名單・投資長操作建議";
+
+    if (elBtnMarketUs) elBtnMarketUs.classList.toggle("active", !isTw);
+    if (elBtnMarketTw) elBtnMarketTw.classList.toggle("active", isTw);
+    if (elBtnQuickSwitch) {
+      elBtnQuickSwitch.textContent = isTw ? "⇄ 切換至美股即時觀察站" : "⇄ 切換至台股即時觀察站";
+      elBtnQuickSwitch.title = isTw
+        ? "一鍵切換回美股即時觀察站（漲綠跌紅）"
+        : "一鍵切換至台股即時觀察站（漲紅跌綠）";
+    }
+
+    if (elFlashLabelTitle) {
+      elFlashLabelTitle.textContent = isTw ? "台股AI・重磅快報" : "科技30・重磅快報";
+    }
+    if (elFlashPillUrgent) {
+      elFlashPillUrgent.textContent = isTw ? "重磅・法說・法人" : "重磅・升降息・當機";
+    }
+    if (elFlashPillHoldings) {
+      elFlashPillHoldings.textContent = isTw ? "關聯AI核心股" : "關聯我的持倉";
+    }
+    if (elHeadingIndices) {
+      elHeadingIndices.textContent = isTw ? "台股大盤與核心市值 / 科技指標走勢" : "美股三大市場走勢與報價";
+    }
+    if (elHeadingHeadlines) {
+      elHeadingHeadlines.textContent = isTw ? "台股頭條重點整理" : "美股頭條重點整理";
+    }
+    if (elHeadingWatchlist) {
+      elHeadingWatchlist.textContent = isTw
+        ? "AI 與半導體供應鏈＋市值型 ETF 觀察名單（核心焦點置頂）"
+        : "核心觀察名單（持倉優先置頂）";
+    }
+    if (elWatchlistSubtitle) {
+      elWatchlistSubtitle.textContent = isTw
+        ? "每 60 秒自動即時同步台股盤中 / 收盤報價（按「立即更新」秒級直連最新盤口） · 點擊橫列展開 6H 頭條"
+        : "每 60 秒自動即時同步夜盤 / 盤前 / 盤中 / 盤後價（按「立即更新」秒級直連最新盤口） · 點擊橫列展開 6H 頭條";
+    }
+    if (elHeadingCio) {
+      elHeadingCio.textContent = isTw
+        ? "投資長 (CIO & CRO) 台股 AI 供應鏈＆ETF 操作建議"
+        : "投資長 (CIO & CRO) 專業操作建議";
+    }
+    if (elCioSubtitle) {
+      elCioSubtitle.textContent = isTw
+        ? "依據加權指數、台積電 ADR 溢價、外資動向與 AI 伺服器供應鏈位階動態更新"
+        : "依據最新收盤 / 盤後價位、波動率 (VIX) 與期權防線動態更新";
+    }
+    if (elFooterColorRule) {
+      elFooterColorRule.innerHTML = isTw
+        ? `台股規範：<strong style="color: var(--up-text)">紅色＝上漲 / 想買居多</strong> · <strong style="color: var(--down-text)">綠色＝下跌 / 想賣居多</strong>`
+        : `美股規範：<strong style="color: var(--up-text)">綠色＝上漲 / 想買居多</strong> · <strong style="color: var(--down-text)">紅色＝下跌 / 想賣居多</strong>`;
+    }
+    if (elFooterScheduleNote) {
+      elFooterScheduleNote.textContent = isTw
+        ? "排程：台股盤中每 60 秒自動即時連線更新 · 6H 頭條、PTT/網友情緒與投資長建議每 6 小時自動同步"
+        : "排程：股價每 3 分鐘即時更新 · 6H 頭條、網友情緒與投資長建議每 6 小時及美股開盤前 10 分鐘 (09:20 ET) 自動同步";
+    }
+  }
+
+  async function switchMarket(targetMarket) {
+    const next = targetMarket === "tw" ? "tw" : "us";
+    if (state.market === next && state.quotesData) return;
+
+    state.market = next;
+    state.activeFilter = "all";
+    state.expandedSymbols.clear();
+    applyMarketStaticLabels();
+
+    const cached = state.cache[next];
+    if (cached && cached.quotes) {
+      state.baseQuotesData = cached.baseQuotes;
+      state.quotesData = cached.quotes;
+      state.insightsData = cached.insights;
+      state.flashData = cached.flash;
+      state.realtimeActive = cached.realtime;
+      renderFilterTabsForMarket();
+      renderHeaderMeta();
+      renderFlashWire();
+      renderIndices();
+      renderMarketHeadlines();
+      renderWatchlist();
+      renderCioAdvisory();
+      await hydrateUntranslatedDom();
+      loadAllData(false);
+    } else {
+      await loadAllData(false);
+    }
+  }
+
   function sessionBadgeClass(sessionStr) {
     if (!sessionStr) return "post";
     if (sessionStr.includes("夜盤")) return "overnight";
-    if (sessionStr.includes("盤前")) return "pre";
+    if (sessionStr.includes("盤前") || sessionStr.includes("試撮")) return "pre";
     if (sessionStr.includes("盤中")) return "regular";
     return "post";
   }
 
   function computeLiveMarketStatus() {
+    if (state.market === "tw") {
+      try {
+        const now = new Date();
+        const parts = new Intl.DateTimeFormat("en-US", {
+          timeZone: "Asia/Taipei",
+          weekday: "short",
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+        }).formatToParts(now);
+        const map = Object.fromEntries(parts.map((p) => [p.type, p.value]));
+        const wd = map.weekday;
+        const hm = parseInt(map.hour, 10) * 60 + parseInt(map.minute, 10);
+
+        if (wd === "Sat" || wd === "Sun") {
+          return { text: "台股週末休市 · 顯示最新收盤報價", active: false };
+        }
+        if (hm >= 510 && hm < 540) {
+          return { text: "台股盤前試撮合中 (08:30–09:00 TW)", active: true };
+        }
+        if (hm >= 540 && hm < 810) {
+          return { text: "台股正規盤交易中 (09:00–13:30 TW)", active: true };
+        }
+        if (hm >= 810 && hm < 870) {
+          return { text: "台股盤後定價交易中 (13:30–14:30 TW)", active: false };
+        }
+        return { text: "台股已收盤 · 顯示最新收盤與美股ADR連動", active: false };
+      } catch {
+        return {
+          text: state.quotesData?.marketSession?.statusText || "台股市場監控中",
+          active: false,
+        };
+      }
+    }
+
     try {
       const now = new Date();
       const parts = new Intl.DateTimeFormat("en-US", {
@@ -143,34 +361,44 @@
       elQuotesUpdated.textContent = `股價更新：${state.quotesData.updatedAtTW} ${modeTag}`;
     }
     if (state.insightsData?.updatedAtTW) {
-      elInsightsUpdated.textContent = `頭條/情緒：${state.insightsData.updatedAtTW} (6H/開盤前10分)`;
+      elInsightsUpdated.textContent =
+        state.market === "tw"
+          ? `頭條/情緒：${state.insightsData.updatedAtTW} (6H同步)`
+          : `頭條/情緒：${state.insightsData.updatedAtTW} (6H/開盤前10分)`;
     }
   }
 
-  function parseEtMinutesFromOpen(etStr) {
-    if (!etStr || typeof etStr !== "string" || !etStr.includes(":")) return null;
-    const [hh, mm] = etStr.split(":").map((n) => parseInt(n, 10));
+  function parseSessionMinutesFromOpen(hmStr, isTw = false) {
+    if (!hmStr || typeof hmStr !== "string" || !hmStr.includes(":")) return null;
+    const [hh, mm] = hmStr.split(":").map((n) => parseInt(n, 10));
     if (Number.isNaN(hh) || Number.isNaN(mm)) return null;
+    if (isTw) {
+      return Math.max(0, Math.min(270, hh * 60 + mm - 540));
+    }
     return Math.max(0, Math.min(390, hh * 60 + mm - 570));
   }
 
-  // 1. Three Major US Indices
+  // 1. Three Major Indices (US or TW)
   function renderIndices() {
     const indices = state.quotesData?.indices || [];
     if (!indices.length) return;
 
+    const isTw = state.market === "tw";
+    const tzTag = isTw ? "TW" : "ET";
+    const ruleTag = isTw ? "漲紅跌綠" : "漲綠跌紅";
+    const sessionRange = isTw ? "09:00–13:30 TW" : "09:30–16:00 ET";
     const sessionDate = indices[0].sessionDate || "";
     const anyLive = indices.some((idx) => idx.isLive);
-    const lastEt = indices[0].lastTimeET || "";
+    const lastHm = indices[0].lastTimeET || "";
     elIndicesSubtitle.textContent = anyLive
-      ? `交易日 ${sessionDate} 盤中即時走勢 (${lastEt} ET 更新) · 漲綠跌紅`
-      : `交易日 ${sessionDate} 正規盤收盤走勢 (09:30–16:00 ET) · 漲綠跌紅`;
+      ? `交易日 ${sessionDate} 盤中即時走勢 (${lastHm} ${tzTag} 更新) · ${ruleTag}`
+      : `交易日 ${sessionDate} 正規盤收盤走勢 (${sessionRange}) · ${ruleTag}`;
 
     elIndicesContainer.innerHTML = indices
       .map((idx, i) => {
         const dirClass = idx.isUp ? "up" : "down";
         const statusMetaHtml = idx.isLive
-          ? `<span class="live-idx-badge">● 盤中即時 ${escapeHtml(idx.lastTimeET || "")} ET</span>`
+          ? `<span class="live-idx-badge">● 盤中即時 ${escapeHtml(idx.lastTimeET || "")} ${tzTag}</span>`
           : `<span>${escapeHtml(idx.sessionDate)} 收盤</span>`;
         return `
           <article class="index-card">
@@ -213,6 +441,8 @@
     const rect = canvas.getBoundingClientRect();
     if (!rect.width || !rect.height || pts.length < 2) return;
 
+    const isTw = state.market === "tw" || idxData.tzLabel === "TW";
+    const totalSessionMins = isTw ? 270 : 390;
     const dpr = window.devicePixelRatio || 1;
     canvas.width = Math.round(rect.width * dpr);
     canvas.height = Math.round(rect.height * dpr);
@@ -240,9 +470,9 @@
 
     const xAt = (i) => {
       if (idxData.isLive) {
-        const m = parseEtMinutesFromOpen(pts[i]?.et);
+        const m = parseSessionMinutesFromOpen(pts[i]?.et, isTw);
         if (m !== null) {
-          return padX + (m / 390) * plotW;
+          return padX + (m / totalSessionMins) * plotW;
         }
       }
       return padX + (i / (pts.length - 1)) * plotW;
@@ -250,10 +480,8 @@
     const yAt = (v) => padTop + (1 - (v - minVal) / range) * plotH;
 
     const isDark = state.theme === "dark";
-    const lineColor = idxData.isUp ? "#10b981" : "#ef4444";
-    const fillTop = idxData.isUp
-      ? isDark ? "rgba(16, 185, 129, 0.25)" : "rgba(16, 185, 129, 0.16)"
-      : isDark ? "rgba(239, 68, 68, 0.25)" : "rgba(239, 68, 68, 0.15)";
+    const lineColor = getUpDownStroke(idxData.isUp);
+    const fillTop = getUpDownRgba(idxData.isUp, isDark ? 0.25 : 0.16);
 
     ctx.clearRect(0, 0, w, h);
 
@@ -303,7 +531,7 @@
       const lx = xAt(pts.length - 1);
       const ly = yAt(pts[pts.length - 1].p);
       ctx.save();
-      ctx.fillStyle = idxData.isUp ? "rgba(16, 185, 129, 0.25)" : "rgba(239, 68, 68, 0.25)";
+      ctx.fillStyle = getUpDownRgba(idxData.isUp, 0.25);
       ctx.beginPath();
       ctx.arc(lx, ly, 6, 0, Math.PI * 2);
       ctx.fill();
@@ -317,11 +545,11 @@
     ctx.fillStyle = isDark ? "#64748b" : "#94a3b8";
     ctx.font = '10px "JetBrains Mono", monospace';
     ctx.textAlign = "left";
-    ctx.fillText("09:30", padX, h - 3);
+    ctx.fillText(idxData.openHm || (isTw ? "09:00" : "09:30"), padX, h - 3);
     ctx.textAlign = "center";
-    ctx.fillText("12:45", w / 2, h - 3);
+    ctx.fillText(idxData.midHm || (isTw ? "11:15" : "12:45"), w / 2, h - 3);
     ctx.textAlign = "right";
-    ctx.fillText("16:00", w - padX, h - 3);
+    ctx.fillText(idxData.closeHm || (isTw ? "13:30" : "16:00"), w - padX, h - 3);
 
     if (hoverIndex !== null && pts[hoverIndex]) {
       const hp = pts[hoverIndex];
@@ -344,7 +572,8 @@
 
       if (tooltip) {
         const pct = idxData.prevClose ? ((hp.p - idxData.prevClose) / idxData.prevClose) * 100 : 0;
-        tooltip.textContent = `${hp.et} ET · ${formatNumber(hp.p)} (${formatSignedPct(pct)})`;
+        const tz = isTw ? "TW" : "ET";
+        tooltip.textContent = `${hp.et} ${tz} · ${formatNumber(hp.p)} (${formatSignedPct(pct)})`;
         tooltip.style.opacity = "1";
       }
     } else if (tooltip) {
@@ -384,7 +613,7 @@
   function renderMarketHeadlines() {
     const items = state.insightsData?.marketHeadlines || [];
     if (!items.length) {
-      elMarketHeadlines.innerHTML = `<li class="quiet-note">目前暫無美股頭條資料。</li>`;
+      elMarketHeadlines.innerHTML = `<li class="quiet-note">目前暫無頭條資料。</li>`;
       return;
     }
 
@@ -421,7 +650,7 @@
       })
       .join(" ");
     const firstY = (h - 4 - ((points[0] - min) / span) * (h - 8)).toFixed(1);
-    const stroke = isUp ? "#10b981" : "#ef4444";
+    const stroke = getUpDownStroke(isUp);
     return `
       <svg viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" aria-hidden="true">
         <line x1="2" y1="${firstY}" x2="${w - 2}" y2="${firstY}" stroke="rgba(148,163,184,0.35)" stroke-width="1" stroke-dasharray="2,2" />
@@ -646,11 +875,15 @@
       // Keep Holdings pinned on top and sort within each section
       const holdingsGroup = sortItemsWithinGroup(list.filter((it) => it.isHolding));
       const watchGroup = sortItemsWithinGroup(list.filter((it) => !it.isHolding));
+      const topGroupTitle =
+        state.market === "tw"
+          ? `★ 核心 AI 供應鏈 ＆ 市值型 ETF 焦點 (${holdingsGroup.length})`
+          : `★ 我的核心持倉 (${holdingsGroup.length})`;
 
       if (holdingsGroup.length) {
         htmlParts.push(`
           <div class="moomoo-group-banner">
-            <span>★ 我的核心持倉 (${holdingsGroup.length})</span>
+            <span>${topGroupTitle}</span>
             <span>優先置頂監控</span>
           </div>
         `);
@@ -734,7 +967,7 @@
 
   function flashTagClass(tagStr, item) {
     if (tagStr.includes("當機") || item.isOutage) return "outage";
-    if (tagStr.includes("FED") || item.isMacro) return "macro";
+    if (tagStr.includes("FED") || tagStr.includes("法人") || item.isMacro) return "macro";
     if (item.affectsHoldings) return "holding";
     return "";
   }
@@ -750,10 +983,11 @@
     return `${urgentHtml}${tagsHtml}`;
   }
 
-  // 0. Render Top-30 US Tech & Fed Breaking News Flash Ticker + 7x24 Wire Drawer
+  // 0. Render Breaking News Flash Ticker + 7x24 Wire Drawer
   function renderFlashWire() {
     const items = state.flashData?.items || [];
     const totalCount = items.length;
+    const isTw = state.market === "tw";
 
     if (elFlashDrawerBtnText) {
       elFlashDrawerBtnText.textContent = state.flashDrawerOpen
@@ -762,11 +996,13 @@
     }
 
     if (elFlashUpdatedNote && state.flashData?.updatedAtTW) {
-      elFlashUpdatedNote.textContent = `嚴選美國前 30 大科技股 ＆ 聯準會升降息/政策衝擊 · 最新掃描：${state.flashData.updatedAtTW} (每3分)`;
+      elFlashUpdatedNote.textContent = isTw
+        ? `嚴選台股 AI 與半導體供應鏈 ＆ 三大法人/大盤重磅快報 · 最新掃描：${state.flashData.updatedAtTW} (每3分)`
+        : `嚴選美國前 30 大科技股 ＆ 聯準會升降息/政策衝擊 · 最新掃描：${state.flashData.updatedAtTW} (每3分)`;
     }
 
     if (!items.length) {
-      elFlashTrack.innerHTML = `<span class="flash-loading-text">目前暫無最新美國前 30 大科技股與聯準會突發快報。</span>`;
+      elFlashTrack.innerHTML = `<span class="flash-loading-text">目前暫無最新突發快報。</span>`;
       elFlashTrack.style.animation = "none";
       renderFlashDrawer();
       return;
@@ -844,6 +1080,7 @@
     "spacex", "spcx", "starlink", "uber", "adobe", "adbe", "crowdstrike", "crwd", "linux", "gcc",
     "voo", "qqq", "tqqq", "soxl", "boxx", "iau", "ibit", "uco", "wti", "nymex", "opec", "vix", "nasdaq",
     "vanguard", "russell", "invesco", "proshares", "ishares", "blackrock", "spdr", "vonv", "nyse",
+    "gb200", "gb300", "nvlink", "csp", "bbu", "800g", "taiex", "twse", "nt",
   ]);
 
   function textNeedsZh(str) {
@@ -977,6 +1214,9 @@
     "^DJI": ".DJI",
     "^IXIC": ".IXIC",
     "^GSPC": ".SPX",
+    "^TWII": ".TWII",
+    "0050.TW": "0050.TW",
+    "0052.TW": "0052.TW",
   };
 
   const CNBC_STOCK_MAP = {
@@ -1010,6 +1250,28 @@
   function formatEtHmStr(ms) {
     const parts = new Intl.DateTimeFormat("en-GB", {
       timeZone: "America/New_York",
+      hour: "2-digit",
+      minute: "2-digit",
+      hourCycle: "h23",
+    }).formatToParts(new Date(ms));
+    const m = Object.fromEntries(parts.map((p) => [p.type, p.value]));
+    return `${m.hour}:${m.minute}`;
+  }
+
+  function formatTwDateStr(ms) {
+    const parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: "Asia/Taipei",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    }).formatToParts(new Date(ms));
+    const m = Object.fromEntries(parts.map((p) => [p.type, p.value]));
+    return `${m.year}-${m.month}-${m.day}`;
+  }
+
+  function formatTwHmStr(ms) {
+    const parts = new Intl.DateTimeFormat("en-GB", {
+      timeZone: "Asia/Taipei",
       hour: "2-digit",
       minute: "2-digit",
       hourCycle: "h23",
@@ -1135,12 +1397,15 @@
   async function applyRealtimeBrowserQuotes(quotesObj) {
     if (!quotesObj || typeof quotesObj !== "object") return false;
     try {
+      const isTw = state.market === "tw";
       const idxList = quotesObj.indices || [];
       const watchList = quotesObj.watchlist || [];
-      const cnbcSymbols = [
-        ...idxList.map((idx) => CNBC_INDEX_MAP[idx.symbol] || idx.symbol),
-        ...watchList.map((st) => CNBC_STOCK_MAP[st.symbol] || st.symbol),
-      ];
+      const cnbcSymbols = Array.from(
+        new Set([
+          ...idxList.map((idx) => CNBC_INDEX_MAP[idx.symbol] || idx.symbol),
+          ...watchList.map((st) => CNBC_STOCK_MAP[st.symbol] || st.symbol),
+        ])
+      );
       if (!cnbcSymbols.length) return false;
 
       const url =
@@ -1166,7 +1431,7 @@
       let anyUpdated = false;
       const etSessionNow = getEtSessionCodeNow();
 
-      // 1. Update Three Major US Indices + fetch real-time 5M intraday charts in parallel
+      // 1. Update Three Major Indices (US or TW)
       const barTasks = [];
       for (const idxObj of idxList) {
         const cSym = (CNBC_INDEX_MAP[idxObj.symbol] || idxObj.symbol).toUpperCase();
@@ -1180,8 +1445,12 @@
 
         const mktStatus = String(cq.curmktstatus || "").toUpperCase();
         const isLive = mktStatus === "REG_MKT";
-        const cnbcDate = regMs ? formatEtDateStr(regMs) : idxObj.sessionDate;
-        const cnbcHm = regMs ? formatEtHmStr(regMs) : idxObj.lastTimeET || "16:00";
+        const cnbcDate = regMs ? (isTw ? formatTwDateStr(regMs) : formatEtDateStr(regMs)) : idxObj.sessionDate;
+        const cnbcHm = regMs
+          ? isTw
+            ? formatTwHmStr(regMs)
+            : formatEtHmStr(regMs)
+          : idxObj.lastTimeET || (isTw ? "13:30" : "16:00");
 
         if (regTs >= (idxObj.quoteTs || 0) - 5 || cnbcDate > (idxObj.sessionDate || "")) {
           const prevC = parseCnbcNum(cq.previous_day_closing) ?? idxObj.prevClose ?? regPrice;
@@ -1200,24 +1469,37 @@
           idxObj.sessionDate = cnbcDate;
           idxObj.isLive = isLive;
           idxObj.statusLabel = isLive ? "盤中即時" : "收盤";
-          idxObj.lastTimeET = isLive ? cnbcHm : "16:00";
+          idxObj.lastTimeET = isLive ? cnbcHm : isTw ? "13:30" : "16:00";
           idxObj.quoteTs = regTs;
           anyUpdated = true;
 
-          barTasks.push(
-            fetchCnbcIntradayIndexBars(cSym, cnbcDate, idxObj.close, idxObj.prevClose, idxObj.lastTimeET, isLive, regTs).then(
-              (barRes) => {
-                if (barRes?.points?.length >= 2) {
-                  idxObj.sessionDate = barRes.sessionDate;
-                  idxObj.points = barRes.points;
+          if (isTw) {
+            if (Array.isArray(idxObj.points) && idxObj.points.length >= 2) {
+              const tail = idxObj.points[idxObj.points.length - 1];
+              if (isLive) {
+                if (Math.abs(tail.p - idxObj.close) > 0.005 || tail.et !== cnbcHm) {
+                  idxObj.points.push({ t: regTs || tail.t + 60, et: cnbcHm, p: idxObj.close });
                 }
+              } else {
+                tail.p = idxObj.close;
               }
-            )
-          );
+            }
+          } else {
+            barTasks.push(
+              fetchCnbcIntradayIndexBars(cSym, cnbcDate, idxObj.close, idxObj.prevClose, idxObj.lastTimeET, isLive, regTs).then(
+                (barRes) => {
+                  if (barRes?.points?.length >= 2) {
+                    idxObj.sessionDate = barRes.sessionDate;
+                    idxObj.points = barRes.points;
+                  }
+                }
+              )
+            );
+          }
         }
       }
 
-      // 2. Update all 21 Watchlist stocks/ETFs/futures (preserving fresher Yahoo Overnight quotes during 20:00-04:00 ET)
+      // 2. Update Watchlist stocks/ETFs/futures (preserving fresher Yahoo Overnight quotes during 20:00-04:00 ET)
       for (const st of watchList) {
         const cSym = (CNBC_STOCK_MAP[st.symbol] || st.symbol).toUpperCase();
         const cq = qBySym.get(cSym);
@@ -1239,7 +1521,7 @@
         let useExtended = false;
 
         const ext = cq.ExtendedMktQuote;
-        if (ext && mktStatus !== "REG_MKT" && st.symbol !== "^VIX" && st.symbol !== "CL=F") {
+        if (!isTw && ext && mktStatus !== "REG_MKT" && st.symbol !== "^VIX" && st.symbol !== "CL=F") {
           const extP = parseCnbcNum(ext.last);
           const extMs = ext.last_time ? Date.parse(ext.last_time) : 0;
           const extTs = extMs ? Math.floor(extMs / 1000) : 0;
@@ -1264,7 +1546,6 @@
           bestSession = mktStatus === "REG_MKT" ? "盤中" : "收盤";
         }
 
-        // Only apply if CNBC quote is at least as fresh as existing quoteTs (preserves Blue Ocean ATS 夜盤!)
         if (bestTs >= (st.quoteTs || 0) - 5) {
           let chg = regChg;
           let chgPct = regChgPct;
@@ -1362,12 +1643,18 @@
     elBtnRefresh.disabled = true;
     elRefreshText.textContent = "即時同步中…";
 
+    const curMarket = state.market;
+    const prefix = curMarket === "tw" ? "tw_" : "";
+    const qFile = `${prefix}quotes.json`;
+    const iFile = `${prefix}insights.json`;
+    const fFile = `${prefix}flash.json`;
+
     try {
       const bust = Date.now();
       const jsDelivrBase = `https://cdn.jsdelivr.net/gh/${LIVE_REPO}@${LIVE_BRANCH}/data`;
       if (isManual) {
         await Promise.race([
-          fetch(`https://purge.jsdelivr.net/gh/${LIVE_REPO}@${LIVE_BRANCH}/data/quotes.json`, { cache: "no-store" }).catch(
+          fetch(`https://purge.jsdelivr.net/gh/${LIVE_REPO}@${LIVE_BRANCH}/data/${qFile}`, { cache: "no-store" }).catch(
             () => {}
           ),
           new Promise((r) => setTimeout(r, 350)),
@@ -1375,15 +1662,15 @@
       }
 
       const localPromises = Promise.all([
-        fetchJsonSafe(`./data/quotes.json?t=${bust}`),
-        fetchJsonSafe(`./data/insights.json?t=${bust}`),
-        fetchJsonSafe(`./data/flash.json?t=${bust}`),
+        fetchJsonSafe(`./data/${qFile}?t=${bust}`),
+        fetchJsonSafe(`./data/${iFile}?t=${bust}`),
+        fetchJsonSafe(`./data/${fFile}?t=${bust}`),
       ]);
 
       const cdnPromises = Promise.all([
-        fetchJsonSafe(`${jsDelivrBase}/quotes.json?t=${bust}`),
-        fetchJsonSafe(`${jsDelivrBase}/insights.json?t=${bust}`),
-        fetchJsonSafe(`${jsDelivrBase}/flash.json?t=${bust}`),
+        fetchJsonSafe(`${jsDelivrBase}/${qFile}?t=${bust}`),
+        fetchJsonSafe(`${jsDelivrBase}/${iFile}?t=${bust}`),
+        fetchJsonSafe(`${jsDelivrBase}/${fFile}?t=${bust}`),
       ]);
 
       const [[localQ, localI, localF], [cdnQ, cdnI, cdnF]] = await Promise.all([localPromises, cdnPromises]);
@@ -1396,15 +1683,16 @@
         const isShaUrl = !liveBase.endsWith(`/${LIVE_BRANCH}/data`);
         const qSuffix = isShaUrl ? "" : `?t=${bust}`;
         [liveQ, liveI, liveF] = await Promise.all([
-          fetchJsonSafe(`${liveBase}/quotes.json${qSuffix}`),
-          fetchJsonSafe(`${liveBase}/insights.json${qSuffix}`),
-          fetchJsonSafe(`${liveBase}/flash.json${qSuffix}`),
+          fetchJsonSafe(`${liveBase}/${qFile}${qSuffix}`),
+          fetchJsonSafe(`${liveBase}/${iFile}${qSuffix}`),
+          fetchJsonSafe(`${liveBase}/${fFile}${qSuffix}`),
         ]);
       }
 
-      const nextBaseQ = pickFresherPayload(cdnQ, liveQ, localQ, state.baseQuotesData);
-      const nextI = pickFresherPayload(cdnI, liveI, localI, state.insightsData);
-      const nextF = pickFresherPayload(cdnF, liveF, localF, state.flashData);
+      const mCache = state.cache[curMarket];
+      const nextBaseQ = pickFresherPayload(cdnQ, liveQ, localQ, mCache?.baseQuotes);
+      const nextI = pickFresherPayload(cdnI, liveI, localI, mCache?.insights);
+      const nextF = pickFresherPayload(cdnF, liveF, localF, mCache?.flash);
 
       if (nextBaseQ) {
         state.baseQuotesData = nextBaseQ;
@@ -1417,6 +1705,15 @@
 
       await sanitizeDataTranslations();
 
+      state.cache[curMarket] = {
+        baseQuotes: state.baseQuotesData,
+        quotes: state.quotesData,
+        insights: state.insightsData,
+        flash: state.flashData,
+        realtime: state.realtimeActive,
+      };
+
+      renderFilterTabsForMarket();
       renderHeaderMeta();
       renderFlashWire();
       renderIndices();
@@ -1457,6 +1754,19 @@
     }, 1000);
   }
 
+  // Market switcher buttons
+  if (elBtnMarketUs) {
+    elBtnMarketUs.addEventListener("click", () => switchMarket("us"));
+  }
+  if (elBtnMarketTw) {
+    elBtnMarketTw.addEventListener("click", () => switchMarket("tw"));
+  }
+  if (elBtnQuickSwitch) {
+    elBtnQuickSwitch.addEventListener("click", () => {
+      switchMarket(state.market === "us" ? "tw" : "us");
+    });
+  }
+
   // Flash ticker pause & 7x24 drawer controls
   if (elBtnFlashPause) {
     elBtnFlashPause.addEventListener("click", () => {
@@ -1487,6 +1797,20 @@
       renderFlashDrawer();
     });
   });
+
+  // Delegate filter tab clicks
+  if (elWatchlistFilterTabs) {
+    elWatchlistFilterTabs.addEventListener("click", (e) => {
+      const btn = e.target.closest(".tab-btn");
+      if (!btn) return;
+      Array.from(elWatchlistFilterTabs.querySelectorAll(".tab-btn")).forEach((b) =>
+        b.classList.remove("active")
+      );
+      btn.classList.add("active");
+      state.activeFilter = btn.dataset.filter || "all";
+      renderWatchlist();
+    });
+  }
 
   // Delegate row click to expand/collapse drawer (ignoring direct clicks on news links)
   elWatchlistRows.addEventListener("click", (e) => {
@@ -1520,15 +1844,6 @@
 
   elBtnTheme.addEventListener("click", () => {
     applyTheme(state.theme === "dark" ? "light" : "dark");
-  });
-
-  tabButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      tabButtons.forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
-      state.activeFilter = btn.dataset.filter || "all";
-      renderWatchlist();
-    });
   });
 
   elSearchInput.addEventListener("input", (e) => {
@@ -1583,6 +1898,7 @@
     }, 120);
   });
 
+  applyMarketStaticLabels();
   applyTheme(state.theme);
   loadAllData(false);
   startTimers();

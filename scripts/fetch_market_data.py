@@ -917,6 +917,9 @@ def title_similarity(a: str, b: str) -> float:
     return len(sa & sb) / min(len(sa), len(sb))
 
 
+_RSS_SEM = threading.Semaphore(3)
+
+
 def fetch_google_news_rss(
     query: str,
     lang: str = "zh-TW",
@@ -931,8 +934,21 @@ def fetch_google_news_rss(
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     now_utc = dt.datetime.now(UTC_TZ)
     items: list[dict] = []
+    with _RSS_SEM:
+        xml_bytes = None
+        for attempt in range(2):
+            try:
+                xml_bytes = urllib.request.urlopen(req, timeout=8).read()
+                time.sleep(0.08)
+                break
+            except Exception as exc:
+                if attempt == 0 and "429" in str(exc):
+                    time.sleep(0.6)
+                else:
+                    print(f"[warn] RSS failed ({query[:30]}): {exc}", file=sys.stderr)
+        if not xml_bytes:
+            return []
     try:
-        xml_bytes = urllib.request.urlopen(req, timeout=8).read()
         root = ET.fromstring(xml_bytes)
         for el in root.findall("./channel/item"):
             raw_title = el.findtext("title") or ""
@@ -967,7 +983,7 @@ def fetch_google_news_rss(
                 }
             )
     except Exception as exc:
-        print(f"[warn] RSS failed ({query[:30]}): {exc}", file=sys.stderr)
+        print(f"[warn] RSS parse failed ({query[:30]}): {exc}", file=sys.stderr)
 
     items.sort(key=lambda x: (x["tier"], x["pubTs"]), reverse=True)
     return items
@@ -1659,8 +1675,745 @@ def fetch_tech30_flash() -> list[dict]:
     return selected
 
 
+TW_INDICES = [
+    {"symbol": "^TWII", "cnbcSymbol": ".TWII", "displaySymbol": "TAIEX", "name": "台股加權指數", "enName": "TAIEX Weighted Index"},
+    {"symbol": "0050.TW", "cnbcSymbol": "0050.TW", "displaySymbol": "0050", "name": "元大台灣50", "enName": "Yuanta Taiwan Top 50 ETF"},
+    {"symbol": "0052.TW", "cnbcSymbol": "0052.TW", "displaySymbol": "0052", "name": "富邦科技 (半導體領航)", "enName": "Fubon Taiwan Technology ETF"},
+]
+
+TW_WATCHLIST = [
+    # === Group 1: 核心 AI 晶片・伺服器與市值型 ETF 焦點 (User Selected 8 Core) ===
+    {
+        "symbol": "2330.TW",
+        "displaySymbol": "2330",
+        "name": "台積電",
+        "enName": "TSMC (Taiwan Semiconductor)",
+        "category": "semi",
+        "isHolding": True,
+        "holdingBadge": "AI晶圓龍頭",
+        "twQuery": '"台積電" OR "2330" 台股',
+        "enQuery": '"TSMC" OR "2330.TW"',
+        "mustMatch": ["台積電", "台積", "2330", "cowos", "魏哲家", "tsmc"],
+        "pttKey": "2330",
+    },
+    {
+        "symbol": "2454.TW",
+        "displaySymbol": "2454",
+        "name": "聯發科",
+        "enName": "MediaTek Inc.",
+        "category": "semi",
+        "isHolding": True,
+        "holdingBadge": "AI邊緣/ASIC",
+        "twQuery": '"聯發科" OR "2454" OR "天璣"',
+        "enQuery": '"MediaTek" OR "2454.TW"',
+        "mustMatch": ["聯發科", "2454", "蔡明介", "蔡力行", "天璣", "mediatek"],
+        "pttKey": "聯發科",
+    },
+    {
+        "symbol": "2317.TW",
+        "displaySymbol": "2317",
+        "name": "鴻海",
+        "enName": "Hon Hai Precision (Foxconn)",
+        "category": "ai",
+        "isHolding": True,
+        "holdingBadge": "GB200/300機櫃",
+        "twQuery": '"鴻海" OR "2317" OR "劉揚偉"',
+        "enQuery": '"Foxconn" OR "Hon Hai"',
+        "mustMatch": ["鴻海", "2317", "劉揚偉", "foxconn", "hon hai", "gb200", "gb300"],
+        "pttKey": "鴻海",
+    },
+    {
+        "symbol": "2382.TW",
+        "displaySymbol": "2382",
+        "name": "廣達",
+        "enName": "Quanta Computer Inc.",
+        "category": "ai",
+        "isHolding": True,
+        "holdingBadge": "AI伺服器龍頭",
+        "twQuery": '"廣達" OR "2382" OR "林百里"',
+        "enQuery": '"Quanta Computer" OR "2382.TW"',
+        "mustMatch": ["廣達", "2382", "林百里", "雲達", "quanta"],
+        "pttKey": "廣達",
+    },
+    {
+        "symbol": "3017.TW",
+        "displaySymbol": "3017",
+        "name": "奇鋐",
+        "enName": "Asia Vital Components (AVC)",
+        "category": "ai",
+        "isHolding": True,
+        "holdingBadge": "AI液冷散熱",
+        "twQuery": '"奇鋐" OR "3017" OR "水冷散熱"',
+        "enQuery": '"Asia Vital Components" OR "3017.TW"',
+        "mustMatch": ["奇鋐", "3017", "水冷", "液冷", "散熱"],
+        "pttKey": "奇鋐",
+    },
+    {
+        "symbol": "6669.TW",
+        "displaySymbol": "6669",
+        "name": "緯穎",
+        "enName": "Wiwynn Corporation",
+        "category": "ai",
+        "isHolding": True,
+        "holdingBadge": "CSP純AI伺服器",
+        "twQuery": '"緯穎" OR "6669"',
+        "enQuery": '"Wiwynn" OR "6669.TW"',
+        "mustMatch": ["緯穎", "6669", "洪麗寗", "wiwynn", "伺服器"],
+        "pttKey": "緯穎",
+    },
+    {
+        "symbol": "0050.TW",
+        "displaySymbol": "0050",
+        "name": "元大台灣50 ETF",
+        "enName": "Yuanta Taiwan Top 50 ETF",
+        "category": "etf",
+        "isHolding": True,
+        "holdingBadge": "市值型核心",
+        "twQuery": '"0050" OR "元大台灣50"',
+        "enQuery": '"0050.TW" OR "Taiwan Top 50 ETF"',
+        "mustMatch": ["0050", "台灣50", "元大台灣50", "市值型", "台股etf"],
+        "pttKey": "0050",
+    },
+    {
+        "symbol": "006208.TW",
+        "displaySymbol": "006208",
+        "name": "富邦台50 ETF",
+        "enName": "Fubon FTSE TWSE Taiwan 50 ETF",
+        "category": "etf",
+        "isHolding": True,
+        "holdingBadge": "低內扣市值型",
+        "twQuery": '"006208" OR "富邦台50"',
+        "enQuery": '"006208.TW" OR "Fubon Taiwan 50"',
+        "mustMatch": ["006208", "富邦台50", "0050", "市值型"],
+        "pttKey": "006208",
+    },
+
+    # === Group 2: AI 與半導體供應鏈・熱門 ETF 觀察名單 ===
+    {
+        "symbol": "2308.TW",
+        "displaySymbol": "2308",
+        "name": "台達電",
+        "enName": "Delta Electronics Inc.",
+        "category": "ai",
+        "isHolding": False,
+        "holdingBadge": "",
+        "twQuery": '"台達電" OR "2308"',
+        "enQuery": '"Delta Electronics" OR "2308.TW"',
+        "mustMatch": ["台達電", "2308", "海英俊", "鄭平", "BBU", "電源"],
+        "pttKey": "台達電",
+    },
+    {
+        "symbol": "3711.TW",
+        "displaySymbol": "3711",
+        "name": "日月光投控",
+        "enName": "ASE Technology Holding",
+        "category": "semi",
+        "isHolding": False,
+        "holdingBadge": "",
+        "twQuery": '"日月光" OR "3711" OR "CoWoS封測"',
+        "enQuery": '"ASE Technology" OR "3711.TW"',
+        "mustMatch": ["日月光", "3711", "封測", "cowos", "ase"],
+        "pttKey": "日月光",
+    },
+    {
+        "symbol": "3661.TW",
+        "displaySymbol": "3661",
+        "name": "世芯-KY",
+        "enName": "Alchip Technologies Ltd.",
+        "category": "semi",
+        "isHolding": False,
+        "holdingBadge": "",
+        "twQuery": '"世芯" OR "3661" OR "ASIC"',
+        "enQuery": '"Alchip" OR "3661.TW"',
+        "mustMatch": ["世芯", "3661", "alchip", "asic", "矽智財", "ip股"],
+        "pttKey": "世芯",
+    },
+    {
+        "symbol": "3443.TW",
+        "displaySymbol": "3443",
+        "name": "創意",
+        "enName": "Global Unichip Corp. (GUC)",
+        "category": "semi",
+        "isHolding": False,
+        "holdingBadge": "",
+        "twQuery": '"創意" 3443 OR "矽智財" 創意 OR "GUC"',
+        "enQuery": '"Global Unichip" OR "3443.TW"',
+        "mustMatch": ["創意", "3443", "矽智財", "hbm", "asic", "台積電"],
+        "pttKey": "創意",
+    },
+    {
+        "symbol": "3231.TW",
+        "displaySymbol": "3231",
+        "name": "緯創",
+        "enName": "Wistron Corporation",
+        "category": "ai",
+        "isHolding": False,
+        "holdingBadge": "",
+        "twQuery": '"緯創" OR "3231"',
+        "enQuery": '"Wistron" OR "3231.TW"',
+        "mustMatch": ["緯創", "3231", "林憲銘", "wistron", "ai伺服器"],
+        "pttKey": "緯創",
+    },
+    {
+        "symbol": "2345.TW",
+        "displaySymbol": "2345",
+        "name": "智邦",
+        "enName": "Accton Technology Corp.",
+        "category": "ai",
+        "isHolding": False,
+        "holdingBadge": "",
+        "twQuery": '"智邦" OR "2345" OR "800G交換器"',
+        "enQuery": '"Accton Technology" OR "2345.TW"',
+        "mustMatch": ["智邦", "2345", "交換器", "800g", "網通", "accton"],
+        "pttKey": "智邦",
+    },
+    {
+        "symbol": "0052.TW",
+        "displaySymbol": "0052",
+        "name": "富邦科技 ETF",
+        "enName": "Fubon Taiwan Technology Tracker",
+        "category": "etf",
+        "isHolding": False,
+        "holdingBadge": "",
+        "twQuery": '"0052" OR "富邦科技" OR "科技ETF"',
+        "enQuery": '"0052.TW" OR "Taiwan Technology ETF"',
+        "mustMatch": ["0052", "富邦科技", "科技etf", "半導體etf", "台積電"],
+        "pttKey": "0052",
+    },
+    {
+        "symbol": "00878.TW",
+        "displaySymbol": "00878",
+        "name": "國泰永續高股息 ETF",
+        "enName": "Cathay Sustainability High Dividend ETF",
+        "category": "etf",
+        "isHolding": False,
+        "holdingBadge": "",
+        "twQuery": '"00878" OR "國泰永續高股息" OR "高股息ETF"',
+        "enQuery": '"00878.TW"',
+        "mustMatch": ["00878", "高股息", "國泰永續", "配息", "除息"],
+        "pttKey": "00878",
+    },
+]
+
+TW_FLASH_ENTITIES: list[tuple[str, str, list[str]]] = [
+    ("2330", "台積電", ["台積電", "2330", "魏哲家", "cowos", "2奈米"]),
+    ("2454", "聯發科", ["聯發科", "2454", "蔡力行", "天璣"]),
+    ("2317", "鴻海", ["鴻海", "2317", "劉揚偉", "gb200", "gb300"]),
+    ("2382", "廣達", ["廣達", "2382", "林百里", "雲達"]),
+    ("3017", "奇鋐", ["奇鋐", "3017", "水冷", "液冷"]),
+    ("6669", "緯穎", ["緯穎", "6669", "洪麗寗"]),
+    ("2308", "台達電", ["台達電", "2308", "bbu"]),
+    ("3711", "日月光", ["日月光", "3711", "封測"]),
+    ("3661", "世芯", ["世芯", "3661", "asic"]),
+    ("3443", "創意", ["創意", "3443"]),
+    ("3231", "緯創", ["緯創", "3231"]),
+    ("2345", "智邦", ["智邦", "2345", "800g"]),
+    ("0050", "0050", ["0050", "006208", "台灣50", "富邦台50"]),
+]
+
+
+def fetch_cnbc_quote_map(cnbc_symbols: list[str]) -> dict[str, dict]:
+    if not cnbc_symbols:
+        return {}
+    url = (
+        "https://quote.cnbc.com/quote-html-webservice/restQuote/symbolType/symbol?symbols="
+        + urllib.parse.quote("|".join(cnbc_symbols), safe="|.")
+        + "&requestMethod=itv&noform=1&partnerId=2&fund=1&exthrs=1&output=json&events=1"
+    )
+    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    try:
+        raw = json.loads(urllib.request.urlopen(req, timeout=8).read().decode("utf-8"))
+        arr = raw.get("FormattedQuoteResult", {}).get("FormattedQuote", [])
+        return {str(it.get("symbol", "")).upper(): it for it in arr if isinstance(it, dict) and it.get("symbol")}
+    except Exception as exc:
+        print(f"[warn] fetch_cnbc_quote_map failed: {exc}", file=sys.stderr)
+        return {}
+
+
+def _parse_cnbc_float(val: object) -> float | None:
+    if val is None:
+        return None
+    s = str(val).replace(",", "").replace("%", "").strip()
+    if not s:
+        return None
+    try:
+        return float(s)
+    except ValueError:
+        return None
+
+
+def get_tw_market_session_overview() -> dict:
+    now_tw = dt.datetime.now(TW_TZ)
+    wd = now_tw.weekday()
+    hm = now_tw.hour * 60 + now_tw.minute
+
+    if wd >= 5:
+        status, code = "台股週末休市 · 顯示週五收盤報價", "WEEKEND"
+    elif 8 * 60 + 30 <= hm < 9 * 60:
+        status, code = "台股試撮合階段 (08:30–09:00 TW)", "PRE"
+    elif 9 * 60 <= hm < 13 * 60 + 30:
+        status, code = "台股盤中交易中 (09:00–13:30 TW)", "REGULAR"
+    elif 13 * 60 + 30 <= hm < 14 * 60 + 30:
+        status, code = "台股盤後定價交易 (13:30–14:30 TW)", "POST"
+    else:
+        status, code = "台股已收盤 · 聚焦台積電ADR與美股連動", "CLOSED"
+
+    return {
+        "statusText": status,
+        "sessionCode": code,
+        "etTime": dt.datetime.now(NY_TZ).strftime("%Y-%m-%d %H:%M ET"),
+        "twTime": now_tw.strftime("%Y-%m-%d %H:%M 台灣時間"),
+    }
+
+
+def build_tw_index_data(yc: YahooClient, idx_cfg: dict, q_map: dict[str, dict], cnbc_map: dict[str, dict]) -> dict:
+    sym = idx_cfg["symbol"]
+    c_sym = idx_cfg.get("cnbcSymbol", sym).upper()
+    chart = yc.get_chart(sym, interval="5m", range_str="5d", prepost=False)
+    q = q_map.get(sym, {})
+    cq = cnbc_map.get(c_sym, {})
+
+    timestamps = chart.get("timestamp") or []
+    quote_ind = (chart.get("indicators", {}).get("quote") or [{}])[0]
+    closes = quote_ind.get("close") or []
+    highs = quote_ind.get("high") or []
+    lows = quote_ind.get("low") or []
+
+    by_date: dict[str, list[tuple[int, float, float, float]]] = {}
+    for i, ts in enumerate(timestamps):
+        c = closes[i] if i < len(closes) else None
+        if c is None:
+            continue
+        h = highs[i] if i < len(highs) and highs[i] is not None else c
+        l = lows[i] if i < len(lows) and lows[i] is not None else c
+        d_tw = dt.datetime.fromtimestamp(ts, TW_TZ)
+        if d_tw.weekday() >= 5:
+            continue
+        hm = d_tw.hour * 60 + d_tw.minute
+        if 9 * 60 <= hm <= 13 * 60 + 35:
+            d_key = d_tw.strftime("%Y-%m-%d")
+            by_date.setdefault(d_key, []).append((ts, float(c), float(h), float(l)))
+
+    sorted_dates = sorted(by_date.keys())
+    now_tw = dt.datetime.now(TW_TZ)
+    today_key = now_tw.strftime("%Y-%m-%d")
+    hm_now = now_tw.hour * 60 + now_tw.minute
+
+    target_date = sorted_dates[-1] if sorted_dates else today_key
+    bars = by_date.get(target_date, [])
+    target_idx = sorted_dates.index(target_date) if target_date in sorted_dates else -1
+    prev_bars = by_date[sorted_dates[target_idx - 1]] if target_idx > 0 else []
+
+    q_reg_time = int(q.get("regularMarketTime") or 0)
+    is_live = bool(
+        target_date == today_key
+        and now_tw.weekday() < 5
+        and (9 * 60 <= hm_now < 13 * 60 + 32)
+    )
+
+    cnbc_last = _parse_cnbc_float(cq.get("last"))
+    cnbc_prev = _parse_cnbc_float(cq.get("previous_day_closing"))
+    cnbc_hi = _parse_cnbc_float(cq.get("high"))
+    cnbc_lo = _parse_cnbc_float(cq.get("low"))
+
+    close_price = round(
+        cnbc_last
+        if cnbc_last is not None
+        else float(q.get("regularMarketPrice") or (bars[-1][1] if bars else 0.0)),
+        2,
+    )
+    if cnbc_prev is not None and cnbc_prev > 0:
+        prev_close = round(cnbc_prev, 2)
+    elif sym != "^TWII" and q.get("regularMarketPreviousClose"):
+        prev_close = round(float(q["regularMarketPreviousClose"]), 2)
+    elif prev_bars:
+        prev_close = round(prev_bars[-1][1], 2)
+    else:
+        prev_close = close_price
+
+    change = round(close_price - prev_close, 2)
+    change_pct = round((change / prev_close * 100.0) if prev_close else 0.0, 2)
+
+    bar_high = max((b[2] for b in bars), default=close_price)
+    bar_low = min((b[3] for b in bars), default=close_price)
+    if cnbc_hi is not None:
+        bar_high = max(bar_high, cnbc_hi, close_price)
+    if cnbc_lo is not None:
+        bar_low = min(bar_low, cnbc_lo, close_price)
+    day_high = round(bar_high, 2)
+    day_low = round(bar_low, 2)
+
+    points = []
+    for ts, c, _, _ in bars:
+        t_tw = dt.datetime.fromtimestamp(ts, TW_TZ).strftime("%H:%M")
+        points.append({"t": ts, "et": t_tw, "p": round(c, 2)})
+
+    if is_live:
+        live_ts = q_reg_time or int(now_tw.timestamp())
+        live_hm = dt.datetime.fromtimestamp(live_ts, TW_TZ).strftime("%H:%M")
+        if not points or abs(points[-1]["p"] - close_price) > 0.005 or points[-1]["et"] != live_hm:
+            points.append({"t": live_ts, "et": live_hm, "p": close_price})
+    elif points and abs(points[-1]["p"] - close_price) > 0.01:
+        points.append({"t": points[-1]["t"] + 60, "et": "13:30", "p": close_price})
+
+    last_time_tw = points[-1]["et"] if points else ("13:30" if not is_live else now_tw.strftime("%H:%M"))
+    quote_ts = q_reg_time or (points[-1]["t"] if points else int(now_tw.timestamp()))
+
+    return {
+        "symbol": sym,
+        "displaySymbol": idx_cfg["displaySymbol"],
+        "name": idx_cfg["name"],
+        "enName": idx_cfg["enName"],
+        "sessionDate": target_date,
+        "isLive": is_live,
+        "statusLabel": "盤中即時" if is_live else "收盤",
+        "lastTimeET": last_time_tw,
+        "tzLabel": "TW",
+        "openHm": "09:00",
+        "midHm": "11:15",
+        "closeHm": "13:30",
+        "quoteTs": int(quote_ts),
+        "close": close_price,
+        "prevClose": prev_close,
+        "change": change,
+        "changePct": change_pct,
+        "high": day_high,
+        "low": day_low,
+        "isUp": change >= 0,
+        "points": points,
+    }
+
+
+def build_tw_stock_quote(yc: YahooClient, item_cfg: dict, q_map: dict[str, dict], cnbc_map: dict[str, dict]) -> dict:
+    sym = item_cfg["symbol"]
+    q = q_map.get(sym, {})
+    cq = cnbc_map.get(sym.upper(), {})
+    chart = yc.get_chart(sym, interval="5m", range_str="2d", prepost=False)
+    meta = chart.get("meta", {})
+
+    cnbc_last = _parse_cnbc_float(cq.get("last"))
+    cnbc_prev = _parse_cnbc_float(cq.get("previous_day_closing"))
+    cnbc_hi = _parse_cnbc_float(cq.get("high"))
+    cnbc_lo = _parse_cnbc_float(cq.get("low"))
+
+    reg_price = cnbc_last if cnbc_last is not None else float(q.get("regularMarketPrice") or meta.get("regularMarketPrice") or 0.0)
+    prev_close = cnbc_prev if cnbc_prev is not None else float(q.get("regularMarketPreviousClose") or meta.get("previousClose") or reg_price)
+    reg_time = int(q.get("regularMarketTime") or meta.get("regularMarketTime") or int(time.time()))
+
+    now_tw = dt.datetime.now(TW_TZ)
+    hm_now = now_tw.hour * 60 + now_tw.minute
+    is_live = bool(now_tw.weekday() < 5 and (9 * 60 <= hm_now < 13 * 60 + 32))
+    session_label = "盤中" if is_live else "收盤"
+
+    change = reg_price - prev_close
+    change_pct = (change / prev_close * 100.0) if prev_close else 0.0
+
+    timestamps = chart.get("timestamp") or []
+    quote_ind = (chart.get("indicators", {}).get("quote") or [{}])[0]
+    closes = quote_ind.get("close") or []
+    opens = quote_ind.get("open") or []
+    vols = quote_ind.get("volume") or []
+
+    valid_bars: list[tuple[int, float, float, int]] = []
+    for i, ts in enumerate(timestamps):
+        c = closes[i] if i < len(closes) else None
+        if c is None:
+            continue
+        o = opens[i] if i < len(opens) and opens[i] is not None else c
+        v = int(vols[i]) if i < len(vols) and vols[i] is not None else 0
+        valid_bars.append((int(ts), float(o), float(c), v))
+
+    spark_raw = [b[2] for b in valid_bars[-96:]]
+    step = max(1, len(spark_raw) // 48)
+    sparkline = [round(v, 2) for v in spark_raw[::step]][-48:]
+    if sparkline and round(reg_price, 2) != sparkline[-1]:
+        sparkline.append(round(reg_price, 2))
+
+    cutoff_6h = (valid_bars[-1][0] - 6 * 3600) if valid_bars else 0
+    up_vol, down_vol = 0, 0
+    for ts, o, c, v in valid_bars:
+        if ts >= cutoff_6h:
+            weight = max(v, 1)
+            if c > o:
+                up_vol += weight
+            elif c < o:
+                down_vol += weight
+            else:
+                up_vol += weight // 2
+                down_vol += weight // 2
+    vol_buy_ratio = (up_vol / (up_vol + down_vol)) if (up_vol + down_vol) > 0 else 0.5
+
+    day_high = cnbc_hi if cnbc_hi is not None else float(q.get("regularMarketDayHigh") or meta.get("regularMarketDayHigh") or reg_price)
+    day_low = cnbc_lo if cnbc_lo is not None else float(q.get("regularMarketDayLow") or meta.get("regularMarketDayLow") or reg_price)
+
+    return {
+        "symbol": sym,
+        "displaySymbol": item_cfg["displaySymbol"],
+        "name": item_cfg["name"],
+        "enName": item_cfg["enName"],
+        "category": item_cfg["category"],
+        "isHolding": bool(item_cfg.get("isHolding", False)),
+        "holdingBadge": item_cfg.get("holdingBadge", ""),
+        "price": round(reg_price, 2),
+        "change": round(change, 2),
+        "changePct": round(change_pct, 2),
+        "isUp": change_pct >= 0,
+        "session": session_label,
+        "quoteTs": int(reg_time),
+        "prevClose": round(prev_close, 2),
+        "updatedAt": dt.datetime.fromtimestamp(reg_time, TW_TZ).strftime("%m/%d %H:%M") if reg_time else "",
+        "regularPrice": round(reg_price, 2),
+        "regularChangePct": round(change_pct, 2),
+        "extChangePct": None,
+        "dayHigh": round(max(day_high, reg_price), 2),
+        "dayLow": round(min(day_low, reg_price), 2),
+        "high52w": round(float(q.get("fiftyTwoWeekHigh") or meta.get("fiftyTwoWeekHigh") or reg_price), 2),
+        "sparkline": sparkline,
+        "_volBuyRatio6h": round(vol_buy_ratio, 4),
+    }
+
+
+def fetch_tw_market_headlines() -> list[dict]:
+    tw_must = ["台股", "加權", "台積電", "外資", "投信", "三大法人", "AI", "半導體", "聯發科", "鴻海", "廣達", "0050", "台指期"]
+    q1 = '("台股" OR "加權指數" OR "外資" OR "三大法人" OR "台指期") (台積電 OR AI OR 半導體 OR 電子股) when:1d'
+    q2 = '("2330" OR "台積電" OR "聯發科" OR "鴻海" OR "廣達" OR "奇鋐" OR "緯穎" OR "0050") 台股 when:1d'
+    pool = (
+        fetch_google_news_rss(q1, "zh-TW", max_age_hours=26.0, must_match=tw_must)
+        + fetch_google_news_rss(q2, "zh-TW", max_age_hours=26.0, must_match=tw_must)
+    )
+    tier_main = [p for p in pool if p["source"] not in BLOG_SOURCES]
+    candidates = tier_main if len(tier_main) >= 8 else pool
+    candidates.sort(key=lambda x: (x["tier"] * 14400 + x["pubTs"]), reverse=True)
+
+    curated: list[dict] = []
+    for item in candidates:
+        zh_title = clean_headline_title(translate_en_to_zhtw(item["title"]), item["source"])
+        if cjk_char_count(zh_title) < 2:
+            continue
+        if any(title_similarity(zh_title, c["title"]) > 0.40 for c in curated):
+            continue
+        curated.append(
+            {
+                "title": zh_title,
+                "source": item["source"],
+                "url": item["url"],
+                "age": format_age_label(item["ageHours"]),
+                "pubTs": item["pubTs"],
+            }
+        )
+        if len(curated) >= 8:
+            break
+    return curated
+
+
+def fetch_tw_flash() -> list[dict]:
+    queries = [
+        (
+            '("台積電" OR "聯發科" OR "鴻海" OR "廣達" OR "奇鋐" OR "緯穎" OR "台達電" OR "日月光") (法說 OR 財報 OR 營收 OR CoWoS OR GB200 OR 漲停 OR 跌停 OR 外資 OR 目標價) when:2d',
+            "zh-TW",
+            36.0,
+        ),
+        (
+            '("台股" OR "加權指數" OR "外資買超" OR "外資賣超" OR "三大法人" OR "央行" OR "金管會" OR "國安基金") when:1d',
+            "zh-TW",
+            28.0,
+        ),
+        (
+            '("世芯" OR "創意" OR "緯創" OR "智邦" OR "0050" OR "006208" OR "0052" OR "00878") 台股 when:2d',
+            "zh-TW",
+            36.0,
+        ),
+    ]
+    pool: list[dict] = []
+    with concurrent.futures.ThreadPoolExecutor(max_workers=3) as ex:
+        futs = [ex.submit(fetch_google_news_rss, q, lang, max_h) for q, lang, max_h in queries]
+        for f in futs:
+            pool.extend(f.result())
+
+    sorted_pool = sorted(pool, key=lambda x: (x["tier"] * 10800 + x["pubTs"]), reverse=True)
+    selected: list[dict] = []
+    ticker_counts: dict[str, int] = {}
+
+    for it in sorted_pool:
+        src = it["source"]
+        if src in FLASH_BLOCKED_SOURCES:
+            continue
+        raw_t = clean_headline_title(it["title"], src)
+        low = f" {raw_t.lower()} "
+        if any(cb in low for cb in FLASH_CLICKBAIT_NOISE):
+            continue
+
+        matched_tickers = [sym for sym, _, kws in TW_FLASH_ENTITIES if any(k in low for k in kws)]
+        is_macro = any(mk in low for mk in ["外資", "三大法人", "投信", "加權", "央行", "金管會", "國安基金", "台指期", "匯率", "台幣"])
+        if not matched_tickers and not is_macro:
+            continue
+
+        primary_key = matched_tickers[0] if matched_tickers else "法人/大盤"
+        if ticker_counts.get(primary_key, 0) >= 2:
+            continue
+
+        zh_title = clean_headline_title(translate_en_to_zhtw(raw_t), src)
+        if cjk_char_count(zh_title) < 2:
+            continue
+        if any(title_similarity(zh_title, s["title"]) > 0.38 for s in selected):
+            continue
+
+        ticker_counts[primary_key] = ticker_counts.get(primary_key, 0) + 1
+        tags: list[str] = []
+        if is_macro:
+            tags.append("法人/大盤")
+        tags.extend(matched_tickers[:2])
+        if not tags:
+            tags.append("台股AI")
+
+        urgent = any(uk in low for uk in FLASH_URGENT_KEYWORDS + ["漲停", "跌停", "法說", "營收創高", "外資大買", "外資大賣"])
+        affects_holdings = bool(is_macro or (set(matched_tickers) & {"2330", "2454", "2317", "2382", "3017", "6669", "0050"}))
+
+        selected.append(
+            {
+                "title": zh_title,
+                "source": src,
+                "url": it["url"],
+                "tags": tags[:2],
+                "urgent": urgent,
+                "isOutage": False,
+                "isMacro": is_macro,
+                "affectsHoldings": affects_holdings,
+                "timeTW": dt.datetime.fromtimestamp(it["pubTs"], TW_TZ).strftime("%m/%d %H:%M"),
+                "clockTW": dt.datetime.fromtimestamp(it["pubTs"], TW_TZ).strftime("%H:%M"),
+                "age": format_age_label(it["ageHours"]),
+                "pubTs": it["pubTs"],
+            }
+        )
+        if len(selected) >= 14:
+            break
+
+    selected.sort(key=lambda x: x["pubTs"], reverse=True)
+    return selected
+
+
+def build_tw_cio_advisory(
+    tw_indices: list[dict],
+    tw_stocks: list[dict],
+    tw_insights: dict[str, dict],
+    us_stocks: list[dict] | None = None,
+) -> dict:
+    s_map = {s["symbol"]: s for s in tw_stocks}
+    i_map = {x["symbol"]: x for x in tw_indices}
+    us_map = {s["symbol"]: s for s in (us_stocks or [])}
+
+    taiex = i_map.get("^TWII", {})
+    taiex_p = taiex.get("close", 40300.0)
+    taiex_chg = taiex.get("changePct", 0.0)
+
+    s2330 = s_map.get("2330.TW", {})
+    s2454 = s_map.get("2454.TW", {})
+    s2317 = s_map.get("2317.TW", {})
+    s2382 = s_map.get("2382.TW", {})
+    s3017 = s_map.get("3017.TW", {})
+    s6669 = s_map.get("6669.TW", {})
+    s0050 = s_map.get("0050.TW", {})
+    s006208 = s_map.get("006208.TW", {})
+    tsm_adr = us_map.get("TSM", {})
+
+    if taiex_chg <= -1.2:
+        regime_tag = f"外資調節震盪期 (加權 {taiex_chg:+.2f}%)"
+        regime_tone = "caution"
+        regime_summary = (
+            f"台股加權指數報 {taiex_p:,.2f} ({taiex_chg:+.2f}%)，隨美股費半與輝達財報前觀望情緒連動回檔。"
+            "操作策略嚴守「買黑不買紅」：高本益比散熱與組裝股拉回時分批低接，並優先以 0050 / 006208 捕捉大盤回檔買點。"
+        )
+    elif taiex_chg >= 1.0:
+        regime_tag = f"多頭攻堅順風期 (加權 {taiex_chg:+.2f}%)"
+        regime_tone = "bull"
+        regime_summary = (
+            f"加權指數強勢上攻至 {taiex_p:,.2f} ({taiex_chg:+.2f}%)，權值股與 AI 伺服器供應鏈同步點火。"
+            "核心部位續抱讓獲利奔跑，短線乖離過大個股切忌追高，可逢高鎖定部分波段獲利。"
+        )
+    else:
+        regime_tag = f"高檔區間換手・個股表現期 (加權 {taiex_chg:+.2f}%)"
+        regime_tone = "neutral"
+        regime_summary = (
+            f"加權指數於 {taiex_p:,.2f} ({taiex_chg:+.2f}%) 區間震盪整理，資金在先進製程、IC設計與 AI 伺服器間良性輪動。"
+            "維持市值型 ETF 底倉，聚焦基本面營收創高且法人籌碼集中的 AI 龍頭。"
+        )
+
+    adr_p = tsm_adr.get("price", 374.0)
+    adr_chg = tsm_adr.get("changePct", 0.0)
+    cards = [
+        {
+            "title": f"2330 台積電 (NT${s2330.get('price', 0):,.0f}) ＆ 2454 聯發科 (NT${s2454.get('price', 0):,.0f}) — 雙晶片核心",
+            "action": "逢低分批佈局",
+            "actionType": "hold",
+            "detail": (
+                f"台積電 ADR 最新報 ${adr_p:.2f} ({adr_chg:+.2f}%)，台股現貨展現強勁低接買盤（CoWoS 與 2 奈米產能滿載至 2027 年）；"
+                f"聯發科 ({s2454.get('changePct', 0):+.2f}%) 受惠天璣旗艦晶片與雲端 AI ASIC 專案推進，雙龍頭拉回皆為中長線核心買點。"
+            ),
+        },
+        {
+            "title": f"2317 鴻海 (NT${s2317.get('price', 0):,.1f}) ＆ 2382 廣達 (NT${s2382.get('price', 0):,.1f}) — AI 伺服器機櫃雙雄",
+            "action": "區間守穩續抱",
+            "actionType": "hold",
+            "detail": (
+                f"鴻海 ({s2317.get('changePct', 0):+.2f}%) 與廣達 ({s2382.get('changePct', 0):+.2f}%) 為輝達 Blackwell / GB200 / GB300 整機櫃出貨主力，"
+                "下檔具高殖利率與低本益比保護，建議沿月季線支撐區間操作，不隨短線外資期貨結算噪音殺低。"
+            ),
+        },
+        {
+            "title": f"3017 奇鋐 (NT${s3017.get('price', 0):,.0f}) ＆ 6669 緯穎 (NT${s6669.get('price', 0):,.0f}) — 高彈性液冷與 ASIC 伺服器",
+            "action": "嚴控部位・等止跌紅K",
+            "actionType": "watch" if min(s3017.get("changePct", 0), s6669.get("changePct", 0)) < -3.0 else "hold",
+            "detail": (
+                f"奇鋐 ({s3017.get('changePct', 0):+.2f}%) 掌握 CSP 液冷散熱水冷板高市佔，緯穎 ({s6669.get('changePct', 0):+.2f}%) 深度綁定雲端大廠自研 ASIC 伺服器。"
+                "高價股 Beta 值高、受美股科技股修正波動較大，務必等量縮止跌紅 K 再分批承接，嚴禁單筆重倉追高。"
+            ),
+        },
+        {
+            "title": f"0050 (NT${s0050.get('price', 0):,.2f}) ＆ 006208 (NT${s006208.get('price', 0):,.2f}) — 市值型 ETF 長線引擎",
+            "action": "大盤回檔優先加碼",
+            "actionType": "bull" if taiex_chg <= -1.5 else "hold",
+            "detail": (
+                f"0050 ({s0050.get('changePct', 0):+.2f}%) 與 006208 ({s006208.get('changePct', 0):+.2f}%) 涵蓋逾 55% 台積電與台灣前 50 大權值龍頭。"
+                "每當加權指數單日回檔逾 1.5%–2% 時，即為紀律執行定期定額與逢低單筆加碼的最佳擊球區。"
+            ),
+        },
+    ]
+
+    non_core = [s for s in tw_stocks if not s.get("isHolding")]
+    biggest_drop = min(tw_stocks, key=lambda x: x["changePct"], default=None)
+    strongest_gain = max(tw_stocks, key=lambda x: x["changePct"], default=None)
+    scanner_bullets = []
+    if strongest_gain and strongest_gain["changePct"] > 0:
+        sg_sent = tw_insights.get(strongest_gain["symbol"], {}).get("sentiment", {})
+        scanner_bullets.append(
+            f"盤面抗跌領頭羊：{strongest_gain['displaySymbol']} {strongest_gain['name']} 逆勢表現 {strongest_gain['changePct']:+.2f}% "
+            f"(6H 網友想買 {sg_sent.get('buyPct', 50)}%)，法人買盤相對穩健。"
+        )
+    if biggest_drop and biggest_drop["changePct"] <= -3.0:
+        bd_sent = tw_insights.get(biggest_drop["symbol"], {}).get("sentiment", {})
+        scanner_bullets.append(
+            f"短線修正觀察：{biggest_drop['displaySymbol']} {biggest_drop['name']} 回檔 {biggest_drop['changePct']:+.2f}% "
+            f"(6H 網友想賣 {bd_sent.get('sellPct', 50)}%)，高估值 AI 供應鏈短線獲利了結賣壓湧現，宜靜待籌碼沉澱。"
+        )
+    if non_core:
+        s0052 = s_map.get("0052.TW")
+        if s0052:
+            scanner_bullets.append(
+                f"高含積量 ETF 追蹤：0052 富邦科技最新報 NT${s0052['price']:,.2f} ({s0052['changePct']:+.2f}%)，"
+                "台積電權重高達約 65%，適合看好先進製程獨佔優勢但想分散單一個股波動的投資人。"
+            )
+
+    return {
+        "regimeTag": regime_tag,
+        "regimeTone": regime_tone,
+        "regimeSummary": regime_summary,
+        "cards": cards,
+        "scannerBullets": scanner_bullets,
+    }
+
+
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Fetch US Stock Watchlist quotes, Tech-30 flash & 6H insights.")
+    parser = argparse.ArgumentParser(description="Fetch US & Taiwan Stock Watchlist quotes, flash & 6H insights.")
     parser.add_argument("--mode", choices=["all", "quotes", "insights", "flash"], default="all")
     parser.add_argument(
         "--preopen-check",
@@ -1684,17 +2437,27 @@ def main() -> None:
 
     indices_data: list[dict] = []
     stocks_quotes: list[dict] = []
+    tw_indices_data: list[dict] = []
+    tw_stocks_quotes: list[dict] = []
 
     if args.mode in ("all", "quotes", "insights"):
         yc = YahooClient()
-        all_symbols = [x["symbol"] for x in INDICES] + [x["symbol"] for x in WATCHLIST]
+        tw_all_syms = list({x["symbol"] for x in TW_INDICES} | {x["symbol"] for x in TW_WATCHLIST})
+        all_symbols = [x["symbol"] for x in INDICES] + [x["symbol"] for x in WATCHLIST] + tw_all_syms
         q_map = yc.get_quotes(all_symbols)
+        cnbc_tw_syms = list({x.get("cnbcSymbol", x["symbol"]) for x in TW_INDICES} | {x["symbol"] for x in TW_WATCHLIST})
+        cnbc_tw_map = fetch_cnbc_quote_map(cnbc_tw_syms)
 
-        with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=10) as pool:
             idx_futures = [pool.submit(build_index_data, yc, cfg, q_map) for cfg in INDICES]
             stk_futures = [pool.submit(build_stock_quote, yc, cfg, q_map) for cfg in WATCHLIST]
+            tw_idx_futures = [pool.submit(build_tw_index_data, yc, cfg, q_map, cnbc_tw_map) for cfg in TW_INDICES]
+            tw_stk_futures = [pool.submit(build_tw_stock_quote, yc, cfg, q_map, cnbc_tw_map) for cfg in TW_WATCHLIST]
+
             indices_data = [f.result() for f in idx_futures]
             stocks_quotes = [f.result() for f in stk_futures]
+            tw_indices_data = [f.result() for f in tw_idx_futures]
+            tw_stocks_quotes = [f.result() for f in tw_stk_futures]
 
     if args.mode in ("all", "quotes"):
         clean_stocks = [{k: v for k, v in sq.items() if not k.startswith("_")} for sq in stocks_quotes]
@@ -1709,10 +2472,29 @@ def main() -> None:
         (data_dir / "quotes.json").write_text(
             json.dumps(quotes_payload, ensure_ascii=False, indent=2), encoding="utf-8"
         )
-        print(f"[ok] Wrote data/quotes.json ({len(clean_stocks)} stocks, {len(indices_data)} indices)")
+        print(f"[ok] Wrote data/quotes.json ({len(clean_stocks)} US stocks, {len(indices_data)} US indices)")
+
+        clean_tw_stocks = [{k: v for k, v in sq.items() if not k.startswith("_")} for sq in tw_stocks_quotes]
+        tw_quotes_payload = {
+            "generatedAt": now_iso,
+            "updatedAtTW": now_tw_str,
+            "refreshIntervalMinutes": 3,
+            "marketSession": get_tw_market_session_overview(),
+            "indices": tw_indices_data,
+            "watchlist": clean_tw_stocks,
+        }
+        (data_dir / "tw_quotes.json").write_text(
+            json.dumps(tw_quotes_payload, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+        print(f"[ok] Wrote data/tw_quotes.json ({len(clean_tw_stocks)} TW stocks, {len(tw_indices_data)} TW indices)")
 
     if args.mode in ("all", "quotes", "flash"):
-        flash_items = fetch_tech30_flash()
+        with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
+            f_us = pool.submit(fetch_tech30_flash)
+            f_tw = pool.submit(fetch_tw_flash)
+            flash_items = f_us.result()
+            tw_flash_items = f_tw.result()
+
         flash_payload = {
             "generatedAt": now_iso,
             "updatedAtTW": now_tw_str,
@@ -1725,18 +2507,40 @@ def main() -> None:
         )
         print(f"[ok] Wrote data/flash.json ({len(flash_items)} Tech-30 & Fed flash items)")
 
+        tw_flash_payload = {
+            "generatedAt": now_iso,
+            "updatedAtTW": now_tw_str,
+            "refreshIntervalMinutes": 3,
+            "universeNote": "嚴選台股 AI 與半導體權值股（台積電/聯發科/鴻海/廣達/奇鋐/緯穎）＆ 三大法人/大盤重磅快報",
+            "items": tw_flash_items,
+        }
+        (data_dir / "tw_flash.json").write_text(
+            json.dumps(tw_flash_payload, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+        print(f"[ok] Wrote data/tw_flash.json ({len(tw_flash_items)} TW AI & Semiconductor flash items)")
+
     if args.mode in ("all", "insights"):
         apewisdom = fetch_apewisdom_map()
-        market_headlines = fetch_market_headlines()
+        with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
+            f_mh_us = pool.submit(fetch_market_headlines)
+            f_mh_tw = pool.submit(fetch_tw_market_headlines)
+            market_headlines = f_mh_us.result()
+            tw_market_headlines = f_mh_tw.result()
 
-        with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
             ins_futures = [
                 pool.submit(build_stock_insight, yc, cfg, sq, apewisdom)
                 for cfg, sq in zip(WATCHLIST, stocks_quotes)
             ]
+            tw_ins_futures = [
+                pool.submit(build_stock_insight, yc, cfg, sq, {})
+                for cfg, sq in zip(TW_WATCHLIST, tw_stocks_quotes)
+            ]
             stock_insights = dict(f.result() for f in ins_futures)
+            tw_stock_insights = dict(f.result() for f in tw_ins_futures)
 
         cio_advisory = build_cio_advisory(indices_data, stocks_quotes, stock_insights)
+        tw_cio_advisory = build_tw_cio_advisory(tw_indices_data, tw_stocks_quotes, tw_stock_insights, stocks_quotes)
 
         insights_payload = {
             "generatedAt": now_iso,
@@ -1749,8 +2553,22 @@ def main() -> None:
         (data_dir / "insights.json").write_text(
             json.dumps(insights_payload, ensure_ascii=False, indent=2), encoding="utf-8"
         )
-        print(f"[ok] Wrote data/insights.json ({len(market_headlines)} market headlines, {len(stock_insights)} stocks, CIO advisory included)")
+        print(f"[ok] Wrote data/insights.json ({len(market_headlines)} US headlines, {len(stock_insights)} stocks)")
+
+        tw_insights_payload = {
+            "generatedAt": now_iso,
+            "updatedAtTW": now_tw_str,
+            "scheduleNote": "每 6 小時自動更新 ＋ 台股盤中即時同步",
+            "marketHeadlines": tw_market_headlines,
+            "stocks": tw_stock_insights,
+            "cioAdvisory": tw_cio_advisory,
+        }
+        (data_dir / "tw_insights.json").write_text(
+            json.dumps(tw_insights_payload, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+        print(f"[ok] Wrote data/tw_insights.json ({len(tw_market_headlines)} TW headlines, {len(tw_stock_insights)} stocks)")
 
 
 if __name__ == "__main__":
     main()
+

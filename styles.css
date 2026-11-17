@@ -98,6 +98,31 @@
   --shadow-card: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
+/* Taiwan Market Convention: Up / Buy = Red, Down / Sell = Green */
+[data-market="tw"] {
+  --up-text: #dc2626;
+  --up-solid: #ef4444;
+  --up-bg: #fef2f2;
+  --up-border: #fecaca;
+
+  --down-text: #059669;
+  --down-solid: #10b981;
+  --down-bg: #ecfdf5;
+  --down-border: #a7f3d0;
+}
+
+[data-theme="dark"][data-market="tw"] {
+  --up-text: #f87171;
+  --up-solid: #dc2626;
+  --up-bg: rgba(239, 68, 68, 0.14);
+  --up-border: rgba(239, 68, 68, 0.32);
+
+  --down-text: #34d399;
+  --down-solid: #059669;
+  --down-bg: rgba(16, 185, 129, 0.14);
+  --down-border: rgba(16, 185, 129, 0.32);
+}
+
 *,
 *::before,
 *::after {
@@ -156,6 +181,41 @@ body {
   font-size: 1.2rem;
   font-weight: 700;
   letter-spacing: -0.02em;
+}
+
+.market-switch-group {
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg-group);
+  border: 1px solid var(--border-subtle);
+  padding: 3px;
+  border-radius: 999px;
+  gap: 2px;
+}
+
+.market-switch-pill {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.16s ease;
+  white-space: nowrap;
+}
+
+.market-switch-pill:hover {
+  color: var(--text-primary);
+}
+
+.market-switch-pill.active {
+  background: var(--accent-ink);
+  color: var(--bg-surface);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.16);
 }
 
 .market-status-tag {
@@ -226,6 +286,19 @@ body {
 .btn:disabled {
   opacity: 0.6;
   cursor: wait;
+}
+
+.btn-market-jump {
+  background: var(--holding-bg);
+  color: var(--holding-text);
+  border-color: rgba(2, 132, 199, 0.3);
+  font-weight: 600;
+}
+
+.btn-market-jump:hover {
+  background: var(--accent-link);
+  color: #ffffff;
+  border-color: var(--accent-link);
 }
 
 /* Section Layout */

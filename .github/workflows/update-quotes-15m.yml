@@ -44,22 +44,24 @@ jobs:
             rm -rf /tmp/live-publish
             mkdir -p /tmp/live-publish/data
             cp data/quotes.json data/flash.json /tmp/live-publish/data/
-            if [ -f data/insights.json ]; then
-              cp data/insights.json /tmp/live-publish/data/
-            fi
+            for f in insights.json tw_quotes.json tw_flash.json tw_insights.json; do
+              if [ -f "data/$f" ]; then
+                cp "data/$f" /tmp/live-publish/data/
+              fi
+            done
             (
               cd /tmp/live-publish
               git init -q -b live-data
               git config user.name "github-actions[bot]"
               git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
               git add data/
-              git commit -q -m "chore(live-data): update 3m quotes & flash [skip ci]"
+              git commit -q -m "chore(live-data): update 3m US & TW quotes & flash [skip ci]"
               git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git"
               git push -q --force origin live-data
             )
-            curl -fsS "https://purge.jsdelivr.net/gh/${REPO}@live-data/data/quotes.json" >/dev/null 2>&1 || true
-            curl -fsS "https://purge.jsdelivr.net/gh/${REPO}@live-data/data/flash.json" >/dev/null 2>&1 || true
-            curl -fsS "https://purge.jsdelivr.net/gh/${REPO}@live-data/data/insights.json" >/dev/null 2>&1 || true
+            for f in quotes.json flash.json insights.json tw_quotes.json tw_flash.json tw_insights.json; do
+              curl -fsS "https://purge.jsdelivr.net/gh/${REPO}@live-data/data/$f" >/dev/null 2>&1 || true
+            done
           }
 
           # Run up to 105 cycles × 3 minutes (~5h 15m) to completely bridge GitHub Actions cron delays
@@ -68,12 +70,21 @@ jobs:
             CYCLE_START=$(date +%s)
             echo "=== [Cycle ${i}/${MAX_CYCLES}] $(TZ=Asia/Taipei date '+%Y-%m-%d %H:%M:%S TW') ==="
 
-            # Sync newer 6H insights.json from origin/main if available
+            # Sync newer 6H insights.json / tw_insights.json from origin/main if available
             git fetch -q origin main 2>/dev/null || true
-            python3 -c 'import json, subprocess; a=json.load(open("data/insights.json"))["generatedAt"] if __import__("os").path.exists("data/insights.json") else ""; b=json.loads(subprocess.check_output(["git","show","origin/main:data/insights.json"],text=True))["generatedAt"]; open("data/insights.json","w").write(subprocess.check_output(["git","show","origin/main:data/insights.json"],text=True)) if b>a else None' 2>/dev/null || true
+            python3 -c 'import json, subprocess, os
+for fn in ("data/insights.json", "data/tw_insights.json"):
+    try:
+        a = json.load(open(fn))["generatedAt"] if os.path.exists(fn) else ""
+        raw = subprocess.check_output(["git", "show", f"origin/main:{fn}"], text=True)
+        b = json.loads(raw)["generatedAt"]
+        if b > a:
+            open(fn, "w").write(raw)
+    except Exception:
+        pass' 2>/dev/null || true
 
             # Auto-refresh insights if insights.json is older than 6.2 hours (safety net against 6H cron lag)
-            NEED_INSIGHTS=$(python3 -c 'import json, os, datetime as dt; age=((dt.datetime.now(dt.timezone.utc)-dt.datetime.fromisoformat(json.load(open("data/insights.json"))["generatedAt"])).total_seconds()/3600.0) if os.path.exists("data/insights.json") else 999; print("1" if age > 6.2 else "0")' 2>/dev/null || echo "0")
+            NEED_INSIGHTS=$(python3 -c 'import json, os, datetime as dt; age=((dt.datetime.now(dt.timezone.utc)-dt.datetime.fromisoformat(json.load(open("data/insights.json"))["generatedAt"])).total_seconds()/3600.0) if (os.path.exists("data/insights.json") and os.path.exists("data/tw_insights.json")) else 999; print("1" if age > 6.2 else "0")' 2>/dev/null || echo "0")
 
             if [ "$NEED_INSIGHTS" = "1" ]; then
               echo "[info] Insights > 6.2h old, running full refresh (--mode all)..."
@@ -87,11 +98,16 @@ jobs:
               echo "[ok] Published live quotes & flash to branch live-data"
             fi
 
-            # Check if US market is in full weekend closure (Sat or Sun before 17:30 ET)
-            SHOULD_STAY_AWAKE=$(python3 -c 'import datetime as dt; from zoneinfo import ZoneInfo; n=dt.datetime.now(ZoneInfo("America/New_York")); wd,hm=n.weekday(),n.hour*60+n.minute; print("0" if (wd==5 or (wd==6 and hm<1050) or (wd==4 and hm>=1215)) else "1")')
+            # Stay awake unless both US and TW markets are in full weekend closure
+            SHOULD_STAY_AWAKE=$(python3 -c 'import datetime as dt; from zoneinfo import ZoneInfo
+n_et = dt.datetime.now(ZoneInfo("America/New_York"))
+n_tw = dt.datetime.now(ZoneInfo("Asia/Taipei"))
+us_wknd = (n_et.weekday()==5 or (n_et.weekday()==6 and n_et.hour*60+n_et.minute<1050) or (n_et.weekday()==4 and n_et.hour*60+n_et.minute>=1215))
+tw_open = (n_tw.weekday()<5 and 510 <= (n_tw.hour*60+n_tw.minute) <= 840)
+print("0" if (us_wknd and not tw_open) else "1")')
 
             if [ "$SHOULD_STAY_AWAKE" = "0" ]; then
-              echo "[sleep] US markets in weekend closure; single sync done, exiting cleanly."
+              echo "[sleep] US & TW markets in weekend closure; single sync done, exiting cleanly."
               break
             fi
 
