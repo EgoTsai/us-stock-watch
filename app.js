@@ -225,12 +225,12 @@
     if (elHeadingCio) {
       elHeadingCio.textContent = isTw
         ? "投資長 (CIO & CRO) 台股 AI 供應鏈＆ETF 操作建議"
-        : "投資長 (CIO & CRO) 專業操作建議";
+        : "投資長 (CIO & CRO) 觀察名單前 6 大操作建議";
     }
     if (elCioSubtitle) {
       elCioSubtitle.textContent = isTw
         ? "依據加權指數、台積電 ADR 溢價、外資動向與 AI 伺服器供應鏈位階動態更新"
-        : "依據最新收盤 / 盤後價位、波動率 (VIX) 與期權防線動態更新";
+        : "動態掃描觀察名單即時價位、52週位階、6H頭條情緒與 VIX 波動率，精選前 6 大操作焦點（不綁定個人持倉）";
     }
     if (elFooterColorRule) {
       elFooterColorRule.innerHTML = isTw
@@ -908,32 +908,644 @@
     hydrateUntranslatedDom();
   }
 
+  const WATCHLIST_CIO_PROFILES = {
+    VOO: {
+      role: "S&P 500 大盤核心",
+      style: "index",
+      pairGroup: "us_index",
+      thesis: "美國前 500 大龍頭市值加權基準，拉回即為中長線定期與分批建倉首選。",
+    },
+    QQQ: {
+      role: "那指 100 成長基準",
+      style: "index",
+      pairGroup: "us_index",
+      thesis: "大型科技與 AI 權值指標，適合順勢配置或大盤明顯回檔時分批承接。",
+    },
+    TQQQ: {
+      role: "那指 3 倍做多槓桿",
+      style: "leveraged",
+      pairGroup: "leveraged",
+      thesis: "日內 3 倍複利槓桿具高波動耗損（Volatility Decay），僅宜極短線順勢或止穩後小倉波段。",
+    },
+    SOXL: {
+      role: "費半 3 倍做多槓桿",
+      style: "leveraged",
+      pairGroup: "leveraged",
+      thesis: "半導體 3 倍槓桿日內劇烈震盪，急跌切忌盲目接刀，務必等費半權值止穩再觀察。",
+    },
+    UCO: {
+      role: "原油 2 倍做多槓桿",
+      style: "leveraged",
+      pairGroup: "oil",
+      thesis: "追蹤兩倍原油槓桿與期貨正逆價差損耗，僅適合作為短線事件型通膨避險工具。",
+    },
+    GOOG: {
+      role: "AI 搜尋・雲端 ＆ TPU 核心",
+      style: "core_tech",
+      pairGroup: null,
+      thesis: "自研 TPU 晶片降低外購 GPU 依賴、雲端與搜尋現金流護城河深厚，估值相對具防禦支撐。",
+    },
+    MSFT: {
+      role: "企業雲端與 AI 軟體龍頭",
+      style: "core_tech",
+      pairGroup: null,
+      thesis: "Azure 與企業訂閱現金流穩健，非基本面短期利空引發之急跌往往提供中長線折價買點。",
+    },
+    META: {
+      role: "AI 廣告變現與開源生態",
+      style: "core_tech",
+      pairGroup: null,
+      thesis: "AI 精準廣告推升利潤率與自由現金流，震盪期高 Beta 屬性常創造波段承接與收租空間。",
+    },
+    TSLA: {
+      role: "實體 AI・Robotaxi 高波標的",
+      style: "high_beta_tech",
+      pairGroup: null,
+      thesis: "高隱含波動率 (IV) 與情緒擺盪劇烈，適合紀律區間操作或賣方收租策略，忌追高殺低。",
+    },
+    SPCX: {
+      role: "SpaceX 太空探索主題",
+      style: "thematic",
+      pairGroup: null,
+      thesis: "星鏈與航太龍頭題材彈性極高、同步伴隨估值與融資波動，適合右側順勢小倉參與。",
+    },
+    TSM: {
+      role: "先進製程與 CoWoS 獨佔樞紐",
+      style: "core_semi",
+      pairGroup: null,
+      thesis: "無論 GPU 或雲端巨頭自研 ASIC 誰勝出，3/2 奈米與先進封裝訂單皆由台積電獨攬。",
+    },
+    NVDA: {
+      role: "AI 算力晶片霸主",
+      style: "high_beta_semi",
+      pairGroup: null,
+      thesis: "資料中心算力市佔核心，惟高基期與財測/治理訊息易放大單日振幅，宜等站穩均價再行動。",
+    },
+    AVGO: {
+      role: "客製化 AI ASIC ＆ 網通龍頭",
+      style: "core_semi",
+      pairGroup: null,
+      thesis: "雲端大廠擴大自研 ASIC 與高速光網升級之核心贏家，兼具網通現金流與高韌性。",
+    },
+    AMD: {
+      role: "資料中心 GPU 第二供應商",
+      style: "high_beta_semi",
+      pairGroup: null,
+      thesis: "受惠雲端分散算力採購，但估值對毛利率與伺服器成長預期敏感，宜等均線止穩介入。",
+    },
+    MU: {
+      role: "HBM 高頻寬記憶體循環龍頭",
+      style: "high_beta_semi",
+      pairGroup: null,
+      thesis: "HBM 需求帶動獲利循環同時具高振幅特性，急漲急跌時務必分批節奏操作。",
+    },
+    INTC: {
+      role: "晶圓代工轉型觀察股",
+      style: "turnaround",
+      pairGroup: null,
+      thesis: "先進代工轉型仍處良率與現金流驗證期，波動劇烈且缺乏趨勢護城河，維持低權重追蹤。",
+    },
+    IAU: {
+      role: "實體黃金通膨與避險資產",
+      style: "hedge",
+      pairGroup: null,
+      thesis: "與科技權值相關性低，適合作為實質利率波動與股市震盪期間的資產配置穩定器。",
+    },
+    IBIT: {
+      role: "比特幣現貨 ETF",
+      style: "crypto",
+      pairGroup: null,
+      thesis: "全球美元流動性與風險偏好放大器，振幅遠超納指，宜嚴設部位上限並追蹤 ETF 資金流向。",
+    },
+    "CL=F": {
+      role: "WTI 輕原油宏觀通膨指標",
+      style: "commodity",
+      pairGroup: "oil",
+      thesis: "能源價格直接牽動通膨黏著度與聯準會政策路徑，急漲易壓抑科技成長股估值倍數。",
+    },
+  };
+
+  const CIO_CATALYST_KEYWORDS = [
+    "當機", "癱瘓", "故障", "辭職", "卸任", "換帥", "拒絕", "封殺", "禁令", "出口",
+    "關稅", "反壟斷", "訴訟", "調查", "財報", "財測", "上修", "下修", "調升", "降評",
+    "融資", "擴建", "13f", "勞資", "暴跌", "飆漲", "風波", "警鐘", "危機", "outage",
+    "resign", "ban", "export", "antitrust", "earnings", "guidance", "downgrade", "upgrade", "tariff",
+  ];
+
+  const CIO_HEADLINE_NOISE = [
+    "油菜籽", "中油", "92無鉛", "95無鉛", "印度 vix", "台股盤中", "連接器大廠", "概念股",
+  ];
+
+  function pickCleanCioHeadline(sym, headlines, usedTitles = null) {
+    for (const h of headlines || []) {
+      const t = String(h?.title || "").trim();
+      if (!t) continue;
+      if (usedTitles && usedTitles.has(t)) continue;
+      const low = t.toLowerCase();
+      if (CIO_HEADLINE_NOISE.some((bad) => low.includes(bad))) continue;
+      if (
+        (sym === "CL=F" || sym === "UCO") &&
+        !["原油", "油價", "wti", "opec", "crude", "oil", "brent"].some((k) => low.includes(k))
+      ) {
+        continue;
+      }
+      return h;
+    }
+    return null;
+  }
+
+  function buildLiveUsCioAdvisory() {
+    const stocksQuotes = state.quotesData?.watchlist || [];
+    const indicesData = state.quotesData?.indices || [];
+    const stockInsights = state.insightsData?.stocks || {};
+    if (!stocksQuotes.length) return state.insightsData?.cioAdvisory || null;
+
+    const sMap = new Map(stocksQuotes.map((s) => [s.symbol, s]));
+    const iMap = new Map(indicesData.map((x) => [x.symbol, x]));
+
+    const vixQ = sMap.get("^VIX") || {};
+    const vix = Number(vixQ.price) || 18.0;
+    const vixChg = Number(vixQ.changePct) || 0.0;
+    const spxChg = Number(iMap.get("^GSPC")?.changePct) || 0.0;
+    const ixicChg = Number(iMap.get("^IXIC")?.changePct) || 0.0;
+    const boxxP = Number(sMap.get("BOXX")?.price) || 119.0;
+    const oilQ = sMap.get("CL=F") || {};
+    const oilP = Number(oilQ.price) || 0.0;
+    const oilChg = Number(oilQ.changePct) || 0.0;
+
+    let regimeTag = "";
+    let regimeTone = "neutral";
+    let regimeSummary = "";
+
+    if (vix >= 23) {
+      regimeTag = `高波動謹慎期 (VIX ${vix.toFixed(2)})`;
+      regimeTone = "caution";
+      regimeSummary =
+        `VIX 處於 ${vix.toFixed(2)} (${formatSignedPct(vixChg)}) 高波動區，標普 ${formatSignedPct(spxChg)}、那指 ${formatSignedPct(ixicChg)}。` +
+        `高 IV 環境嚴禁追價 3 倍槓桿 ETF（TQQQ/SOXL），資金宜以 BOXX ($${boxxP.toFixed(2)}) 等類現金作緩衝，僅鎖定觀察名單中具支撐或錯殺之核心標的分批佈局。`;
+    } else if (vix >= 18) {
+      regimeTag = `震盪分歧・精選標的期 (VIX ${vix.toFixed(2)})`;
+      regimeTone = "neutral";
+      regimeSummary =
+        `VIX 位於 ${vix.toFixed(2)} (${formatSignedPct(vixChg)})，標普 ${formatSignedPct(spxChg)}、那指 ${formatSignedPct(ixicChg)}，市場呈現板塊輪動與事件驅動分化。` +
+        `WTI 原油報 $${oilP.toFixed(2)} (${formatSignedPct(oilChg)})；操作上宜依觀察名單前 6 大訊號強弱汰弱留強，避免在震盪中過度擴張槓桿。`;
+    } else {
+      regimeTag = `低波動順風期 (VIX ${vix.toFixed(2)})`;
+      regimeTone = "bull";
+      regimeSummary =
+        `VIX 回落至 ${vix.toFixed(2)} (${formatSignedPct(vixChg)}) 穩定區間，標普 ${formatSignedPct(spxChg)}、那指 ${formatSignedPct(ixicChg)} 風險偏好健康。` +
+        `順勢抱牢大型科技與指數核心標的，槓桿型 ETF 遇急漲則宜紀律落袋調節，不隨市場情緒過度追高。`;
+    }
+
+    const scored = [];
+    for (const sq of stocksQuotes) {
+      const sym = sq.symbol;
+      if (sym === "^VIX" || sym === "BOXX") continue;
+      const prof = WATCHLIST_CIO_PROFILES[sym];
+      if (!prof) continue;
+
+      const price = Number(sq.price) || 0;
+      if (price <= 0) continue;
+      const prevC = Number(sq.prevClose) || price;
+      const chg = Number(sq.changePct) || 0;
+      const dayHi = Number(sq.dayHigh) || price;
+      const dayLo = Number(sq.dayLow) || price;
+      const high52 = Math.max(Number(sq.high52w) || price, price);
+
+      const dd52w = high52 > 0 ? ((price - high52) / high52) * 100.0 : 0.0;
+      const rangePct = prevC > 0 && dayHi > dayLo ? ((dayHi - dayLo) / prevC) * 100.0 : 0.0;
+      const posInDay = dayHi > dayLo ? (price - dayLo) / (dayHi - dayLo) : 0.5;
+      const alphaSpx = chg - spxChg;
+
+      const ins = stockInsights[sym] || {};
+      const sent = ins.sentiment || {};
+      const buyPct = Number(sent.buyPct ?? 50);
+      const sellPct = Number(sent.sellPct ?? 50);
+      const allHeadlines = ins.headlines || [];
+      const topHl = pickCleanCioHeadline(sym, allHeadlines);
+
+      const style = prof.style;
+      let score = Math.min(34.0, Math.abs(chg) * 5.0);
+
+      const isIntradayFade =
+        rangePct >= 3.2 && posInDay <= 0.25 && dayHi >= prevC * 1.012 && chg > -4.5;
+      const isIntradayRebound =
+        rangePct >= 3.2 && posInDay >= 0.75 && dayLo <= prevC * 0.988 && chg < 4.5;
+      if (rangePct >= 3.2) {
+        score += Math.min(14.0, (rangePct - 2.2) * 3.2);
+      }
+      if (isIntradayFade || isIntradayRebound) {
+        score += 8.0;
+      }
+      if (Math.abs(alphaSpx) >= 1.2) {
+        score += Math.min(14.0, Math.abs(alphaSpx) * 2.5);
+      }
+
+      let hasUrgentNews = false;
+      if (topHl) {
+        const hlLow = String(topHl.title || "").toLowerCase();
+        hasUrgentNews = CIO_CATALYST_KEYWORDS.some((k) => hlLow.includes(k));
+        if (style === "turnaround" && hlLow.includes("輝達") && Math.abs(chg) < 4.0) {
+          hasUrgentNews = false;
+        }
+        if (hasUrgentNews) score += 16.0;
+        else if (topHl.within6h) score += 6.0;
+      }
+
+      const maxSent = Math.max(buyPct, sellPct);
+      if (maxSent >= 64) score += 8.0;
+      if ((chg <= -1.5 && sellPct >= 65) || (chg >= 1.5 && buyPct >= 68)) score += 4.0;
+
+      if (style === "index") {
+        if (dd52w <= -5.0 || Math.abs(chg) >= 1.2 || vix >= 22) score += 14.0;
+      } else if (style === "core_tech" || style === "core_semi") {
+        score += 9.0;
+        if (chg <= -1.5 && dd52w <= -5.0 && dd52w >= -32.0) score += 5.0;
+      } else if (style === "high_beta_tech" || style === "high_beta_semi") {
+        score += 4.0;
+        if (sym === "NVDA") score += 6.0;
+      } else if (style === "turnaround") {
+        score -= 10.0;
+      } else if (style === "hedge") {
+        if ((vix >= 22 && chg >= 0.5) || Math.abs(chg) >= 2.0) score += 9.0;
+      } else if (style === "crypto") {
+        if (Math.abs(chg) >= 2.5) score += 6.0;
+      } else if (style === "leveraged") {
+        if (Math.abs(chg) >= 4.0 || rangePct >= 7.0) score += 6.0;
+        else score -= 10.0;
+      } else if (style === "commodity") {
+        if (Math.abs(chg) >= 2.0) score += 6.0;
+        else score -= 6.0;
+      }
+
+      let action = "持續追蹤觀察";
+      let actionType = "hold";
+      let focusTag = "核心觀察";
+      let detail = "";
+
+      if (style === "leveraged") {
+        if (chg <= -3.5 || (isIntradayFade && rangePct >= 6.0)) {
+          action = "高波動警戒・禁追刀";
+          actionType = "alert";
+          focusTag = "槓桿風控警示";
+          detail =
+            `單日波幅達 ${rangePct.toFixed(1)}%（區間 $${dayLo.toFixed(2)}–$${dayHi.toFixed(2)}，距 52 週高點 ${dd52w.toFixed(1)}%）。` +
+            `在 VIX ${vix.toFixed(2)} 環境下多倍槓桿複利耗損驚人，嚴禁盤中急跌盲目攤平，務必待現股權值止跌出量後再評估。`;
+        } else if (chg >= 3.5) {
+          action = "急彈調節・落袋減碼";
+          actionType = "watch";
+          focusTag = "槓桿獲利管理";
+          detail =
+            `單日強彈 ${formatSignedPct(chg)}（區間 $${dayLo.toFixed(2)}–$${dayHi.toFixed(2)}），短線情緒快速升溫（想買 ${buyPct}%）。` +
+            "槓桿 ETF 不宜長抱吃震盪耗損，建議逢急漲分批鎖定利潤、降回常規風險水位。";
+        } else {
+          action = "極端振幅・控管倉位";
+          actionType = rangePct >= 6.0 ? "alert" : "watch";
+          focusTag = "槓桿震盪提示";
+          detail = `盤中震幅高達 ${rangePct.toFixed(1)}%（報 $${price.toFixed(2)}，距 52 週高點 ${dd52w.toFixed(1)}%）。${prof.thesis}`;
+        }
+      } else if (style === "index") {
+        if (dd52w <= -5.0 && chg <= -1.0) {
+          action = "估值修正・分批佈局點";
+          actionType = "bull";
+          focusTag = "指數分批買點";
+          detail =
+            `現價 $${price.toFixed(2)} 較 52 週高點 $${high52.toFixed(2)} 已回落 ${dd52w.toFixed(1)}%（今日 ${formatSignedPct(chg)}），進入中長線指數折價擊球區。` +
+            `配合 BOXX ($${boxxP.toFixed(2)}) 現金緩衝，適合分 2–3 批紀律承接，保留空間因應 VIX ${vix.toFixed(2)} 餘震。`;
+        } else if (dd52w <= -5.0) {
+          action = "回測區間・分批承接";
+          actionType = "bull";
+          focusTag = "指數長線買點";
+          detail = `報 $${price.toFixed(2)}（${formatSignedPct(chg)}），仍處 52 週高點下方 ${dd52w.toFixed(1)}% 的中期折價帶。${prof.thesis}建議依預設跌幅階梯分批佈局。`;
+        } else if (chg >= 1.5) {
+          action = "趨勢健康・勿追價";
+          actionType = "hold";
+          focusTag = "大盤強勢";
+          detail = `單日走強 ${formatSignedPct(chg)}（想買 ${buyPct}%），大盤動能轉佳；建議維持既有配置，待回測均線再行加碼。`;
+        } else {
+          action = "指數基準・按紀律配置";
+          actionType = "hold";
+          focusTag = "大盤基準";
+          detail = `現報 $${price.toFixed(2)}（${formatSignedPct(chg)}，距 52 週高點 ${dd52w.toFixed(1)}%）。${prof.thesis}`;
+        }
+      } else if (style === "hedge") {
+        if (chg <= -2.0) {
+          action = "避險資產回檔・等債息止穩";
+          actionType = "watch";
+          focusTag = "避險資產異動";
+          detail =
+            `黃金單日回落 ${formatSignedPct(chg)} 至 $${price.toFixed(2)}（距 52 週高點 ${dd52w.toFixed(1)}%），反映強勢美元與實質利率重定價壓力。` +
+            "建議等待美元與殖利率衝高鈍化後，再檢視低相關避險配置比例。";
+        } else if (chg >= 1.2) {
+          action = "避險買盤點火・發揮保護力";
+          actionType = "bull";
+          focusTag = "抗震資金流";
+          detail = `逆勢走高 ${formatSignedPct(chg)}（領先標普 ${formatSignedPct(alphaSpx)}），發揮與科技股低相關之資產保護功能，可作為組合波動對沖錨點。`;
+        } else {
+          action = "宏觀對沖觀察";
+          actionType = "hold";
+          focusTag = "防禦配置";
+          detail = `報 $${price.toFixed(2)}（${formatSignedPct(chg)}）。${prof.thesis}`;
+        }
+      } else if (style === "commodity") {
+        if (chg >= 2.0) {
+          action = "油價衝高・警覺通膨回溫";
+          actionType = "alert";
+          focusTag = "宏觀通膨警訊";
+          detail = `WTI 原油強升 ${formatSignedPct(chg)} 至 $${price.toFixed(2)}，能源漲勢恐推升通膨預期並壓抑聯準會寬鬆空間，需留意高估值科技股壓抑風險。`;
+        } else {
+          action = "油價回落・通膨壓力緩解";
+          actionType = chg <= -1.5 ? "bull" : "hold";
+          focusTag = "能源與通膨訊號";
+          detail = `WTI 原油報 $${price.toFixed(2)}（${formatSignedPct(chg)}，距 52 週高點 ${dd52w.toFixed(1)}%），有利緩解終端通膨黏著疑慮，對成長股估值屬正面微風。`;
+        }
+      } else if (style === "crypto") {
+        if (chg <= -3.0) {
+          action = "高波回撤・嚴守倉位紀律";
+          actionType = "watch";
+          focusTag = "加密流動性觀察";
+          detail = `單日下跌 ${formatSignedPct(chg)}（距 52 週高點 ${dd52w.toFixed(1)}%），反映高 Beta 流動性資產同步承壓。宜待現貨 ETF 淨流入回穩且日 K 止跌再評估。`;
+        } else if (chg >= 3.0) {
+          action = "資金回流・防短線震盪";
+          actionType = "bull";
+          focusTag = "風險偏好領指標";
+          detail = `強漲 ${formatSignedPct(chg)} 領先大盤，風險偏好回暖；加密資產波動遠高於股市，建議維持嚴格部位上限與移動風險控管。`;
+        } else {
+          action = "高波衛星觀察";
+          actionType = "hold";
+          focusTag = "流動性指標";
+          detail = `報 $${price.toFixed(2)}（${formatSignedPct(chg)}）。${prof.thesis}`;
+        }
+      } else {
+        const isMoat = style === "core_tech" || style === "core_semi";
+        if (isIntradayFade) {
+          action = "開高殺低・嚴禁接刀";
+          actionType = "alert";
+          focusTag = "盤中反轉警示";
+          detail =
+            `盤中劇烈反轉，從高點 $${dayHi.toFixed(2)} 回吐至 $${price.toFixed(2)}（低點 $${dayLo.toFixed(2)}，日內振幅 ${rangePct.toFixed(1)}%，距 52 週高點 ${dd52w.toFixed(1)}%）。` +
+            `${prof.thesis}短線賣壓尚未宣洩完畢，宜靜待站回日內均價或收盤止穩。`;
+        } else if (hasUrgentNews && chg <= -2.0) {
+          action = "突發事件・靜待利空沉澱";
+          actionType = "alert";
+          focusTag = "事件催化警戒";
+          detail =
+            `受近期新聞事件牽動跌 ${formatSignedPct(chg)}（6H 想賣 ${sellPct}%，距 52 週高點 ${dd52w.toFixed(1)}%）。` +
+            `${prof.thesis}事件發酵期切忌搶反彈，待負面影響範圍釐清與量縮止跌再評估。`;
+        } else if (chg <= -3.5) {
+          if (isMoat) {
+            action = "核心股急跌・觀察止跌分批";
+            actionType = "watch";
+            focusTag = "優質股折價掃描";
+            detail =
+              `單日重挫 ${formatSignedPct(chg)}（距 52 週高點修正 ${dd52w.toFixed(1)}%，想賣 ${sellPct}%）呈現情緒性宣洩。` +
+              `${prof.thesis}待隔日開盤確認不再破低，可評估分批低接或於遠價外支撐區佈局。`;
+          } else {
+            action = "高波急殺・等止穩訊號";
+            actionType = "alert";
+            focusTag = "急跌風險警示";
+            detail =
+              `單日大跌 ${formatSignedPct(chg)}（振幅 ${rangePct.toFixed(1)}%，距 52 週高點 ${dd52w.toFixed(1)}%）。` +
+              `${prof.thesis}高彈性個股下殺動能強，切忌左側重壓接刀。`;
+          }
+        } else if (chg >= 1.8 || (alphaSpx >= 1.2 && chg >= 0.35)) {
+          if (chg >= 3.2) {
+            action = "強勢急拉・逢回再觀察";
+            actionType = "bull";
+            focusTag = "強勢領漲焦點";
+            detail =
+              `放量領漲 ${formatSignedPct(chg)}（跑贏標普 ${formatSignedPct(alphaSpx)}，6H 想買 ${buyPct}%），資金集中度顯著優於大盤。` +
+              `${prof.thesis}強勢股宜採回測短期均線分批追蹤，不追盤中高乖離。`;
+          } else {
+            action = "相對抗跌・資金避風港";
+            actionType = "bull";
+            focusTag = "相對強勢領頭";
+            detail =
+              `逆勢表現 ${formatSignedPct(chg)}（超越標普 ${formatSignedPct(alphaSpx)}），展現基本面防禦與買盤韌性（區間 $${dayLo.toFixed(2)}–$${dayHi.toFixed(2)}）。` +
+              `${prof.thesis}`;
+          }
+        } else if (isIntradayRebound) {
+          action = "低檔承接・留意翻紅延續";
+          actionType = isMoat ? "bull" : "watch";
+          focusTag = "日內反彈訊號";
+          detail =
+            `盤中自低點 $${dayLo.toFixed(2)} 強勢拉起至 $${price.toFixed(2)}（振幅 ${rangePct.toFixed(1)}%），低接買盤積極進駐。` +
+            `${prof.thesis}觀察能否站穩當日開盤價確認短線轉強。`;
+        } else if (sellPct >= 64 && chg < 0) {
+          action = "情緒悲觀・逆向追蹤支撐";
+          actionType = "watch";
+          focusTag = "情緒極端背離";
+          detail =
+            `6H 社群情緒偏空（想賣 ${sellPct}%），目前修正 ${formatSignedPct(chg)}（距 52 週高點 ${dd52w.toFixed(1)}%）。` +
+            `${prof.thesis}若無基本面惡化，過度悲觀往往孕育短線反彈契機，等待量縮確認即可。`;
+        } else {
+          action = "關鍵價位觀察";
+          actionType = rangePct >= 3.0 ? "watch" : "hold";
+          focusTag = "焦點動態";
+          detail = `現價 $${price.toFixed(2)}（${formatSignedPct(chg)}，振幅 ${rangePct.toFixed(1)}%，距 52 週高點 ${dd52w.toFixed(1)}%）。${prof.thesis}`;
+        }
+      }
+
+      scored.push({
+        symbol: sym,
+        displaySymbol: sq.displaySymbol || sym,
+        name: sq.name || sym,
+        category: sq.category || "tech",
+        price: round2(price),
+        changePct: round2(chg),
+        dd52w: Number(dd52w.toFixed(1)),
+        rangePct: Number(rangePct.toFixed(1)),
+        buyPct,
+        sellPct,
+        role: prof.role,
+        pairGroup: prof.pairGroup,
+        style,
+        focusTag,
+        score,
+        action,
+        actionType,
+        detail,
+        allHeadlines,
+      });
+    }
+
+    scored.sort((a, b) => b.score - a.score);
+
+    const selected = [];
+    const pairCounts = {};
+    let levCount = 0;
+    let semiCount = 0;
+
+    const canPick = (it) => {
+      if (it.pairGroup && (pairCounts[it.pairGroup] || 0) >= 1) return false;
+      if (it.style === "leveraged" && levCount >= 1) return false;
+      if (it.category === "semi" && semiCount >= 3) return false;
+      return true;
+    };
+
+    const commitPick = (it) => {
+      selected.push(it);
+      if (it.pairGroup) pairCounts[it.pairGroup] = (pairCounts[it.pairGroup] || 0) + 1;
+      if (it.style === "leveraged") levCount += 1;
+      if (it.category === "semi") semiCount += 1;
+    };
+
+    const topIndex = scored.find((it) => it.style === "index");
+    if (topIndex && (topIndex.dd52w <= -5.0 || Math.abs(topIndex.changePct) >= 1.2 || vix >= 22)) {
+      commitPick(topIndex);
+    }
+
+    for (const item of scored) {
+      if (selected.some((x) => x.symbol === item.symbol)) continue;
+      if (!canPick(item)) continue;
+      commitPick(item);
+      if (selected.length >= 6) break;
+    }
+
+    if (selected.length < 6) {
+      for (const item of scored) {
+        if (!selected.some((x) => x.symbol === item.symbol)) {
+          selected.push(item);
+          if (selected.length >= 6) break;
+        }
+      }
+    }
+
+    selected.sort((a, b) => b.score - a.score);
+
+    const usedTitles = new Set();
+    const cards = selected.slice(0, 6).map((it, i) => {
+      const hl = pickCleanCioHeadline(it.symbol, it.allHeadlines, usedTitles);
+      if (hl?.title) usedTitles.add(hl.title);
+      return {
+        rank: i + 1,
+        symbol: it.symbol,
+        displaySymbol: it.displaySymbol,
+        name: it.name,
+        price: it.price,
+        changePct: it.changePct,
+        dd52w: it.dd52w,
+        rangePct: it.rangePct,
+        buyPct: it.buyPct,
+        sellPct: it.sellPct,
+        role: it.role,
+        focusTag: it.focusTag,
+        title: `${it.displaySymbol} ${it.name} ($${it.price.toFixed(2)})`,
+        action: it.action,
+        actionType: it.actionType,
+        detail: it.detail,
+        headlineTitle: hl?.title || "",
+        headlineSource: hl?.source || "",
+        headlineUrl: hl?.url || "",
+      };
+    });
+
+    const tradable = stocksQuotes.filter((s) => s.symbol !== "^VIX" && s.symbol !== "BOXX");
+    const upCnt = tradable.filter((s) => Number(s.changePct) > 0).length;
+    const downCnt = tradable.filter((s) => Number(s.changePct) < 0).length;
+    const bestS = [...tradable].sort((a, b) => Number(b.changePct) - Number(a.changePct))[0];
+    const worstS = [...tradable].sort((a, b) => Number(a.changePct) - Number(b.changePct))[0];
+
+    const scannerBullets = [];
+    if (bestS && worstS) {
+      scannerBullets.push(
+        `觀察名單廣度：可交易標的 ${tradable.length} 檔中 ${upCnt} 檔上漲 / ${downCnt} 檔下跌` +
+          `（最強：${bestS.displaySymbol} ${formatSignedPct(bestS.changePct)} ｜ 最弱：${worstS.displaySymbol} ${formatSignedPct(worstS.changePct)}）。`
+      );
+    }
+    scannerBullets.push(
+      `波動與現金基準：VIX 報 ${vix.toFixed(2)} (${formatSignedPct(vixChg)})、停泊基準 BOXX 報 $${boxxP.toFixed(2)}；` +
+        "以上前 6 大焦點完全依即時報價、52 週折價與 6H 頭條情緒動態排名，不預設任何個人持股。"
+    );
+
+    return {
+      regimeTag,
+      regimeTone,
+      regimeSummary,
+      cards,
+      scannerBullets,
+    };
+  }
+
   // 6. Render CIO & CRO Institutional Tactical Advisory
   function renderCioAdvisory() {
-    const cio = state.insightsData?.cioAdvisory;
+    const cio =
+      state.market === "us" && state.quotesData?.watchlist?.length
+        ? buildLiveUsCioAdvisory()
+        : state.insightsData?.cioAdvisory;
+
     if (!cio) {
       elCioContainer.innerHTML = `<div class="quiet-note">正在載入投資長專業操作建議…</div>`;
       return;
     }
 
     const cardsHtml = (cio.cards || [])
-      .map(
-        (c) => `
-        <article class="cio-action-card">
-          <div class="cio-card-head">
-            <span class="cio-card-title">${escapeHtml(c.title)}</span>
-            <span class="cio-stance-pill ${escapeHtml(c.actionType || "hold")}">${escapeHtml(c.action)}</span>
-          </div>
-          <p class="cio-card-body">${escapeHtml(c.detail)}</p>
-        </article>
-      `
-      )
+      .map((c) => {
+        const rankNum = Number(c.rank);
+        const hasRank = c.rank !== null && c.rank !== undefined && c.rank !== "" && Number.isFinite(rankNum) && rankNum > 0;
+        const rankPill = hasRank
+          ? `<span class="cio-rank-pill ${rankNum <= 2 ? "top2" : ""}">TOP ${rankNum}</span>`
+          : "";
+        const priceChip =
+          hasRank && Number.isFinite(Number(c.price))
+            ? `<span class="cio-price-chip ${Number(c.changePct) >= 0 ? "up" : "down"}">$${formatNumber(c.price)} (${formatSignedPct(c.changePct)})</span>`
+            : "";
+        const displayTitle = hasRank && c.displaySymbol
+          ? `${escapeHtml(c.displaySymbol)} ${escapeHtml(c.name || "")}`
+          : escapeHtml(c.title);
+
+        const dd52Val = Number(c.dd52w || 0);
+        const dd52Formatted = Math.abs(dd52Val) < 0.05 ? "0.0%" : `${dd52Val > 0 ? "+" : ""}${dd52Val.toFixed(1)}%`;
+        const metaRowHtml = hasRank
+          ? `
+            <div class="cio-meta-row">
+              ${c.focusTag ? `<span class="cio-focus-tag">${escapeHtml(c.focusTag)}</span>` : ""}
+              ${c.role ? `<span class="cio-meta-chip">${escapeHtml(c.role)}</span>` : ""}
+              <span class="cio-meta-chip">52W ${dd52Formatted}</span>
+              <span class="cio-meta-chip">買${Number(c.buyPct ?? 50)}% / 賣${Number(c.sellPct ?? 50)}%</span>
+            </div>
+          `
+          : "";
+
+        const headlineNoteHtml = c.headlineTitle
+          ? `
+            <div class="cio-headline-note">
+              <span>催化頭條：</span>
+              ${
+                c.headlineUrl
+                  ? `<a class="js-zh-guard" href="${escapeHtml(c.headlineUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(c.headlineTitle)}</a>`
+                  : `<span class="js-zh-guard">${escapeHtml(c.headlineTitle)}</span>`
+              }
+              ${c.headlineSource ? `<span>(${escapeHtml(c.headlineSource)})</span>` : ""}
+            </div>
+          `
+          : "";
+
+        return `
+          <article class="cio-action-card">
+            <div class="cio-card-head">
+              <div class="cio-card-title-group">
+                ${rankPill}
+                <span class="cio-card-title">${displayTitle}</span>
+                ${priceChip}
+              </div>
+              <span class="cio-stance-pill ${escapeHtml(c.actionType || "hold")}">${escapeHtml(c.action)}</span>
+            </div>
+            ${metaRowHtml}
+            <p class="cio-card-body">${escapeHtml(c.detail)}</p>
+            ${headlineNoteHtml}
+          </article>
+        `;
+      })
       .join("");
+
+    const scannerTitle =
+      state.market === "us" ? "觀察名單廣度與宏觀基準" : "觀察名單異動與逆向情緒掃描";
 
     const scannerHtml = (cio.scannerBullets || []).length
       ? `
         <div class="cio-scanner-box">
-          <div class="cio-scanner-title">觀察名單異動與逆向情緒掃描</div>
+          <div class="cio-scanner-title">${scannerTitle}</div>
           <ul class="cio-scanner-list">
             ${cio.scannerBullets
               .map(

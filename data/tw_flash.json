@@ -1,9 +1,57 @@
 {
-  "generatedAt": "2026-11-18T15:28:52.555029+00:00",
-  "updatedAtTW": "2026-11-18 23:28",
+  "generatedAt": "2026-11-18T17:03:37.045977+00:00",
+  "updatedAtTW": "2026-11-19 01:03",
   "refreshIntervalMinutes": 3,
   "universeNote": "嚴選台股 AI 與半導體權值股（台積電/聯發科/鴻海/廣達/奇鋐/緯穎）＆ 三大法人/大盤重磅快報",
   "items": [
+    {
+      "title": "快訊／台股開盤慘了？道瓊挫逾600點 台指期崩逾800點",
+      "source": "Yahoo新聞",
+      "url": "https://news.google.com/rss/articles/CBMiwwJBVV95cUxPVWpOV1hMX1RaYTlyeGFvNTZ4VHoyYWJTazRZTk9faGVEbnFibklnUGg4QkptcDEzVTZkTHl1d1hTdUlRSHkxc09hQjlaUldTYnFaTGZMRzk3cFo4TW1IVDZ0dm9XT3A3TW9uVHJQWVZoTWk5SUZZUHRiQkswS3oybDZvRTExNnd6TnJYenA1a0xDWEFUYTY1bkVWMzFUWUxGOWFXRGFueUEybDI4YzVYMDl4dXpDelRXZi1jSzAwNS1VWXhaX1hSc05hUlpjeVp2SUhHMGJhbGNCeHpjOXhRTGtiaGdNVlB1dElSTDFYNmNReGs4Q2FoTFI3dnFTYUtZYTVUUmRLLTFBaDhmOE5VVlpGLUZOY3l0bTJzWFd3dG9tNHNTUWZkaV9iYTRwbV9jU0h5VE1zV1JJM3dVdDREWktJWQ?oc=5",
+      "tags": [
+        "法人/大盤"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsHoldings": true,
+      "timeTW": "11/19 00:51",
+      "clockTW": "00:51",
+      "age": "13分鐘前",
+      "pubTs": 1795020660
+    },
+    {
+      "title": "帳戶盜轉頻傳 金管會指個資外洩",
+      "source": "UDN",
+      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9ldEtFY29mU3A5OEY5Z3JjUUxNNGFLMmhrdGc0MUtZU0RxRjZLY1BBLS1jdmxja2wyeTlBTm1BRkRBLTVSMGhPZDdLd3FJZmI40gFWQVVfeXFMTnF0dGFmeHRlekw5bmwtVHFnZVNnYm5BMm9VSnMxeEQ2bFlTN1g4cUk1dFNfVEpZbWhuUDN6ZkpWRWVmbEU1YlNfVFhiZnR4ZmJjZHdGYXc?oc=5",
+      "tags": [
+        "法人/大盤"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsHoldings": true,
+      "timeTW": "11/19 00:15",
+      "clockTW": "00:15",
+      "age": "49分鐘前",
+      "pubTs": 1795018513
+    },
+    {
+      "title": "【1118台股盤後】台指結算震盪1,677點守四萬！Anthropic IPO 聯動算力鏈，營收創高模範生鎖定【2317 鴻海】、【6223 旺矽】、【3665 貿聯-KY】｜豐雲學堂2026 年 11 月",
+      "source": "永豐金證券",
+      "url": "https://news.google.com/rss/articles/CBMi4ARBVV95cUxOOFRFdGsyNUpmZGQyVWNYU2FYS2szM0k2WmdQZnFVYWxXbE82U0ZSVkIzY1NWc1BuSEFWN280YU1nZGhjZDZBeDBDVDhlRUlfMVZURzR2UEZjSEZ5R0pXS2MydzN2RzRHM2prQkNDYnlnNVRaVjlydjR5Z2t3X0l0NWR0cjhfZXNtdEZsY3Q4V0xxckFVTTBoUFk2TnpmRFRwUmNjTjVvUXhOSFA0RGlMSVhqMUdhWXpuY01SLVp3ODAtVk5VbzlyemlEQ2NQemhrVDdmWFlTWXcxZElOd00zNzQzZEw4bFBzRWtDclRGSUVLMmltT3Z2YnREWjM0VVp5MHhkbWRZQS03RFA4S24zVEVWdXFfLVBmc1hra0R2cXg3MGRUY0ltYWVtQUxMc0JEVG0tZngwR25xSDRrc0xiVGJwRTBhRlI3QkZXWldySUtrZXkzVElISmtCWS1QUmpRQVNVb3BTLVBWUGJOS21ialJGMmNpR3VhaXkzTWk2UkxqNjNyS2Jwb3BlWnJfU0RsNmhnTnZXeVdNdlhMVWs1eHp3V0dWT19tMm5MOWFTWEl2YzA2MTRET2FNUzRZX0dKd1hPVng2LWdwZFF2Y1M2VmdDM0tSS3VpaXVMaFk3NFVOOUUycmo0V0FfNGhKa1pfeC05ODFTT21pa3VzSXlHeDFUMUhmUE11S093OVpkWk9vYXdMRUVuV1ktUnRlXzdOc2dKS2JGbUlvVFluWExubTRTNk5OMTUzRm9sY0wwQW5sM25tMkFSLVp0bmxFdXZwOHdBUVRrRm9pbk1Yd1haYQ?oc=5",
+      "tags": [
+        "2317"
+      ],
+      "urgent": true,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": true,
+      "timeTW": "11/18 23:46",
+      "clockTW": "23:46",
+      "age": "1小時前",
+      "pubTs": 1795016788
+    },
     {
       "title": "美股早盤／輝達財報亮眼也難救 大盤由紅翻黑、台積電ADR跌0.4%",
       "source": "UDN",
@@ -17,40 +65,24 @@
       "affectsHoldings": true,
       "timeTW": "11/18 22:54",
       "clockTW": "22:54",
-      "age": "35分鐘前",
+      "age": "2小時前",
       "pubTs": 1795013648
     },
     {
-      "title": "歐洲央行擬將最低準備金率提高至2%，每年或節省44億歐元利息",
-      "source": "群益期貨",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxON25tUTktWkJXbi1EWm84X3VzUGIxR3pvcHZsdm5VRU5UR1VEcHI1Z2N3NjhFRGVpQ1VJSkJ2Qm5tcG1JNC14TnBaQXZLdnY4NVlyeHdad0FqTHhIX1dwOEJDMEpqalJDcnFnTmVULWVSclJVODJXY2ZpMUQycTdEX2xVQlFoSTVXZVNHeDQ0R3FBa3h6enBZRjlKNHFOMnNl?oc=5",
+      "title": "009816值得追嗎？從持股比重拆解0050、006208的績效差異真相｜超馬芭樂｜豐雲學堂2026 年 11 月",
+      "source": "永豐金證券",
+      "url": "https://news.google.com/rss/articles/CBMimwNBVV95cUxNdDRxNmJxdGU2d2V6b2gwVEg2dzk4bHJUU2gyeHkyT1M3YnQtYkhjTTQ0ME9qMTZkWkdZYzdzSWZycmUxSVZDOEYyUmQtVEtUc01tdWhiNmFGcHB6Y21qVl9KNUFWak8tOFJMczFuTnR5WkUtdjdsTXIyaGdzd1lDRGJ3b1owQkZjSHNRQ29TX0lLOXZZOU1mN0wyRFJTM044cmU0Q2R2LS1GMm1NTVRrUzFfcVZkTlM2WW1wcFBnOXJTWkh3WFk1bEhWXzQ3NnExLVU5MThqTndPS1F1NjhvWWI4Q1JEdFJFbGZGTjRVTGJjNDZWdjdXMjdhMTkwaHk3ZkJ5UE5icm85M1c4S05zMzh1TEVReDBFTG43SWtYbzRSNDk5V0t5R2N1ZDdqZ2hGcHVNRUJvcE92Umh5MFZDNmZDRXNPVUxHZE9pZDJkQ2VpM0RBRGFwQUs4UVl6Z2RYckJ6REdhRjM4Q1o3UXVjQnJOUjdjazNUTUZOeU8taXFmdW9mNDhIWEZ0ZHRzMW9oQVVqLW9DYlN2MjA?oc=5",
       "tags": [
-        "法人/大盤"
+        "0050"
       ],
       "urgent": false,
       "isOutage": false,
-      "isMacro": true,
+      "isMacro": false,
       "affectsHoldings": true,
-      "timeTW": "11/18 22:54",
-      "clockTW": "22:54",
-      "age": "35分鐘前",
-      "pubTs": 1795013643
-    },
-    {
-      "title": "獲輝達投資10億美元！「這檔載板三雄」今跳空漲停開出、收漲6.83% 三大法人卻合砍7785張、抽走44.9億元",
-      "source": "Yahoo股市",
-      "url": "https://news.google.com/rss/articles/CBMi-wJBVV95cUxOeTlUOWJGTlN6WjBzeFRPeFgxMEZlV2lqVGdBX1ZZS28xcGhwNlBJQmtkb2F6d2hVc0dMd3lUZURVVVdFcWFvbGF3U2pvQTB5Q3dsSXp5R0lLd1ZUVk9sQmdCQ0JrT29uMVE0c2luUzY1ZUMwNFJNbm80cFhsTVVkUV9QUVpJZ3U5OFkzQVl5M0t3T2lqTXRCZkU0U2hTaTN4ZGVtZ3FFOWVzNV8wN1ZDb1ppQmstTm54eVNzMEJhR2FRYlB2ZFA0bXZrZU05UkNYVEp4ZG5Xa1dHcl96NnNqSDdFelFEMTBZOU9OcmpkdlhsOE5SaFUxZjh5YVlMN3lFTXhWb18wQXc4OGVxZDB2Z190MGUyRk5ZYjI5RzlfT1FxX3NUQk8xcm9lUmpJZ0ExWENiOXhJZGgtS081Skd1TGV5eHUwQnUwMElRXzQzX0J4VkZza0xnZU1xNUtFNlkybi03aDFrWFJNXy0wMjRSSG1hbVZkMl82TW9Z?oc=5",
-      "tags": [
-        "法人/大盤"
-      ],
-      "urgent": true,
-      "isOutage": false,
-      "isMacro": true,
-      "affectsHoldings": true,
-      "timeTW": "11/18 21:10",
-      "clockTW": "21:10",
+      "timeTW": "11/18 22:06",
+      "clockTW": "22:06",
       "age": "2小時前",
-      "pubTs": 1795007400
+      "pubTs": 1795010809
     },
     {
       "title": "罕見連環爆！AI鏈驚見鉅額違約交割 創意、華通等9檔合計4.27億元",
@@ -65,25 +97,8 @@
       "affectsHoldings": false,
       "timeTW": "11/18 21:05",
       "clockTW": "21:05",
-      "age": "2小時前",
+      "age": "3小時前",
       "pubTs": 1795007101
-    },
-    {
-      "title": "外資賣超台股逾765億元　調節台積電逾1.5萬張",
-      "source": "經濟日報",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFA2bUdnaDkwdXMtVUhxZHQzaDhSWWQ4UnFBb3diT0ZVaWt1VGN6azVQVEhGWW9ZMllGX1ZCSUdKc2pkX2hiLVpMR2FhelpMUGd2SUFfYk1kNnJyTFFTS3JZ0gFfQVVfeXFMUDZtR2doOTB1cy1VSHFkdDNoOFJZZDhScUFvd2JPRlVpa3VUY3prNVBUSEZZb1kyWUZfVkJJR0pzamRfaGItWkxHYWF6WkxQZ3ZJQV9iTWQ2cnJMUVNLclk?oc=5",
-      "tags": [
-        "法人/大盤",
-        "2330"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": true,
-      "affectsHoldings": true,
-      "timeTW": "11/18 20:30",
-      "clockTW": "20:30",
-      "age": "2小時前",
-      "pubTs": 1795005057
     },
     {
       "title": "封測齊上攻！「這檔」目標價350元挾旺矽噴漲停 精測攻近7%、日月光大漲5.38%",
@@ -98,7 +113,7 @@
       "affectsHoldings": false,
       "timeTW": "11/18 20:15",
       "clockTW": "20:15",
-      "age": "3小時前",
+      "age": "4小時前",
       "pubTs": 1795004100
     },
     {
@@ -115,8 +130,25 @@
       "affectsHoldings": true,
       "timeTW": "11/18 19:13",
       "clockTW": "19:13",
-      "age": "4小時前",
+      "age": "5小時前",
       "pubTs": 1795000438
+    },
+    {
+      "title": "外資賣超台股逾765億元　調節台積電逾1.5萬張",
+      "source": "經濟日報",
+      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQN3l5QUVhcmhIRHlkMzRaQTAzamJ1aVM1RjB2R2V1N0JLV1BYSldvLUdPalpBYjZrU3U0cnUtNjdJTll2WWhncWd1NTE5Qm1tYWtmUWcwdDZTSW5BcV9GaU1TSGlWS1k5T2t4czh5UTVpS0V0dlBwQzV2dDNXSXlab0l30gFfQVVfeXFMUDZtR2doOTB1cy1VSHFkdDNoOFJZZDhScUFvd2JPRlVpa3VUY3prNVBUSEZZb1kyWUZfVkJJR0pzamRfaGItWkxHYWF6WkxQZ3ZJQV9iTWQ2cnJMUVNLclk?oc=5",
+      "tags": [
+        "法人/大盤",
+        "2330"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsHoldings": true,
+      "timeTW": "11/18 18:37",
+      "clockTW": "18:37",
+      "age": "6小時前",
+      "pubTs": 1794998237
     },
     {
       "title": "1天9起韭菜翻車！千金股創意、華通、欣興全中槍 遭違約交割破4.26億",
@@ -131,24 +163,24 @@
       "affectsHoldings": false,
       "timeTW": "11/18 18:30",
       "clockTW": "18:30",
-      "age": "4小時前",
+      "age": "6小時前",
       "pubTs": 1794997817
     },
     {
-      "title": "【1118台股盤後】台指結算震盪1,677點守四萬！Anthropic IPO 聯動算力鏈，營收創高模範生鎖定【2317 鴻海】、【6223 旺矽】、【3665 貿聯-KY】｜豐雲學堂2026 年 11 月",
-      "source": "永豐金證券",
-      "url": "https://news.google.com/rss/articles/CBMi4ARBVV95cUxOOFRFdGsyNUpmZGQyVWNYU2FYS2szM0k2WmdQZnFVYWxXbE82U0ZSVkIzY1NWc1BuSEFWN280YU1nZGhjZDZBeDBDVDhlRUlfMVZURzR2UEZjSEZ5R0pXS2MydzN2RzRHM2prQkNDYnlnNVRaVjlydjR5Z2t3X0l0NWR0cjhfZXNtdEZsY3Q4V0xxckFVTTBoUFk2TnpmRFRwUmNjTjVvUXhOSFA0RGlMSVhqMUdhWXpuY01SLVp3ODAtVk5VbzlyemlEQ2NQemhrVDdmWFlTWXcxZElOd00zNzQzZEw4bFBzRWtDclRGSUVLMmltT3Z2YnREWjM0VVp5MHhkbWRZQS03RFA4S24zVEVWdXFfLVBmc1hra0R2cXg3MGRUY0ltYWVtQUxMc0JEVG0tZngwR25xSDRrc0xiVGJwRTBhRlI3QkZXWldySUtrZXkzVElISmtCWS1QUmpRQVNVb3BTLVBWUGJOS21ialJGMmNpR3VhaXkzTWk2UkxqNjNyS2Jwb3BlWnJfU0RsNmhnTnZXeVdNdlhMVWs1eHp3V0dWT19tMm5MOWFTWEl2YzA2MTRET2FNUzRZX0dKd1hPVng2LWdwZFF2Y1M2VmdDM0tSS3VpaXVMaFk3NFVOOUUycmo0V0FfNGhKa1pfeC05ODFTT21pa3VzSXlHeDFUMUhmUE11S093OVpkWk9vYXdMRUVuV1ktUnRlXzdOc2dKS2JGbUlvVFluWExubTRTNk5OMTUzRm9sY0wwQW5sM25tMkFSLVp0bmxFdXZwOHdBUVRrRm9pbk1Yd1haYQ?oc=5",
+      "title": "緯創(3231)第三季營收首破兆元！AI伺服器占比衝上83%，2027年出貨續增",
+      "source": "鉅亨網",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE40dUoyRi1HaWlraEMweWpySWVnOUlwNmoxX2hTMTdNZkVXXzhqNWViaEhqTFZ1UEdvUGlGQ3RENnluZXJIUTJHVUFhbWgzYXM?oc=5",
       "tags": [
-        "2317"
+        "3231"
       ],
-      "urgent": true,
+      "urgent": false,
       "isOutage": false,
       "isMacro": false,
-      "affectsHoldings": true,
-      "timeTW": "11/18 17:46",
-      "clockTW": "17:46",
-      "age": "5小時前",
-      "pubTs": 1794995166
+      "affectsHoldings": false,
+      "timeTW": "11/18 17:31",
+      "clockTW": "17:31",
+      "age": "7小時前",
+      "pubTs": 1794994284
     },
     {
       "title": "股市新手誤買整張0050 急求救：會違約交割嗎？",
@@ -163,40 +195,8 @@
       "affectsHoldings": true,
       "timeTW": "11/18 16:53",
       "clockTW": "16:53",
-      "age": "6小時前",
-      "pubTs": 1794992020
-    },
-    {
-      "title": "輝達數十億美元大單助攻！AI股「這檔」攜貿聯、世芯飆漲停雙鴻、健策漲逾5%、GOGOLOOK慘摔8%",
-      "source": "Yahoo股市",
-      "url": "https://news.google.com/rss/articles/CBMi6wJBVV95cUxQOUJSei15Yjhkc3haYWU2RjJZRVphdFdqRTBGY1RoQU1kTGpKRHItVEYwMmJRTkJLRmdtQWk3UHNjUmdtNFJRdXZTUDBvWkZnR2hXZWt2UmNDOWJKVWpGUG9sT2JSd3d6bDFmSkRoc0lJenZ2aDVhdXZKMGhENEdjazI1eThxV204XzBzd3otVEZwRGg0VFpfRWRBTEJtLWNZczRGYU9PVHpUMXZqMVl1OTFxMDVvSHNCZHNVZmZPT1kyZmhkbTY2M2VLd3dpSjNWWlJoenJnSzI5QldnU1kzNDQyZndOZzlJQkd3bjN4bXpMR0dvaWdINUt1ME5ROW5iNUljNHBET3dpR19lQlFwWGxudVE0Z25tTllZZXFteHRCYzFuZ0hETGpCb2M2elc5dF9rVUE3NVA2UVF4Y1hhUlFDOU0wZmwxbGdhRUxRbFRGNmdaXzQydzZNTXBQUkJiQ3ZUX3BiOUJmTjQ?oc=5",
-      "tags": [
-        "3661"
-      ],
-      "urgent": true,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": false,
-      "timeTW": "11/18 16:45",
-      "clockTW": "16:45",
-      "age": "6小時前",
-      "pubTs": 1794991500
-    },
-    {
-      "title": "台股近半年已跌逾2%！市值型ETF僅6檔逆勢賺錢 009816勝過0050",
-      "source": "Yahoo股市",
-      "url": "https://news.google.com/rss/articles/CBMi4AJBVV95cUxOZzVMUU1KSC1HMzlYOHZpWlA5MzYyTkZud2I5OXdqcVMxYUo0a2RRUUE1TGUwdGtVemJWM29GaDhIX0JVN185cDF6SE5lOEtVRG5fZjcweGtyV2Zydjg3aXJvQ2IyR011ZHB4OXI4V01ndERZcXp6LUI3OHV2YTFvT2tZb1JvMGpPb1BCa0lfQWs3dWl0NjA3eHhTVkF2WjlhTVhlaXN2SGtXbE44cEd4cEtnQTJSZUVZZGpXLTBNRFZKRGZ4Q0EyUmYyOXBIaTBiMzFlQUdHOE80VnZSYnNSSWloNDkxckdJOTFrM3VEdWNLblBQaGc0NkltTjk0bzBLeFFPTjNGUmpvRGRuUGo4ZzZ1TjN3Q3FGZnBEQk9TSWVSNEN0Vlp3NkxYZ0NyNHZoRTRpTVVxcHdfZHVDU1MzM1l3VW84QWdFbnJsaWdwWHU0cGkzeEJqWmJnSWFSM0dF?oc=5",
-      "tags": [
-        "0050"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": true,
-      "timeTW": "11/18 14:41",
-      "clockTW": "14:41",
       "age": "8小時前",
-      "pubTs": 1794984114
+      "pubTs": 1794992020
     },
     {
       "title": "世芯-KY從急殺到漲停！股價大逆轉讓股民嗨翻",
@@ -211,7 +211,7 @@
       "affectsHoldings": false,
       "timeTW": "11/18 14:21",
       "clockTW": "14:21",
-      "age": "9小時前",
+      "age": "10小時前",
       "pubTs": 1794982913
     },
     {
@@ -227,7 +227,7 @@
       "affectsHoldings": true,
       "timeTW": "11/18 12:07",
       "clockTW": "12:07",
-      "age": "11小時前",
+      "age": "12小時前",
       "pubTs": 1794974871
     }
   ]

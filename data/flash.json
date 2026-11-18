@@ -1,13 +1,110 @@
 {
-  "generatedAt": "2026-11-18T15:28:52.555029+00:00",
-  "updatedAtTW": "2026-11-18 23:28",
+  "generatedAt": "2026-11-18T17:03:37.045977+00:00",
+  "updatedAtTW": "2026-11-19 01:03",
   "refreshIntervalMinutes": 3,
   "universeNote": "嚴選美國前 30 大市值科技股動態 ＆ 聯準會升降息/重大宏觀政策快報",
   "items": [
     {
+      "title": "AI揪出Java重大漏洞 甲骨文已修補、CISA促速更新",
+      "source": "VOCO News",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9zdDNrTE9EN2xGYjV6UlJET0tYMkNja1pWSHM4WTlwMFpiVGpPS0d0R3NocWJFdFBBQ1U3U3ZRSmp2NUhyZHNsRWJzN3M5ZHJidmp1TTF1MS04RUxGZ0FsU3BTeDVMaDYwVnhjdm9TMGtjc1QySkNr?oc=5",
+      "tags": [
+        "當機/異常",
+        "ORCL"
+      ],
+      "urgent": true,
+      "isOutage": true,
+      "isMacro": false,
+      "affectsHoldings": false,
+      "timeTW": "11/19 00:50",
+      "clockTW": "00:50",
+      "age": "13分鐘前",
+      "pubTs": 1795020651
+    },
+    {
+      "title": "Loblaw夥Meta推AI買餸　可編餐單、揀貨及結帳",
+      "source": "Sing Tao Daily 星島日報加拿大",
+      "url": "https://news.google.com/rss/articles/CBMioAJBVV95cUxQaGxFUFZyaTVOU1FzR3RyS0tRSWI5ZkRmMjI1ZUZ3QjFPblJic3hNTTdmSXl1dDVDWDIzeFNvSVRaelQ2U29YRWdITGVQdTFCbjdrNW1SVV9TOGxtZ2ZmZUs4X01lU2RxMTl3Z2dxVlpyWkVXdHRBaGpjTHdLdmc3eUJWWFJpV2QyNTdUNDZETDUtcER1cXBmTnExNkpHOW01NUctbXhsQ1BDSUFxSnVoSjh5QVB1U2NfSHZURE5DaFBVQWlCOHROREZIMDJ6VXJUemdEQUJ1LVlrUGdWUHloT1BvcUNiNW9NM3NZTGxiWVNCcXg5TF9OX2xVUTNWcXZvamFUVVhqZnl1STNBcXhCOGQwY3RRV3NydHlNQzlheU_SAYwBQVVfeXFMTzAwU2YydUtra09UUHpfdUNabFpRX3VWVFd3dFNjekpRWnZkMzhWcDFncmtuN1Rvb2o5anhiRXptT083YWRkRmFYUU54UWt3UVpzZHdfejAyZklscVBoZHV1NGFuR0RweEFWcTloZDVvSzYwSldJSi03dXg1a0dWek84LUVGRU1KSFRIMHA?oc=5",
+      "tags": [
+        "META"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": false,
+      "timeTW": "11/19 00:41",
+      "clockTW": "00:41",
+      "age": "22分鐘前",
+      "pubTs": 1795020090
+    },
+    {
+      "title": "金銀比創一年新高，聯準會升息疑慮衝擊白銀更甚黃金",
+      "source": "BigGo 財經",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5WQmN4OG9CT0xCNGh5dklTMDd0elhWbzlYbDBqRVFVaDhRS1I1TmV5aEpIZGZxUVliZktjeXRMZFJnOTFBLUdaX1VBMFNkWC1raVRTbjFwdm1ndjBtbUlKUjByaWpqVmNzZG1XSGdieU03SV9iN3luN3dn?oc=5",
+      "tags": [
+        "FED/宏觀"
+      ],
+      "urgent": true,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsHoldings": true,
+      "timeTW": "11/19 00:35",
+      "clockTW": "00:35",
+      "age": "29分鐘前",
+      "pubTs": 1795019700
+    },
+    {
+      "title": "輝達強勁財報受中國風險與接班問題蒙上陰影",
+      "source": "Business Insider Taiwan",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBaZHI2NDJLNVR0ZTZqZzJ6Qm53ZXR4LWNfMDZyZm05Q2JjYnVwZlZWXzNMV2JHYmJPeEpLelB4M0FKRDFXcklVUlpIdGd1Y1RVVHZzMTJR?oc=5",
+      "tags": [
+        "NVDA"
+      ],
+      "urgent": true,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": true,
+      "timeTW": "11/19 00:12",
+      "clockTW": "00:12",
+      "age": "51分鐘前",
+      "pubTs": 1795018360
+    },
+    {
+      "title": "訂單接到手軟 分析師揭「這家台廠」獨家供應Google晶片：未來數年最大贏家",
+      "source": "Yahoo新聞",
+      "url": "https://news.google.com/rss/articles/CBMisANBVV95cUxOMk00dGRrTU9VckxveGhWVzhqVWNrUlZPZ0pyQ3FjeUpVLTZmQ0prNTcwMUQ5X2lqUUdGMkxHWGNpMVFzeGFQdHlPSW9YZFh6RUMxRWxIVXRYNlJWdHZUd2p2NVRjck4wMVpBM2JzdjRQTFJ5RVdKYzVhQUVDdTBCS1Z6RUQ2eW1JMEg5X3NEeGhDaTlaRlJTWEo1NlRKUVlpMmltQS1DdllJWm04a245TjFLQzlKSVpnOVp4LUxBZ1pWUUJWQUpvU01DZXM5SmYxZ2hqb2d5ZEQ4S0JtMUFTemZEclFrZUF5ZjdxYktKTWRTRjRGNXVleVlFVGdjcTJxMmJhdWxJYm1SYjFhRl9XRWxHYmVDM0Vlc1ZCUlhqaFRfc0VuTndyLWRWakVKTlZuNy1GcFFNcDNlNHNMc0VIbmtuX3Z3ZGpOaWk5eG96OWhPbVRpV28zQmdYWDI5NFVWZU9WV2pSbnNKZnZSTlZENXdPRElYREhBb01SR0NObzV1X3g1d196Mmh0RDZncFpBZWhRM1d2dGo3QkFlbU9kd3ZybVF5SmVtYlBDdU5jUkg?oc=5",
+      "tags": [
+        "GOOG"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": true,
+      "timeTW": "11/19 00:04",
+      "clockTW": "00:04",
+      "age": "59分鐘前",
+      "pubTs": 1795017868
+    },
+    {
+      "title": "AI避風港愈來愈貴！蘋果今年漲30% 估值衝2007年來最高",
+      "source": "鉅亨網",
+      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBCZ2tjcXlCS0cyTXRLWVBrbmI3N2hIeEozYWIxX3BGQzlUOGF2YUlxVHRCbTI4Z2xESi1YSC1FdkFadnJKTWNvbTBsZw?oc=5",
+      "tags": [
+        "AAPL"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": false,
+      "timeTW": "11/19 00:00",
+      "clockTW": "00:00",
+      "age": "1小時前",
+      "pubTs": 1795017655
+    },
+    {
       "title": "微軟在全球宕機和人為挑戰後提出人工智慧案例",
       "source": "Barron's",
-      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOTDlmSDNfZjMwR1laU1I1d2tlYllYRWg1eVUzdVpRZUttX2x5TE43cDcxT1B5QVdSQ0NBVzR1dlVEanNIMVBQeVRhWU04alR5bWl6VWxWVWxsYVN2Tk5mcUVJWXVfRDh3bUZQY3FRTWl6eE9GOWNuR1haZmZLTFpsenhqamljdnEzWDQ1RF91dWVxejlLR3h5NA?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNNFpRb0pNc3JnOWUtNUpLVDNYUklWY1EzcUc5eGFacUtWenhsdVI2MWh3VkRlTUtjZGxsa1NPRVMtaTRzdEVKbHpveDloWS1TdEtvWVF4S21jOHczMzlOM0dhUXY3Q215cWhoX21yMmtFUzlWVzd6VnlLa0NRSnhabkg5ODZURWpLTklaMGxn?oc=5",
       "tags": [
         "當機/異常",
         "MSFT"
@@ -18,8 +115,24 @@
       "affectsHoldings": false,
       "timeTW": "11/18 23:23",
       "clockTW": "23:23",
-      "age": "6分鐘前",
+      "age": "1小時前",
       "pubTs": 1795015380
+    },
+    {
+      "title": "Google Pics 換上 Nano Banana 2.1 改圖不再亂改其他地方，圖裡中文也清楚了",
+      "source": "電腦王阿達",
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFA0eVYxUmNFaURBQ2syRl9OenNKY1BqallVazFxdHU0bVc2bS1Nb0hrLXlOYmlFOW9oQ3JUeFdCd2hBYmdIUExlMFpBd0t2R25iVkE?oc=5",
+      "tags": [
+        "GOOG"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": true,
+      "timeTW": "11/18 23:17",
+      "clockTW": "23:17",
+      "age": "1小時前",
+      "pubTs": 1795015031
     },
     {
       "title": "SpaceX假設對OpenAI「零銷售」！馬斯克反擊奧特曼AI晶片需求遭高估言論",
@@ -35,40 +148,8 @@
       "affectsHoldings": true,
       "timeTW": "11/18 23:10",
       "clockTW": "23:10",
-      "age": "19分鐘前",
+      "age": "1小時前",
       "pubTs": 1795014605
-    },
-    {
-      "title": "蘋果股價逼近歷史高點，董事長列文森申報出售3,180萬美元持股",
-      "source": "BigGo 財經",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5OWkNTUFltRnM2MjdaQXNCYWZQSGlVVVo1QXpZTXoxUlVnQ0hiZGl0SzJwbnRNWDFnVEFpM2ZBa1FuUFlaSTBHeGRYLUVIVWZyT2s1bUE4NzRZLU5UbWpqcDlKc3BqR1ktYXRuSVVvLWZXUnVxSHA4TDR3?oc=5",
-      "tags": [
-        "AAPL"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": false,
-      "timeTW": "11/18 22:55",
-      "clockTW": "22:55",
-      "age": "34分鐘前",
-      "pubTs": 1795013700
-    },
-    {
-      "title": "Google提AI Agent容量規劃 節點成本最高省四成",
-      "source": "商傳媒",
-      "url": "https://news.google.com/rss/articles/CBMisgJBVV95cUxPSkYwdnU1bXplXzUwbGNlWXJ0aERjZUJLVTU4S1lnN2lDWG4wTW13UHo0bTBLZk5FcTlFYlVlSzNwTS1fb2lYczVUYVhDZ3RyLVVyZ09majRaY2tnUU42SjBwYXFSVVBfcEU2cXotSjVzTmxVZHI5QWNNTWNJR2NTTFRqT1I1NW9kT2tub3VRTjV5SU1XdFZJb3hEN0lZUUJIV2wzNUh0ZEQ1eWRDeGlKS0FzR3VocGJjZGp6RlZkUkRWV2VNaDk3QkJCMFB6bWhlY2hEQzR2a1dCSk80amtCY3NKb0RFUG1wWlM1UlhOYkhTS3J0dVlreld6TGRxSmJmU1BJMUZybFlMZWVKQzdCVHdwRGRaR3N2RmdkMzk3WEttZmpiMldfRmpvWEZGY09KS3c?oc=5",
-      "tags": [
-        "GOOG"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": true,
-      "timeTW": "11/18 22:54",
-      "clockTW": "22:54",
-      "age": "35分鐘前",
-      "pubTs": 1795013657
     },
     {
       "title": "〈美股早盤〉輝達交卷穩軍心！科技股回神 下一關看Anthropic",
@@ -83,7 +164,7 @@
       "affectsHoldings": true,
       "timeTW": "11/18 22:42",
       "clockTW": "22:42",
-      "age": "46分鐘前",
+      "age": "2小時前",
       "pubTs": 1795012956
     },
     {
@@ -99,24 +180,8 @@
       "affectsHoldings": false,
       "timeTW": "11/18 22:05",
       "clockTW": "22:05",
-      "age": "1小時前",
+      "age": "2小時前",
       "pubTs": 1795010709
-    },
-    {
-      "title": "黃仁勳把輝達的一切都鎖進了未來，除了他自己",
-      "source": "鉅亨網",
-      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9sU3d2Z1lUR2FkbzdZRGh2RkNTRU4td0JxNFVMMTM3R0ZLVFhKbmZ3NmNnQlQ4RGRkdFp0Snpxc3ZRUW44c3EzZk1BNA?oc=5",
-      "tags": [
-        "NVDA"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": true,
-      "timeTW": "11/18 22:00",
-      "clockTW": "22:00",
-      "age": "1小時前",
-      "pubTs": 1795010424
     },
     {
       "title": "聯準會升息預期升溫 美元指數攀升創19個月新高",
@@ -131,7 +196,7 @@
       "affectsHoldings": true,
       "timeTW": "11/18 21:34",
       "clockTW": "21:34",
-      "age": "1小時前",
+      "age": "3小時前",
       "pubTs": 1795008850
     },
     {
@@ -147,24 +212,8 @@
       "affectsHoldings": false,
       "timeTW": "11/18 21:20",
       "clockTW": "21:20",
-      "age": "2小時前",
+      "age": "3小時前",
       "pubTs": 1795008034
-    },
-    {
-      "title": "AI當道用手機也可剪片 Premiere奪Google Play年度最佳APP",
-      "source": "鏡報",
-      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5jYjloLWFrcExzaUpQVlNybkJQOVBNZTN4OWJNUGdGTnhqakkyZUJIVi1nSzJ6Z3V3RDdrRjBKQ1N0R1JnZmZtQWNLYm1BcW5JY2c?oc=5",
-      "tags": [
-        "GOOG"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": true,
-      "timeTW": "11/18 21:15",
-      "clockTW": "21:15",
-      "age": "2小時前",
-      "pubTs": 1795007700
     },
     {
       "title": "黃金價格跌至14個月低點 聯準會官員暗示進一步升息",
@@ -179,56 +228,8 @@
       "affectsHoldings": true,
       "timeTW": "11/18 19:47",
       "clockTW": "19:47",
-      "age": "3小時前",
+      "age": "5小時前",
       "pubTs": 1795002425
-    },
-    {
-      "title": "AI丨Meta TBD實驗室研究員Jason Wei過檔招募Mercor",
-      "source": "信報網站",
-      "url": "https://news.google.com/rss/articles/CBMijwJBVV95cUxNQ3pJUWR4U2FZaklyUW9aQnktcDJjQ2J0V3YxcXppY0ppWFRNY25mU3dYRGM4QmQwUkdJeG5oWjZ1TkRFREhDRGV2STRNSENnc3pQaTA2VHZXc09fLVZwMnBMMnNqQVBPREFMWEQyZGpOT2ZMSWFqaW91VTMwRGlBTmhmaUg1SWE2ZDJaV284N1NyRkxnQlFiWEt4WWN3YXJBLTVzaVRMcVUwZ0Y5UURzTFBfV0pJZ1ltd0YzS3JENGFFTUlHcEtPS3JMTHp6OVgwWkhjWVpsT1hWaW9jSFUwX2t6NHhUVzRESllyZUJweVVuVjk3TW9UOTBDcU1fN3RVb1pBSVprbFRMcE54YXkw?oc=5",
-      "tags": [
-        "META"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": false,
-      "timeTW": "11/18 19:30",
-      "clockTW": "19:30",
-      "age": "3小時前",
-      "pubTs": 1795001451
-    },
-    {
-      "title": "粉專遭封鎖！美小企業主讓 AI 代理人自行提告 Meta 求償 7.5 萬美元",
-      "source": "商傳媒",
-      "url": "https://news.google.com/rss/articles/CBMinwNBVV95cUxQLW82TmVjYktWdTAxNHJpSERwMFRnR25OT2tXaDAtNVVRbFE3dlh5OGtOS3JyQnQzMy0yaktmQ1VaanVYQWF5ZC1YUktJUlJselFmNk0wc1E2dnhkOEtlNGNjMkVjWXZJM1g1eEloOU0zWGJqb1l1UGZweF80RjRoYS0xUG9QaTh2cmZSdkRPYnJ4RFpxRTk3V2pvb1Jvd1dUQU9zcGFqN1hXVWR5SXlwMzJab21Ydmd6aDJpVk5oTF9wdGdKQkQzY2dxcU0yRHZTNTJUN2o0c1hub2RQSWRlWms4MTNwT3U2dm02ZnRuWVZvSEFWMFl1Y09RU2lEa1FpU0dMUERvR2tISXllbHZPSlV2aFJUMjN0WVdsc2pjYlBZZWFnYndaSW5DOXVWUjhEOGhGc1pxQjdvT2JTV01RRHJmM0xUQTVYdXVSZ2NMdTRoU0pzcmFUOGNMNzhjMUVwWEY2SjMzWG9SekdvSjNEeTFCeGszcUd1Y0RFZVAzODFNeFNYSXUxeHY1NDJUblo3MnB4ZVc2WmxFQkozSVVr?oc=5",
-      "tags": [
-        "META"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": false,
-      "timeTW": "11/18 19:28",
-      "clockTW": "19:28",
-      "age": "4小時前",
-      "pubTs": 1795001286
-    },
-    {
-      "title": "美收緊AI晶片出口管制 點燃中國報復戰火 下一波對付美國的武器是？",
-      "source": "鉅亨網",
-      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE96cElZRm11VmFyU0FlR3hrOXdMeG9BTU5WU1BIa29SRFJYSFNTd1F2SG1qZ3EzZ2k2RG9VeW53bEFQRFM3elE5YVBtNA?oc=5",
-      "tags": [
-        "FED/宏觀"
-      ],
-      "urgent": true,
-      "isOutage": false,
-      "isMacro": true,
-      "affectsHoldings": true,
-      "timeTW": "11/18 17:25",
-      "clockTW": "17:25",
-      "age": "6小時前",
-      "pubTs": 1794993911
     }
   ]
 }

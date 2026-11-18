@@ -1049,6 +1049,33 @@ body {
   flex-wrap: wrap;
 }
 
+.cio-card-title-group {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.cio-rank-pill {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 2px 7px;
+  border-radius: 5px;
+  background: var(--bg-group);
+  color: var(--text-primary);
+  border: 1px solid var(--border-strong);
+  flex-shrink: 0;
+}
+
+.cio-rank-pill.top2 {
+  background: var(--accent-ink);
+  color: var(--bg-surface);
+  border-color: var(--accent-ink);
+}
+
 .cio-card-title {
   font-size: 0.86rem;
   font-weight: 700;
@@ -1056,11 +1083,57 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
+.cio-price-chip {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+.cio-price-chip.up {
+  background: var(--up-bg);
+  color: var(--up-text);
+}
+
+.cio-price-chip.down {
+  background: var(--down-bg);
+  color: var(--down-text);
+}
+
+.cio-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.cio-meta-chip {
+  font-size: 0.71rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-row);
+  border-radius: 4px;
+  padding: 1px 6px;
+}
+
+.cio-focus-tag {
+  font-size: 0.71rem;
+  font-weight: 600;
+  color: var(--holding-text);
+  background: var(--holding-bg);
+  border-radius: 4px;
+  padding: 1px 6px;
+}
+
 .cio-stance-pill {
   font-size: 0.72rem;
   font-weight: 600;
   padding: 2px 8px;
   border-radius: 4px;
+  flex-shrink: 0;
 }
 
 .cio-stance-pill.bull {
@@ -1090,6 +1163,28 @@ body {
   font-size: 0.82rem;
   color: var(--text-secondary);
   line-height: 1.55;
+}
+
+.cio-headline-note {
+  margin-top: 2px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--border-row);
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.cio-headline-note a {
+  color: var(--accent-link);
+  text-decoration: none;
+}
+
+.cio-headline-note a:hover {
+  text-decoration: underline;
 }
 
 .cio-scanner-box {

@@ -1289,179 +1289,617 @@ def build_stock_insight(
     }
 
 
+WATCHLIST_CIO_PROFILES: dict[str, dict] = {
+    "VOO": {
+        "role": "S&P 500 大盤核心",
+        "style": "index",
+        "pairGroup": "us_index",
+        "thesis": "美國前 500 大龍頭市值加權基準，拉回即為中長線定期與分批建倉首選。",
+    },
+    "QQQ": {
+        "role": "那指 100 成長基準",
+        "style": "index",
+        "pairGroup": "us_index",
+        "thesis": "大型科技與 AI 權值指標，適合順勢配置或大盤明顯回檔時分批承接。",
+    },
+    "TQQQ": {
+        "role": "那指 3 倍做多槓桿",
+        "style": "leveraged",
+        "pairGroup": "leveraged",
+        "thesis": "日內 3 倍複利槓桿具高波動耗損（Volatility Decay），僅宜極短線順勢或止穩後小倉波段。",
+    },
+    "SOXL": {
+        "role": "費半 3 倍做多槓桿",
+        "style": "leveraged",
+        "pairGroup": "leveraged",
+        "thesis": "半導體 3 倍槓桿日內劇烈震盪，急跌切忌盲目接刀，務必等費半權值止穩再觀察。",
+    },
+    "UCO": {
+        "role": "原油 2 倍做多槓桿",
+        "style": "leveraged",
+        "pairGroup": "oil",
+        "thesis": "追蹤兩倍原油槓桿與期貨正逆價差損耗，僅適合作為短線事件型通膨避險工具。",
+    },
+    "GOOG": {
+        "role": "AI 搜尋・雲端 ＆ TPU 核心",
+        "style": "core_tech",
+        "pairGroup": None,
+        "thesis": "自研 TPU 晶片降低外購 GPU 依賴、雲端與搜尋現金流護城河深厚，估值相對具防禦支撐。",
+    },
+    "MSFT": {
+        "role": "企業雲端與 AI 軟體龍頭",
+        "style": "core_tech",
+        "pairGroup": None,
+        "thesis": "Azure 與企業訂閱現金流穩健，非基本面短期利空引發之急跌往往提供中長線折價買點。",
+    },
+    "META": {
+        "role": "AI 廣告變現與開源生態",
+        "style": "core_tech",
+        "pairGroup": None,
+        "thesis": "AI 精準廣告推升利潤率與自由現金流，震盪期高 Beta 屬性常創造波段承接與收租空間。",
+    },
+    "TSLA": {
+        "role": "實體 AI・Robotaxi 高波標的",
+        "style": "high_beta_tech",
+        "pairGroup": None,
+        "thesis": "高隱含波動率 (IV) 與情緒擺盪劇烈，適合紀律區間操作或賣方收租策略，忌追高殺低。",
+    },
+    "SPCX": {
+        "role": "SpaceX 太空探索主題",
+        "style": "thematic",
+        "pairGroup": None,
+        "thesis": "星鏈與航太龍頭題材彈性極高、同步伴隨估值與融資波動，適合右側順勢小倉參與。",
+    },
+    "TSM": {
+        "role": "先進製程與 CoWoS 獨佔樞紐",
+        "style": "core_semi",
+        "pairGroup": None,
+        "thesis": "無論 GPU 或雲端巨頭自研 ASIC 誰勝出，3/2 奈米與先進封裝訂單皆由台積電獨攬。",
+    },
+    "NVDA": {
+        "role": "AI 算力晶片霸主",
+        "style": "high_beta_semi",
+        "pairGroup": None,
+        "thesis": "資料中心算力市佔核心，惟高基期與財測/治理訊息易放大單日振幅，宜等站穩均價再行動。",
+    },
+    "AVGO": {
+        "role": "客製化 AI ASIC ＆ 網通龍頭",
+        "style": "core_semi",
+        "pairGroup": None,
+        "thesis": "雲端大廠擴大自研 ASIC 與高速光網升級之核心贏家，兼具網通現金流與高韌性。",
+    },
+    "AMD": {
+        "role": "資料中心 GPU 第二供應商",
+        "style": "high_beta_semi",
+        "pairGroup": None,
+        "thesis": "受惠雲端分散算力採購，但估值對毛利率與伺服器成長預期敏感，宜等均線止穩介入。",
+    },
+    "MU": {
+        "role": "HBM 高頻寬記憶體循環龍頭",
+        "style": "high_beta_semi",
+        "pairGroup": None,
+        "thesis": "HBM 需求帶動獲利循環同時具高振幅特性，急漲急跌時務必分批節奏操作。",
+    },
+    "INTC": {
+        "role": "晶圓代工轉型觀察股",
+        "style": "turnaround",
+        "pairGroup": None,
+        "thesis": "先進代工轉型仍處良率與現金流驗證期，波動劇烈且缺乏趨勢護城河，維持低權重追蹤。",
+    },
+    "IAU": {
+        "role": "實體黃金通膨與避險資產",
+        "style": "hedge",
+        "pairGroup": None,
+        "thesis": "與科技權值相關性低，適合作為實質利率波動與股市震盪期間的資產配置穩定器。",
+    },
+    "IBIT": {
+        "role": "比特幣現貨 ETF",
+        "style": "crypto",
+        "pairGroup": None,
+        "thesis": "全球美元流動性與風險偏好放大器，振幅遠超納指，宜嚴設部位上限並追蹤 ETF 資金流向。",
+    },
+    "CL=F": {
+        "role": "WTI 輕原油宏觀通膨指標",
+        "style": "commodity",
+        "pairGroup": "oil",
+        "thesis": "能源價格直接牽動通膨黏著度與聯準會政策路徑，急漲易壓抑科技成長股估值倍數。",
+    },
+}
+
+CIO_CATALYST_KEYWORDS = (
+    "當機", "癱瘓", "故障", "辭職", "卸任", "換帥", "拒絕", "封殺", "禁令", "出口",
+    "關稅", "反壟斷", "訴訟", "調查", "財報", "財測", "上修", "下修", "調升", "降評",
+    "融資", "擴建", "13f", "勞資", "暴跌", "飆漲", "風波", "警鐘", "危機", "outage",
+    "resign", "ban", "export", "antitrust", "earnings", "guidance", "downgrade", "upgrade", "tariff",
+)
+
+CIO_HEADLINE_NOISE = (
+    "油菜籽", "中油", "92無鉛", "95無鉛", "印度 vix", "台股盤中", "連接器大廠", "概念股",
+)
+
+
+def _clean_cio_headline(sym: str, headlines: list[dict], used_titles: set[str] | None = None) -> dict | None:
+    for h in headlines or []:
+        t = (h.get("title") or "").strip()
+        if not t:
+            continue
+        if used_titles is not None and t in used_titles:
+            continue
+        low = t.lower()
+        if any(bad in low for bad in CIO_HEADLINE_NOISE):
+            continue
+        if sym in ("CL=F", "UCO") and not any(k in low for k in ("原油", "油價", "wti", "opec", "crude", "oil", "brent")):
+            continue
+        return h
+    return None
+
+
 def build_cio_advisory(
     indices_data: list[dict],
     stocks_quotes: list[dict],
     stock_insights: dict[str, dict],
 ) -> dict:
-    """Generates dynamic, data-driven institutional CIO & CRO tactical recommendations."""
+    """Generates dynamic, position-agnostic Top-6 Watchlist CIO & CRO recommendations."""
     s_map = {s["symbol"]: s for s in stocks_quotes}
     i_map = {x["symbol"]: x for x in indices_data}
 
-    vix = s_map.get("^VIX", {}).get("price", 18.0)
-    vix_chg = s_map.get("^VIX", {}).get("changePct", 0.0)
-    spx_chg = i_map.get("^GSPC", {}).get("changePct", 0.0)
-    ixic_chg = i_map.get("^IXIC", {}).get("changePct", 0.0)
+    vix_q = s_map.get("^VIX", {})
+    vix = float(vix_q.get("price") or 18.0)
+    vix_chg = float(vix_q.get("changePct") or 0.0)
+    spx_chg = float(i_map.get("^GSPC", {}).get("changePct") or 0.0)
+    ixic_chg = float(i_map.get("^IXIC", {}).get("changePct") or 0.0)
+    boxx_p = float(s_map.get("BOXX", {}).get("price") or 119.0)
+    oil_q = s_map.get("CL=F", {})
+    oil_p = float(oil_q.get("price") or 0.0)
+    oil_chg = float(oil_q.get("changePct") or 0.0)
 
-    goog = s_map.get("GOOG", {})
-    tsm = s_map.get("TSM", {})
-    tsla = s_map.get("TSLA", {})
-    nvda = s_map.get("NVDA", {})
-    tqqq = s_map.get("TQQQ", {})
-    voo = s_map.get("VOO", {})
-
-    # 1. Macro & Volatility Regime Verdict
+    # 1. Macro & Volatility Regime Verdict (completely independent of personal holdings)
     if vix >= 23:
-        regime_tag = "高波動防禦期 (VIX ≥ 23)"
+        regime_tag = f"高波動謹慎期 (VIX {vix:.2f})"
         regime_tone = "caution"
         regime_summary = (
-            f"恐慌指數 VIX 升至 {vix:.2f} ({vix_chg:+.2f}%)，選擇權隱含波動率 (IV) 極度肥美。"
-            "嚴禁追買 3 倍槓桿 ETF，優先運用現金擔保池於極端支撐位收租 (Sell Put)，或分批承接大盤指數。"
+            f"VIX 處於 {vix:.2f} ({vix_chg:+.2f}%) 高波動區，標普 {spx_chg:+.2f}%、那指 {ixic_chg:+.2f}%。"
+            f"高 IV 環境嚴禁追價 3 倍槓桿 ETF（TQQQ/SOXL），資金宜以 BOXX (${boxx_p:.2f}) 等類現金作緩衝，僅鎖定觀察名單中具支撐或錯殺之核心標的分批佈局。"
         )
     elif vix >= 18:
-        regime_tag = "震盪分歧・賣方收租優勢期"
+        regime_tag = f"震盪分歧・精選標的期 (VIX {vix:.2f})"
         regime_tone = "neutral"
         regime_summary = (
-            f"目前 VIX 處於 {vix:.2f} ({vix_chg:+.2f}%)，標普 {spx_chg:+.2f}%、納指 {ixic_chg:+.2f}%，科技權值股進入事件與估值重估震盪。"
-            "權利金溢價高於歷史均值，最有利於核心持股 Covered Call 收斂時間價值 (Theta)，不宜在平盤附近盲目消耗現金池。"
+            f"VIX 位於 {vix:.2f} ({vix_chg:+.2f}%)，標普 {spx_chg:+.2f}%、那指 {ixic_chg:+.2f}%，市場呈現板塊輪動與事件驅動分化。"
+            f"WTI 原油報 ${oil_p:.2f} ({oil_chg:+.2f}%)；操作上宜依觀察名單前 6 大訊號強弱汰弱留強，避免在震盪中過度擴張槓桿。"
         )
     else:
-        regime_tag = "低波動順風期 (VIX < 18)"
+        regime_tag = f"低波動順風期 (VIX {vix:.2f})"
         regime_tone = "bull"
         regime_summary = (
-            f"VIX 回落至 {vix:.2f} 穩定區間，市場風險偏好回溫。"
-            "核心科技股續抱讓獲利奔跑；賣出 Covered Call 履約價宜拉遠至 Delta 0.15–0.20，避免主升段被提前買走。"
+            f"VIX 回落至 {vix:.2f} ({vix_chg:+.2f}%) 穩定區間，標普 {spx_chg:+.2f}%、那指 {ixic_chg:+.2f}% 風險偏好健康。"
+            "順勢抱牢大型科技與指數核心標的，槓桿型 ETF 遇急漲則宜紀律落袋調節，不隨市場情緒過度追高。"
         )
 
-    # 2. Core Holdings Tactical Cards
-    holdings_notes = []
+    # 2. Multi-Factor Scoring Across All Actionable Watchlist Symbols
+    scored: list[dict] = []
+    for sq in stocks_quotes:
+        sym = sq["symbol"]
+        if sym in ("^VIX", "BOXX"):
+            continue
+        prof = WATCHLIST_CIO_PROFILES.get(sym)
+        if not prof:
+            continue
 
-    # GOOG + TSM
-    goog_p = goog.get("price", 0)
-    tsm_p = tsm.get("price", 0)
-    holdings_notes.append(
-        {
-            "title": f"GOOG (${goog_p:.2f}) ＆ TSM (${tsm_p:.2f}) — AI 基建雙核心",
-            "action": "續抱收租",
-            "actionType": "hold",
-            "detail": (
-                "輝達管理層震盪加速雲端巨頭自研 ASIC / TPU 佈局，GOOG 直接受惠；"
-                f"無論 GPU 或 ASIC 市佔如何消長，先進製程與 CoWoS 訂單皆由台積電獨攬。TSM 現價距上方 $430 / $460 掩護買權具充足緩衝，靜待時間價值收斂。"
-            ),
-        }
-    )
+        price = float(sq.get("price") or 0.0)
+        if price <= 0:
+            continue
+        prev_c = float(sq.get("prevClose") or price)
+        chg = float(sq.get("changePct") or 0.0)
+        day_hi = float(sq.get("dayHigh") or price)
+        day_lo = float(sq.get("dayLow") or price)
+        high52 = max(float(sq.get("high52w") or price), price)
 
-    # TSLA
-    tsla_p = tsla.get("price", 0)
-    tsla_buf = ((410.0 - tsla_p) / tsla_p * 100) if tsla_p else 0
-    if tsla_p >= 408:
-        tsla_act, tsla_type = "留意轉倉 ($410C)", "watch"
-        tsla_txt = f"現價 ${tsla_p:.2f} 已逼近 $410 Covered Call 履約區，若帶量站穩 $415 可考慮向上向外轉倉 (Roll Up & Out) 鎖住價差與新權利金。"
-    else:
-        tsla_act, tsla_type = "安全收租中", "hold"
-        tsla_txt = f"現價 ${tsla_p:.2f} 距離 $410 Covered Call 尚有 +{tsla_buf:.1f}% 安全墊，短線拉回正好讓賣方選擇權快速獲利，無須額外動作。"
-    holdings_notes.append(
-        {
-            "title": f"TSLA (${tsla_p:.2f}) — 波段持股與掩護買權",
-            "action": tsla_act,
-            "actionType": tsla_type,
-            "detail": tsla_txt,
-        }
-    )
+        dd52w = ((price - high52) / high52 * 100.0) if high52 > 0 else 0.0
+        range_pct = ((day_hi - day_lo) / prev_c * 100.0) if (prev_c > 0 and day_hi > day_lo) else 0.0
+        pos_in_day = ((price - day_lo) / (day_hi - day_lo)) if day_hi > day_lo else 0.5
+        alpha_spx = chg - spx_chg
 
-    # NVDA Short Put Risk Control
-    nvda_p = nvda.get("price", 0)
-    if nvda_p <= 155:
-        nvda_act, nvda_type = "高度警戒・考慮降級轉倉", "alert"
-        nvda_txt = (
-            f"現價 ${nvda_p:.2f} 已跌破 $160 履約價並逼近 $151.38 損平防線與 $148.95 關鍵支撐！"
-            "財報與臨時 CEO 展望公布前波動劇烈，建議將 $160 Put 向下向外轉倉 (Roll Down & Out) 至 $135–$140 安全區。"
+        ins = stock_insights.get(sym, {})
+        sent = ins.get("sentiment") or {}
+        buy_pct = int(sent.get("buyPct", 50))
+        sell_pct = int(sent.get("sellPct", 50))
+        top_hl = _clean_cio_headline(sym, ins.get("headlines") or [])
+
+        style = prof["style"]
+        score = 0.0
+
+        # A. Daily price shock
+        score += min(34.0, abs(chg) * 5.0)
+
+        # B. Intraday volatility & genuine reversal fade/rebound
+        is_intraday_fade = range_pct >= 3.2 and pos_in_day <= 0.25 and day_hi >= prev_c * 1.012 and chg > -4.5
+        is_intraday_rebound = range_pct >= 3.2 and pos_in_day >= 0.75 and day_lo <= prev_c * 0.988 and chg < 4.5
+        if range_pct >= 3.2:
+            score += min(14.0, (range_pct - 2.2) * 3.2)
+        if is_intraday_fade or is_intraday_rebound:
+            score += 8.0
+
+        # C. Relative alpha divergence vs S&P 500
+        if abs(alpha_spx) >= 1.2:
+            score += min(14.0, abs(alpha_spx) * 2.5)
+
+        # D. 6H headline catalyst (skip turnaround secondary mentions unless sharp drop)
+        has_urgent_news = False
+        if top_hl:
+            hl_low = top_hl.get("title", "").lower()
+            has_urgent_news = any(k in hl_low for k in CIO_CATALYST_KEYWORDS)
+            if style == "turnaround" and "輝達" in hl_low and abs(chg) < 4.0:
+                has_urgent_news = False
+            if has_urgent_news:
+                score += 16.0
+            elif top_hl.get("within6h"):
+                score += 6.0
+
+        # E. Sentiment extremes / contrarian divergence
+        max_sent = max(buy_pct, sell_pct)
+        if max_sent >= 64:
+            score += 8.0
+        if (chg <= -1.5 and sell_pct >= 65) or (chg >= 1.5 and buy_pct >= 68):
+            score += 4.0
+
+        # F. Asset tier & 52-week strategic positioning
+        if style == "index":
+            if dd52w <= -5.0 or abs(chg) >= 1.2 or vix >= 22:
+                score += 14.0
+        elif style in ("core_tech", "core_semi"):
+            score += 9.0
+            if chg <= -1.5 and -32.0 <= dd52w <= -5.0:
+                score += 5.0
+        elif style in ("high_beta_tech", "high_beta_semi"):
+            score += 4.0
+            if sym == "NVDA":
+                score += 6.0
+        elif style == "turnaround":
+            score -= 10.0
+        elif style == "hedge":
+            if (vix >= 22 and chg >= 0.5) or abs(chg) >= 2.0:
+                score += 9.0
+        elif style == "crypto":
+            if abs(chg) >= 2.5:
+                score += 6.0
+        elif style == "leveraged":
+            if abs(chg) >= 4.0 or range_pct >= 7.0:
+                score += 6.0
+            else:
+                score -= 10.0
+        elif style == "commodity":
+            if abs(chg) >= 2.0:
+                score += 6.0
+            else:
+                score -= 6.0
+
+        # Build crisp, specific institutional recommendation based on live state
+        action = "持續追蹤觀察"
+        action_type = "hold"
+        focus_tag = "核心觀察"
+        detail_parts = []
+
+        if style == "leveraged":
+            if chg <= -3.5 or (is_intraday_fade and range_pct >= 6.0):
+                action = "高波動警戒・禁追刀"
+                action_type = "alert"
+                focus_tag = "槓桿風控警示"
+                detail_parts.append(
+                    f"單日波幅達 {range_pct:.1f}%（區間 ${day_lo:.2f}–${day_hi:.2f}，距 52 週高點 {dd52w:.1f}%）。"
+                    f"在 VIX {vix:.2f} 環境下多倍槓桿複利耗損驚人，嚴禁盤中急跌盲目攤平，務必待現股權值止跌出量後再評估。"
+                )
+            elif chg >= 3.5:
+                action = "急彈調節・落袋減碼"
+                action_type = "watch"
+                focus_tag = "槓桿獲利管理"
+                detail_parts.append(
+                    f"單日強彈 {chg:+.2f}%（區間 ${day_lo:.2f}–${day_hi:.2f}），短線情緒快速升溫（想買 {buy_pct}%）。"
+                    "槓桿 ETF 不宜長抱吃震盪耗損，建議逢急漲分批鎖定利潤、降回常規風險水位。"
+                )
+            else:
+                action = "極端振幅・控管倉位"
+                action_type = "alert" if range_pct >= 6.0 else "watch"
+                focus_tag = "槓桿震盪提示"
+                detail_parts.append(
+                    f"盤中震幅高達 {range_pct:.1f}%（報 ${price:.2f}，距 52 週高點 {dd52w:.1f}%）。{prof['thesis']}"
+                )
+        elif style == "index":
+            if dd52w <= -5.0 and chg <= -1.0:
+                action = "估值修正・分批佈局點"
+                action_type = "bull"
+                focus_tag = "指數分批買點"
+                detail_parts.append(
+                    f"現價 ${price:.2f} 較 52 週高點 ${high52:.2f} 已回落 {dd52w:.1f}%（今日 {chg:+.2f}%），進入中長線指數折價擊球區。"
+                    f"配合 BOXX (${boxx_p:.2f}) 現金緩衝，適合分 2–3 批紀律承接，保留空間因應 VIX {vix:.2f} 餘震。"
+                )
+            elif dd52w <= -5.0:
+                action = "回測區間・分批承接"
+                action_type = "bull"
+                focus_tag = "指數長線買點"
+                detail_parts.append(
+                    f"報 ${price:.2f}（{chg:+.2f}%），仍處 52 週高點下方 {dd52w:.1f}% 的中期折價帶。{prof['thesis']}建議依預設跌幅階梯分批佈局。"
+                )
+            elif chg >= 1.5:
+                action = "趨勢健康・勿追價"
+                action_type = "hold"
+                focus_tag = "大盤強勢"
+                detail_parts.append(
+                    f"單日走強 {chg:+.2f}%（想買 {buy_pct}%），大盤動能轉佳；建議維持既有配置，待回測均線再行加碼。"
+                )
+            else:
+                action = "指數基準・按紀律配置"
+                action_type = "hold"
+                focus_tag = "大盤基準"
+                detail_parts.append(
+                    f"現報 ${price:.2f}（{chg:+.2f}%，距 52 週高點 {dd52w:.1f}%）。{prof['thesis']}"
+                )
+        elif style == "hedge":
+            if chg <= -2.0:
+                action = "避險資產回檔・等債息止穩"
+                action_type = "watch"
+                focus_tag = "避險資產異動"
+                detail_parts.append(
+                    f"黃金單日回落 {chg:+.2f}% 至 ${price:.2f}（距 52 週高點 {dd52w:.1f}%），反映強勢美元與實質利率重定價壓力。"
+                    "建議等待美元與殖利率衝高鈍化後，再檢視低相關避險配置比例。"
+                )
+            elif chg >= 1.2:
+                action = "避險買盤點火・發揮保護力"
+                action_type = "bull"
+                focus_tag = "抗震資金流"
+                detail_parts.append(
+                    f"逆勢走高 {chg:+.2f}%（領先標普 {alpha_spx:+.2f}%），發揮與科技股低相關之資產保護功能，可作為組合波動對沖錨點。"
+                )
+            else:
+                action = "宏觀對沖觀察"
+                action_type = "hold"
+                focus_tag = "防禦配置"
+                detail_parts.append(f"報 ${price:.2f}（{chg:+.2f}%）。{prof['thesis']}")
+        elif style == "commodity":
+            if chg >= 2.0:
+                action = "油價衝高・警覺通膨回溫"
+                action_type = "alert"
+                focus_tag = "宏觀通膨警訊"
+                detail_parts.append(
+                    f"WTI 原油強升 {chg:+.2f}% 至 ${price:.2f}，能源漲勢恐推升通膨預期並壓抑聯準會寬鬆空間，需留意高估值科技股壓抑風險。"
+                )
+            else:
+                action = "油價回落・通膨壓力緩解"
+                action_type = "bull" if chg <= -1.5 else "hold"
+                focus_tag = "能源與通膨訊號"
+                detail_parts.append(
+                    f"WTI 原油報 ${price:.2f}（{chg:+.2f}%，距 52 週高點 {dd52w:.1f}%），有利緩解終端通膨黏著疑慮，對成長股估值屬正面微風。"
+                )
+        elif style == "crypto":
+            if chg <= -3.0:
+                action = "高波回撤・嚴守倉位紀律"
+                action_type = "watch"
+                focus_tag = "加密流動性觀察"
+                detail_parts.append(
+                    f"單日下跌 {chg:+.2f}%（距 52 週高點 {dd52w:.1f}%），反映高 Beta 流動性資產同步承壓。宜待現貨 ETF 淨流入回穩且日 K 止跌再評估。"
+                )
+            elif chg >= 3.0:
+                action = "資金回流・防短線震盪"
+                action_type = "bull"
+                focus_tag = "風險偏好領指標"
+                detail_parts.append(
+                    f"強漲 {chg:+.2f}% 領先大盤，風險偏好回暖；加密資產波動遠高於股市，建議維持嚴格部位上限與移動風險控管。"
+                )
+            else:
+                action = "高波衛星觀察"
+                action_type = "hold"
+                focus_tag = "流動性指標"
+                detail_parts.append(f"報 ${price:.2f}（{chg:+.2f}%）。{prof['thesis']}")
+        else:
+            # Individual equities (core_tech, core_semi, high_beta_tech, high_beta_semi, thematic, turnaround)
+            is_moat = style in ("core_tech", "core_semi")
+            if is_intraday_fade:
+                action = "開高殺低・嚴禁接刀"
+                action_type = "alert"
+                focus_tag = "盤中反轉警示"
+                detail_parts.append(
+                    f"盤中劇烈反轉，從高點 ${day_hi:.2f} 回吐至 ${price:.2f}（低點 ${day_lo:.2f}，日內振幅 {range_pct:.1f}%，距 52 週高點 {dd52w:.1f}%）。"
+                    f"{prof['thesis']}短線賣壓尚未宣洩完畢，宜靜待站回日內均價或收盤止穩。"
+                )
+            elif has_urgent_news and chg <= -2.0:
+                action = "突發事件・靜待利空沉澱"
+                action_type = "alert"
+                focus_tag = "事件催化警戒"
+                detail_parts.append(
+                    f"受近期新聞事件牽動跌 {chg:+.2f}%（6H 想賣 {sell_pct}%，距 52 週高點 {dd52w:.1f}%）。"
+                    f"{prof['thesis']}事件發酵期切忌搶反彈，待負面影響範圍釐清與量縮止跌再評估。"
+                )
+            elif chg <= -3.5:
+                if is_moat:
+                    action = "核心股急跌・觀察止跌分批"
+                    action_type = "watch"
+                    focus_tag = "優質股折價掃描"
+                    detail_parts.append(
+                        f"單日重挫 {chg:+.2f}%（距 52 週高點修正 {dd52w:.1f}%，想賣 {sell_pct}%）呈現情緒性宣洩。"
+                        f"{prof['thesis']}待隔日開盤確認不再破低，可評估分批低接或於遠價外支撐區佈局。"
+                    )
+                else:
+                    action = "高波急殺・等止穩訊號"
+                    action_type = "alert"
+                    focus_tag = "急跌風險警示"
+                    detail_parts.append(
+                        f"單日大跌 {chg:+.2f}%（振幅 {range_pct:.1f}%，距 52 週高點 {dd52w:.1f}%）。"
+                        f"{prof['thesis']}高彈性個股下殺動能強，切忌左側重壓接刀。"
+                    )
+            elif chg >= 1.8 or (alpha_spx >= 1.2 and chg >= 0.35):
+                if chg >= 3.2:
+                    action = "強勢急拉・逢回再觀察"
+                    action_type = "bull"
+                    focus_tag = "強勢領漲焦點"
+                    detail_parts.append(
+                        f"放量領漲 {chg:+.2f}%（跑贏標普 {alpha_spx:+.2f}%，6H 想買 {buy_pct}%），資金集中度顯著優於大盤。"
+                        f"{prof['thesis']}強勢股宜採回測短期均線分批追蹤，不追盤中高乖離。"
+                    )
+                else:
+                    action = "相對抗跌・資金避風港"
+                    action_type = "bull"
+                    focus_tag = "相對強勢領頭"
+                    detail_parts.append(
+                        f"逆勢表現 {chg:+.2f}%（超越標普 {alpha_spx:+.2f}%），展現基本面防禦與買盤韌性（區間 ${day_lo:.2f}–${day_hi:.2f}）。"
+                        f"{prof['thesis']}"
+                    )
+            elif is_intraday_rebound:
+                action = "低檔承接・留意翻紅延續"
+                action_type = "bull" if is_moat else "watch"
+                focus_tag = "日內反彈訊號"
+                detail_parts.append(
+                    f"盤中自低點 ${day_lo:.2f} 強勢拉起至 ${price:.2f}（振幅 {range_pct:.1f}%），低接買盤積極進駐。"
+                    f"{prof['thesis']}觀察能否站穩當日開盤價確認短線轉強。"
+                )
+            elif sell_pct >= 64 and chg < 0:
+                action = "情緒悲觀・逆向追蹤支撐"
+                action_type = "watch"
+                focus_tag = "情緒極端背離"
+                detail_parts.append(
+                    f"6H 社群情緒偏空（想賣 {sell_pct}%），目前修正 {chg:+.2f}%（距 52 週高點 {dd52w:.1f}%）。"
+                    f"{prof['thesis']}若無基本面惡化，過度悲觀往往孕育短線反彈契機，等待量縮確認即可。"
+                )
+            else:
+                action = "關鍵價位觀察"
+                action_type = "watch" if range_pct >= 3.0 else "hold"
+                focus_tag = "焦點動態"
+                detail_parts.append(
+                    f"現價 ${price:.2f}（{chg:+.2f}%，振幅 {range_pct:.1f}%，距 52 週高點 {dd52w:.1f}%）。{prof['thesis']}"
+                )
+
+        scored.append(
+            {
+                "symbol": sym,
+                "displaySymbol": sq.get("displaySymbol", sym),
+                "name": sq.get("name", sym),
+                "category": sq.get("category", "tech"),
+                "price": round(price, 2),
+                "changePct": round(chg, 2),
+                "dd52w": round(dd52w, 1),
+                "rangePct": round(range_pct, 1),
+                "buyPct": buy_pct,
+                "sellPct": sell_pct,
+                "role": prof["role"],
+                "pairGroup": prof["pairGroup"],
+                "style": style,
+                "focusTag": focus_tag,
+                "score": round(score, 2),
+                "action": action,
+                "actionType": action_type,
+                "detail": "".join(detail_parts),
+                "_allHeadlines": ins.get("headlines") or [],
+            }
         )
-    elif nvda_p <= 165:
-        nvda_act, nvda_type = "財報前嚴守風控", "watch"
-        nvda_txt = (
-            f"現價 ${nvda_p:.2f} 正處於 $160 Put 履約價邊緣（距損平線 $151.38 尚有約 ${nvda_p - 151.38:.1f} 緩衝）。"
-            "下週財報與換帥後首場法說會前存在跳空風險：保守者可趁盤中反彈平倉撤退；續抱者務必緊盯 $149 頸線，失守即執行向下轉倉。"
-        )
-    else:
-        nvda_act, nvda_type = "趁反彈停利減碼", "bull"
-        nvda_txt = (
-            f"現價反彈至 ${nvda_p:.2f}，已脫離 $160 Put 威脅區。鑑於永久 CEO 未定、創辦人溢價壓縮，"
-            "建議於權利金獲利達 50%–65% 時提前買回平倉，將保證金釋放給確定性更高的 TSM 或 VOO。"
-        )
-    holdings_notes.append(
-        {
-            "title": f"NVDA (${nvda_p:.2f}) — 賣出 $160 Put 風控焦點",
-            "action": nvda_act,
-            "actionType": nvda_type,
-            "detail": nvda_txt,
-        }
-    )
 
-    # BOXX -> VOO Deployment & TQQQ Leverage Check
-    voo_p = voo.get("price", 689.0)
-    voo_high = max(voo.get("high52w", 718.47), voo_p)
-    voo_dd_52w = ((voo_p - voo_high) / voo_high * 100) if voo_high else 0.0
-    month_ref = max(voo.get("dayHigh", 698.8), 696.0)
-    buy_zone_1 = round(month_ref * 0.97, 0)  # -3% from recent swing high (~$675-$678)
-    buy_zone_2 = round(month_ref * 0.95, 0)  # -5% from recent swing high (~$661-$664)
+    scored.sort(key=lambda x: x["score"], reverse=True)
 
-    if voo_p <= buy_zone_1:
-        voo_act, voo_type = "觸發第一批現股買點！", "bull"
-        voo_txt = (
-            f"VOO 現價 ${voo_p:.2f} 已跌入近月高點回檔 -3% 擊球區 (≤ ${buy_zone_1:.0f}，距歷史高點 ${voo_high:.2f} 修正 {voo_dd_52w:.1f}%)！"
-            f"可賣出部分 BOXX 啟動第一批 VOO 長線現股建倉；第二批加碼點設於 ${buy_zone_2:.0f}。"
-        )
-    else:
-        voo_act, voo_type = "按兵不動・BOXX 領息", "hold"
-        voo_txt = (
-            f"VOO 現價 ${voo_p:.2f}（距 52 週高點 ${voo_high:.2f} 回落 {voo_dd_52w:.1f}%），尚未觸及近月波段 -3% 目標買點 (${buy_zone_1:.0f})。"
-            f"維持紀律續抱 BOXX 穩領 ~4.3% 免扣稅收益並充當保證金防彈衣，等回測 ${buy_zone_1:.0f} / ${buy_zone_2:.0f} 再分批換倉現股；"
-            f"TQQQ (${tqqq.get('price', 0):.2f}) 維持輕倉，逢納指反彈分批降槓桿。"
-        )
-    holdings_notes.append(
-        {
-            "title": f"BOXX 現金池 ➔ VOO (${voo_p:.2f}) ＆ TQQQ 槓桿控管",
-            "action": voo_act,
-            "actionType": voo_type,
-            "detail": voo_txt,
-        }
-    )
+    # Pairwise & Sector Diversification Selection (Balanced Top 6)
+    selected: list[dict] = []
+    pair_counts: dict[str, int] = {}
+    lev_count = 0
+    semi_count = 0
 
-    # 3. Watchlist Opportunity & Contrarian Sentiment Scanner
-    non_holdings = [s for s in stocks_quotes if not s.get("isHolding") and s["symbol"] not in ("^VIX", "CL=F", "UCO")]
-    biggest_drop = min(non_holdings, key=lambda x: x["changePct"], default=None)
-    strongest_gain = max(non_holdings, key=lambda x: x["changePct"], default=None)
+    def _can_pick(item: dict) -> bool:
+        pg = item["pairGroup"]
+        if pg and pair_counts.get(pg, 0) >= 1:
+            return False
+        if item["style"] == "leveraged" and lev_count >= 1:
+            return False
+        if item["category"] == "semi" and semi_count >= 3:
+            return False
+        return True
+
+    def _commit_pick(item: dict) -> None:
+        nonlocal lev_count, semi_count
+        selected.append(item)
+        pg = item["pairGroup"]
+        if pg:
+            pair_counts[pg] = pair_counts.get(pg, 0) + 1
+        if item["style"] == "leveraged":
+            lev_count += 1
+        if item["category"] == "semi":
+            semi_count += 1
+
+    # Always reserve 1 broad index anchor if VOO/QQQ shows pullback/volatility priority
+    top_index = next((it for it in scored if it["style"] == "index"), None)
+    if top_index and (top_index["dd52w"] <= -5.0 or abs(top_index["changePct"]) >= 1.2 or vix >= 22):
+        _commit_pick(top_index)
+
+    for item in scored:
+        if any(x["symbol"] == item["symbol"] for x in selected):
+            continue
+        if not _can_pick(item):
+            continue
+        _commit_pick(item)
+        if len(selected) >= 6:
+            break
+
+    # Ensure exactly 6 items if strict caps excluded too many
+    if len(selected) < 6:
+        chosen_syms = {x["symbol"] for x in selected}
+        for item in scored:
+            if item["symbol"] not in chosen_syms:
+                selected.append(item)
+                chosen_syms.add(item["symbol"])
+                if len(selected) >= 6:
+                    break
+
+    # Re-sort selected 6 by signal priority score descending so TOP 1..6 reflects true priority rank
+    selected.sort(key=lambda x: x["score"], reverse=True)
+
+    used_hl_titles: set[str] = set()
+    cards = []
+    for idx, it in enumerate(selected[:6], start=1):
+        clean_hl = _clean_cio_headline(it["symbol"], it["_allHeadlines"], used_hl_titles)
+        if clean_hl and clean_hl.get("title"):
+            used_hl_titles.add(clean_hl["title"])
+        cards.append(
+            {
+                "rank": idx,
+                "symbol": it["symbol"],
+                "displaySymbol": it["displaySymbol"],
+                "name": it["name"],
+                "price": it["price"],
+                "changePct": it["changePct"],
+                "dd52w": it["dd52w"],
+                "rangePct": it["rangePct"],
+                "buyPct": it["buyPct"],
+                "sellPct": it["sellPct"],
+                "role": it["role"],
+                "focusTag": it["focusTag"],
+                "title": f"{it['displaySymbol']} {it['name']} (${it['price']:.2f})",
+                "action": it["action"],
+                "actionType": it["actionType"],
+                "detail": it["detail"],
+                "headlineTitle": clean_hl.get("title") if clean_hl else "",
+                "headlineSource": clean_hl.get("source") if clean_hl else "",
+                "headlineUrl": clean_hl.get("url") if clean_hl else "",
+            }
+        )
+
+    # 3. Concise Watchlist Breadth & Anchor Summary
+    tradable = [s for s in stocks_quotes if s["symbol"] not in ("^VIX", "BOXX")]
+    up_cnt = sum(1 for s in tradable if float(s.get("changePct") or 0) > 0)
+    down_cnt = sum(1 for s in tradable if float(s.get("changePct") or 0) < 0)
+    best_s = max(tradable, key=lambda x: float(x.get("changePct") or 0), default=None)
+    worst_s = min(tradable, key=lambda x: float(x.get("changePct") or 0), default=None)
 
     scanner_bullets = []
-    if biggest_drop and biggest_drop["changePct"] <= -4.0:
-        bd_sym = biggest_drop["symbol"]
-        bd_sent = stock_insights.get(bd_sym, {}).get("sentiment", {})
+    if best_s and worst_s:
         scanner_bullets.append(
-            f"重挫觀察：{biggest_drop['displaySymbol']} ({biggest_drop['name']}) 單日回落 {biggest_drop['changePct']:+.2f}% "
-            f"(6H 網友想賣 {bd_sent.get('sellPct', 50)}%)。3 倍槓桿或高估值晶片股急跌時切忌盲目接刀，若欲收租應等單日止跌紅 K 再評估價外深處 Put。"
+            f"觀察名單廣度：可交易標的 {len(tradable)} 檔中 {up_cnt} 檔上漲 / {down_cnt} 檔下跌"
+            f"（最強：{best_s['displaySymbol']} {best_s['changePct']:+.2f}% ｜ 最弱：{worst_s['displaySymbol']} {worst_s['changePct']:+.2f}%）。"
         )
-    if strongest_gain and strongest_gain["changePct"] >= 1.0:
-        sg_sym = strongest_gain["symbol"]
-        sg_sent = stock_insights.get(sg_sym, {}).get("sentiment", {})
-        scanner_bullets.append(
-            f"相對強勢：{strongest_gain['displaySymbol']} ({strongest_gain['name']}) 逆勢表現 {strongest_gain['changePct']:+.2f}% "
-            f"(6H 網友想買 {sg_sent.get('buyPct', 50)}%)，展現資金避風港與輪動韌性。"
-        )
-
-    spcx = s_map.get("SPCX")
-    if spcx:
-        spcx_sent = stock_insights.get("SPCX", {}).get("sentiment", {})
-        scanner_bullets.append(
-            f"熱門題材追蹤：SPCX (SpaceX) 最新報 ${spcx['price']:.2f} ({spcx['changePct']:+.2f}%，網友想買 {spcx_sent.get('buyPct', 50)}%)，"
-            "目前處於高本益比與高波動消化期，適合列入右側突破觀察，暫不納入重倉核心。"
-        )
+    scanner_bullets.append(
+        f"波動與現金基準：VIX 報 {vix:.2f} ({vix_chg:+.2f}%)、停泊基準 BOXX 報 ${boxx_p:.2f}；"
+        "以上前 6 大焦點完全依即時報價、52 週折價與 6H 頭條情緒動態排名，不預設任何個人持股。"
+    )
 
     return {
         "regimeTag": regime_tag,
         "regimeTone": regime_tone,
         "regimeSummary": regime_summary,
-        "cards": holdings_notes,
+        "cards": cards,
         "scannerBullets": scanner_bullets,
     }
 
