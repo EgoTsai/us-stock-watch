@@ -72,16 +72,9 @@ jobs:
 
             # Sync newer 6H insights.json / tw_insights.json from origin/main if available
             git fetch -q origin main 2>/dev/null || true
-            python3 -c 'import json, subprocess, os
-for fn in ("data/insights.json", "data/tw_insights.json"):
-    try:
-        a = json.load(open(fn))["generatedAt"] if os.path.exists(fn) else ""
-        raw = subprocess.check_output(["git", "show", f"origin/main:{fn}"], text=True)
-        b = json.loads(raw)["generatedAt"]
-        if b > a:
-            open(fn, "w").write(raw)
-    except Exception:
-        pass' 2>/dev/null || true
+            for fn in data/insights.json data/tw_insights.json; do
+              python3 -c 'import json, subprocess, os, sys; fn = sys.argv[1]; a = json.load(open(fn))["generatedAt"] if os.path.exists(fn) else ""; raw = subprocess.check_output(["git", "show", f"origin/main:{fn}"], text=True); b = json.loads(raw)["generatedAt"]; (b > a) and open(fn, "w").write(raw)' "$fn" 2>/dev/null || true
+            done
 
             # Auto-refresh insights if insights.json is older than 6.2 hours (safety net against 6H cron lag)
             NEED_INSIGHTS=$(python3 -c 'import json, os, datetime as dt; age=((dt.datetime.now(dt.timezone.utc)-dt.datetime.fromisoformat(json.load(open("data/insights.json"))["generatedAt"])).total_seconds()/3600.0) if (os.path.exists("data/insights.json") and os.path.exists("data/tw_insights.json")) else 999; print("1" if age > 6.2 else "0")' 2>/dev/null || echo "0")
@@ -99,12 +92,7 @@ for fn in ("data/insights.json", "data/tw_insights.json"):
             fi
 
             # Stay awake unless both US and TW markets are in full weekend closure
-            SHOULD_STAY_AWAKE=$(python3 -c 'import datetime as dt; from zoneinfo import ZoneInfo
-n_et = dt.datetime.now(ZoneInfo("America/New_York"))
-n_tw = dt.datetime.now(ZoneInfo("Asia/Taipei"))
-us_wknd = (n_et.weekday()==5 or (n_et.weekday()==6 and n_et.hour*60+n_et.minute<1050) or (n_et.weekday()==4 and n_et.hour*60+n_et.minute>=1215))
-tw_open = (n_tw.weekday()<5 and 510 <= (n_tw.hour*60+n_tw.minute) <= 840)
-print("0" if (us_wknd and not tw_open) else "1")')
+            SHOULD_STAY_AWAKE=$(python3 -c 'import datetime as dt; from zoneinfo import ZoneInfo; n_et = dt.datetime.now(ZoneInfo("America/New_York")); n_tw = dt.datetime.now(ZoneInfo("Asia/Taipei")); us_wknd = (n_et.weekday() == 5 or (n_et.weekday() == 6 and n_et.hour * 60 + n_et.minute < 1050) or (n_et.weekday() == 4 and n_et.hour * 60 + n_et.minute >= 1215)); tw_open = (n_tw.weekday() < 5 and 510 <= (n_tw.hour * 60 + n_tw.minute) <= 840); print("0" if (us_wknd and not tw_open) else "1")')
 
             if [ "$SHOULD_STAY_AWAKE" = "0" ]; then
               echo "[sleep] US & TW markets in weekend closure; single sync done, exiting cleanly."
