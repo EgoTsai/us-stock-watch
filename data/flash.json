@@ -1,29 +1,13 @@
 {
-  "generatedAt": "2026-11-19T00:09:30.969435+00:00",
-  "updatedAtTW": "2026-11-19 08:09",
+  "generatedAt": "2026-11-19T07:59:33.599478+00:00",
+  "updatedAtTW": "2026-11-19 15:59",
   "refreshIntervalMinutes": 3,
   "universeNote": "嚴選美國前 30 大市值科技股動態 ＆ 聯準會升降息/重大宏觀政策快報",
   "items": [
     {
-      "title": "微軟傳與字節跳動洽談5億美元AI合約美國會要求說明",
-      "source": "鉅亨網",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFA4cWtPVlB5eFptdm1fNmFhM2xPTDR4LWtvY1dad0Vnb2dSbVJxNjIyRTR1YUtBbE43eHZrbVlMNTJscHBucjZzXzYwVlg3WEU?oc=5",
-      "tags": [
-        "MSFT"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": false,
-      "timeTW": "11/19 08:00",
-      "clockTW": "08:00",
-      "age": "10分鐘前",
-      "pubTs": 1795046403
-    },
-    {
-      "title": "AI爬蟲要不要擋？GPTBot、Google-Extended設定影響一次看",
-      "source": "蕃新聞",
-      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFAzTWhqMDFSSWJYUVNUV1RsT1l4YldmWmlqbUpjRXNQUEJJQ2hneWhiN1lxX3BaR3ZpZjdGZ3NVLTVBdERVVHF3STN5bGY4RTlZRVE?oc=5",
+      "title": "Gemini 4 Neon 新模型登場，兼具 Carbon 級能力與 Flash 級反應速度",
+      "source": "TechNews 科技新報",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE0zbXNTSVFqdjgwTGdVbFI5TVNncy1CbEdCQnpvaGxFVkF6XzhObkdqU3F6ZmhuSWYtdXhKMkF5a3RzUkNqRVNVSkJVWEI5Vk9vZlJCUnVPRktPWm9WNXI4Z2FDT21GaWsycWlveGc5eWg?oc=5",
       "tags": [
         "GOOG"
       ],
@@ -31,32 +15,15 @@
       "isOutage": false,
       "isMacro": false,
       "affectsHoldings": true,
-      "timeTW": "11/19 08:00",
-      "clockTW": "08:00",
-      "age": "10分鐘前",
-      "pubTs": 1795046400
+      "timeTW": "11/19 15:58",
+      "clockTW": "15:58",
+      "age": "剛剛",
+      "pubTs": 1795075120
     },
     {
-      "title": "微軟已反彈至歷史新高。然後是選舉和 Outlook 中斷",
-      "source": "CNBC",
-      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOdzBNWUJudXptZ3JuNGctLTVyQlBUdzRjd1A5ai1Ec1dMbGNKc0h5QkVUd1Jqd2hpV1RtWFB2Zk9ucWEteXY0NmZSc2JSZXNFU0FNU0RqQkFyVkwwTktCeXBfcnBzWTJPM0hKVElGMjdYcElkdWpZU0JlZS1uODdHVzBteHQzZFh3R0NvMWs1b053bm1mUnVnVm5IZnE4eE1GOVFjRm5LTEtPN3PSAbABQVVfeXFMTjJVTUN2QXJUa29MSFhIdFhGdW9JTVhaNVVYaUdQS2FUX1BTTmpocXVYbXE3WHZ0bEZ3N1U2N2ZxYWtqajQ3WWdpUmg2SGhwZkNOVDk2cHA4WXRlN0pnb2pVNW00NDg5X1dOaVFObFVQZWk0T3A3em9iWEVfVWJrTktQd0pJNzJLRlhSYm9DbzQxT3dsUmlfX1R4ME56c1ZRaEo1aXQzb1NXOUViZDkzTHc?oc=5",
-      "tags": [
-        "當機/異常",
-        "MSFT"
-      ],
-      "urgent": true,
-      "isOutage": true,
-      "isMacro": false,
-      "affectsHoldings": false,
-      "timeTW": "11/19 07:39",
-      "clockTW": "07:39",
-      "age": "30分鐘前",
-      "pubTs": 1795045161
-    },
-    {
-      "title": "蘋果推醫療AI研究計畫 招募20萬受試者測試臨床解答",
-      "source": "商傳媒",
-      "url": "https://news.google.com/rss/articles/CBMi6AJBVV95cUxQQ09kZ0tuQ3NRaDR3WjUzekhNakdRT0RlRVhCcDhhdUdNc3ZRZnFmcnhkUjlKS2UxQXBKY25ZdU94cVZLdXVkd3gyc2VtSF9LZFF2OTlVNzhEUXZNTkVxS3QxaXRqNV9laDJEbTZnUGRUZVlEV3EteGU5ZWVlaktvUEx1amwyaWstNXcyNnQyNDNIeUo0dlFzU0NxOEhFeTROOFZldTBsSmdob1Byakx0WkhvT19HZ1ZKT3lUX1B2c2JRS0J0UkpjM2hORVRWd0ZpRXl4WFJ3RVJVa0owV0VRWHJBMzZVRDhSTzlVcExVaG1BMl8tT25jNW9xOTg2OXNudWVDRWg5bU50emdwSHNGQ1VsOWhBejFvNlVzUF9vem8weGdPZWJ6WGVmMGtqSVdkbXk2NlFiYmpPbWExTXpLeVVNeGt0ZEhHTDVZRFVVaC12S19QRzJYYnJ6Wk1mWVpDMEU2NW9qZEc?oc=5",
+      "title": "蘋果成AI亂流「避風港」！今年累漲約30% 37倍本益比創2007年來新高",
+      "source": "鉅亨網",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9Ta1FMSVdaQTVLZXdBNE83a2p0aUtDdndnYnZCSy1UdEdWRmR3YlZveUdnc1o3a3Q0MHcwWHlEOUxXOFhmZk90TFdiQUVzYjA?oc=5",
       "tags": [
         "AAPL"
       ],
@@ -64,15 +31,128 @@
       "isOutage": false,
       "isMacro": false,
       "affectsHoldings": false,
-      "timeTW": "11/19 07:35",
-      "clockTW": "07:35",
-      "age": "34分鐘前",
-      "pubTs": 1795044914
+      "timeTW": "11/19 15:40",
+      "clockTW": "15:40",
+      "age": "20分鐘前",
+      "pubTs": 1795074004
     },
     {
-      "title": "Fed會議紀要好鷹！幾乎全員挺升息 聯準會看到哪些金融風險？",
-      "source": "工商時報",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBoRE5Hc1RHUUNwTXBveFNOUnpwY0ZSbWVwbGo0R05GUGNpT183YTRhTVdMWnJiX0RJeGI5TzNuZS1MTHB1eVJVODVyUGlLQXB4VWRpTWhKNFlvbFZJcmIw?oc=5",
+      "title": "Google轉向火山與岩石熔融技術 豪賭AI供電新方案",
+      "source": "鉅亨網",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9iUjdNbVNRN1ZULXlmZUNmaHFrZWJqUnZmcEJPZWVhS2V6RzZKMnctd1lTODFkMlFCZzI0S0RrX2prZGZ4amlYdjVYVzZmRmc?oc=5",
+      "tags": [
+        "GOOG"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": true,
+      "timeTW": "11/19 15:30",
+      "clockTW": "15:30",
+      "age": "29分鐘前",
+      "pubTs": 1795073406
+    },
+    {
+      "title": "微軟AI Agent課程免費上！18堂課程表、繁中版與下載方式一次看",
+      "source": "LINE TODAY",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1hOXNWcm9vM2VoTW5UdkZVYktBcFJTa2hDdjVmWHU3SU8zUlhySkpDQ1ZNX3ZlMTZscW9abEtXRzFXQ181UHhWSVU2eV9DQTRIVEZ2MXJn?oc=5",
+      "tags": [
+        "MSFT"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": false,
+      "timeTW": "11/19 15:30",
+      "clockTW": "15:30",
+      "age": "29分鐘前",
+      "pubTs": 1795073406
+    },
+    {
+      "title": "微軟擬向抖音母公司提供AI服務 美眾院委員會要求簡報",
+      "source": "VOCO News",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE0zNkRnMTFXZmRMU1VfRHh1Q0FuNmIyT0w1bWEwSURsVGh5RW5RNEJBS1RkOFM1Q2JQQjJrLVlqX3lFZkYzSF9INWRpLU5wZEJHNVVPVEZTVnduWmIzNVM4Y2lCZTNTNHdtV1RPVlp2TFNGYVFDd05R?oc=5",
+      "tags": [
+        "MSFT"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": false,
+      "timeTW": "11/19 15:17",
+      "clockTW": "15:17",
+      "age": "43分鐘前",
+      "pubTs": 1795072628
+    },
+    {
+      "title": "Meta的AI代理Muse在Android上讀取Signal對話，在iPhone上被擋下",
+      "source": "Martin Cid Magazine",
+      "url": "https://news.google.com/rss/articles/CBMiugJBVV95cUxNUmNNNno0U2lxNUJaU2Y0SmpGWndpLWlDT1czZUdVb1RVZmZ5WHktVjhPa2pzS0dEZ1cydGVxWGR5V092dEdVN2VpZ211bDR0VVNzMFl1aVdBenRBa2xQY1Jjb2V6b19RenBHR2FUZm9Gai1QTXJXYXdQT2hkNFJZVWxvek0za01wRlE5dnlEQk8tR1lVQWpmdzNOQzJaRWJGXzZMMFNjemNkRE5GUVB1YmFDWEh1aC1FTmdGTVpPdVJlMlNLYkEwY0xCdXN5bUYxQWNCSUZEX3AzMVpRMzRxV0J4Ukh2WFloLVBfRTZZSW5NU2xSczI3MHN4TUtlYzdoeVJCWFlpQXRDa1BfeTZ4QUJhN2I1VjlZMGt5TmxPQzN3U2w3M2dRelBEMlhkV0tRMkx0MzViUk1YUQ?oc=5",
+      "tags": [
+        "AAPL",
+        "META"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": false,
+      "timeTW": "11/19 15:10",
+      "clockTW": "15:10",
+      "age": "49分鐘前",
+      "pubTs": 1795072252
+    },
+    {
+      "title": "盤後／輝達財報報喜固樁台廠仍枉然？ 大盤跌1768點戰犯是它",
+      "source": "Yahoo新聞",
+      "url": "https://news.google.com/rss/articles/CBMi7wJBVV95cUxPQmFSX1d5TURGc2Y3Y3F4T3hXMnVhVjQ3WGI4cVBjNmtlMTRaR1QzdXdEdTN0RzdfWkE0SXJHczN5Ymc3SjE0QmRrNExTUTlkcnBmb0RwcmNhNkRuY2ZZYXdBUlRYYzdLby1LZzlYVlNHQ1pvUXptc1J5dHdwT1U0aWdlbWF1V1dUVVJUOVhraDFRT0dUZjJYTXFoVlNqd2FaV25YdzdYV2U3UFJFczBtSm5nbzc5U05tYk1pQUY3cTRITUxOUDVxVGQ3MHZyVGZRd3FMa25TcUcwSzFkOUd3bnVQVFh6d1ZLQXRtMllZSnlSdjctRTIyN0FDQTBKYWtEc29rbTc3VHdjazAyQmpkdng5cG04LUtDOVRzRUxsSjVyUG42ZXRNVUpCcEhEbTJJQzFONkVzNEJLbXZGZEJPaWc5dXYyc0NjWXJOSWFOd2xvWnRmNXJGNmZnLUxjUkVPbVJVdDM2Y2NCci1zMVFr?oc=5",
+      "tags": [
+        "NVDA"
+      ],
+      "urgent": true,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": true,
+      "timeTW": "11/19 14:36",
+      "clockTW": "14:36",
+      "age": "1小時前",
+      "pubTs": 1795070197
+    },
+    {
+      "title": "借亞馬遜AI人臉識別 英媒披露以色列軍方監控350萬巴人",
+      "source": "世界新聞網",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBiaHZsNDVEMXp0OWdaUkhfeXFxTkQ5N0RCOHFYRTNVMlkxMGNQcFlzZFdWZVM1QU5fUElsUjJsOVh3clVaRUdOU2FDTkJyZGVNaTNGMUxQRHJvVjgzMnE1MkpB0gFnQVVfeXFMUExmVEU4OVRhWjAtNC1wU05YWHhnZURZWnNSaUNmODUxRWpYWnVVSFo0WTFLM01jYWFrdU1od3AyMjcxcERpTVVzaGNWNkl3TGNydjdqSk9feFktVHZ4X0F1dWlaMVBERQ?oc=5",
+      "tags": [
+        "AMZN"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": false,
+      "timeTW": "11/19 14:10",
+      "clockTW": "14:10",
+      "age": "1小時前",
+      "pubTs": 1795068606
+    },
+    {
+      "title": "亞馬遜CEO：AI算力需求極為強勁，預訂排至2029年！明年將顯著增加資本開支",
+      "source": "TradingView",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1HeC1uSHQxNEVHNUo4NE0yNzhQS2RTV3Y2eFh4TmNjTm9Cc3VVUWdDX2RvOURWVXRoLXJpRlAwLWNlR1FSRWQwNDBrem1CYUJ1LXcwMHJzLU02c3czazFuNTVmcFdnSXpueHc?oc=5",
+      "tags": [
+        "AMZN"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": false,
+      "timeTW": "11/19 14:05",
+      "clockTW": "14:05",
+      "age": "1小時前",
+      "pubTs": 1795068302
+    },
+    {
+      "title": "Fed 警告 AI 泡沫！12 月升息機率近 95%，比特幣一度跌破 6.3 萬",
+      "source": "鉅亨網",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE04UnVzWklpWDV0VE1acVh3TU1aSGVieml1cnpGZldBU1F6bGpnSnh2eW9IbGtkWWREOUM1SXVLdjRjZGlTT3NrZW9LaUJDWnM?oc=5",
       "tags": [
         "FED/宏觀"
       ],
@@ -80,15 +160,15 @@
       "isOutage": false,
       "isMacro": true,
       "affectsHoldings": true,
-      "timeTW": "11/19 07:24",
-      "clockTW": "07:24",
-      "age": "46分鐘前",
-      "pubTs": 1795044240
+      "timeTW": "11/19 14:00",
+      "clockTW": "14:00",
+      "age": "1小時前",
+      "pubTs": 1795068012
     },
     {
-      "title": "美聯準會官員上月維持利率不變時預計未來利率將走高",
-      "source": "华尔街日报中文网",
-      "url": "https://news.google.com/rss/articles/CBMi7gJBVV95cUxNdld5Ui1rOUUtaDBFdFRQdW5xMjBDWmdrdzRhOVFUZWkxNDRORE1QZGRldTBEQUl3S0tEdGdXVDFUS1VFbkgzQml2dWF5SFhMcVRPbTZfcEF4cjVrek5lRDJ6X2R0VFpnMXVENkFzTkxrVER1dUFwX2lydkpXTDVwN3VLUGZXT1dyUkRieFNxN1J3VzN5UklHTVJCaVM2SzE5Z1BKNHlfQld0TWk5VnJnODFJbVNWS0FfamhEcTlfZzZyYzRIVmM0SzM2VGFrZl94cEgtd0w2YUdFdkc2OGhxYU5LamwwUks5Ry1hODRwU05Cem1ybmZkZWcyb1R0UWo5SzVtRGgwc3hQTi1sMTZidWx6cERnTDQwaGp4V00wNWtDaFVBdGRBdWZWMTJyazFjWUYxRllPODhtU1dBaExOWXVJekwwbFFhTXhCMlIzVGJENG9VZ3YtZlJNR0FJMlZGVXdWMGJqTEM2YlVPTkE?oc=5",
+      "title": "聯準會升息押注推動美元升至 19 個月高點",
+      "source": "WSJ",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPbUFTNFdTU2N5M2hVYW8zei1IMG9pbnFtc0xHU3U4cjZXUXFmaXVCTmRTbktVd2pTTlpiNHp1R2ZmWlBLSTdyU0dnX1NiT21mM2JiX3JkUzc4S0dlb3IyZEgxbzlPNEhTX1lPa0c5MHBpZU1aTjJQdGg1b242M3hUT1AtN25lNXFacnNTUmJzbFNHUkg4QzNmOEFvNk0tLWpHeFpzNVpLdlYxOHpNMmJRTUp6ZzBxS2M?oc=5",
       "tags": [
         "FED/宏觀"
       ],
@@ -96,47 +176,15 @@
       "isOutage": false,
       "isMacro": true,
       "affectsHoldings": true,
-      "timeTW": "11/19 07:08",
-      "clockTW": "07:08",
-      "age": "1小時前",
-      "pubTs": 1795043335
+      "timeTW": "11/19 13:52",
+      "clockTW": "13:52",
+      "age": "2小時前",
+      "pubTs": 1795067559
     },
     {
-      "title": "聯準會暗示12月恐擴大升息 比特幣失守6.3萬美元關卡",
-      "source": "商傳媒",
-      "url": "https://news.google.com/rss/articles/CBMi5gJBVV95cUxPRXR2eVZVTVQ4X2RkZEY1ZDFuZWhQcDhkdFdEdjJHc3lsQnhLcjlWOWhKUXQzd0dQTkV5Nko5cmszaVI2OXVSR0dhM0JnU0FVN0wybmpXOVJfMzZEeFdrbjBoZU5GeWdQNmMtTjhaSXhIQ1FyVmpHdkxUZXdBbVVmcUF6dGdaWVFQbVZnUkNnbzQ2NlN4TUlxX0xBTnFEbGxTYVFjYTUzYU9HSnZ0cHpVT0hoUVZjM2hWZTlfQ0hjZ3dmWE1ZRUJUcmJxT2dneHdiZTJsb1hoM0duXzY5aV95cE1od1hRVXRFSlBvUkoySE9ETmd2ZS1zY0lIcF9aTUg4LVZweHYzWXl1akd4OEdKSFBBYy0xNlN6c0FEVVVsa2RwYnhwWmMyck1ETjFPMXhSWGpVVU9maHA4MUNQaEMwM2VaaU9zSk5MaW9RaldTcG1aQTVId0k2UG9EQkdCZEhrUjA4NFNB?oc=5",
-      "tags": [
-        "FED/宏觀"
-      ],
-      "urgent": true,
-      "isOutage": false,
-      "isMacro": true,
-      "affectsHoldings": true,
-      "timeTW": "11/19 06:43",
-      "clockTW": "06:43",
-      "age": "1小時前",
-      "pubTs": 1795041795
-    },
-    {
-      "title": "Google發表Gemini 4 Neon 速度快三倍且成本大砍四成",
+      "title": "輝達數十億美元大單落袋！日月光拿下AI封裝大機會 股價今卻重挫逾5％",
       "source": "Yahoo股市",
-      "url": "https://news.google.com/rss/articles/CBMingJBVV95cUxQWXVHYXF5UGhBbXNTc3ZGSzl3dUUyTUduUjloMVRMa2ZjY2J2NElXa0diVUs3ZHllbnJpQTlZM3I4eGppaE5wQkp3ODdHSU5KX3plSjB0WVZJNXhWVTZwb2dBZDVEam80U0VSYkJTSU1Rc0U5NXdjVmhzc1o5QVZOa1VuN01jend1WTVENXVVVTlnVWJISHE2cEdkdE9adThYT01rY2RFVG9wM1pMMm94cFdWczVvcXZfNlJIYk5NUWpzcVA5aFJfYlVKbmM4SE1Rb09QMEVRaTYwcG0xekQ0MlNfdWMybmRYdXloUXJ6Z2xKeTlhQ2JPZUVkeHVYMkNVQmRMZjMwc21ralZ3c0lQZktFRFVnTHdlamVfLUxB?oc=5",
-      "tags": [
-        "GOOG"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": true,
-      "timeTW": "11/19 06:35",
-      "clockTW": "06:35",
-      "age": "1小時前",
-      "pubTs": 1795041320
-    },
-    {
-      "title": "美股｜Fed會議紀要放鷹 道瓊標普齊跌 輝達挫2.9％",
-      "source": "工商時報",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5LN2t3LXNlbW83am13VVBVWFpRVk4xZ0s4anh3VXRudFNGN0hJRHNHYjkxWThxaWsyb0dLdXJhV2d4SGRMNk40YjBFWHBNVjdkMU1rVm1Kam1BcUlybGFF?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMisgNBVV95cUxPNWtWWkxLV2VHUktBbUNMUkpYZ0NrUUc5ZU9wVFVLUndIZER6bGEybUtENlB2SkF2Q1U1V0RiNDRPOFdmeHpDZWlhOHZORm12ZTVmaXFnNXlHdE9FQ0VzcXFPR3dZd2RwcGRNV2lFOWV1UEtSVlBVTl9COGwzTTZVaUI2V0VzbnFmUGNhQW1ENFloU3R2anZHYmRiQW5NbGEtTFBxZ2Y1RVBsRklDSW5uUVVaeS16TmpXRG94YVNidHJBZjF6X3ZoeFNqaURjODVKcHZpc1A1ektobTBxeGN3dFNZTGJfOUZqOUFLWDh3QjVuNUtWU2VlcTU1VF9Dcm0wU01zQW03U0w3VFdNU0FLZEM4dEJOaFRCWUtkYmkxQnJTZWlMOER1LUVfYWx3MEotR2thcFhsVFd0Z2lQaF9lQldEdkpGS19majFjLU1oVFBLbGRJdHMwRW11RGEyTDVtdXJ2aGc4RHRINjZQNV9sT1hGa0ZIVDJEM21TRUprQ2xBR0hibHFhejcxcjMwRE5nb21qcEE2a3dMRmN0b2FCV3FIVnczM0Q5UjJrd1VQWkxPUQ?oc=5",
       "tags": [
         "NVDA"
       ],
@@ -144,92 +192,42 @@
       "isOutage": false,
       "isMacro": false,
       "affectsHoldings": true,
-      "timeTW": "11/19 06:33",
-      "clockTW": "06:33",
-      "age": "1小時前",
-      "pubTs": 1795041180
-    },
-    {
-      "title": "輝達財報利多失靈 投資人開始擔憂黃仁勳接班問題",
-      "source": "鉅亨網",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1pSHBzT2txYjFYei1HRHR6bEN1TFRKUUQ4c09FR083U3NKMEFpdVZXdkNHRUx6QVV2TGhBSmFCeEgyTTZfWGF0ZXk5WkhYY1U?oc=5",
-      "tags": [
-        "NVDA"
-      ],
-      "urgent": true,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": true,
-      "timeTW": "11/19 06:20",
-      "clockTW": "06:20",
-      "age": "1小時前",
-      "pubTs": 1795040452
-    },
-    {
-      "title": "美國安局及蘋果公司連爆網絡故障- 國際",
-      "source": "香港文匯報",
-      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1CQk1hVXdSNUNEZDF4bW5qTzYzXzljTzFXWmVWSnp4OUpZS215VUdOSmdzbGRWeUIyOFVxWm0xRUo5Zm80ZXVJeTNQNDQ1N1Bkdks1cTF2MzdRNHB1UDZ5ZUtVczVnSkEybkxLNXgtaldKcU43Rm1Z?oc=5",
-      "tags": [
-        "當機/異常",
-        "AAPL"
-      ],
-      "urgent": true,
-      "isOutage": true,
-      "isMacro": false,
-      "affectsHoldings": false,
-      "timeTW": "11/19 04:18",
-      "clockTW": "04:18",
+      "timeTW": "11/19 12:51",
+      "clockTW": "12:51",
       "age": "3小時前",
-      "pubTs": 1795033103
+      "pubTs": 1795063887
     },
     {
-      "title": "美光跌逾20%後能反攻？分析師點名3大催化劑",
-      "source": "鉅亨網",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5BaXNuWDdEYUFzemMycmxPc2lEcFZKYzR6S3ppYkZvVUg0MG5obWJMMzlRT2hQLTFGMC0wUU9FZ3U4NDM1TjhjY280RDRHUE0?oc=5",
+      "title": "聯準會鷹派升息訊號強勁 日圓貶值逼近160大關",
+      "source": "經濟日報",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9HenZTNFJTQUFJeTdyWVJkUTB5T0NtU2V0SERoeDBXVzBndnpOcGN2c3gtbmVnaHJ2SWs1Q25fMmJLemV6b1B5ZDdRSU9Ia3I3VkVWMzJOSjVRUdIBX0FVX3lxTE1PSm1nVFZySjFwY1BQeHNnQnp2ZDE5eDI0aUU5dFFrdmhDMEVfZ19QWWdUNWhmZ1Mzc1UtdkFVZ0hmc2tfeWlRYVFpczM2Q2tWY1hzdUVWN3BMR0xmYThR?oc=5",
       "tags": [
-        "MU"
+        "FED/宏觀"
       ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": false,
-      "timeTW": "11/19 04:01",
-      "clockTW": "04:01",
-      "age": "4小時前",
-      "pubTs": 1795032084
-    },
-    {
-      "title": "聯準會10月會議紀要：AI基礎設施建設推高通膨，資料中心融資風險上升",
-      "source": "TradingKey",
-      "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxQYzlWSDFRUGNUWm9GT3ZzOEw4VnZGWTcwOTdPRlRSNVc0OFlrVHBxQkNXTFZFeC04TkwtMGtITWFoY1F0Ni12TWJaVzRMQjIzdjN4QjB3eUp4Qnc5RE1xS0QyXzM4NTdqdTJTYW9MNW5XZDhfbDAtajBCTXpIVDUzdnBWOWN4anVGU1FtYTNNTF83X2tMRmVSSjM0S2FUbkRFTDhmUExOMFNNdS1uN2hXSngzaUhXQVFkeW42Y1JxY2E2WHNQYzdLazVDQlVhZER0VmlUZ3NLc3MxejdXN1l1Y3NVdVE0dVZYeW81Vw?oc=5",
-      "tags": [
-        "FED/宏觀",
-        "QCOM"
-      ],
-      "urgent": false,
+      "urgent": true,
       "isOutage": false,
       "isMacro": true,
       "affectsHoldings": true,
-      "timeTW": "11/19 03:33",
-      "clockTW": "03:33",
-      "age": "4小時前",
-      "pubTs": 1795030381
+      "timeTW": "11/19 12:15",
+      "clockTW": "12:15",
+      "age": "3小時前",
+      "pubTs": 1795061721
     },
     {
-      "title": "買氣比SpaceX還旺！Anthropic擬擴大IPO 定價可能大幅高於80美元",
+      "title": "英特爾18A-P拿下首家外部客戶！分析師：晶圓代工重大勝利",
       "source": "鉅亨網",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9CRHY1alNfcDAwVUVvZHZDVGFCdmkxUEVydnpIdzg1NUhwQTc5UWNRREs1Q1RFLV9TM0hOX2VDblNEMDhiXzJ4NVFVZ1d4aUE?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1YSkJSRnVicHZxSnU3QmFBT1BlSXczMlRQYnNqTGxHTjVuekdUNnZDeFgxbkNrODNNWmxfV0J5YjVyVF9RWXpKM1UxdExTOWc?oc=5",
       "tags": [
-        "SPCX"
+        "INTC"
       ],
       "urgent": false,
       "isOutage": false,
       "isMacro": false,
       "affectsHoldings": false,
-      "timeTW": "11/19 02:44",
-      "clockTW": "02:44",
+      "timeTW": "11/19 10:52",
+      "clockTW": "10:52",
       "age": "5小時前",
-      "pubTs": 1795027442
+      "pubTs": 1795056761
     }
   ]
 }
