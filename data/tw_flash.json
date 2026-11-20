@@ -1,13 +1,29 @@
 {
-  "generatedAt": "2026-11-19T15:35:59.080930+00:00",
-  "updatedAtTW": "2026-11-19 23:35",
+  "generatedAt": "2026-11-20T00:31:44.132771+00:00",
+  "updatedAtTW": "2026-11-20 08:31",
   "refreshIntervalMinutes": 3,
   "universeNote": "嚴選台股 AI 與半導體權值股（台積電/聯發科/鴻海/廣達/奇鋐/緯穎）＆ 三大法人/大盤重磅快報",
   "items": [
     {
-      "title": "金管會攜證交所、期交所等共同舉辦 臺灣週盛宴 展現超人氣",
-      "source": "經濟日報",
-      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1TWlZEdzVoTVdGVDU1YjRockJCU1RCZ1JoZC1DTTRlV2xrdGNQOTItNEV2TkJHekI2MXdYOVQzUV9xcldNRFBFZVFha0NRWDI2bjhCWUtfUV9Ud2_SAWBBVV95cUxPamppZU5ELTJaeV9IRWl2ZXk1b3hiZ3hpeWNrUTlpWXpuYzVickpRcU5GMlRlenVBSVc1SnhhcDFDdjVvZmY2cjhNbGg3SWpVWVhrTEctcEFNNW1JdFMtVWU?oc=5",
+      "title": "台股跌勢不停「違約交割」連爆！2天「12檔金額達5.56億」創意、欣興上榜",
+      "source": "民視新聞網",
+      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE13YXBtZEVQNGJ3VlpPYVJpWEd5S25zS2F3dVhLNDFfYkpTNkNkWFhQZ1BCM2NTUmRLdjBBYjY4Z0lNbGJsOXA4X1dFbjRIOVpQcDh6M3lwb2RadGoxbGUxUg?oc=5",
+      "tags": [
+        "3443"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": false,
+      "timeTW": "11/20 08:00",
+      "clockTW": "08:00",
+      "age": "32分鐘前",
+      "pubTs": 1795132800
+    },
+    {
+      "title": "11／20盤前｜限空令2.0登場、新台幣回穩、國安基金抄底名單奉上- 證券",
+      "source": "工商時報",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBMNVZUSnhyS1NYQXk0TXZSZ2VEa3RtYk9nVExwdTJyNWZ2LWVKcWVBQzVvSWVwZnpKT0p0MnRHM0dKeHRycFFkaW5WU0VvVnlfM1lmSk1rZlh4WFlDSThj?oc=5",
       "tags": [
         "法人/大盤"
       ],
@@ -15,15 +31,81 @@
       "isOutage": false,
       "isMacro": true,
       "affectsHoldings": true,
-      "timeTW": "11/19 23:03",
-      "clockTW": "23:03",
-      "age": "32分鐘前",
-      "pubTs": 1795100634
+      "timeTW": "11/20 07:32",
+      "clockTW": "07:32",
+      "age": "1小時前",
+      "pubTs": 1795131120
     },
     {
-      "title": "台股失守年線別慌！杜金龍曝「個人持股拉高至9成」：台積電買點曝光",
-      "source": "Yahoo新聞",
-      "url": "https://news.google.com/rss/articles/CBMinANBVV95cUxNQkd4ZHhEUUc5TjdWYURyX2ZMZ20tUUNDX3E2RlY1STVhUEltdDFDNllKY3hUa1VNQkRfUG0xeUVxOXM0U01peHltMzkzWS1tNklkYXIxTV83MjhoU1lQU3gxNVFIYVR6Vkw0WWt5UDhoRUt5b0g3dHdHMFhuYVgyUXk0S3ZtNHF2NS1HSWh6dmVvbGtqV3BIT3VJa252VFJEbENoM05YTDYyRTN3Zi1fWDhMbEdoTWd3T2Z6LUJlWTd6RVlTRmtpcmhoOUt3UC1mT29ZMWRod08zTmhKNVdDWkVMc3JHd2N5N3o4OGV3bmNQcHFsT3VzYWJjd0lhOUFzUXhSWGVwTFlXSzUzaWdUNUIxWVlBUzhMXzRZMU9uMTBJRXRmb2VLSnRweEF4eE4zaE9ELWtHaDEtcnZtRENVVUtfSkhXT0xla2xuMmpYWlVVdm85V2lCVDQxWVZuaFp4TE16Y3FLNHg2SjdDY1g4WTM4X0l5N3NFbXFPYUtuZ1Y3T0U4ZnVBNVQ5SWhvVGZDWUZaS0VranhOanQy?oc=5",
+      "title": "美元飆創19個月新高 越南央行調升基準匯率至25656盾",
+      "source": "Yahoo股市",
+      "url": "https://news.google.com/rss/articles/CBMi1gJBVV95cUxNNjZpWjY5WkcyeE9Md21DMV83WkNXcVc3WHFsbFZ1YXdjcEtHQ1p4RXFvYTd6X2txd1BURG1xbG9sRURVc1k2VTBBdUV4aGFZRFRmVmRpOHc2R3BBN2VDaHFZSk5sd2VmUG0xN1BHM3NramR0d2UxaDdtVjZxWGZhektCOVdqTGFKWm1GTEZ0cVFNbmJtQWY3bDBIdUJBUzZHY3Bmc2Yxd2NJOXNSaS1rbW02UWt5dzBWTk82ckdVSUFORDM2a3JIX0RoLTNKc0FUUS1xNDZ3a01POC1yZWpPYVlJemJzdWRtUXBrY3hCd0RSOWR6akc5dkVFNlYyUW1neUF5UXZpZ0ZHdEZyc0ozUUJfTmxnNGx5bDExZmp3ZTlZdHYtYmVhejZBSkdmZE5RWFR0bGs5M1N2bDc5N3pDZ2p0U3pfTnhKSnpOS29jVm9CTExoSlE?oc=5",
+      "tags": [
+        "法人/大盤"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsHoldings": true,
+      "timeTW": "11/20 06:40",
+      "clockTW": "06:40",
+      "age": "1小時前",
+      "pubTs": 1795128059
+    },
+    {
+      "title": "股災大考驗1／主動式ETF神話破滅？11月以來前10大全輸0050　9檔跌逾2成",
+      "source": "鏡週刊Mirror Media",
+      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBiR3dJU3BzaENWcjhtTnBPbFczbG5OMWNMTVVuSzNUaGRadVdscEQzZ1pLeC1oM0dZYU1PeFJveVpYMTA5UFdzMlk0MFpZdk52YlpRYXlTWmRYYTZlRGM1a1MxLTRjUdIBa0FVX3lxTE5kTXdQVW5RWTRzek55TGRyZEVHaTNmanhDWE9JREJKOEJVaEs0VG96eV9CSHFSbUd5clI3UTRWaVpkbTV1WS1zcmZEQmk5ck9LRlNSeXBLT3Npc2VBa1hRZkl4b1Zpb1ZMN1Jn?oc=5",
+      "tags": [
+        "0050"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": true,
+      "timeTW": "11/20 06:29",
+      "clockTW": "06:29",
+      "age": "2小時前",
+      "pubTs": 1795127341
+    },
+    {
+      "title": "〈台股盤前要聞〉金管會祭「有條件禁空令」、全體券商10月獲利月減近6成、台積電砸5億美元取得Anthropic 602萬股",
+      "source": "鉅亨網",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1mU2FteklTUGJ3SllRUEFOcVhfNzduZzhjRU9lSTdVem1xc2JQc1ZxRDZPSE1yUVBDT1JLUEJBY2M1c0hYdmd2RXFxei1fanM?oc=5",
+      "tags": [
+        "法人/大盤",
+        "2330"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsHoldings": true,
+      "timeTW": "11/20 05:10",
+      "clockTW": "05:10",
+      "age": "3小時前",
+      "pubTs": 1795122614
+    },
+    {
+      "title": "焦點股／外資喊買也沒用！ASIC續遭狙擊創意再吃跌停、聯發科跳水",
+      "source": "非凡新聞台",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5tQTgxc2FIMDZ6eUJSbm05bW5IREZTUXk0Q05NcnFjM3FUdmRMOENUa2hZZjVlLUJQQzZvVDAwQzNfWnJJTE5vU0hFS0lxZWVwd2ZPcGR6ZnJ4T1RBTFQw?oc=5",
+      "tags": [
+        "法人/大盤",
+        "2454"
+      ],
+      "urgent": true,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsHoldings": true,
+      "timeTW": "11/20 04:57",
+      "clockTW": "04:57",
+      "age": "3小時前",
+      "pubTs": 1795121865
+    },
+    {
+      "title": "法人：台積電年線台股多空關鍵- 日報",
+      "source": "工商時報",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1UdlNFXzV4RFhDUGRrU3k0eWROcTBPSVpTa3ROQnRoNVpYLXpfaHZjUzBMOUNPZkNlRmdIaDRacHRlRVlaYnNYWFphNlhMSGFCUnFka3lMVGZmZ0lOczhJ?oc=5",
       "tags": [
         "2330"
       ],
@@ -31,60 +113,26 @@
       "isOutage": false,
       "isMacro": false,
       "affectsHoldings": true,
-      "timeTW": "11/19 23:00",
-      "clockTW": "23:00",
-      "age": "36分鐘前",
-      "pubTs": 1795100400
+      "timeTW": "11/20 03:00",
+      "clockTW": "03:00",
+      "age": "5小時前",
+      "pubTs": 1795114800
     },
     {
-      "title": "金管會：台灣週展現4大亮點　45場活動吸引近4萬人次",
-      "source": "經濟日報",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBORXhGWE1nQ2tnNkNuN2d6eDVzT1R2ekctRnVsMmhmbUNOXzJOVi1DQllMazFsVURySzRJUUxqNGt2NkdpdFFvRFNjeURxQWp5YU5BZmFFZDUwZ9IBX0FVX3lxTE5uM2JYZ18xUm1uYXNYdnkxckxtYzVXQjFXZkgzRm9mZXp5TVNVMkg2UHFjbUxKdUV1V2VuYzMtZG5MblNEMXRJb2QydlVsUDBQRm5zcHB1b3JzMkNBZ0lR?oc=5",
+      "title": "台積、0050低檔反彈可期- 日報",
+      "source": "工商時報",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9kTmVBRnRmMXdNZkxWOWx5RHNYZkVTR0lOaGFFTzFwMXktRFZLemFyaFRPZjhTbll6bWVaeU5KaDVPNjNUT1lGTllDeVM1WG56OWlXY0ZXN3NrNjhxOEtr?oc=5",
       "tags": [
-        "法人/大盤"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": true,
-      "affectsHoldings": true,
-      "timeTW": "11/19 22:21",
-      "clockTW": "22:21",
-      "age": "1小時前",
-      "pubTs": 1795098117
-    },
-    {
-      "title": "胡瓜專操台積電與0050 今天再投千萬買進2330",
-      "source": "ETtoday星光雲| ETtoday新聞雲",
-      "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9YRkJwdEd4b0s0Um1MeVU2Qmh4OTlBN0o0eEo1Ti14YnFWbmdMeTAyRXVGdjdwR1hTeDlrSXpqMk1wUklEUDE5TWswbXlnZw?oc=5",
-      "tags": [
-        "2330",
         "0050"
       ],
       "urgent": false,
       "isOutage": false,
       "isMacro": false,
       "affectsHoldings": true,
-      "timeTW": "11/19 22:01",
-      "clockTW": "22:01",
-      "age": "1小時前",
-      "pubTs": 1795096860
-    },
-    {
-      "title": "外資再提款243億元 0050、主動式ETF慘遭倒貨",
-      "source": "鉅亨網",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBmMmlXRFRkTTcwRy1ZUGdfNkMycEwtaDk2SGlWSjIwM3RkR0dSN1VPV0tWS0E5ZFZrZzJiSG42SHViOTZLdWNDeWRJOGFXQ0E?oc=5",
-      "tags": [
-        "法人/大盤",
-        "0050"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": true,
-      "affectsHoldings": true,
-      "timeTW": "11/19 17:53",
-      "clockTW": "17:53",
+      "timeTW": "11/20 03:00",
+      "clockTW": "03:00",
       "age": "5小時前",
-      "pubTs": 1795082021
+      "pubTs": 1795114800
     },
     {
       "title": "「網通股王」智邦現增一億元日期確定了！股東每張可認購約13股",
@@ -99,7 +147,7 @@
       "affectsHoldings": false,
       "timeTW": "11/19 17:36",
       "clockTW": "17:36",
-      "age": "5小時前",
+      "age": "14小時前",
       "pubTs": 1795080999
     },
     {
@@ -115,45 +163,13 @@
       "affectsHoldings": false,
       "timeTW": "11/19 17:20",
       "clockTW": "17:20",
-      "age": "6小時前",
+      "age": "15小時前",
       "pubTs": 1795080003
     },
     {
-      "title": "台股逐洞賽│市場波動加劇AI ASIC開始大幅貢獻- 證券",
-      "source": "工商時報",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5pOE10TFNFai0zVmloUzlJaUZTbHdpaU5DSGJLZWJmNFJTTUdnTDFUZi01STRyZmlUYVZOQlg5Q19hckFHdWJqMFllYTVFNTZPQmpJc3hwT1ZwUjlDV0Zr?oc=5",
-      "tags": [
-        "3661"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": false,
-      "timeTW": "11/19 17:15",
-      "clockTW": "17:15",
-      "age": "6小時前",
-      "pubTs": 1795079700
-    },
-    {
-      "title": "台股半年漲跌一場空？0050報酬僅1.7％、00918高達35％！同樣買100萬竟差33.6萬...00878、00919賺多少？",
-      "source": "今周刊",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPX2NqV0dwNG5oZ0tOTzN6XzN2WlE3OWc1eHNiRU12ZTR2OF80NjBHQkg0U0RvWnJpSDhpX21LZmowZVhUTzJ3Q0gzb014OHhGcFgyUGJGbE9VYUlGSkZ6XzdxRlNsYVEwbER2cjFELXBPaHZ5T0JyVGVaUjE5bV83Zw?oc=5",
-      "tags": [
-        "0050"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": true,
-      "timeTW": "11/19 16:11",
-      "clockTW": "16:11",
-      "age": "7小時前",
-      "pubTs": 1795075860
-    },
-    {
-      "title": "台股跌不停！9檔個股爆4.27億違約交割　創意9453萬居冠",
-      "source": "NOWnews今日新聞",
-      "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTFBIQmlKeHdxR0JBTWVhVlVPSzNIY3JJWTgyb2txY1JRVmR6VEdScmhOM3lOZE9xSEZnRGt3bENtM05ncFdsVzQySHFHb1TSAVJBVV95cUxQZF92QjZ4RXFzVUprUmRBTV9tZXpPOWh3OTdCQVpwaVBfWXJrd0FQSU01MTQ3QkNXWmc3OHgydGlyUHdhY1ZVN0hjcVRIT0F2cEhB?oc=5",
+      "title": "台股9檔個股爆4.27億違約交割 創意居冠",
+      "source": "Yahoo新聞",
+      "url": "https://news.google.com/rss/articles/CBMijwJBVV95cUxPUnllRDYzSFJYbjQ2RlM2STVOajhpUGdKcVRfdi1SMkZzdXZQekhQc1R5aFUzQnRqSlI2X2lReHIxeHdtbUtlVXMzT1hYamhRWlBrOFh2Nk9BTndfSjdtSkNVZGt3dWxjRUNPc29HcGNKTXc3X3lGdUxXTnZhV3BkenFQR0dpWVdwMUM2Uk51N3FzdXZXVzRHMEkxU0FMQjVUWXRGQWFCd00xcWFnYjBvLWcxTjlRa3AtcTJfbnFQV0RDMWxQbXc3QjF5T0llNFZ2ZFc4ZkltX0lQdU9XcTRUc2xvUHhJWm10REM4Z2VfdFBEb0dkRWNSVDNPNVp2UVpZaW5OUEJ2bDFyWnQ5MzVj?oc=5",
       "tags": [
         "3443"
       ],
@@ -161,10 +177,10 @@
       "isOutage": false,
       "isMacro": false,
       "affectsHoldings": false,
-      "timeTW": "11/19 15:49",
-      "clockTW": "15:49",
-      "age": "7小時前",
-      "pubTs": 1795074566
+      "timeTW": "11/19 16:04",
+      "clockTW": "16:04",
+      "age": "16小時前",
+      "pubTs": 1795075487
     },
     {
       "title": "摜破3萬9千點大關、年線！ 台股狂瀉1768點「史上第7慘」 台光電、欣興、奇鋐、創意全跌停",
@@ -180,24 +196,8 @@
       "affectsHoldings": true,
       "timeTW": "11/19 14:24",
       "clockTW": "14:24",
-      "age": "9小時前",
+      "age": "18小時前",
       "pubTs": 1795069475
-    },
-    {
-      "title": "輝達財報佳散熱需求夯：奇鋐",
-      "source": "UDN",
-      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9TSmFJTm5ZLTA1UUU3d3J6SmRHZG9ua1hVLXRFVFNfZFRBd3R3cU9oZkdCMkNLV3UxQVI1SlBYRXpjU3JTSW51djJvY3pPM3Iz?oc=5",
-      "tags": [
-        "3017"
-      ],
-      "urgent": true,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": true,
-      "timeTW": "11/19 14:23",
-      "clockTW": "14:23",
-      "age": "9小時前",
-      "pubTs": 1795069409
     },
     {
       "title": "台股狂瀉1768點！股王信驊等20檔千金股跌停 台達電險守千元大關",
@@ -210,10 +210,10 @@
       "isOutage": false,
       "isMacro": false,
       "affectsHoldings": false,
-      "timeTW": "11/19 14:10",
-      "clockTW": "14:10",
-      "age": "9小時前",
-      "pubTs": 1795068613
+      "timeTW": "11/19 14:02",
+      "clockTW": "14:02",
+      "age": "18小時前",
+      "pubTs": 1795068179
     },
     {
       "title": "台達電看好印度AI商機目標4至5年營收至少增至3倍",
@@ -228,7 +228,7 @@
       "affectsHoldings": false,
       "timeTW": "11/19 14:01",
       "clockTW": "14:01",
-      "age": "9小時前",
+      "age": "18小時前",
       "pubTs": 1795068094
     }
   ]
