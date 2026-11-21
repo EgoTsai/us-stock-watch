@@ -1,62 +1,29 @@
 {
-  "generatedAt": "2026-11-20T23:54:39.762622+00:00",
-  "updatedAtTW": "2026-11-21 07:54",
+  "generatedAt": "2026-11-21T06:46:39.356753+00:00",
+  "updatedAtTW": "2026-11-21 14:46",
   "refreshIntervalMinutes": 3,
   "universeNote": "嚴選台股 AI 與半導體權值股（台積電/聯發科/鴻海/廣達/奇鋐/緯穎）＆ 三大法人/大盤重磅快報",
   "items": [
     {
-      "title": "黃仁勳風暴》輝達循環融資破21兆？市場最怕AI央行轉為緊縮！",
+      "title": "跌到懷疑人生！他打工存300萬全押0050 心慌問1句網友吵翻",
       "source": "自由時報",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9XV2ZFUTJ4djg2d3pDdURKS1BhYWxVbDhWcWpEcl84b3dpN2RIMkUxUmVkWVVkQmhSX1ZvX1hGWFRNX2FCanI4TThjQ1JlTTU4eFBmN2NXY3c?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1rY2ZrOUc2WHJTRDNlT0I2VWo0QlV3OHBUWUFHMVN6RVpHakRQWUMtcVQyRmhwTVVnZUUtS3BoYVByTV9EWW9fVVU2NDY2R2RZdHlKbWFHbC0?oc=5",
       "tags": [
-        "法人/大盤"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": true,
-      "affectsHoldings": true,
-      "timeTW": "11/21 07:30",
-      "clockTW": "07:30",
-      "age": "25分鐘前",
-      "pubTs": 1795217400
-    },
-    {
-      "title": "金管會、證交所 喊話股民勿恐慌",
-      "source": "自由財經",
-      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE51b3dlbU9uLVdnUEFDUlRqVlVpcE03LUl2UFJLZUJxQ241RmMzelZkOS05WTIyTC1XOGdPZ1JIT01zN21WdkloUUF0VkJ4dWwxUUgzRTZB0gFbQVVfeXFMTVA4QlJIZDg4dVlKc0hIODF6WDMyM01INk8weEt4M2JBU0Rzek1MWGZJR3RZUHRsR3FNdjJHbzJhZ1pGeWlmSDF0dllsVEZ1WjhoUHVhSW9CbmVLVQ?oc=5",
-      "tags": [
-        "法人/大盤"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": true,
-      "affectsHoldings": true,
-      "timeTW": "11/21 05:30",
-      "clockTW": "05:30",
-      "age": "2小時前",
-      "pubTs": 1795210200
-    },
-    {
-      "title": "台股摜破年線進入空頭？杜金龍示警「最後防線」！鴻海台積電台達電...1指標判斷弱勢股「切勿摸底」",
-      "source": "今周刊",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNTGdyU2lxSDdsaUh4eDh4MUJoRmV3anpWa2RmdU94M3B3NFBUd1NqS1c5WW9CT3VHYjhtZTRXZV9LSXdJNURacklfLWd5c2VCWk5JUGhIYTVQbzBfeFpBVWdSU0ZGR3VLZXRvS0d2QjFQbEtncWlTTmlKYVJVTGU4Uw?oc=5",
-      "tags": [
-        "2330",
-        "2317"
+        "0050"
       ],
       "urgent": false,
       "isOutage": false,
       "isMacro": false,
       "affectsHoldings": true,
-      "timeTW": "11/21 03:25",
-      "clockTW": "03:25",
-      "age": "4小時前",
-      "pubTs": 1795202726
+      "timeTW": "11/21 14:28",
+      "clockTW": "14:28",
+      "age": "19分鐘前",
+      "pubTs": 1795242485
     },
     {
-      "title": "台股35年最慘單週！台積電會崩回600元？哲哲砸2.3億曝「絕不可能」原因",
-      "source": "Yahoo新聞",
-      "url": "https://news.google.com/rss/articles/CBMi9gJBVV95cUxOV0pFaGlQdzM5c3JuMm5sRU03T1YzeUs2Ynk5NVQ0THNrVkhPa1ZHck1XOWF4VnN3dlNKeFJhMTdDd3lnd01vcTRqRkdJb3dGbEFsRXRfajUxanJSTHA2ZXFabndRWXBtZnhlOHBkUXFVMTBqRDF6THkwcUpyN1JaYVZMZ24xNkNVbjU2N0RPYWtUTV9JLWt5YVhuazRMbFpQUXllaElnd1RCR01XRFEzU1J5MHQ5WWVMaDNxWVNHbnppTkhNcllwQnFXaDJOT0VwYmJrZllaTzQ1eWd0VzFDV1hLTmhUT3kxTmdwaDhOU1MwSmVZY0xHRTJKNngwM1hSWFNaLTVBU0Yxb1Q2dlgzYkx2LTVxTmxLQ2h1aE5yeW45NUxxV1pnOVNyZWFNNU8zeDFfOTY1M1RqUGJsSDBGTm1lanZld01YcGp6S3JHZ2tUUDdndU9fS0NfemlLNlRZbVhNdFNxSUwxOFJDRVdVcndXalpKUQ?oc=5",
+      "title": "台股爆發失速列車！系統性殺盤、台積電險跌破2千…杜金龍曝「合理價」 再喊加碼2檔甜甜價",
+      "source": "Yahoo股市",
+      "url": "https://news.google.com/rss/articles/CBMipgNBVV95cUxQdTZYZ3BNSHpaR29LakxzakwwWlhLUE1aZ3E2QTBXMXdQRFJpSC1DOE9POVlaUVBPUlY3eXlfSE15MmczcmpLeHE1MjFkdmxzTTYzdkY0cjd4Y1AzYnhZX0pKX3FqVmcxemVuc2ZiQUxBanVHZ2ZpalBlVWZHaWY2d29RWEt5Y3BjUzcycDEySmNMVWY5RGRuMEVDTkEtX2JRQ2M2MmRHNmZuYTFjSTV5Y0Zlc1h5TTZrMklkR0p2QVZtaTUwcUg3U1B2UHRhbGZpQnBKampKVk9NSFR1aTNRQ29xLVNMR0JDMGp3RFY2NGl3Wmw2cVVvOU9Wc2hoQzh4dWdPeERMYzgxYm8wYkh4ZklZY2Fmb1hzWjJFV2VGNzZZd0Q3ckV5UFYtdTloM0tPSWdaZ0h6aEt3d0hJbUU1SzI4QUlURjcxcmxNYzFRLWxMUENfSUw2alcxclVTWEJ3LUhpNkZNeEhkVFhnQjZfckYtX1dUUU91MnpZMG5IQ3Y2Q05jX1RMNDNrcGF3dWpHLXhvQ0k0SmdzZ3VHZk56VEtzVWVMQQ?oc=5",
       "tags": [
         "2330"
       ],
@@ -64,31 +31,63 @@
       "isOutage": false,
       "isMacro": false,
       "affectsHoldings": true,
-      "timeTW": "11/21 03:22",
-      "clockTW": "03:22",
-      "age": "4小時前",
-      "pubTs": 1795202520
+      "timeTW": "11/21 13:39",
+      "clockTW": "13:39",
+      "age": "1小時前",
+      "pubTs": 1795239594
     },
     {
-      "title": "一周熱門零股／0050、高息 ETF 人氣夯",
-      "source": "經濟日報",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1pQllFLXpGYTBIOXk0R3E1aUEwdzNicEtIS0F2aHRZRHh6cGtaNHRuOVRYbHR0cTg3d0IwUFBMV3dzdTJFbTROYmZiVTZLc0FrZWZfTE5yeEJud9IBX0FVX3lxTFBscWNYbm1DdGk2cGh0cUtENFdmLW90dm9BeVZ6RGUxeU9XTzA0TmUyWlVYT0VjeENWN3pUTzNzZUdwTWRPSFZRZjRvMmJqQzBBTy1ZeEpBWWhtWjBOcjZZ?oc=5",
-      "tags": [
-        "0050"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": true,
-      "timeTW": "11/20 23:57",
-      "clockTW": "23:57",
-      "age": "7小時前",
-      "pubTs": 1795190223
-    },
-    {
-      "title": "0050虧一成、正2慘賠五成！投資人崩潰問「該不該停損」 網曝真正風險：小白買0050就好",
+      "title": "台股「史詩級崩跌」單週狂瀉7600點！國安基金防線失守、32K恐守不住？分析師曝明年3大夢想題材",
       "source": "Yahoo股市",
-      "url": "https://news.google.com/rss/articles/CBMivwJBVV95cUxObGlJNXo2QmlpbkFNM2pzQWV4dmx5X1hUMVZlRXhLNUVVbWFEcE9qcVNwQ2Y5TjYwc3R6ZG9TWEQ2ZGJ3Vk1lVk4xREE0eHdIUUo3Vkgyam1FS3dDT1FRUDlkTmg0TXZteTlXMmpmUzJYV2JoaXB5aGlxalQ4aVUwRjZRekQtMjlfYnowcEY1azQ0VC14ZDluZDlOYlV6UWx6QW1XSTJIaC1ES0M4dkZ4UF9WMjR0SG1hZy1CS2ZDTVdSbXgxOHBpMXBGYnhPamhhcWhPQjhOZVpsN0pfYTJoTFhGUnhablpLOEZfQ2htYlQzMGpsdndRdTRuZlZfQzIxXzBzWHMyTmdEWEp5bGlrMWJYUWlfNkpRanZQZVNXM2FmUHFvcnR2RzdsYW1OQU9wYW1FSEJFRUFybS1Rckkw?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiigNBVV95cUxQTHdJbV82ZGF1dkxoS1Z4SzhmT0xEbjl3UzRsTVhfNkFlVExnLTFkel9hT24wZlJyNWFwZUpEb3FoOHgzZkJlNnBIUEFtR1NTNnNzVGdBYXItYUw4RTVyaVM5bUZWeG9ncHhVWGtrTHpxZDBqVjl4MlhiYTZpalVkUU93VzFSVXhQRFJ1ZkxUM0lxRDkzTzhJZDlpQWtZRWF2YnV3Q3RrSHk2a3hQeGZ2amRldUdLNTJwVndxOXU2ZnpDUEY3cS1WbmhYeFNtV2RERTdFMnZfVFZfVXNaZUZiYlkxVDVhVWFoamdQR3RYc3pNcTNIVlJxYml3T3J1M0JyeXBtV3p3bUZzcnhQQTBKei12YW9QVEpmOEhxbGtrVFJQWENNcjF3bHpPMnducWFpZEVvTWM5LVI0NHpYcEFmSl81aGczN29Ldlh5TWFsaTlRQi0zRUhkakRUREx5X0x1bkViTnFQSS1ueGxlamJUVHkzQ1hKbmtmeEZBSUVIVHB0cDBvbjZyRTVn?oc=5",
+      "tags": [
+        "法人/大盤"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsHoldings": true,
+      "timeTW": "11/21 13:29",
+      "clockTW": "13:29",
+      "age": "1小時前",
+      "pubTs": 1795238971
+    },
+    {
+      "title": "【1119台股盤前】台指結算震盪1,677點守四萬！Anthropic IPO 聯動算力鏈，營收創高模範生鎖定【2317 鴻海】、【6223 旺矽】、【3665 貿聯-KY】｜豐雲學堂2026 年 11 月",
+      "source": "永豐金證券",
+      "url": "https://news.google.com/rss/articles/CBMi4ARBVV95cUxPZ21ITFphcTh0VHJHNVlyRlNsc1dkMTlRRXpJSXFJdUVLUTZZT3VDTEpVMzVtZkl2MXZLcFlwTkZpblZ3anRTNE1OR0NQWC16M01fNEpxR1NGN1dzLUpXV0VBQ2M0NFRqd3FOV3ZYQkJod3ljNndWWGl4ejFiWXowR0FYV0JLZHhLQUxEWlNqd3hvaFZmYl9URjQySXJfM19MSWk2UEN1UEhFSlRoT3JVTm1jbFI5X2dROElDOEJLS2t5UFhZYkpGWWZ5dlZnc0VSSXF4YXotTmhtY2JaZTV2bmU5TFZMMW5xdXlqeXYwUGh2dTQ1TVR3czI5bVNjOGlwSWFrYTVnNmt3SW9QWUhyRUpuRDd4U2NCSktQbVlJNjFWTUZFUW9mb2laZnFZZThCUDRfR0s5RFJDQ1JhLWlhaGdTQ2tDTTNxaW1PXzVLTVJJYzhFZ3pBX21JY0htODBUdE1iY2ZnR2hmN0NXQUlYM09BSDR6Y1cyYnJtb1A0blYwZHVnTGFBeU5pQV9lZEZkcnBtUjZ1QjNneFJGaXk0NWJCNmxCT0VXc2R0bmxxM1RzdmNKa0NEZ3h0Mm1jZkE3My1IckNBMERZOHpFV2dDSE9qa20tT1ZuOFJBV1V5UG1nMWhKb3pOcmhndEtWSGZRUWdReTJqWjlFeDFNWXdWZEpZVUQwTy1iRWMzblJlWEw5cXQ3ZDAtbGUxc1FSdDdvMHdvR1lmREZhOEgzUzRpVmhFaWJQbGgtc1MyM3c2T293UGs5bFdvM2xjU1FZYlhiWjlVN0ZMb0lpaWJLNXVldA?oc=5",
+      "tags": [
+        "2317"
+      ],
+      "urgent": true,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": true,
+      "timeTW": "11/21 13:04",
+      "clockTW": "13:04",
+      "age": "1小時前",
+      "pubTs": 1795237443
+    },
+    {
+      "title": "台股本周跌7641點35年來最慘、金管會祭「有條件禁空令」、外銷訂單連21紅 本周大事回顧",
+      "source": "鉅亨網",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBYM1pTSnlhN0xjc1lKM3BGcWoyWnpiUlYyd01hTnowb1l6WWRxSWM1Rmh2em5JNi1QOFlicFJmamdfRDFIVFdTOWxUbzNvVFk?oc=5",
+      "tags": [
+        "法人/大盤"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsHoldings": true,
+      "timeTW": "11/21 12:10",
+      "clockTW": "12:10",
+      "age": "2小時前",
+      "pubTs": 1795234208
+    },
+    {
+      "title": "台股跌不停！「反指標女神」正2、0050全套牢 認虧650萬網笑：賣壓來源找到了",
+      "source": "Yahoo股市",
+      "url": "https://news.google.com/rss/articles/CBMizwJBVV95cUxNOG5ZQ2ZvSGdBV3djcW1xSU9GZEtmOGdLUGJZVWdFaGVMSUZKZjlhNld0bGpRNnVXVlI4RlQ5WHB5RkhZdEdDZzE0amdXa08yRHV0cWZVbHoxSGlMdzJQZjdnOTZMcDM3cTVlT2VEbnRsQUtreTRQdGxJMTRibUZ5YjJiWjRabmJYenVGRHRMaFRHdDRBMEZYQkpkOVRrdWJRRVRvbEVVOUtwNmJyZ01SSUZxN2xiMWExMUh0XzA3Yno2bUw2ZWNVejFEQ0Z3dHdkNWFwZGxhZzBFcjNnUEVOQnVoY0RaOUlYMVZQdENBZloyeGQtVzZJeDBKblNYa3N1VWpPbDFhaVBDLXhtRkJSRVUwZHhqSkd1TXNwc1liU2hMLU5PYzF0a2pMUFRmMEYwQXVxN0dqMkhEVmpCMHZpUlhId2JTcE5HNHBETEdwTQ?oc=5",
       "tags": [
         "0050"
       ],
@@ -96,10 +95,27 @@
       "isOutage": false,
       "isMacro": false,
       "affectsHoldings": true,
-      "timeTW": "11/20 20:45",
-      "clockTW": "20:45",
-      "age": "11小時前",
-      "pubTs": 1795178700
+      "timeTW": "11/21 11:37",
+      "clockTW": "11:37",
+      "age": "3小時前",
+      "pubTs": 1795232242
+    },
+    {
+      "title": "台股創1990年來最大單週跌點！台積電險摜破2字頭嚇死投資人 大摩、小摩4外資逆勢送暖",
+      "source": "Yahoo股市",
+      "url": "https://news.google.com/rss/articles/CBMi_wNBVV95cUxOaDA5bWJnbXJIT3hlRmEwTFpJbldEQ3FiTDdQMV91eHBLZkVySVl4SGdmUDhIa08tWWQ2Ym1YajVZbG94ekk1Y3Q2Y2NKekNtSldsTHdTNUhkTG45XzhDYzFkMTl6bE9Tb19UQ3pPbkdGaUdpdUdzMU1wR2ZyeDJUaXN2cU9HV2E5N0JYR1BiMVdUMURMOGpWamxCd0N0WFVpQmdEWHlIOWVucXdSYU9hdGhWWlRtSW9fMmRYeDhYWFhvSWNaZXBHbDNsdEc5bnE2LWUxcHhsTWdpWFdXeHpHMnBWWHB4ZHRVQ1lVT18yMnkxVVBWc2FHOXBFck53TGYxd0Rlcks4b0JLQWxxWmlTaHhjQi13eWxmbllpd2gtNHNhelZLdXhWeTM1UlVGUWdMUnByWGhYNHJjVVBaREVVLVVYd2o0dENjY3VKbmY4Qy1iLS1GQ01JdDNRLTd0aU9NT1Rib3laeVVtTzRpTE9RYWtEX2FEOHRoZTd4MGgtWk9POG1vby0xT0VGU1VYU1l4UTBJeWhud2M0eUM5dnY4eS15M2o0bV93VVNWclBRMTVwemMwOGtnU3N0cEhsR2o1RktRb01WdlNnR1Rfb1ZCVDlDZk91NzhZZUNjMWdIblVXUHZEVzR2b1lSNVdCQkZ2bm9iYVBWUl85RzJnX2lv?oc=5",
+      "tags": [
+        "法人/大盤",
+        "2330"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsHoldings": true,
+      "timeTW": "11/21 11:16",
+      "clockTW": "11:16",
+      "age": "3小時前",
+      "pubTs": 1795231005
     },
     {
       "title": "台達電跌到900元！ 大摩「超狂目標價」曝光 2王牌還沒發酵",
@@ -114,7 +130,7 @@
       "affectsHoldings": false,
       "timeTW": "11/20 17:04",
       "clockTW": "17:04",
-      "age": "14小時前",
+      "age": "21小時前",
       "pubTs": 1795165440
     },
     {
@@ -131,13 +147,13 @@
       "affectsHoldings": true,
       "timeTW": "11/20 16:40",
       "clockTW": "16:40",
-      "age": "15小時前",
+      "age": "22小時前",
       "pubTs": 1795164004
     },
     {
-      "title": "《外資機構主要進出個股4-4》花旗環球證鴻海(3304)",
-      "source": "富聯網",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPZ2o3d1diOFF5NFczX2lNTURKRU93WFhGbmdtN1N5QjZZb3FOQ2VCLTBGZUpFdVkzV2U3ZHYzQjk3VGc3eGNMSEhadlFRRE1ZRlFwNVVoR0t0ZVB2d2VWTmp1ZHVJV1JhOEJfX1RvLXBtbTRDS0NLSXJIenBHa1NiUl9kbVRUcTNy?oc=5",
+      "title": "市場氣氛轉弱 外資調降廣達、鴻海及緯創等 AI 伺服器概念股目標價",
+      "source": "經濟日報",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5wcE04cGxVcHA5WHRfV2ZacVlCZFIxVzhTVUI5cGFBSFVLdlhIeHp0LXNhaHdlSWh1cy1DVXc3WU1WSGg1cl90dEU3SFREOXN4QVZ4Tk9yMmVod9IBX0FVX3lxTE0zUW9BYnlhWVBDOUdzcnQ5VWdFZnEzVlBhMlRLQ29kMm5MM1ZIYnllMUxjNUdNanhVcVVkN1FZekxOczlWTzVvTjJWSWxPMzJHRzBqeFF3Vl9HX3pfRGFB?oc=5",
       "tags": [
         "法人/大盤",
         "2317"
@@ -146,10 +162,26 @@
       "isOutage": false,
       "isMacro": true,
       "affectsHoldings": true,
-      "timeTW": "11/20 16:30",
-      "clockTW": "16:30",
-      "age": "15小時前",
-      "pubTs": 1795163400
+      "timeTW": "11/20 16:00",
+      "clockTW": "16:00",
+      "age": "22小時前",
+      "pubTs": 1795161600
+    },
+    {
+      "title": "台股跌勢不停「違約交割」連爆！2天「12檔金額達5.56億」創意、欣興上榜",
+      "source": "財訊",
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE0wa1dCdDJUemt2ZzBYY3c4bEdVYmhKdktJQTYxMlJyN3VFRWs0NkpEM201NVJnbTVCRUdpUjBaVnN4VUl0czhQMXdmWVdZT2lwZzdOa0lHSXYzSkhvSC1SS0tFdF9HUXpMSU5ZMEFVdF9NZ09CU2lGcEdVWQ?oc=5",
+      "tags": [
+        "3443"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": false,
+      "timeTW": "11/20 15:17",
+      "clockTW": "15:17",
+      "age": "23小時前",
+      "pubTs": 1795159042
     },
     {
       "title": "Google TPU 出貨看至 2029 年？為什麼聯發科還要看第八代",
@@ -164,7 +196,7 @@
       "affectsHoldings": true,
       "timeTW": "11/20 14:49",
       "clockTW": "14:49",
-      "age": "17小時前",
+      "age": "23小時前",
       "pubTs": 1795157376
     },
     {
@@ -181,57 +213,8 @@
       "affectsHoldings": true,
       "timeTW": "11/20 11:10",
       "clockTW": "11:10",
-      "age": "20小時前",
+      "age": "1天前",
       "pubTs": 1795144214
-    },
-    {
-      "title": "跟著明星操盤手「抄底」！台玻、華邦電、欣興、緯創、鴻海…8檔主動式ETF績效領先，持股名單一表看",
-      "source": "財訊",
-      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5OLWRiallCYUFwS3g0SFgzYmRCZjhOLUlsS3JWSjFTTnNjY1NHSnk0cVp4cDhTanZYdzV5NGRzREp0azZWcXdzS1JTdTZ5ZzhUR0JqcF9idEpqVVdPc2taNHhoYTF3SUZlSV9QQzd4SnpaTVI5eEJCTjVSdw?oc=5",
-      "tags": [
-        "2317",
-        "3231"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": true,
-      "timeTW": "11/20 10:43",
-      "clockTW": "10:43",
-      "age": "21小時前",
-      "pubTs": 1795142618
-    },
-    {
-      "title": "創意再吞第5根跌停！1600張逃命急賣單",
-      "source": "TVBS新聞網",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5rdXE5akhZZ3ZOY0ZSaFZvY09JZDBxVzhVdzR5YWc1WkFrR3Q2NWphNk1DQm9EZEJQVDUxbUM4TDJOeXo1LXBGSDRwdUthczQ?oc=5",
-      "tags": [
-        "3443"
-      ],
-      "urgent": true,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": false,
-      "timeTW": "11/20 10:23",
-      "clockTW": "10:23",
-      "age": "21小時前",
-      "pubTs": 1795141380
-    },
-    {
-      "title": "台股違約交割連環爆！2天12檔金額達5.56億 創意、欣興、世界全上榜",
-      "source": "三立新聞網SETN.com",
-      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFA5VXVxOUd6eEluYTExLXB5RXZqNW00U2NIUy1WUU1lOC1HNUF1VzhIdThzaUYwbXVGYzZ5cFZYUEU3el9qX0ZUU1h0SQ?oc=5",
-      "tags": [
-        "3443"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": false,
-      "timeTW": "11/20 09:17",
-      "clockTW": "09:17",
-      "age": "22小時前",
-      "pubTs": 1795137436
     }
   ]
 }
