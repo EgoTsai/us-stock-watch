@@ -1,0 +1,234 @@
+{
+  "generatedAt": "2026-11-21T19:43:55.758646+00:00",
+  "updatedAtTW": "2026-11-22 03:43",
+  "refreshIntervalMinutes": 3,
+  "universeNote": "嚴選美國前 30 大市值科技股動態 ＆ 聯準會升降息/重大宏觀政策快報",
+  "items": [
+    {
+      "title": "官員首要考量是抑制通膨分析師：別指望Fed 護盤救市",
+      "source": "UDN",
+      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5rZk5wOGc2OGdtLVRRZDVlTW5BLVlwZHFsdE9KWlp1c0JpU09aek5EWDFpTy15aElhZFVkUHZzM0I5NEFuLWc2NFRabWpuMjhh?oc=5",
+      "tags": [
+        "FED/宏觀"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsHoldings": true,
+      "timeTW": "11/22 02:21",
+      "clockTW": "02:21",
+      "age": "1小時前",
+      "pubTs": 1795285265
+    },
+    {
+      "title": "有點子卻不會開發？串聯Google 4款AI工具，不會寫程式也能做App",
+      "source": "遠見雜誌",
+      "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE5sTFluNnpNb2NpSndBTXlvVHdleE5YNEY3Wk5SN1MtakhhaWxUV1JMeWVqYzR6Vy1sUlBmaVBQNVM3RFI3Sy1ydVBWQ0VzUQ?oc=5",
+      "tags": [
+        "GOOG"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": true,
+      "timeTW": "11/22 01:39",
+      "clockTW": "01:39",
+      "age": "2小時前",
+      "pubTs": 1795282785
+    },
+    {
+      "title": "輝達財報亮眼也救不了？陳鳳馨揭AI「量化緊縮」危機 這3件事最傷台廠",
+      "source": "Yahoo新聞",
+      "url": "https://news.google.com/rss/articles/CBMioANBVV95cUxQUnVEcVByZHFybE1CdG9LRzk4UGhpNy1GZkxsSXBXYTdxVjF3RzkzNmFJZDJ2ODQzYjNhRUROQTRxUU1YZFFKaUxETFJWQXlXZkc3bkUwT1pCaS14R1VraVI1SjR0cHJpQlVmQzcwbmtjbjhLZWltOHRkM2ZwaGRIOVNySC1xQ2JOTTJ4RGxleHliUnByOC1rT3NpMmtpZlRZZEdQR2RLS3dhbkhuQWttOUM1Qm00ZEo3aFNBbVgwZTFpbG15cDlKT2xsU1J5dU1RelRiX0dWc3dOelNHR1dHT0RjNVdrV3pqSm5acGUxTGJYZHJsbkx6UWNleFZzNDlwN3FFa0FzNjQzek9NVUxjQ0tpUVVIdG1obENIelVQYUVFX05qZGo3emQwN1dPdlZzaG9id0ZKMVNQQUUtWmRJRkRLRjJjWTVEZjVTSC1zZmxaWEVRQmJWMEF6bk93UkpVbnJVREJid2dYcnc3czNrdFZnVTNLYnJLU1A1QW1KU1RlUDFjZ3V3WUhVbVd4elVnX3JYR2ZtSHMtcmZiQWxrbA?oc=5",
+      "tags": [
+        "NVDA"
+      ],
+      "urgent": true,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": true,
+      "timeTW": "11/22 01:34",
+      "clockTW": "01:34",
+      "age": "2小時前",
+      "pubTs": 1795282470
+    },
+    {
+      "title": "《金融時報》：亞馬遜收購Decart的75億美元交易已進入最後階段",
+      "source": "TradingView",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE8ybWQ3UkNlcGpuLU1CYnktcE5ySHRmTXNnbXNkQThSemVBOVZsX29aX3FqZGhLLVB2Z3ZlZWtuaTZJR2NkZk9NcnlFc2l0X3pJeGZYQzFYeHNtbHQ5dUg2S2dBcVI1TWpSQm9XaVBlWTJlUUxxVDNN?oc=5",
+      "tags": [
+        "AMZN"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": false,
+      "timeTW": "11/22 01:27",
+      "clockTW": "01:27",
+      "age": "2小時前",
+      "pubTs": 1795282032
+    },
+    {
+      "title": "OpenAI與Google搶進AI廣告戰場，但注意力視窗窄得超乎想像",
+      "source": "BigGo 財經",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1NUVlmbC03dDJkdnJNM0FNRWFDLXluaXNoZGZya3JUQ2JEb2M1cEU0c0Vid0RnZXNaOHhmZ1puMU8yN3hDeG0wZlh5ZF96N2M3RU5OVnBWcU1GbWduRGc5MDJKdjlidHEwM01Pcnl4TThSTDA0b1F4bFN3?oc=5",
+      "tags": [
+        "GOOG"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": true,
+      "timeTW": "11/22 01:25",
+      "clockTW": "01:25",
+      "age": "2小時前",
+      "pubTs": 1795281900
+    },
+    {
+      "title": "Meta暫緩網頁爬蟲商業條款，AI業者向出版商壓力低頭",
+      "source": "BigGo 財經",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBDS0lreVFRY2xFblYtTy0zanZkZlpEQzI4aFpGOG1XUDhXd2hzdXdzYWRzSXhfM0pTWG81SzF2YmxWUXVxLS1XZmw1N2ZTeG9IWHNUb3BwU1RKbnhTQVZZRnhERlFuOVFtSjRFSHBUcXZTRjFGTnVuQV9n?oc=5",
+      "tags": [
+        "META"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": false,
+      "timeTW": "11/22 01:25",
+      "clockTW": "01:25",
+      "age": "2小時前",
+      "pubTs": 1795281900
+    },
+    {
+      "title": "不是回鍋輝達！黃仁勳下一站 預測市場「這個」押注最多",
+      "source": "自由時報",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5jaWh3NFZGcF9LWHBNeTdIb2NnbTJIWmRDU3JweEUxck81V001cTNJbDJqbDRyMGlFWUxTWi1RSzJ4eTd3cGZFQ1l4dnB5azBiSGRqeE51Q2k?oc=5",
+      "tags": [
+        "NVDA"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": true,
+      "timeTW": "11/21 23:54",
+      "clockTW": "23:54",
+      "age": "3小時前",
+      "pubTs": 1795276444
+    },
+    {
+      "title": "將成資安業最大併購案 CrowdStrike擬收購同業Zscaler",
+      "source": "經濟日報",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5XN1Y1enVfdTZqNmlTMFlTaXg1VDZUQmp2SWlsME9aWWdYc3JLbWFFUFpuSlFKOUtka1ZEanpLSmozZ09GbFUtdTNuRzdBc1RMVldMa3BWNDlQZ9IBX0FVX3lxTFA2UjdqNll5SHJ0RkIxektDMFczeWZ6OXZvZ0ZqTzBRRGRrUEl3RHlnZVd6N3AwbFZlQklCajYxLU0xckJDRjdoYWNCU1l6T1gydTdwbGIwYk9FUTRRSUlr?oc=5",
+      "tags": [
+        "當機/異常",
+        "CRWD"
+      ],
+      "urgent": true,
+      "isOutage": true,
+      "isMacro": false,
+      "affectsHoldings": false,
+      "timeTW": "11/21 23:26",
+      "clockTW": "23:26",
+      "age": "4小時前",
+      "pubTs": 1795274807
+    },
+    {
+      "title": "甲骨文股價暴跌 創52周新低",
+      "source": "Singtaousa",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOMGpHRzBSallNSlhsOEhIdmdYX0pQVDBzNVVzWkc2NXpDdjNHR2hUT2w2c0pET053TTVqQXZmZWowRFhhT2ZXTmphVlBMZUJFeVQ3bHd1TTQ1UEpid2hGdFlhZWJhVlpub0hzM3lHQnNwekZhYVMteWpLUVZOTU5SVFFPRWowQWdyOTFB?oc=5",
+      "tags": [
+        "ORCL"
+      ],
+      "urgent": true,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": false,
+      "timeTW": "11/21 23:00",
+      "clockTW": "23:00",
+      "age": "4小時前",
+      "pubTs": 1795273200
+    },
+    {
+      "title": "美股｜Palantir挫6.6% 卡普申報減持675萬股涉近1億美元",
+      "source": "Fortune Insight",
+      "url": "https://news.google.com/rss/articles/CBMixAJBVV95cUxNNzRhYUItcEZaYlh1V2xBcGF1NUVnbmJQa3ZSWE9ya2plRU5ZZmhJdjk1TkdPRXhUX1haUHpITW1LMExHaDFnclpmNUNBZU02ZnpfWWFzQXR2by1lUVZPc0JMY1ltTDBGVHFFank0SDNRWVJKbk1PVnJHOUxTcTZkVm02NFFEVV94eFIyRm5rZXZaQmJFQzVMOHdNQjVhTlYzNG5RZ1FXREVvWlhmSGN5VFlMQlQ0S201aGIzaHQ2UVZoYkNLY184TXBNVTh2WFZfd1k2WnBpNFFuWUVNaWJxUGdlNEpUdXZNOTd5VnFJZTNKSkxkc2lPZzI4RXY5S0RJek96WDg3TjMxUjFuNXlrdTVuTjRDQ1J6cEljdHZ4ejdnaHBkaF9Dd24yRHBIbDFNanpOdmd1S2swTkRDWE9oWURJNDg?oc=5",
+      "tags": [
+        "PLTR"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": false,
+      "timeTW": "11/21 22:06",
+      "clockTW": "22:06",
+      "age": "5小時前",
+      "pubTs": 1795269961
+    },
+    {
+      "title": "Fed理事庫克：通膨超標67個月 10月投反對票主張再升息1碼",
+      "source": "天天上新聞",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1vLXhOdFV1UzlwSzB0Q2V6QW1keFVFQVhlUmpTVnFVOGszRjNEV285T1NEdUp5R0o5TDg3d2c3NWtfR25aNlQtY0ZhdmFZeFk?oc=5",
+      "tags": [
+        "AAPL"
+      ],
+      "urgent": true,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": false,
+      "timeTW": "11/21 20:44",
+      "clockTW": "20:44",
+      "age": "6小時前",
+      "pubTs": 1795265096
+    },
+    {
+      "title": "甲骨文宣布OpenAI基礎設施合約資金全數到位！股價盤後漲逾3%",
+      "source": "鉅亨網",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5tLXIwX0pHMEpDVTcwdzR3cC0wNm1Na1RTQ1lua1ZuRUZ4VnduUkY5WEJsSGxVTXhiZURtV1lYbld5VXdmZXBQRWlQVXp4Z1E?oc=5",
+      "tags": [
+        "ORCL"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": false,
+      "timeTW": "11/21 20:10",
+      "clockTW": "20:10",
+      "age": "7小時前",
+      "pubTs": 1795263009
+    },
+    {
+      "title": "聯準會政策衝擊要來了？庫克指利率未抑制AI建設，等太久恐需更大幅升息",
+      "source": "鉅亨網",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1TUGozY1VNUldwSnppcl9DVC1OWmpjdmthTkNCcnR2ZHNOZmRTT0dJNnkzMzgwOWgycF9SRHlmT2hfOFF1bFR5UmpqUXk2bHM?oc=5",
+      "tags": [
+        "FED/宏觀",
+        "AAPL"
+      ],
+      "urgent": true,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsHoldings": true,
+      "timeTW": "11/21 18:13",
+      "clockTW": "18:13",
+      "age": "9小時前",
+      "pubTs": 1795256017
+    },
+    {
+      "title": "解密國際／通膨逼升息 股災踩煞車 Fed 下月決策添變數",
+      "source": "經濟日報",
+      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE96MjA5dHJSRHRZMXE5a0RFT1FoYkxnZWVxVjRsMEFOREFOb25vVVFLMi04YVh0NFZVbk9QUWJuOXl6WURpaWNVQ2VUbjFUTzVNT0tueXh4X3AtbWI4?oc=5",
+      "tags": [
+        "FED/宏觀"
+      ],
+      "urgent": true,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsHoldings": true,
+      "timeTW": "11/21 17:45",
+      "clockTW": "17:45",
+      "age": "9小時前",
+      "pubTs": 1795254312
+    }
+  ]
+}
