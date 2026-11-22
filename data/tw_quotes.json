@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-11-22T06:16:36.997358+00:00",
-  "updatedAtTW": "2026-11-22 14:16",
+  "generatedAt": "2026-11-22T19:23:22.940954+00:00",
+  "updatedAtTW": "2026-11-23 03:23",
   "refreshIntervalMinutes": 3,
   "marketSession": {
-    "statusText": "台股週末休市 · 顯示週五收盤報價",
-    "sessionCode": "WEEKEND",
-    "etTime": "2026-11-22 01:16 ET",
-    "twTime": "2026-11-22 14:16 台灣時間"
+    "statusText": "台股已收盤 · 聚焦台積電ADR與美股連動",
+    "sessionCode": "CLOSED",
+    "etTime": "2026-11-22 14:23 ET",
+    "twTime": "2026-11-23 03:23 台灣時間"
   },
   "indices": [
     {
