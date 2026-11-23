@@ -1,9 +1,57 @@
 {
-  "generatedAt": "2026-11-23T07:08:10.526741+00:00",
-  "updatedAtTW": "2026-11-23 15:08",
+  "generatedAt": "2026-11-23T08:19:25.152419+00:00",
+  "updatedAtTW": "2026-11-23 16:19",
   "refreshIntervalMinutes": 3,
   "universeNote": "嚴選台股 AI 與半導體權值股（台積電/聯發科/鴻海/廣達/奇鋐/緯穎）＆ 三大法人/大盤重磅快報",
   "items": [
+    {
+      "title": "台股反彈778點救不了「它」！投信2天狂砍2.29萬張 股價崩逾8％",
+      "source": "自由財經",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9MM2tMUXV4YnFuTW10Q011S3Rwdmd2U05hOVlud1hHRjE3TkNEeWpjVDBqV3VzWnJnOWdZZ0Y2UTMwWnZHUy1VNERmYzlWbHVhNEZlYU5tRWJJRGY0azhV0gFkQVVfeXFMTXhqSzM3RjJQYWo3WVFKeFdoeFlvSzJvdTNnbmdzTWU5eVZJbS1aTHlzSHhuZDJwRzFkMDVObUhKNnhfN3AyaDU4WWZsVjJZcGlQS1FYb3lpczZxUk1SQTdBaWlGdA?oc=5",
+      "tags": [
+        "法人/大盤"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsHoldings": true,
+      "timeTW": "11/23 16:08",
+      "clockTW": "16:08",
+      "age": "11分鐘前",
+      "pubTs": 1795421308
+    },
+    {
+      "title": "【Follow法人】糖漿遭外資「吃豆腐」？台股反彈外資卻砍289億元 分析師曝：殺盤近尾聲",
+      "source": "Yahoo股市",
+      "url": "https://news.google.com/rss/articles/CBMijARBVV95cUxQenRJX3pPUTdCY2xTX3VCSUs3UkgzemlMNGRpT2JOMmZNcWV6S296UWtBVV9rY0s0UUNKN0s4M3djSVRVTU5GWlFYNmcybEp1d2E0aW5PYTVONFJiTEh2R1g3eFE3akxlMkpUR3YxSW92UFBzQnF3cXdta1BZYmVqYWpNVEhWQ082QnQ1S0J6bkJsSmZBc3BobTVlM0VrWUMwLS1WcHhGX3ptbjNRRElFb2pVQkJDUmU5cHdTeHlxTFZrZVNtVGsySlgwWWJjbmdIclE5RGtzWGdJczlBRjRwa2VTNDlmT3h0a2tDRk5OdU5MTkJtaVR0OVJZYWN2aEpsVGllcGNpNUJhVzR4aXAxYWxJOXFBRW1rRnVLNVUtVFpwZ2V2a0hLVzN5QmVtQjdsbXItbFdSVks4ajN3SVo2SzE5NFJNeVVVX0RnbmZjTHFOcTI2R3ZiTThLZDBPYVNWRXlqeDNjc2U2UmU1WU9XNjdXdUZXWi1HSmJHaDVvazdOc2JLV0hnUHZLWmR3Q1QzTnNoVi14NTFGMEVBZnlMR1ZmV051OGpyNHc1RjB6SE1hOE0waGt0OWVfbUU1dTF1LS0tT2lXcXRoUUtHRVNrWVZRR2ctR045dTVYNWp6ZFR0SGktQUtVb2xybGppSkZlRUxwN0NXSTZ1X3BuM1RiMmxfRnp4bEl3NVNsZw?oc=5",
+      "tags": [
+        "法人/大盤"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsHoldings": true,
+      "timeTW": "11/23 15:47",
+      "clockTW": "15:47",
+      "age": "32分鐘前",
+      "pubTs": 1795420059
+    },
+    {
+      "title": "帳面虧3千萬照抱0050！郭哲榮喊話股民：4萬點以下最後翻身機會",
+      "source": "三立新聞",
+      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9ZSmJDYUFsdGttQU0zUU02dmZqR1BpZzFIZ2hGQTlNaUNoNmoxd3Rybl9JZXl4VXFOQzV4bTRibmJuQ1k2SFhLUjZ1WQ?oc=5",
+      "tags": [
+        "0050"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": true,
+      "timeTW": "11/23 15:10",
+      "clockTW": "15:10",
+      "age": "1小時前",
+      "pubTs": 1795417856
+    },
     {
       "title": "股王信驊領軍！世芯-KY、聯發科等6檔千金股漲停亮燈 扮多頭急先鋒",
       "source": "Yahoo股市",
@@ -18,7 +66,7 @@
       "affectsHoldings": true,
       "timeTW": "11/23 14:56",
       "clockTW": "14:56",
-      "age": "12分鐘前",
+      "age": "1小時前",
       "pubTs": 1795416975
     },
     {
@@ -35,7 +83,7 @@
       "affectsHoldings": true,
       "timeTW": "11/23 14:41",
       "clockTW": "14:41",
-      "age": "27分鐘前",
+      "age": "1小時前",
       "pubTs": 1795416077
     },
     {
@@ -52,7 +100,7 @@
       "affectsHoldings": true,
       "timeTW": "11/23 14:25",
       "clockTW": "14:25",
-      "age": "43分鐘前",
+      "age": "1小時前",
       "pubTs": 1795415142
     },
     {
@@ -68,40 +116,8 @@
       "affectsHoldings": true,
       "timeTW": "11/23 14:12",
       "clockTW": "14:12",
-      "age": "55分鐘前",
+      "age": "2小時前",
       "pubTs": 1795414371
-    },
-    {
-      "title": "政策護盤台股漲778點記憶體反攻這檔翻紅外資目標價給5字頭- 證券",
-      "source": "工商時報",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9KQ3FUMlpKN2pNWmctc0w1SjJNRnFxNEI2R1dwY0VvdU1sb0ZFWkhycjBPRXk3UV9jMXlXX1JDUThPZS1QY05RaXd3NmNYaXJ0ekF1bGRlQlZCUmFkY2t3?oc=5",
-      "tags": [
-        "法人/大盤"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": true,
-      "affectsHoldings": true,
-      "timeTW": "11/23 14:08",
-      "clockTW": "14:08",
-      "age": "1小時前",
-      "pubTs": 1795414080
-    },
-    {
-      "title": "台股注入強心針？南亞3檔「國安基金護盤概念股」飆漲停 吸金1155億元",
-      "source": "Yahoo股市",
-      "url": "https://news.google.com/rss/articles/CBMivwNBVV95cUxNb1A4cFZROWRQZ0Z6TXFZNUNPUG9QQmlsWU05VVM3dlRpSWFFSlVXR0paOTVnUFl6VWJVdS15bnlnQlFIUF9EaWJVck05TDNYTHJ3cS1ZVkhENDdSUDZEU2pKa0dUb20yMU9tRGZlb1F3OVgtejJwS3lKV213UXI1Rlp2Q1liYmxzWHQxeU9KRG9QMU5ENUZSTXpLUlRuZDB4QUtodGM1VmVoRzBja1I0dDdkbGhFRXU5VE9GeExUYUxlRkdxQ3pVNEdSWl9UZ2NzaUM3ZFFmaFdXQ25EZnRMMkJRNF9NNW9kSk4yWEdSaFVXSXZRMGlyeUk5WVc3TUl3QTFiWjhPc0ItcExHakp1N1VmMDJhR3d0TXFQOC1BT2E2NlBsSV9ETGo3Mmhqd0dBMEJkRS1OWkNmODNINHVEdUpVYXlxQTRHd1FMVjBrYVlocXc2NVRFNHhsa3AtVzF6a3U0ZjBHRXBqU2lXanI3eXhWNjh2aVBGZE41NTFiU2c4V0JTeGg5MjV4V1lGb0lCazdvc2Vvb25nTE5rdTRLMEtUVDdtSlg5aV90NnhkS01BeTFFM2p0dVBtbExqbnc?oc=5",
-      "tags": [
-        "法人/大盤"
-      ],
-      "urgent": true,
-      "isOutage": false,
-      "isMacro": true,
-      "affectsHoldings": true,
-      "timeTW": "11/23 14:05",
-      "clockTW": "14:05",
-      "age": "1小時前",
-      "pubTs": 1795413911
     },
     {
       "title": "台股重返3萬7 「正2教」衝了！0050正2、00685L爆量近200萬張",
@@ -116,24 +132,8 @@
       "affectsHoldings": true,
       "timeTW": "11/23 12:29",
       "clockTW": "12:29",
-      "age": "2小時前",
-      "pubTs": 1795408193
-    },
-    {
-      "title": "郭哲榮買0050已虧3000萬！預言台股翻身「今天最後機會」 喊話別砍在阿呆谷",
-      "source": "Yahoo股市",
-      "url": "https://news.google.com/rss/articles/CBMirgNBVV95cUxOZHFuSnMxWThlc2pBQXgtb3EzbGtqR1VMR1ozYUYxeEpObnRvQUpJRURvMVEwRExPQW4xTnFIS3lyZFUtTDlvYlcxc05DaUNDWno2ZnFvZ3J2T2FoRjJTZlJKaWg3dHJCMjM4Q3BrMktpaXJManpnamluQTY1Wi1pSHp5Mm1FMU1VS21fVDU4eXZRck9GdlJhLV9VR013eWpZRTFSdmdWYUJCYkNKUE54UjliMVpXQk8xY0VWYkZMOHNRWWpxcE5jWF9mdnFLdUhCU0cwNVNyVm5DZUtRQUJCN0o2aERxOGotUS1lUzR6SGpzYkNHYVAxSE1pcTBoY2FnRTUxZ3ZrdkF1MXlwZlEzMU83NlRfdHV2N29HLWhGNU1Ddmw2WnN4cnpHdXUwNDlqSHV1Qzc0X0lpY19KWEw3TDRNeUJLcjduaE9EVFJOVnhsUFZFTzU2Tm1DVHEwYmZxazY3amhiS0h6TzZaYy1QX1dSQVlNcjRLZFNoZ3drZDhQRGJtenAzUFNrd1ZZTEROYWMxSkRoSUxFYnJRQ0ZJQWNWZkVuOGpXMGFvOHhn?oc=5",
-      "tags": [
-        "0050"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": true,
-      "timeTW": "11/23 12:02",
-      "clockTW": "12:02",
       "age": "3小時前",
-      "pubTs": 1795406554
+      "pubTs": 1795408193
     },
     {
       "title": "台達電強勢反攻！開盤重挫後急拉攻上990元漲停",
@@ -148,7 +148,7 @@
       "affectsHoldings": false,
       "timeTW": "11/23 12:01",
       "clockTW": "12:01",
-      "age": "3小時前",
+      "age": "4小時前",
       "pubTs": 1795406464
     },
     {
@@ -164,7 +164,7 @@
       "affectsHoldings": false,
       "timeTW": "11/23 11:48",
       "clockTW": "11:48",
-      "age": "3小時前",
+      "age": "4小時前",
       "pubTs": 1795405680
     },
     {
@@ -180,7 +180,7 @@
       "affectsHoldings": false,
       "timeTW": "11/23 11:38",
       "clockTW": "11:38",
-      "age": "3小時前",
+      "age": "4小時前",
       "pubTs": 1795405114
     },
     {
@@ -196,7 +196,7 @@
       "affectsHoldings": false,
       "timeTW": "11/23 11:17",
       "clockTW": "11:17",
-      "age": "3小時前",
+      "age": "5小時前",
       "pubTs": 1795403821
     },
     {
@@ -212,7 +212,7 @@
       "affectsHoldings": false,
       "timeTW": "11/23 10:54",
       "clockTW": "10:54",
-      "age": "4小時前",
+      "age": "5小時前",
       "pubTs": 1795402462
     },
     {
@@ -229,7 +229,7 @@
       "affectsHoldings": true,
       "timeTW": "11/23 10:51",
       "clockTW": "10:51",
-      "age": "4小時前",
+      "age": "5小時前",
       "pubTs": 1795402267
     }
   ]
