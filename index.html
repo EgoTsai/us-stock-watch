@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./styles.css?v=20261118v1" />
+  <link rel="stylesheet" href="./styles.css?v=20261123v2" />
 </head>
 <body>
   <header class="site-header">
@@ -38,7 +38,7 @@
           ⇄ 切換至台股即時觀察站
         </button>
         <button type="button" class="btn" id="btn-refresh-now" title="立即直連最新盤口報價">
-          <span id="refresh-btn-text">立即更新 (01:00)</span>
+          <span id="refresh-btn-text">立即更新 (08s)</span>
         </button>
         <button type="button" class="btn" id="btn-expand-all" title="展開或收合所有個股6H完整頭條">
           展開全部頭條
@@ -113,7 +113,7 @@
     <section class="section-block" aria-labelledby="heading-watchlist">
       <div class="section-header">
         <h2 class="section-title" id="heading-watchlist">核心觀察名單（持倉優先置頂）</h2>
-        <span class="section-subtitle" id="watchlist-subtitle">每 60 秒自動即時同步夜盤 / 盤前 / 盤中 / 盤後價（按「立即更新」秒級直連最新盤口） · 點擊橫列展開 6H 頭條</span>
+        <span class="section-subtitle" id="watchlist-subtitle">每 8 秒自動即時同步盤前 / 盤中 / 盤後價（夜盤 45 秒極速同步，按「立即更新」秒級直連） · 點擊橫列展開 6H 頭條</span>
       </div>
 
       <div class="watchlist-toolbar">
@@ -198,10 +198,10 @@
 
     <footer class="site-footer">
       <span id="footer-color-rule">美股規範：<strong style="color: var(--up-text)">綠色＝上漲 / 想買居多</strong> · <strong style="color: var(--down-text)">紅色＝下跌 / 想賣居多</strong></span>
-      <span id="footer-schedule-note">排程：股價每 3 分鐘即時更新 · 6H 頭條、網友情緒與投資長建議每 6 小時及美股開盤前 10 分鐘 (09:20 ET) 自動同步</span>
+      <span id="footer-schedule-note">排程：瀏覽器每 8 秒即時跳價 · 後台每 45 秒同步美股夜盤與台股證交所行情 · 6H 頭條與投資長建議定時更新</span>
     </footer>
   </main>
 
-  <script src="./app.js?v=20261118v1" defer></script>
+  <script src="./app.js?v=20261123v2" defer></script>
 </body>
 </html>

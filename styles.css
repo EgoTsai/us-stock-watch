@@ -1600,3 +1600,45 @@ body {
     font-size: 0.75rem;
   }
 }
+
+/* Moomoo-style Live Quote Tick Flash (auto-respects US green-up & TW red-up vars) */
+@keyframes tickFlashUp {
+  0% {
+    background-color: var(--up-bg);
+    color: var(--up-text);
+    box-shadow: 0 0 0 2px var(--up-border);
+  }
+  100% {
+    background-color: transparent;
+    box-shadow: none;
+  }
+}
+
+@keyframes tickFlashDown {
+  0% {
+    background-color: var(--down-bg);
+    color: var(--down-text);
+    box-shadow: 0 0 0 2px var(--down-border);
+  }
+  100% {
+    background-color: transparent;
+    box-shadow: none;
+  }
+}
+
+.price-main,
+.index-close {
+  border-radius: 4px;
+  padding: 0 3px;
+  margin-right: -3px;
+  transition: color 0.15s ease;
+}
+
+.tick-flash-up {
+  animation: tickFlashUp 0.75s ease-out;
+}
+
+.tick-flash-down {
+  animation: tickFlashDown 0.75s ease-out;
+}
+

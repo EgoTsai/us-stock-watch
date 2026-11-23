@@ -1,7 +1,9 @@
 (() => {
   "use strict";
 
-  const REFRESH_INTERVAL_SEC = 60;
+  const FAST_QUOTE_INTERVAL_SEC = 8;
+  const FULL_SYNC_INTERVAL_SEC = 60;
+  const LIVE_DATA_SYNC_TICKS = 3; // every 3 × 8s = 24s also check fresh live-data (for US Overnight & TW TWSE 5s)
   const LIVE_REPO = "EgoTsai/us-stock-watch";
   const LIVE_BRANCH = "live-data";
 
@@ -32,8 +34,11 @@
     expandAll: false,
     expandedSymbols: new Set(),
     theme: localStorage.getItem("us_watch_theme") || "light",
-    secondsLeft: REFRESH_INTERVAL_SEC,
+    secondsLeft: FAST_QUOTE_INTERVAL_SEC,
+    fullSyncSecondsLeft: FULL_SYNC_INTERVAL_SEC,
+    fastTickCount: 0,
     isRefreshing: false,
+    isFastTicking: false,
     realtimeActive: false,
   };
 
@@ -219,8 +224,8 @@
     }
     if (elWatchlistSubtitle) {
       elWatchlistSubtitle.textContent = isTw
-        ? "每 60 秒自動即時同步台股盤中 / 收盤報價（按「立即更新」秒級直連最新盤口） · 點擊橫列展開 6H 頭條"
-        : "每 60 秒自動即時同步夜盤 / 盤前 / 盤中 / 盤後價（按「立即更新」秒級直連最新盤口） · 點擊橫列展開 6H 頭條";
+        ? "每 8 秒自動即時同步台股盤中報價（證交所官方源 45 秒極速校正，按「立即更新」秒級直連） · 點擊橫列展開 6H 頭條"
+        : "每 8 秒自動即時同步盤前 / 盤中 / 盤後價（夜盤 45 秒極速同步，按「立即更新」秒級直連） · 點擊橫列展開 6H 頭條";
     }
     if (elHeadingCio) {
       elHeadingCio.textContent = isTw
@@ -239,8 +244,8 @@
     }
     if (elFooterScheduleNote) {
       elFooterScheduleNote.textContent = isTw
-        ? "排程：台股盤中每 60 秒自動即時連線更新 · 6H 頭條、PTT/網友情緒與投資長建議每 6 小時自動同步"
-        : "排程：股價每 3 分鐘即時更新 · 6H 頭條、網友情緒與投資長建議每 6 小時及美股開盤前 10 分鐘 (09:20 ET) 自動同步";
+        ? "排程：瀏覽器每 8 秒即時跳價 · 後台每 45 秒同步台股證交所官方行情 · 6H 頭條與投資長建議每 6 小時更新"
+        : "排程：瀏覽器每 8 秒即時跳價 · 後台每 45 秒同步美股夜盤與盤前/盤後 · 6H 頭條與投資長建議定時更新";
     }
   }
 
@@ -357,7 +362,7 @@
     elStatusDot.classList.toggle("active", status.active);
 
     if (state.quotesData?.updatedAtTW) {
-      const modeTag = state.realtimeActive ? "(即時連線)" : "(每3分)";
+      const modeTag = state.realtimeActive ? "(8秒即時)" : "(45秒極速同步)";
       elQuotesUpdated.textContent = `股價更新：${state.quotesData.updatedAtTW} ${modeTag}`;
     }
     if (state.insightsData?.updatedAtTW) {
@@ -401,7 +406,7 @@
           ? `<span class="live-idx-badge">● 盤中即時 ${escapeHtml(idx.lastTimeET || "")} ${tzTag}</span>`
           : `<span>${escapeHtml(idx.sessionDate)} 收盤</span>`;
         return `
-          <article class="index-card">
+          <article class="index-card" data-idx-symbol="${escapeHtml(idx.symbol)}">
             <div class="index-top">
               <div>
                 <div class="index-name">${escapeHtml(idx.name)}</div>
@@ -2006,23 +2011,52 @@
     }
   }
 
-  async function applyRealtimeBrowserQuotes(quotesObj) {
+  function lookupCnbcQuote(qBySym, sym, mappedSym) {
+    const cands = [];
+    if (mappedSym) cands.push(String(mappedSym).toUpperCase());
+    const u = String(sym || "").toUpperCase();
+    cands.push(u);
+    if (u.endsWith(".TW")) cands.push(u.slice(0, -3) + "-TW");
+    else if (u.endsWith("-TW")) cands.push(u.slice(0, -3) + ".TW");
+    for (const k of cands) {
+      const cq = qBySym.get(k);
+      if (cq && parseCnbcNum(cq.last) !== null) return cq;
+    }
+    for (const k of cands) {
+      const cq = qBySym.get(k);
+      if (cq) return cq;
+    }
+    return null;
+  }
+
+  async function applyRealtimeBrowserQuotes(quotesObj, options = {}) {
     if (!quotesObj || typeof quotesObj !== "object") return false;
+    const { fetchBars = true, marketOverride = null } = options;
     try {
-      const isTw = state.market === "tw";
+      const isTw = (marketOverride || state.market) === "tw";
       const idxList = quotesObj.indices || [];
       const watchList = quotesObj.watchlist || [];
-      const cnbcSymbols = Array.from(
-        new Set([
-          ...idxList.map((idx) => CNBC_INDEX_MAP[idx.symbol] || idx.symbol),
-          ...watchList.map((st) => CNBC_STOCK_MAP[st.symbol] || st.symbol),
-        ])
-      );
-      if (!cnbcSymbols.length) return false;
+      const rawSyms = [
+        ...idxList.map((idx) => CNBC_INDEX_MAP[idx.symbol] || idx.symbol),
+        ...watchList.map((st) => CNBC_STOCK_MAP[st.symbol] || st.symbol),
+      ];
+      const expandedSyms = [];
+      const seenSyms = new Set();
+      for (const s of rawSyms) {
+        const list = isTw && String(s).toUpperCase().endsWith(".TW") ? [s, s.slice(0, -3) + "-TW"] : [s];
+        for (const cand of list) {
+          const cu = String(cand).toUpperCase();
+          if (!seenSyms.has(cu)) {
+            seenSyms.add(cu);
+            expandedSyms.push(cand);
+          }
+        }
+      }
+      if (!expandedSyms.length) return false;
 
       const url =
         "https://quote.cnbc.com/quote-html-webservice/restQuote/symbolType/symbol?symbols=" +
-        encodeURIComponent(cnbcSymbols.join("|")) +
+        encodeURIComponent(expandedSyms.join("|")) +
         `&requestMethod=itv&noform=1&partnerId=2&fund=1&exthrs=1&output=json&events=1&_=${Date.now()}`;
 
       const ctrl = new AbortController();
@@ -2047,7 +2081,7 @@
       const barTasks = [];
       for (const idxObj of idxList) {
         const cSym = (CNBC_INDEX_MAP[idxObj.symbol] || idxObj.symbol).toUpperCase();
-        const cq = qBySym.get(cSym);
+        const cq = lookupCnbcQuote(qBySym, idxObj.symbol, cSym);
         if (!cq) continue;
 
         const regPrice = parseCnbcNum(cq.last);
@@ -2085,12 +2119,17 @@
           idxObj.quoteTs = regTs;
           anyUpdated = true;
 
-          if (isTw) {
+          if (isTw || !fetchBars) {
             if (Array.isArray(idxObj.points) && idxObj.points.length >= 2) {
               const tail = idxObj.points[idxObj.points.length - 1];
               if (isLive) {
                 if (Math.abs(tail.p - idxObj.close) > 0.005 || tail.et !== cnbcHm) {
-                  idxObj.points.push({ t: regTs || tail.t + 60, et: cnbcHm, p: idxObj.close });
+                  if (tail.et === cnbcHm) {
+                    tail.p = idxObj.close;
+                    tail.t = regTs || tail.t;
+                  } else {
+                    idxObj.points.push({ t: regTs || tail.t + 60, et: cnbcHm, p: idxObj.close });
+                  }
                 }
               } else {
                 tail.p = idxObj.close;
@@ -2114,7 +2153,7 @@
       // 2. Update Watchlist stocks/ETFs/futures (preserving fresher Yahoo Overnight quotes during 20:00-04:00 ET)
       for (const st of watchList) {
         const cSym = (CNBC_STOCK_MAP[st.symbol] || st.symbol).toUpperCase();
-        const cq = qBySym.get(cSym);
+        const cq = lookupCnbcQuote(qBySym, st.symbol, cSym);
         if (!cq) continue;
 
         const regPrice = parseCnbcNum(cq.last);
@@ -2214,15 +2253,15 @@
 
   async function resolveLiveRawBaseUrl(isManual = false) {
     const cacheKey = "us_watch_live_sha_v1";
-    if (!isManual) {
-      try {
-        const cached = JSON.parse(localStorage.getItem(cacheKey) || "null");
-        if (cached?.sha && Date.now() - cached.ts < 45_000) {
-          return `https://raw.githubusercontent.com/${LIVE_REPO}/${cached.sha}/data`;
-        }
-      } catch {
-        // ignore storage error
+    // Keep GitHub API calls safely under the 60 req/hr unauthenticated IP cap (refresh SHA every ~70s or on manual click)
+    const shaTtlMs = isManual ? 5_000 : 70_000;
+    try {
+      const cached = JSON.parse(localStorage.getItem(cacheKey) || "null");
+      if (cached?.sha && Date.now() - cached.ts < shaTtlMs) {
+        return `https://raw.githubusercontent.com/${LIVE_REPO}/${cached.sha}/data`;
       }
+    } catch {
+      // ignore storage error
     }
 
     try {
@@ -2244,9 +2283,193 @@
         }
       }
     } catch {
-      // fallback to jsDelivr + branch raw URL if GitHub API rate-limited
+      // fallback to branch raw URL if GitHub API rate-limited
     }
     return `https://raw.githubusercontent.com/${LIVE_REPO}/${LIVE_BRANCH}/data`;
+  }
+
+  async function fetchFreshQuotesPayloadOnly(curMarket, isManual = false) {
+    const prefix = curMarket === "tw" ? "tw_" : "";
+    const qFile = `${prefix}quotes.json`;
+    const bust = Date.now();
+    const jsDelivrBase = `https://cdn.jsdelivr.net/gh/${LIVE_REPO}@${LIVE_BRANCH}/data`;
+    const liveBase = await resolveLiveRawBaseUrl(isManual);
+    const isShaUrl = !liveBase.endsWith(`/${LIVE_BRANCH}/data`);
+    const rawSuffix = isShaUrl ? "" : `?t=${bust}`;
+
+    const [cdnQ, rawQ] = await Promise.all([
+      fetchJsonSafe(`${jsDelivrBase}/${qFile}?t=${bust}`),
+      fetchJsonSafe(`${liveBase}/${qFile}${rawSuffix}`),
+    ]);
+    const mCache = state.cache[curMarket];
+    return pickFresherPayload(cdnQ, rawQ, mCache?.baseQuotes);
+  }
+
+  function triggerTickFlash(el, dir) {
+    if (!el || !dir) return;
+    el.classList.remove("tick-flash-up", "tick-flash-down");
+    void el.offsetWidth;
+    el.classList.add(dir > 0 ? "tick-flash-up" : "tick-flash-down");
+  }
+
+  function applyLiveQuotePatchesToDom(prevIdxPrices, prevStockPrices) {
+    const indices = state.quotesData?.indices || [];
+    const watchList = state.quotesData?.watchlist || [];
+    const isTw = state.market === "tw";
+    const tzTag = isTw ? "TW" : "ET";
+
+    // 1. Patch Index cards in-place (zero canvas flicker)
+    let anyIdxMoved = false;
+    indices.forEach((idx, i) => {
+      const card = elIndicesContainer.querySelector(`.index-card[data-idx-symbol="${CSS.escape(idx.symbol)}"]`);
+      if (!card) return;
+      const oldP = prevIdxPrices.get(idx.symbol);
+      const diff = oldP !== undefined ? idx.close - oldP : 0;
+      const dirClass = idx.isUp ? "up" : "down";
+
+      const closeEl = card.querySelector(".index-close");
+      if (closeEl) {
+        closeEl.textContent = formatNumber(idx.close);
+        if (Math.abs(diff) > 0.004) {
+          triggerTickFlash(closeEl, diff);
+          anyIdxMoved = true;
+        }
+      }
+      const pillEl = card.querySelector(".delta-pill");
+      if (pillEl) {
+        pillEl.className = `delta-pill ${dirClass}`;
+        pillEl.textContent = `${formatSignedNum(idx.change)} (${formatSignedPct(idx.changePct)})`;
+      }
+      const liveBadgeEl = card.querySelector(".live-idx-badge");
+      if (liveBadgeEl && idx.isLive) {
+        liveBadgeEl.textContent = `● 盤中即時 ${idx.lastTimeET || ""} ${tzTag}`;
+      }
+      const footerSpans = card.querySelectorAll(".index-range-footer span");
+      if (footerSpans.length >= 2) {
+        footerSpans[0].textContent = `昨收 ${formatNumber(idx.prevClose)}`;
+        footerSpans[1].textContent = `當日區間 ${formatNumber(idx.low)} – ${formatNumber(idx.high)}`;
+      }
+      if (anyIdxMoved) {
+        const canvas = document.getElementById(`index-canvas-${i}`);
+        const tooltip = document.getElementById(`index-tooltip-${i}`);
+        if (canvas) drawSingleIndexChart(canvas, tooltip, idx);
+      }
+    });
+
+    // 2. Patch Watchlist rows (or cleanly re-render if actively sorting by price/change)
+    const changedDirs = new Map();
+    for (const st of watchList) {
+      const oldP = prevStockPrices.get(st.symbol);
+      if (oldP !== undefined && Math.abs(st.price - oldP) > 0.004) {
+        changedDirs.set(st.symbol, st.price - oldP);
+      }
+    }
+
+    const sortDependsOnQuote =
+      state.sortBy.includes("change") || state.sortBy.includes("price");
+
+    if (sortDependsOnQuote && changedDirs.size > 0) {
+      renderWatchlist();
+      changedDirs.forEach((diff, sym) => {
+        const row = elWatchlistRows.querySelector(`.moomoo-row[data-symbol="${CSS.escape(sym)}"]`);
+        if (row) triggerTickFlash(row.querySelector(".price-main"), diff);
+      });
+      return;
+    }
+
+    for (const st of watchList) {
+      const row = elWatchlistRows.querySelector(`.moomoo-row[data-symbol="${CSS.escape(st.symbol)}"]`);
+      if (!row) continue;
+
+      const dirClass = st.isUp ? "up" : "down";
+      const sBadge = sessionBadgeClass(st.session);
+      const priceMainEl = row.querySelector(".price-main");
+      const priceSubEl = row.querySelector(".price-sub");
+      const chgBadgeEl = row.querySelector(".moomoo-chg-badge");
+      const chgAmtEl = row.querySelector(".chg-amt-sub");
+      const sessBadgeEl = row.querySelector(".session-badge");
+      const sparkEl = row.querySelector(".cell-spark");
+
+      if (priceMainEl) {
+        priceMainEl.textContent = formatNumber(st.price);
+        const diff = changedDirs.get(st.symbol);
+        if (diff) triggerTickFlash(priceMainEl, diff);
+      }
+      if (priceSubEl) {
+        priceSubEl.textContent =
+          st.extChangePct !== null && st.extChangePct !== undefined
+            ? `收盤 ${formatNumber(st.regularPrice)} · ${st.session} ${formatSignedPct(st.extChangePct)}`
+            : `高 ${formatNumber(st.dayHigh)} · 低 ${formatNumber(st.dayLow)}`;
+      }
+      if (chgBadgeEl) {
+        chgBadgeEl.className = `moomoo-chg-badge ${dirClass}`;
+        chgBadgeEl.textContent = formatSignedPct(st.changePct);
+      }
+      if (chgAmtEl) {
+        chgAmtEl.className = `chg-amt-sub ${dirClass}`;
+        chgAmtEl.textContent = formatSignedNum(st.change);
+      }
+      if (sessBadgeEl) {
+        sessBadgeEl.className = `session-badge ${sBadge}`;
+        sessBadgeEl.textContent = st.session;
+      }
+      if (sparkEl && changedDirs.has(st.symbol)) {
+        sparkEl.innerHTML = buildSparklineSvg(st.sparkline, st.isUp);
+      }
+    }
+  }
+
+  async function runFastQuoteTick() {
+    if (document.hidden || state.isRefreshing || state.isFastTicking || !state.quotesData) return;
+    const tickMarket = state.market;
+    state.isFastTicking = true;
+    state.fastTickCount += 1;
+
+    try {
+      const prevIdxPrices = new Map((state.quotesData.indices || []).map((x) => [x.symbol, x.close]));
+      const prevStockPrices = new Map((state.quotesData.watchlist || []).map((x) => [x.symbol, x.price]));
+
+      // Every 3rd fast tick (~24s), also pull fresh live-data quotes.json (crucial for US 24H Overnight & TW TWSE 5s official quotes)
+      let baseQ = state.baseQuotesData || state.quotesData;
+      let mergedLiveData = false;
+      if (state.fastTickCount % LIVE_DATA_SYNC_TICKS === 0) {
+        const freshBase = await fetchFreshQuotesPayloadOnly(tickMarket, false);
+        if (state.market !== tickMarket) return;
+        if (freshBase && freshBase.generatedAt !== state.baseQuotesData?.generatedAt) {
+          state.baseQuotesData = freshBase;
+          baseQ = freshBase;
+          mergedLiveData = true;
+        }
+      }
+
+      const workingQ = JSON.parse(JSON.stringify(mergedLiveData ? baseQ : state.quotesData));
+      const cnbcUpdated = await applyRealtimeBrowserQuotes(workingQ, {
+        fetchBars: false,
+        marketOverride: tickMarket,
+      });
+      if (state.market !== tickMarket) return;
+
+      if (cnbcUpdated || mergedLiveData) {
+        state.realtimeActive = cnbcUpdated || state.realtimeActive;
+        if (!cnbcUpdated && mergedLiveData) {
+          workingQ.updatedAtTW = baseQ.updatedAtTW || formatTwFullStr(Date.now());
+        }
+        state.quotesData = workingQ;
+        if (state.cache[tickMarket]) {
+          state.cache[tickMarket].baseQuotes = state.baseQuotesData;
+          state.cache[tickMarket].quotes = state.quotesData;
+          state.cache[tickMarket].realtime = state.realtimeActive;
+        }
+        applyLiveQuotePatchesToDom(prevIdxPrices, prevStockPrices);
+        renderHeaderMeta();
+      }
+    } catch {
+      // silent retry on next 8s tick
+    } finally {
+      state.isFastTicking = false;
+      state.secondsLeft = computeLiveMarketStatus().active ? FAST_QUOTE_INTERVAL_SEC : 30;
+      updateCountdownLabel();
+    }
   }
 
   async function loadAllData(isManual = false) {
@@ -2269,9 +2492,11 @@
           fetch(`https://purge.jsdelivr.net/gh/${LIVE_REPO}@${LIVE_BRANCH}/data/${qFile}`, { cache: "no-store" }).catch(
             () => {}
           ),
-          new Promise((r) => setTimeout(r, 350)),
+          new Promise((r) => setTimeout(r, 250)),
         ]);
       }
+
+      const liveBasePromise = resolveLiveRawBaseUrl(isManual);
 
       const localPromises = Promise.all([
         fetchJsonSafe(`./data/${qFile}?t=${bust}`),
@@ -2285,31 +2510,46 @@
         fetchJsonSafe(`${jsDelivrBase}/${fFile}?t=${bust}`),
       ]);
 
-      const [[localQ, localI, localF], [cdnQ, cdnI, cdnF]] = await Promise.all([localPromises, cdnPromises]);
-
-      let liveQ = null;
-      let liveI = null;
-      let liveF = null;
-      if (!cdnQ) {
-        const liveBase = await resolveLiveRawBaseUrl(isManual);
+      // Always fetch raw.githubusercontent.com for quotes in parallel so stale jsDelivr cache can never block fresh 45s quotes
+      const rawQuotesPromise = liveBasePromise.then((liveBase) => {
         const isShaUrl = !liveBase.endsWith(`/${LIVE_BRANCH}/data`);
         const qSuffix = isShaUrl ? "" : `?t=${bust}`;
-        [liveQ, liveI, liveF] = await Promise.all([
-          fetchJsonSafe(`${liveBase}/${qFile}${qSuffix}`),
-          fetchJsonSafe(`${liveBase}/${iFile}${qSuffix}`),
-          fetchJsonSafe(`${liveBase}/${fFile}${qSuffix}`),
+        return fetchJsonSafe(`${liveBase}/${qFile}${qSuffix}`);
+      });
+
+      const [[localQ, localI, localF], [cdnQ, cdnI, cdnF], rawQ] = await Promise.all([
+        localPromises,
+        cdnPromises,
+        rawQuotesPromise,
+      ]);
+
+      let liveI = null;
+      let liveF = null;
+      if (!cdnI || !cdnF) {
+        const liveBase = await liveBasePromise;
+        const isShaUrl = !liveBase.endsWith(`/${LIVE_BRANCH}/data`);
+        const qSuffix = isShaUrl ? "" : `?t=${bust}`;
+        [liveI, liveF] = await Promise.all([
+          !cdnI ? fetchJsonSafe(`${liveBase}/${iFile}${qSuffix}`) : null,
+          !cdnF ? fetchJsonSafe(`${liveBase}/${fFile}${qSuffix}`) : null,
         ]);
       }
 
+      if (state.market !== curMarket) return;
+
       const mCache = state.cache[curMarket];
-      const nextBaseQ = pickFresherPayload(cdnQ, liveQ, localQ, mCache?.baseQuotes);
+      const nextBaseQ = pickFresherPayload(cdnQ, rawQ, localQ, mCache?.baseQuotes);
       const nextI = pickFresherPayload(cdnI, liveI, localI, mCache?.insights);
       const nextF = pickFresherPayload(cdnF, liveF, localF, mCache?.flash);
 
       if (nextBaseQ) {
         state.baseQuotesData = nextBaseQ;
         const workingQ = JSON.parse(JSON.stringify(nextBaseQ));
-        state.realtimeActive = await applyRealtimeBrowserQuotes(workingQ);
+        state.realtimeActive = await applyRealtimeBrowserQuotes(workingQ, {
+          fetchBars: true,
+          marketOverride: curMarket,
+        });
+        if (state.market !== curMarket) return;
         state.quotesData = workingQ;
       }
       if (nextI) state.insightsData = nextI;
@@ -2333,7 +2573,8 @@
       renderWatchlist();
       renderCioAdvisory();
       await hydrateUntranslatedDom();
-      state.secondsLeft = REFRESH_INTERVAL_SEC;
+      state.secondsLeft = computeLiveMarketStatus().active ? FAST_QUOTE_INTERVAL_SEC : 30;
+      state.fullSyncSecondsLeft = FULL_SYNC_INTERVAL_SEC;
     } catch (err) {
       console.error("Failed to load watchlist data:", err);
     } finally {
@@ -2342,28 +2583,40 @@
       updateCountdownLabel();
       if (isManual) {
         elRefreshText.textContent = "已即時更新 ✓";
-        setTimeout(updateCountdownLabel, 1400);
+        setTimeout(updateCountdownLabel, 1200);
       }
     }
   }
 
   function updateCountdownLabel() {
     if (state.isRefreshing) return;
-    const m = String(Math.floor(state.secondsLeft / 60)).padStart(2, "0");
-    const s = String(state.secondsLeft % 60).padStart(2, "0");
-    elRefreshText.textContent = `立即更新 (${m}:${s})`;
+    const s = String(Math.max(0, state.secondsLeft)).padStart(2, "0");
+    elRefreshText.textContent = `立即更新 (${s}s)`;
   }
 
   function startTimers() {
     setInterval(() => {
-      if (state.secondsLeft <= 1) {
+      if (document.hidden) return;
+      state.fullSyncSecondsLeft -= 1;
+      if (state.fullSyncSecondsLeft <= 0) {
+        state.fullSyncSecondsLeft = FULL_SYNC_INTERVAL_SEC;
         loadAllData(false);
+        return;
+      }
+      if (state.secondsLeft <= 1) {
+        runFastQuoteTick();
       } else {
         state.secondsLeft -= 1;
         updateCountdownLabel();
       }
-      if (state.secondsLeft % 60 === 0) renderHeaderMeta();
     }, 1000);
+
+    // Instant refresh the moment user returns to this browser tab / unlocks phone
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden && !state.isRefreshing && !state.isFastTicking) {
+        runFastQuoteTick();
+      }
+    });
   }
 
   // Market switcher buttons

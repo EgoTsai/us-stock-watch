@@ -2350,12 +2350,40 @@ TW_FLASH_ENTITIES: list[tuple[str, str, list[str]]] = [
 ]
 
 
+def _cnbc_tw_lookup(cnbc_map: dict[str, dict], sym: str, c_sym: str | None = None) -> dict:
+    keys = []
+    if c_sym:
+        keys.append(c_sym.upper())
+    u = sym.upper()
+    keys.append(u)
+    if u.endswith(".TW"):
+        keys.append(u[:-3] + "-TW")
+    elif u.endswith("-TW"):
+        keys.append(u[:-3] + ".TW")
+    for k in keys:
+        q = cnbc_map.get(k)
+        if q and _parse_cnbc_float(q.get("last")) is not None:
+            return q
+    for k in keys:
+        if k in cnbc_map:
+            return cnbc_map[k]
+    return {}
+
+
 def fetch_cnbc_quote_map(cnbc_symbols: list[str]) -> dict[str, dict]:
     if not cnbc_symbols:
         return {}
+    expanded: list[str] = []
+    seen: set[str] = set()
+    for s in cnbc_symbols:
+        for cand in ([s, s[:-3] + "-TW"] if s.upper().endswith(".TW") else [s]):
+            cu = cand.upper()
+            if cu not in seen:
+                seen.add(cu)
+                expanded.append(cand)
     url = (
         "https://quote.cnbc.com/quote-html-webservice/restQuote/symbolType/symbol?symbols="
-        + urllib.parse.quote("|".join(cnbc_symbols), safe="|.")
+        + urllib.parse.quote("|".join(expanded), safe="|.-")
         + "&requestMethod=itv&noform=1&partnerId=2&fund=1&exthrs=1&output=json&events=1"
     )
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
@@ -2368,11 +2396,78 @@ def fetch_cnbc_quote_map(cnbc_symbols: list[str]) -> dict[str, dict]:
         return {}
 
 
+def fetch_twse_mis_quote_map(tw_symbols: list[str]) -> dict[str, dict]:
+    """Fetch official 5-second real-time quotes from TWSE MIS API for TAIEX & .TW securities."""
+    ex_chs: list[str] = []
+    code_to_sym: dict[str, str] = {}
+    for sym in tw_symbols:
+        if sym == "^TWII":
+            ex_chs.append("tse_t00.tw")
+            code_to_sym["t00"] = "^TWII"
+        elif sym.endswith(".TW"):
+            code = sym[:-3]
+            ex_chs.append(f"tse_{code}.tw")
+            code_to_sym[code] = sym
+        elif sym.endswith(".TWO"):
+            code = sym[:-4]
+            ex_chs.append(f"otc_{code}.tw")
+            code_to_sym[code] = sym
+    if not ex_chs:
+        return {}
+
+    cj = http.cookiejar.CookieJar()
+    opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
+    opener.addheaders = [
+        ("User-Agent", USER_AGENT),
+        ("Referer", "https://mis.twse.com.tw/stock/fibest.jsp"),
+        ("Accept", "application/json, text/javascript, */*; q=0.01"),
+    ]
+    try:
+        try:
+            opener.open("https://mis.twse.com.tw/stock/index.jsp", timeout=3).read(128)
+        except Exception:
+            pass
+        ex_param = "|".join(dict.fromkeys(ex_chs))
+        url = (
+            "https://mis.twse.com.tw/stock/api/getStockInfo.jsp?ex_ch="
+            + urllib.parse.quote(ex_param, safe="|._")
+            + f"&json=1&delay=0&_={int(time.time() * 1000)}"
+        )
+        raw = json.loads(opener.open(url, timeout=6).read().decode("utf-8"))
+        out: dict[str, dict] = {}
+        for row in raw.get("msgArray") or []:
+            if not isinstance(row, dict):
+                continue
+            code = str(row.get("c") or "").strip()
+            sym = code_to_sym.get(code)
+            if not sym:
+                continue
+            last_val = _parse_cnbc_float(row.get("z"))
+            if last_val is None or last_val <= 0:
+                continue
+            prev_val = _parse_cnbc_float(row.get("y"))
+            hi_val = _parse_cnbc_float(row.get("h"))
+            lo_val = _parse_cnbc_float(row.get("l"))
+            tlong = row.get("tlong")
+            ts_sec = int(int(tlong) // 1000) if tlong and str(tlong).isdigit() else int(time.time())
+            out[sym] = {
+                "last": last_val,
+                "prev": prev_val if (prev_val is not None and prev_val > 0) else None,
+                "high": hi_val if (hi_val is not None and hi_val > 0) else None,
+                "low": lo_val if (lo_val is not None and lo_val > 0) else None,
+                "ts": ts_sec,
+            }
+        return out
+    except Exception as exc:
+        print(f"[warn] fetch_twse_mis_quote_map failed: {exc}", file=sys.stderr)
+        return {}
+
+
 def _parse_cnbc_float(val: object) -> float | None:
     if val is None:
         return None
     s = str(val).replace(",", "").replace("%", "").strip()
-    if not s:
+    if not s or s == "-":
         return None
     try:
         return float(s)
@@ -2404,12 +2499,19 @@ def get_tw_market_session_overview() -> dict:
     }
 
 
-def build_tw_index_data(yc: YahooClient, idx_cfg: dict, q_map: dict[str, dict], cnbc_map: dict[str, dict]) -> dict:
+def build_tw_index_data(
+    yc: YahooClient,
+    idx_cfg: dict,
+    q_map: dict[str, dict],
+    cnbc_map: dict[str, dict],
+    twse_map: dict[str, dict] | None = None,
+) -> dict:
     sym = idx_cfg["symbol"]
     c_sym = idx_cfg.get("cnbcSymbol", sym).upper()
     chart = yc.get_chart(sym, interval="5m", range_str="5d", prepost=False)
     q = q_map.get(sym, {})
-    cq = cnbc_map.get(c_sym, {})
+    cq = _cnbc_tw_lookup(cnbc_map, sym, c_sym)
+    tq = (twse_map or {}).get(sym, {})
 
     timestamps = chart.get("timestamp") or []
     quote_ind = (chart.get("indicators", {}).get("quote") or [{}])[0]
@@ -2442,12 +2544,17 @@ def build_tw_index_data(yc: YahooClient, idx_cfg: dict, q_map: dict[str, dict], 
     target_idx = sorted_dates.index(target_date) if target_date in sorted_dates else -1
     prev_bars = by_date[sorted_dates[target_idx - 1]] if target_idx > 0 else []
 
-    q_reg_time = int(q.get("regularMarketTime") or 0)
+    q_reg_time = int(tq.get("ts") or q.get("regularMarketTime") or 0)
     is_live = bool(
-        target_date == today_key
+        (target_date == today_key or bool(tq))
         and now_tw.weekday() < 5
         and (9 * 60 <= hm_now < 13 * 60 + 32)
     )
+
+    twse_last = tq.get("last")
+    twse_prev = tq.get("prev")
+    twse_hi = tq.get("high")
+    twse_lo = tq.get("low")
 
     cnbc_last = _parse_cnbc_float(cq.get("last"))
     cnbc_prev = _parse_cnbc_float(cq.get("previous_day_closing"))
@@ -2455,12 +2562,18 @@ def build_tw_index_data(yc: YahooClient, idx_cfg: dict, q_map: dict[str, dict], 
     cnbc_lo = _parse_cnbc_float(cq.get("low"))
 
     close_price = round(
-        cnbc_last
-        if cnbc_last is not None
-        else float(q.get("regularMarketPrice") or (bars[-1][1] if bars else 0.0)),
+        twse_last
+        if twse_last is not None
+        else (
+            cnbc_last
+            if cnbc_last is not None
+            else float(q.get("regularMarketPrice") or (bars[-1][1] if bars else 0.0))
+        ),
         2,
     )
-    if cnbc_prev is not None and cnbc_prev > 0:
+    if twse_prev is not None and twse_prev > 0:
+        prev_close = round(twse_prev, 2)
+    elif cnbc_prev is not None and cnbc_prev > 0:
         prev_close = round(cnbc_prev, 2)
     elif sym != "^TWII" and q.get("regularMarketPreviousClose"):
         prev_close = round(float(q["regularMarketPreviousClose"]), 2)
@@ -2474,10 +2587,12 @@ def build_tw_index_data(yc: YahooClient, idx_cfg: dict, q_map: dict[str, dict], 
 
     bar_high = max((b[2] for b in bars), default=close_price)
     bar_low = min((b[3] for b in bars), default=close_price)
-    if cnbc_hi is not None:
-        bar_high = max(bar_high, cnbc_hi, close_price)
-    if cnbc_lo is not None:
-        bar_low = min(bar_low, cnbc_lo, close_price)
+    for hi_cand in (twse_hi, cnbc_hi):
+        if hi_cand is not None:
+            bar_high = max(bar_high, hi_cand, close_price)
+    for lo_cand in (twse_lo, cnbc_lo):
+        if lo_cand is not None:
+            bar_low = min(bar_low, lo_cand, close_price)
     day_high = round(bar_high, 2)
     day_low = round(bar_low, 2)
 
@@ -2522,21 +2637,41 @@ def build_tw_index_data(yc: YahooClient, idx_cfg: dict, q_map: dict[str, dict], 
     }
 
 
-def build_tw_stock_quote(yc: YahooClient, item_cfg: dict, q_map: dict[str, dict], cnbc_map: dict[str, dict]) -> dict:
+def build_tw_stock_quote(
+    yc: YahooClient,
+    item_cfg: dict,
+    q_map: dict[str, dict],
+    cnbc_map: dict[str, dict],
+    twse_map: dict[str, dict] | None = None,
+) -> dict:
     sym = item_cfg["symbol"]
     q = q_map.get(sym, {})
-    cq = cnbc_map.get(sym.upper(), {})
+    cq = _cnbc_tw_lookup(cnbc_map, sym)
+    tq = (twse_map or {}).get(sym, {})
     chart = yc.get_chart(sym, interval="5m", range_str="2d", prepost=False)
     meta = chart.get("meta", {})
+
+    twse_last = tq.get("last")
+    twse_prev = tq.get("prev")
+    twse_hi = tq.get("high")
+    twse_lo = tq.get("low")
 
     cnbc_last = _parse_cnbc_float(cq.get("last"))
     cnbc_prev = _parse_cnbc_float(cq.get("previous_day_closing"))
     cnbc_hi = _parse_cnbc_float(cq.get("high"))
     cnbc_lo = _parse_cnbc_float(cq.get("low"))
 
-    reg_price = cnbc_last if cnbc_last is not None else float(q.get("regularMarketPrice") or meta.get("regularMarketPrice") or 0.0)
-    prev_close = cnbc_prev if cnbc_prev is not None else float(q.get("regularMarketPreviousClose") or meta.get("previousClose") or reg_price)
-    reg_time = int(q.get("regularMarketTime") or meta.get("regularMarketTime") or int(time.time()))
+    reg_price = (
+        twse_last
+        if twse_last is not None
+        else (cnbc_last if cnbc_last is not None else float(q.get("regularMarketPrice") or meta.get("regularMarketPrice") or 0.0))
+    )
+    prev_close = (
+        twse_prev
+        if twse_prev is not None
+        else (cnbc_prev if cnbc_prev is not None else float(q.get("regularMarketPreviousClose") or meta.get("previousClose") or reg_price))
+    )
+    reg_time = int(tq.get("ts") or q.get("regularMarketTime") or meta.get("regularMarketTime") or int(time.time()))
 
     now_tw = dt.datetime.now(TW_TZ)
     hm_now = now_tw.hour * 60 + now_tw.minute
@@ -2581,8 +2716,16 @@ def build_tw_stock_quote(yc: YahooClient, item_cfg: dict, q_map: dict[str, dict]
                 down_vol += weight // 2
     vol_buy_ratio = (up_vol / (up_vol + down_vol)) if (up_vol + down_vol) > 0 else 0.5
 
-    day_high = cnbc_hi if cnbc_hi is not None else float(q.get("regularMarketDayHigh") or meta.get("regularMarketDayHigh") or reg_price)
-    day_low = cnbc_lo if cnbc_lo is not None else float(q.get("regularMarketDayLow") or meta.get("regularMarketDayLow") or reg_price)
+    day_high = (
+        twse_hi
+        if twse_hi is not None
+        else (cnbc_hi if cnbc_hi is not None else float(q.get("regularMarketDayHigh") or meta.get("regularMarketDayHigh") or reg_price))
+    )
+    day_low = (
+        twse_lo
+        if twse_lo is not None
+        else (cnbc_lo if cnbc_lo is not None else float(q.get("regularMarketDayLow") or meta.get("regularMarketDayLow") or reg_price))
+    )
 
     return {
         "symbol": sym,
@@ -2850,9 +2993,292 @@ def build_tw_cio_advisory(
     }
 
 
+def run_fast_quotes_patch(data_dir: Path, now_iso: str, now_tw_str: str) -> bool:
+    """Blazing-fast (~2-3s) quote-only patch for 45s live-data daemon without re-fetching 40+ chart histories or RSS news."""
+    us_path = data_dir / "quotes.json"
+    tw_path = data_dir / "tw_quotes.json"
+    if not us_path.exists() or not tw_path.exists():
+        return False
+    try:
+        us_payload = json.loads(us_path.read_text(encoding="utf-8"))
+        tw_payload = json.loads(tw_path.read_text(encoding="utf-8"))
+    except Exception:
+        return False
+
+    yc = YahooClient()
+    tw_all_syms = list({x["symbol"] for x in TW_INDICES} | {x["symbol"] for x in TW_WATCHLIST})
+    us_all_syms = [x["symbol"] for x in INDICES] + [x["symbol"] for x in WATCHLIST]
+    all_symbols = us_all_syms + tw_all_syms
+
+    us_cnbc_map_cfg = {"^DJI": ".DJI", "^IXIC": ".IXIC", "^GSPC": ".SPX", "CL=F": "@CL.1", "^VIX": ".VIX"}
+    cnbc_syms = list(
+        {us_cnbc_map_cfg.get(s, s) for s in us_all_syms}
+        | {x.get("cnbcSymbol", x["symbol"]) for x in TW_INDICES}
+        | {x["symbol"] for x in TW_WATCHLIST}
+    )
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
+        f_yh = pool.submit(yc.get_quotes, all_symbols)
+        f_cnbc = pool.submit(fetch_cnbc_quote_map, cnbc_syms)
+        f_twse = pool.submit(fetch_twse_mis_quote_map, tw_all_syms)
+        q_map = f_yh.result()
+        cnbc_map = f_cnbc.result()
+        twse_map = f_twse.result()
+
+    if not q_map and not cnbc_map and not twse_map:
+        return False
+
+    us_session_overview = get_market_session_overview()
+    cur_us_code = us_session_overview["sessionCode"]
+    now_ts = int(time.time())
+
+    # 1. Patch US indices
+    for idx_obj in us_payload.get("indices") or []:
+        sym = idx_obj.get("symbol", "")
+        q = q_map.get(sym, {})
+        cq = cnbc_map.get(us_cnbc_map_cfg.get(sym, sym).upper(), {})
+        reg_p = _parse_cnbc_float(cq.get("last"))
+        if reg_p is None:
+            reg_p = float(q["regularMarketPrice"]) if q.get("regularMarketPrice") is not None else None
+        if reg_p is None or reg_p <= 0:
+            continue
+        prev_c = _parse_cnbc_float(cq.get("previous_day_closing")) or (
+            float(q["regularMarketPreviousClose"]) if q.get("regularMarketPreviousClose") else idx_obj.get("prevClose", reg_p)
+        )
+        mkt_st = str(cq.get("curmktstatus") or q.get("marketState") or "").upper()
+        is_live = mkt_st in ("REG_MKT", "REGULAR")
+        chg = reg_p - prev_c
+        chg_pct = (chg / prev_c * 100.0) if prev_c else 0.0
+        idx_obj["close"] = round(reg_p, 2)
+        idx_obj["prevClose"] = round(prev_c, 2)
+        idx_obj["change"] = round(chg, 2)
+        idx_obj["changePct"] = round(chg_pct, 2)
+        idx_obj["isUp"] = chg >= 0
+        idx_obj["isLive"] = is_live
+        idx_obj["statusLabel"] = "盤中即時" if is_live else "收盤"
+        hi_v = _parse_cnbc_float(cq.get("high")) or q.get("regularMarketDayHigh")
+        lo_v = _parse_cnbc_float(cq.get("low")) or q.get("regularMarketDayLow")
+        if hi_v is not None:
+            idx_obj["high"] = round(max(float(hi_v), reg_p), 2)
+        if lo_v is not None:
+            idx_obj["low"] = round(min(float(lo_v), reg_p), 2)
+        if is_live:
+            live_hm = dt.datetime.fromtimestamp(now_ts, NY_TZ).strftime("%H:%M")
+            idx_obj["lastTimeET"] = live_hm
+            idx_obj["quoteTs"] = now_ts
+            pts = idx_obj.get("points") or []
+            if pts and (abs(pts[-1].get("p", 0) - idx_obj["close"]) > 0.005 or pts[-1].get("et") != live_hm):
+                pts.append({"t": now_ts, "et": live_hm, "p": idx_obj["close"]})
+                idx_obj["points"] = pts[-120:]
+
+    # 2. Patch US watchlist (supports Overnight, Pre, Regular, Post)
+    for st in us_payload.get("watchlist") or []:
+        sym = st.get("symbol", "")
+        q = q_map.get(sym, {})
+        cq = cnbc_map.get(us_cnbc_map_cfg.get(sym, sym).upper(), {})
+        reg_p = _parse_cnbc_float(cq.get("last"))
+        if reg_p is None and q.get("regularMarketPrice") is not None:
+            reg_p = float(q["regularMarketPrice"])
+        if reg_p is None or reg_p <= 0:
+            reg_p = float(st.get("regularPrice") or st.get("price") or 0.0)
+        if reg_p <= 0:
+            continue
+
+        reg_prev = _parse_cnbc_float(cq.get("previous_day_closing")) or (
+            float(q["regularMarketPreviousClose"]) if q.get("regularMarketPreviousClose") else float(st.get("prevClose") or reg_p)
+        )
+        reg_ts = int(q.get("regularMarketTime") or 0)
+        mkt_state = str(q.get("marketState") or cq.get("curmktstatus") or "").upper()
+
+        cands: list[tuple[int, float, str]] = []
+        reg_lbl = "盤中" if mkt_state in ("REGULAR", "REG_MKT") else "收盤"
+        cands.append((reg_ts or 1, float(reg_p), reg_lbl))
+
+        for field_p, field_t, lbl in [
+            ("preMarketPrice", "preMarketTime", "盤前"),
+            ("postMarketPrice", "postMarketTime", "盤後"),
+            ("overnightMarketPrice", "overnightMarketTime", "夜盤"),
+        ]:
+            val = q.get(field_p)
+            ts = int(q.get(field_t) or 0)
+            if val is not None and float(val) > 0:
+                if ts <= 0 and lbl == "夜盤" and (mkt_state == "OVERNIGHT" or cur_us_code == "OVERNIGHT"):
+                    ts = now_ts
+                if ts > 0:
+                    cands.append((ts, float(val), lbl))
+
+        ext = cq.get("ExtendedMktQuote")
+        if isinstance(ext, dict) and mkt_state not in ("REGULAR", "REG_MKT") and sym not in ("^VIX", "CL=F"):
+            ext_p = _parse_cnbc_float(ext.get("last"))
+            ext_t_raw = ext.get("last_time")
+            ext_ts = 0
+            if ext_t_raw:
+                try:
+                    ext_ts = int(dt.datetime.fromisoformat(str(ext_t_raw).replace("Z", "+00:00")).timestamp())
+                except Exception:
+                    ext_ts = 0
+            if ext_p is not None and ext_p > 0 and ext_ts > 0:
+                ext_type = str(ext.get("type") or "").upper()
+                cands.append((ext_ts, ext_p, "盤前" if "PRE" in ext_type else "盤後"))
+
+        cands.sort(key=lambda x: x[0])
+        latest_ts, latest_price, session_label = cands[-1]
+
+        if sym == "CL=F":
+            if mkt_state in ("REGULAR", "REG_MKT"):
+                session_label = "期貨夜盤" if cur_us_code == "OVERNIGHT" else ("期貨盤前" if cur_us_code == "PRE" else "期貨盤中")
+            else:
+                session_label = "期貨收盤"
+        elif sym == "^VIX":
+            session_label = "盤中" if mkt_state in ("REGULAR", "REG_MKT") else "收盤"
+
+        if session_label == "夜盤" and q.get("overnightMarketChange") is not None and q.get("overnightMarketChangePercent") is not None:
+            chg = float(q["overnightMarketChange"])
+            chg_pct = float(q["overnightMarketChangePercent"])
+        elif session_label == "盤前" and q.get("preMarketChange") is not None and q.get("preMarketChangePercent") is not None:
+            chg = float(q["preMarketChange"])
+            chg_pct = float(q["preMarketChangePercent"])
+        else:
+            base_c = float(reg_p) if session_label in ("盤前", "夜盤") else float(reg_prev or reg_p)
+            chg = latest_price - base_c
+            chg_pct = (chg / base_c * 100.0) if base_c else 0.0
+
+        reg_chg_pct = ((reg_p - reg_prev) / reg_prev * 100.0) if reg_prev else 0.0
+        ext_diff_pct = (
+            float(q["overnightMarketChangePercent"])
+            if (session_label == "夜盤" and q.get("overnightMarketChangePercent") is not None)
+            else (
+                ((latest_price - reg_p) / reg_p * 100.0)
+                if (reg_p and session_label not in ("盤中", "收盤", "期貨盤中", "期貨夜盤", "期貨盤前", "期貨收盤"))
+                else None
+            )
+        )
+
+        st["price"] = round(latest_price, 2)
+        st["prevClose"] = round(reg_prev, 2)
+        st["regularPrice"] = round(reg_p, 2)
+        st["regularChangePct"] = round(reg_chg_pct, 2)
+        st["change"] = round(chg, 2)
+        st["changePct"] = round(chg_pct, 2)
+        st["extChangePct"] = round(ext_diff_pct, 2) if ext_diff_pct is not None else None
+        st["isUp"] = chg_pct >= 0
+        st["session"] = session_label
+        st["quoteTs"] = int(latest_ts if latest_ts > 1 else now_ts)
+        st["updatedAt"] = dt.datetime.fromtimestamp(st["quoteTs"], TW_TZ).strftime("%m/%d %H:%M")
+        hi_v = _parse_cnbc_float(cq.get("high")) or q.get("regularMarketDayHigh")
+        lo_v = _parse_cnbc_float(cq.get("low")) or q.get("regularMarketDayLow")
+        if hi_v is not None:
+            st["dayHigh"] = round(max(float(hi_v), latest_price), 2)
+        if lo_v is not None:
+            st["dayLow"] = round(min(float(lo_v), latest_price), 2)
+        sp = st.get("sparkline") or []
+        if sp:
+            sp[-1] = st["price"]
+
+    # 3. Patch TW indices & watchlist (TWSE MIS 5s official -> CNBC -> Yahoo)
+    now_tw = dt.datetime.now(TW_TZ)
+    hm_tw = now_tw.hour * 60 + now_tw.minute
+    tw_is_live = bool(now_tw.weekday() < 5 and (9 * 60 <= hm_tw < 13 * 60 + 32))
+    tw_today_str = now_tw.strftime("%Y-%m-%d")
+    tw_idx_cnbc = {x["symbol"]: x.get("cnbcSymbol", x["symbol"]) for x in TW_INDICES}
+
+    for idx_obj in tw_payload.get("indices") or []:
+        sym = idx_obj.get("symbol", "")
+        tq = twse_map.get(sym, {})
+        cq = _cnbc_tw_lookup(cnbc_map, sym, tw_idx_cnbc.get(sym))
+        q = q_map.get(sym, {})
+        last_p = tq.get("last")
+        if last_p is None:
+            last_p = _parse_cnbc_float(cq.get("last"))
+        if last_p is None and q.get("regularMarketPrice") is not None:
+            last_p = float(q["regularMarketPrice"])
+        if last_p is None or last_p <= 0:
+            continue
+        prev_c = tq.get("prev") or _parse_cnbc_float(cq.get("previous_day_closing")) or float(idx_obj.get("prevClose") or last_p)
+        chg = last_p - prev_c
+        chg_pct = (chg / prev_c * 100.0) if prev_c else 0.0
+        q_ts = int(tq.get("ts") or q.get("regularMarketTime") or now_ts)
+        idx_obj["close"] = round(last_p, 2)
+        idx_obj["prevClose"] = round(prev_c, 2)
+        idx_obj["change"] = round(chg, 2)
+        idx_obj["changePct"] = round(chg_pct, 2)
+        idx_obj["isUp"] = chg >= 0
+        idx_obj["isLive"] = tw_is_live
+        idx_obj["statusLabel"] = "盤中即時" if tw_is_live else "收盤"
+        idx_obj["quoteTs"] = q_ts
+        if tw_is_live:
+            idx_obj["sessionDate"] = tw_today_str
+        hi_v = tq.get("high") or _parse_cnbc_float(cq.get("high"))
+        lo_v = tq.get("low") or _parse_cnbc_float(cq.get("low"))
+        if hi_v is not None:
+            idx_obj["high"] = round(max(float(hi_v), last_p), 2)
+        if lo_v is not None:
+            idx_obj["low"] = round(min(float(lo_v), last_p), 2)
+        if tw_is_live:
+            live_hm = dt.datetime.fromtimestamp(q_ts, TW_TZ).strftime("%H:%M")
+            idx_obj["lastTimeET"] = live_hm
+            pts = idx_obj.get("points") or []
+            if pts and (abs(pts[-1].get("p", 0) - idx_obj["close"]) > 0.005 or pts[-1].get("et") != live_hm):
+                pts.append({"t": q_ts, "et": live_hm, "p": idx_obj["close"]})
+                idx_obj["points"] = pts[-120:]
+
+    for st in tw_payload.get("watchlist") or []:
+        sym = st.get("symbol", "")
+        tq = twse_map.get(sym, {})
+        cq = _cnbc_tw_lookup(cnbc_map, sym)
+        q = q_map.get(sym, {})
+        last_p = tq.get("last")
+        if last_p is None:
+            last_p = _parse_cnbc_float(cq.get("last"))
+        if last_p is None and q.get("regularMarketPrice") is not None:
+            last_p = float(q["regularMarketPrice"])
+        if last_p is None or last_p <= 0:
+            continue
+        prev_c = tq.get("prev") or _parse_cnbc_float(cq.get("previous_day_closing")) or float(st.get("prevClose") or last_p)
+        chg = last_p - prev_c
+        chg_pct = (chg / prev_c * 100.0) if prev_c else 0.0
+        q_ts = int(tq.get("ts") or q.get("regularMarketTime") or now_ts)
+        st["price"] = round(last_p, 2)
+        st["prevClose"] = round(prev_c, 2)
+        st["regularPrice"] = round(last_p, 2)
+        st["regularChangePct"] = round(chg_pct, 2)
+        st["change"] = round(chg, 2)
+        st["changePct"] = round(chg_pct, 2)
+        st["isUp"] = chg_pct >= 0
+        st["session"] = "盤中" if tw_is_live else "收盤"
+        st["quoteTs"] = q_ts
+        st["updatedAt"] = dt.datetime.fromtimestamp(q_ts, TW_TZ).strftime("%m/%d %H:%M")
+        hi_v = tq.get("high") or _parse_cnbc_float(cq.get("high")) or q.get("regularMarketDayHigh")
+        lo_v = tq.get("low") or _parse_cnbc_float(cq.get("low")) or q.get("regularMarketDayLow")
+        if hi_v is not None:
+            st["dayHigh"] = round(max(float(hi_v), last_p), 2)
+        if lo_v is not None:
+            st["dayLow"] = round(min(float(lo_v), last_p), 2)
+        sp = st.get("sparkline") or []
+        if sp:
+            sp[-1] = st["price"]
+
+    us_payload["generatedAt"] = now_iso
+    us_payload["updatedAtTW"] = now_tw_str
+    us_payload["refreshIntervalSeconds"] = 45
+    us_payload["marketSession"] = us_session_overview
+    us_path.write_text(json.dumps(us_payload, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    tw_payload["generatedAt"] = now_iso
+    tw_payload["updatedAtTW"] = now_tw_str
+    tw_payload["refreshIntervalSeconds"] = 45
+    tw_payload["marketSession"] = get_tw_market_session_overview()
+    tw_path.write_text(json.dumps(tw_payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(
+        f"[ok] Fast-patched quotes.json & tw_quotes.json "
+        f"(Yahoo={len(q_map)}, CNBC={len(cnbc_map)}, TWSE_MIS={len(twse_map)})"
+    )
+    return True
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Fetch US & Taiwan Stock Watchlist quotes, flash & 6H insights.")
-    parser.add_argument("--mode", choices=["all", "quotes", "insights", "flash"], default="all")
+    parser.add_argument("--mode", choices=["all", "quotes", "quotes-fast", "insights", "flash"], default="all")
     parser.add_argument(
         "--preopen-check",
         action="store_true",
@@ -2870,8 +3296,14 @@ def main() -> None:
     data_dir = root_dir / "data"
     data_dir.mkdir(parents=True, exist_ok=True)
 
-    now_tw_str = dt.datetime.now(TW_TZ).strftime("%Y-%m-%d %H:%M")
+    now_tw_str = dt.datetime.now(TW_TZ).strftime("%Y-%m-%d %H:%M:%S")
     now_iso = dt.datetime.now(UTC_TZ).isoformat()
+
+    if args.mode == "quotes-fast":
+        if run_fast_quotes_patch(data_dir, now_iso, now_tw_str):
+            return
+        print("[info] Base quotes.json missing, falling back to full --mode quotes")
+        args.mode = "quotes"
 
     indices_data: list[dict] = []
     stocks_quotes: list[dict] = []
@@ -2882,15 +3314,20 @@ def main() -> None:
         yc = YahooClient()
         tw_all_syms = list({x["symbol"] for x in TW_INDICES} | {x["symbol"] for x in TW_WATCHLIST})
         all_symbols = [x["symbol"] for x in INDICES] + [x["symbol"] for x in WATCHLIST] + tw_all_syms
-        q_map = yc.get_quotes(all_symbols)
         cnbc_tw_syms = list({x.get("cnbcSymbol", x["symbol"]) for x in TW_INDICES} | {x["symbol"] for x in TW_WATCHLIST})
-        cnbc_tw_map = fetch_cnbc_quote_map(cnbc_tw_syms)
+        with concurrent.futures.ThreadPoolExecutor(max_workers=3) as fetch_pool:
+            f_q = fetch_pool.submit(yc.get_quotes, all_symbols)
+            f_cnbc = fetch_pool.submit(fetch_cnbc_quote_map, cnbc_tw_syms)
+            f_twse = fetch_pool.submit(fetch_twse_mis_quote_map, tw_all_syms)
+            q_map = f_q.result()
+            cnbc_tw_map = f_cnbc.result()
+            twse_map = f_twse.result()
 
         with concurrent.futures.ThreadPoolExecutor(max_workers=10) as pool:
             idx_futures = [pool.submit(build_index_data, yc, cfg, q_map) for cfg in INDICES]
             stk_futures = [pool.submit(build_stock_quote, yc, cfg, q_map) for cfg in WATCHLIST]
-            tw_idx_futures = [pool.submit(build_tw_index_data, yc, cfg, q_map, cnbc_tw_map) for cfg in TW_INDICES]
-            tw_stk_futures = [pool.submit(build_tw_stock_quote, yc, cfg, q_map, cnbc_tw_map) for cfg in TW_WATCHLIST]
+            tw_idx_futures = [pool.submit(build_tw_index_data, yc, cfg, q_map, cnbc_tw_map, twse_map) for cfg in TW_INDICES]
+            tw_stk_futures = [pool.submit(build_tw_stock_quote, yc, cfg, q_map, cnbc_tw_map, twse_map) for cfg in TW_WATCHLIST]
 
             indices_data = [f.result() for f in idx_futures]
             stocks_quotes = [f.result() for f in stk_futures]
@@ -2902,7 +3339,7 @@ def main() -> None:
         quotes_payload = {
             "generatedAt": now_iso,
             "updatedAtTW": now_tw_str,
-            "refreshIntervalMinutes": 3,
+            "refreshIntervalSeconds": 45,
             "marketSession": get_market_session_overview(),
             "indices": indices_data,
             "watchlist": clean_stocks,
@@ -2916,7 +3353,7 @@ def main() -> None:
         tw_quotes_payload = {
             "generatedAt": now_iso,
             "updatedAtTW": now_tw_str,
-            "refreshIntervalMinutes": 3,
+            "refreshIntervalSeconds": 45,
             "marketSession": get_tw_market_session_overview(),
             "indices": tw_indices_data,
             "watchlist": clean_tw_stocks,
