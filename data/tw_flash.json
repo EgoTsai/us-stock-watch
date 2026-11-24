@@ -1,57 +1,88 @@
 {
-  "generatedAt": "2026-11-24T09:32:17.720845+00:00",
-  "updatedAtTW": "2026-11-24 17:32:17",
+  "generatedAt": "2026-11-24T10:29:11.928136+00:00",
+  "updatedAtTW": "2026-11-24 18:29:11",
   "refreshIntervalMinutes": 3,
   "universeNote": "嚴選台股 AI 與半導體權值股（台積電/聯發科/鴻海/廣達/奇鋐/緯穎）＆ 三大法人/大盤重磅快報",
   "items": [
     {
-      "title": "黃仁勳回歸！鴻海、台積電、聯發科等556檔都漲停 金控總座曝供應鏈鬆口氣",
-      "source": "民視新聞網",
-      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBpeHFSampWX21iVFFQQ1NXSmRFZ0Z6YmdIdTkzMGtkcXhSdnZjSXQ5SGdEZWlCaVE3ZS1OSHYyc2dHV1JQMDJIbHZBTG9CRTVFZ2hsV1ZySWdkWUVWeEtXMA?oc=5",
+      "title": "月底資金吃緊！陸央行出手投放5,000億元穩市場流動- 兩岸",
+      "source": "工商時報",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE05b2xlTndvT0YxREhUZmxFX0hhZEdDaGQtcnQtTW96bVVrdm9nMXlUeWFNUXJNdFhRTEJvQkQ0dkhSUGR0RHRDc2pDZWgtRUNSMkxyTkhpRFU2VVJ0Ty0w?oc=5",
       "tags": [
-        "2330",
-        "2454"
+        "法人/大盤"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsHoldings": true,
+      "timeTW": "11/24 18:22",
+      "clockTW": "18:22",
+      "age": "7分鐘前",
+      "pubTs": 1795515720
+    },
+    {
+      "title": "韭菜翻車潮！台股大跌買0050反1 爆近4千萬元違約交割",
+      "source": "Yahoo股市",
+      "url": "https://news.google.com/rss/articles/CBMi4AJBVV95cUxNYy1IMG9xaXdvaHQ4a1Z1Vnhjc3gtM3NkQ1ktWHNQY2dzQ2RfU2JKV0JneUFDellXQnI1aVFSVFFrUG1xQ2ZKbllSQnE5SmdxNzU3Sy1kUUlVQ2x1NHdNSlZ5WFdYaWd3eVpjUEplaUhrSl9QYmtvazFxQ0pLU282dmlmNDRKZGpmdTJhYVlTRlpJTjBLOTh3UHhmVUZlaDItQUc0anJRcVRlc1B2dUFTOElnUVcwOWJPSHFTNlJ4Nm9Qbk9CN2JWTTNpcmdCMEtnSDI2alRILVgxMHl1Z21mSW1hSGt6dUV0S045SzE3WFEtUUdwS1BjalhydTRkYTRDSEZ3cl93cHFWRmp3dUdGQWRkeWJTak96OVd0cHVFRWZWN1hGRE5QX2k5d1ozbllIZmd6dDc2SXVqSGdmaV9ma3VVRG45SHZKaHh5MjBjcHY5clFNNTNRZ24ybjAxSEd1?oc=5",
+      "tags": [
+        "0050"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": true,
+      "timeTW": "11/24 18:14",
+      "clockTW": "18:14",
+      "age": "14分鐘前",
+      "pubTs": 1795515286
+    },
+    {
+      "title": "台股飆漲不敵美元強勢碾壓新台幣終場小貶作收- 金融",
+      "source": "工商時報",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9nWjZxZ1VSVU5TWk9CZ3A5c0JfTUpBUHd2eTZHYkh5Mlh2cXA0SWxZcEo0MjBNNzVMS3JGaTBBQUxwNW5wVDRrbzR5SzZEanY3UEtLa2dicm0yWFpfQzJ3?oc=5",
+      "tags": [
+        "法人/大盤"
+      ],
+      "urgent": true,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsHoldings": true,
+      "timeTW": "11/24 18:10",
+      "clockTW": "18:10",
+      "age": "19分鐘前",
+      "pubTs": 1795515000
+    },
+    {
+      "title": "主動ETF又賣飛了？00406A、00400A昨砍信驊、創意 今雙雙鎖死漲停 3檔AI股少賺恐逾2億",
+      "source": "旺得富理財網",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE12SHZwQk81S19TOEM1NHNUcEtGZnJTX3FUb05YZkxqLTZnSVotNzd0MjRkZTlXaE5UTWJVWGNFUGtHazRuODJCREhoOTBRZ2c2TlJicWk5Q09oeDhoQkJfRks4SVhXSGdOd2c?oc=5",
+      "tags": [
+        "3443"
+      ],
+      "urgent": true,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": false,
+      "timeTW": "11/24 17:57",
+      "clockTW": "17:57",
+      "age": "32分鐘前",
+      "pubTs": 1795514265
+    },
+    {
+      "title": "黃仁勳重磅回歸台股飆3310史上最大漲點！台積電領上市櫃621檔漲停「瑤池金母」拿下吸金王｜Yahoo財經掃描",
+      "source": "Yahoo股市",
+      "url": "https://news.google.com/rss/articles/CBMi7wRBVV95cUxOQV9TOEdVdGhTME1PNDFITGx2Rko2MXhYT0IyNk9vVGFTd1lQUHFDY1Zqdk5xeUgtaHBOSVRVbThfLUlzbFBMZFRPVmVtWTEwSGFPMUZqZ0tLSFBMQ0pCckx3Nk1BbDFZNnBqT0FuVkJKWmdxU3l0S2pEWUFxa2pmaTh0WkxZa3NmWUVjZ2JJQ0NTRy1QSFhOYkxHMDE4dkdpRVUyQktHZE9xelJMckNLQ2xHelNUd1gxZGN1Yi1oMFdDbzczQzBESUg0YkhoS2tTaS03YnpJYzNYUndpTlhoVl93NVdBUmdOTk84YnJHZVUySy10YUdzODFfOXpMNmQzU3NPQkxrbkJhZjhPUjN6OV9XMTBBVzVsMTFpMl9IcHUxZF9UYWdKcDY0eVR4YkwyeUdXYVVFZ0NnalowcWR2TGxjc1BtdDBqRWx3TXRBS0JZYTdBdHlleTNEaVhhR2NVSXJGZXg2RTBNV2JtdERTZXkwVi1FUWNMMUM4c0pjdkJ6RHpEU1hXY3hsTVNleW5SZmlrRDdXR3d0NFJwWThTMzQzRHJWRjIyeXJYc2FzVHltVFM0TzVSRTV6Yk9HX1dWcTJlb2RmaW1DWlJXRHMtRVlsd05NeWsyLS1uUVlqZkgtSkFwRkw3Wmk3WUR3ZVR2WWRfWXFTTWM2MmJMY2VEcWg4cV9FSVI3VmV2LTdZQTZXa1k5c0RzQ29SMEVzWm1PWlVFWkEyT1BHX3Q1ZUR0VHVTRDZnaUZwZndwRy13clBpMmxnODdjRnh0RHQ4Z2xqeWtGRVQtZ1NBemd5akxtMmF0R2QzdXQyNVJKcTA2VQ?oc=5",
+      "tags": [
+        "2330"
       ],
       "urgent": true,
       "isOutage": false,
       "isMacro": false,
       "affectsHoldings": true,
-      "timeTW": "11/24 17:23",
-      "clockTW": "17:23",
-      "age": "8分鐘前",
-      "pubTs": 1795512223
-    },
-    {
-      "title": "去年全年3倍！台股爆違約交割34億元 金管會分析2原因",
-      "source": "Yahoo股市",
-      "url": "https://news.google.com/rss/articles/CBMi6gJBVV95cUxPNXlMRjE1VmtqaDBzNFJFM3N4ZjM4SXVxMS12bldrd2I1UlhOVGxuS0ZrMWVQMzc0WFgzWFJZZ1BTSzRCSUR3eTJCX3MwbTdMRDQwUVFTVVRWSWkyMTdCa3l3S25SalBKNTJoVS1SSFlDeWw3bm53clBZR25LRG1JX0FwZkt5Z1pMX2hSN2hIXzc3SHJNNjhfcy1ObGJuLTRpd1pTSW1fY3ZsNzBqVWliel9MY2lnT1pLbVRTeXlPeE9BVTcyc3J1cWMzT2gteExkQlB5Z01IXzZ0QnlaR0N6clZSaTVOX1JrSDF0bHlVNUREeS1taTR3LURxZFVFN2tXdU5jQ2hwYk15cEFNdHZXbDF1cGRvdjdrRkQ4OUhXd1plZmhMZGNvMzJtbVQtbVBMX0tnQlcwNVR0a1ZVc3pCQlJidzgxcHhhY3NTMmxLcGZ0U2VYczV0cmY4eVU0MWpmbFpaR3RyZ0dxUQ?oc=5",
-      "tags": [
-        "法人/大盤"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": true,
-      "affectsHoldings": true,
-      "timeTW": "11/24 17:14",
-      "clockTW": "17:14",
-      "age": "17分鐘前",
-      "pubTs": 1795511682
-    },
-    {
-      "title": "台股逐洞賽｜外資持續賣超籌碼面未完全改善- 證券",
-      "source": "工商時報",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFAxRDRMM1RNRVByLXpGNi13RW43WG5qbTIwUkJrU2g0d1VTWldKNFU5R3Q2dHF2N04yYlluVlhLaEp3VXRybjkxX1lmdjg3QUlWZWthTVJaWkxlaEx2ODVz?oc=5",
-      "tags": [
-        "法人/大盤"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": true,
-      "affectsHoldings": true,
-      "timeTW": "11/24 16:58",
-      "clockTW": "16:58",
-      "age": "34分鐘前",
-      "pubTs": 1795510680
+      "timeTW": "11/24 17:24",
+      "clockTW": "17:24",
+      "age": "1小時前",
+      "pubTs": 1795512257
     },
     {
       "title": "台股震盪反成買點！0050全年淨申購破兆 再創ETF新里程碑",
@@ -66,7 +97,7 @@
       "affectsHoldings": true,
       "timeTW": "11/24 16:34",
       "clockTW": "16:34",
-      "age": "58分鐘前",
+      "age": "1小時前",
       "pubTs": 1795509271
     },
     {
@@ -82,41 +113,24 @@
       "affectsHoldings": true,
       "timeTW": "11/24 16:34",
       "clockTW": "16:34",
-      "age": "58分鐘前",
+      "age": "1小時前",
       "pubTs": 1795509262
     },
     {
-      "title": "黃仁勳救台股！57檔ETF齊漲停0050、0056都入列 近一季報酬前十名一次看",
-      "source": "Yahoo股市",
-      "url": "https://news.google.com/rss/articles/CBMipgNBVV95cUxNWjFCQkRmcVktQk54RDJfbHBXc01NajhXcEZyR3hNdWlzSWhhQ3JuVTRQWWlBenk5b2E2MjFCcm1hUTJvektlR3hTc1daWEw5ZmFYbkcxRG14VjZzdUhMVm95YUZHSzNXTnJrbHFZSXpTRjFKUlB2bWNFMWFseXJZd05MWXNQYTFURkNjOFZIUFFEZDBDSWt1R1NKTWdNazlCQXluR1M2U0o3U2xPWUtBX2Nsa1JxODJhelowM1dJV0owdFctNGZoNlpReWRFVjNCSC1LUTF3WnZQMDVuVkR4S0ZwRENUay0yUzNXOFlEQ2o0RkFoMjFDX0lvSVBMN0dwcW4yaU5yaTNiY1ptdEFNS0pjT0J3VXJRTGJPQm9HWF9FMjV2Ymh4UkdjTHpCX1pZQU9FRjRyX1Z6aUhqM0E2VUZSbTM4OXFJS1ZOMmFQbnFGM2pUeERYNU5fLVhWZ2x0Z19zcW1VUU9lellwbGY0NjJZM0dRVkltYy1tUVJTZ1c2M2x3VTdRdFpLREtKdkVKeTdlOUtjRlhnTkEwQWo1dGc5U2ZzZw?oc=5",
+      "title": "台股一天灌進18.64兆市值相當於三家聯發科下道關卡曝光",
+      "source": "Newtalk新聞",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9fczl2dHpXVlE1YUIwSkJHclA0d25yTUdSZ1pEVVg1UnZwVkZaRV9EeS1uLWJkSTFLaDZPeExiakpFWnAtdVF0TERQZmdrQzM0SngzRzJwNmo0LWs?oc=5",
       "tags": [
-        "0050"
-      ],
-      "urgent": true,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": true,
-      "timeTW": "11/24 15:57",
-      "clockTW": "15:57",
-      "age": "1小時前",
-      "pubTs": 1795507075
-    },
-    {
-      "title": "台股暴漲3300點，三大法人趕著賣超1230億！近700檔開盤即收盤，聯發科創意鴻海…法人點10檔最受惠",
-      "source": "今周刊",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPY2hmelhEby0tblExRG5VazJCQm01M0k5aFRTY2FVdjJVMm9LaTNFNTRiOVUydm5vNG9KYmFfVnRoMDJDN3VRVHBwY1F6SGlmb2hXYmMyTlpSTTNRTmdlWGVjaGpnY01XMjV0dVVqeHU0THUyTjJTMWg3ejdiSkJkaw?oc=5",
-      "tags": [
-        "法人/大盤",
         "2454"
       ],
       "urgent": false,
       "isOutage": false,
-      "isMacro": true,
+      "isMacro": false,
       "affectsHoldings": true,
-      "timeTW": "11/24 15:38",
-      "clockTW": "15:38",
-      "age": "1小時前",
-      "pubTs": 1795505880
+      "timeTW": "11/24 15:43",
+      "clockTW": "15:43",
+      "age": "2小時前",
+      "pubTs": 1795506196
     },
     {
       "title": "HVDC 放量仍有變數，台達電兩大成長動能受矚目",
@@ -131,7 +145,7 @@
       "affectsHoldings": false,
       "timeTW": "11/24 15:03",
       "clockTW": "15:03",
-      "age": "2小時前",
+      "age": "3小時前",
       "pubTs": 1795503837
     },
     {
@@ -147,7 +161,7 @@
       "affectsHoldings": false,
       "timeTW": "11/24 15:03",
       "clockTW": "15:03",
-      "age": "2小時前",
+      "age": "3小時前",
       "pubTs": 1795503796
     },
     {
@@ -164,7 +178,7 @@
       "affectsHoldings": true,
       "timeTW": "11/24 14:37",
       "clockTW": "14:37",
-      "age": "2小時前",
+      "age": "3小時前",
       "pubTs": 1795502266
     },
     {
@@ -180,7 +194,7 @@
       "affectsHoldings": true,
       "timeTW": "11/24 11:45",
       "clockTW": "11:45",
-      "age": "5小時前",
+      "age": "6小時前",
       "pubTs": 1795491953
     },
     {
@@ -197,7 +211,7 @@
       "affectsHoldings": true,
       "timeTW": "11/24 11:14",
       "clockTW": "11:14",
-      "age": "6小時前",
+      "age": "7小時前",
       "pubTs": 1795490073
     },
     {
@@ -213,24 +227,8 @@
       "affectsHoldings": true,
       "timeTW": "11/24 11:05",
       "clockTW": "11:05",
-      "age": "6小時前",
+      "age": "7小時前",
       "pubTs": 1795489522
-    },
-    {
-      "title": "焦點股》日月光投控：跳空漲停 近2萬張排隊等著買",
-      "source": "自由財經",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBQQ0NQd2hoeDNNcG9pR1dmdG4tdm5STm90R3VXUHhwbVFDdGp1R2dyd2N2Qm9aT1EydmYwOFExTGR2eHJNYll4TVlzaFBvVmVPNkNucWFZNjBBQWl3ZThz0gFkQVVfeXFMTVBXemJoN3pmQmVhQlcwWm94bnFfeEpLeVpfWGNwVFl0MEZFdThiWUJCLTVscy10eTJham9RQ1h6eEVaWTJjZ1NFaGk4NzRGTDZOSmp6eGVpckFUY0lpRUdkTWJHVA?oc=5",
-      "tags": [
-        "3711"
-      ],
-      "urgent": true,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": false,
-      "timeTW": "11/24 10:34",
-      "clockTW": "10:34",
-      "age": "6小時前",
-      "pubTs": 1795487687
     }
   ]
 }
