@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-11-24T10:29:11.928136+00:00",
-  "updatedAtTW": "2026-11-24 18:29:11",
+  "generatedAt": "2026-11-24T22:14:45.177149+00:00",
+  "updatedAtTW": "2026-11-25 06:14:45",
   "refreshIntervalSeconds": 45,
   "marketSession": {
     "statusText": "台股已收盤 · 聚焦台積電ADR與美股連動",
     "sessionCode": "CLOSED",
-    "etTime": "2026-11-24 05:29 ET",
-    "twTime": "2026-11-24 18:29 台灣時間"
+    "etTime": "2026-11-24 17:14 ET",
+    "twTime": "2026-11-25 06:14 台灣時間"
   },
   "indices": [
     {
