@@ -1,166 +1,166 @@
 {
-  "generatedAt": "2026-11-24T22:14:45.177149+00:00",
-  "updatedAtTW": "2026-11-25 06:14:45",
+  "generatedAt": "2026-11-25T08:02:34.305435+00:00",
+  "updatedAtTW": "2026-11-25 16:02:34",
   "scheduleNote": "每 6 小時自動更新 ＋ 美股開盤前 10 分鐘 (09:20 ET) 強制更新",
   "marketHeadlines": [
     {
-      "title": "才押中輝達反彈！億萬富豪大膽預言：美股至少得跌三分之一",
+      "title": "黃仁勳回歸輝達後首批「清算名單」曝！臨時CEO、《紐時》、Anthropic創辦人恐受波及",
       "source": "鉅亨網",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9LLS1pMGQ0N3pTVmZiWG9SWnhUdVlSWlFvOWxjbXRuQjh4WU5JLUxQYTNmN3JPZXpIeVMwVVhhLUNHb1o1NkZlUTRYZFFwRTg?oc=5",
-      "age": "24分鐘前",
-      "pubTs": 1795557063
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE95ejExNlNpcnhfNE1vall6RjNHZHJuRF80Q0VYSklieDVuNnp3Y19nemhXX0Z2blVLbkxWSExZaUg4OE41ZVpMcC1FRUZZXzg?oc=5",
+      "age": "32分鐘前",
+      "pubTs": 1795591827
     },
     {
-      "title": "被董事會耍了？散戶信了「黃仁勳不會回來」賣掉輝達 眼睜睜看股價狂飆31%",
+      "title": "市場預計聯準會持續升息之際 債券交易員卡位2028年激進降息",
       "source": "鉅亨網",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9OZ3BVOTdrWTJzWlg0QTlGS0VzZkw3TjN4d1ZCRkFQTVQ4c25CbTJNbjJsWTcyQklleUVIVU5Oa2VuYkZZQnIxZm9WQjJYdUk?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE5zSjBMVzhYZllUTHlxZ282TGZJY1lidVhUb1dHVDIzTFVMRjF1eGFieXRNSllvNDd5QlI0ZldUVldpdkNlV2l0YnZwdw?oc=5",
       "age": "1小時前",
-      "pubTs": 1795551412
+      "pubTs": 1795587604
     },
     {
-      "title": "黃仁勳回鍋 美股「人為築底」再添一樁",
-      "source": "經濟日報",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1yZVh1a0p0MnFwZnhiNlIxUlB2NWVYVmo2R0Q1R2thQmt0T084bERQZk5MQmVvam9ub0tmQXZVWnZWaEhEYkxFOVFzYnY4Tmw5TGNmejBDd1lnSVd6cVJtVGNR0gFiQVVfeXFMTXJlWHVrSnQycXBmeGI2UjFSUHY1ZVhWajZHRDVHa2FCa3RPTzhsRFBmTkxCZW9qb25vS2ZBdlVadlZoSERiTEU5UXNidjhObDlMY2Z6MEN3WWdJV3pxUm1UY1E?oc=5",
-      "age": "3小時前",
-      "pubTs": 1795546257
+      "title": "輝達強彈31.5%帶動美股反攻 投行示警調節持股",
+      "source": "Yahoo股市",
+      "url": "https://news.google.com/rss/articles/CBMiuwJBVV95cUxNampQVU1KOVdPNGlaajFNb0lVa1dxckxNbmhyc0JiZDBkSzVFOHlBR2d5T2FVZFdhb2ZmYTZCWUVVcGVlX1I3bHVhcVEzLU43Q2pkcWVPQU1vR1Y0eTFlZkRWSFRwZi1SYjU4NkhZOVo1MS1kako1UU54b1lXdWRWUnZaTWRISGZ4SWQ2Z2Y0bzBtRkE2MUloUlBEXzBKU0M5VVpvMFQxSU9GNm1XNmFMVzZUR3lPR0JNeV9WYlNhN3o2a002MXRkRVFwaDdtUXVBUXJDUk54aWd2X1Q5dE8yWHl4THE5TlpsREl3RzA4cU1MaTNxSU1NLTN3WUc3VG9RaXFDeDFFdE9CZWpVeG5leExSbEpCdTloMFhNOVo3VHBZbFFicXpOSjNVTVJybzBVVmNPWDhhOUtwR0U?oc=5",
+      "age": "2小時前",
+      "pubTs": 1795586524
     },
     {
-      "title": "黃仁勳回歸隔天召開員工大會穩軍心！輝達昨飆約31% 今跌逾7%",
+      "title": "華爾街拉警報！ 小摩揭美股10大風險：恐迎「非常難看耶誕節」",
+      "source": "Yahoo股市",
+      "url": "https://news.google.com/rss/articles/CBMi9gJBVV95cUxNZ1M0bG5qWUNkSm15MldrZjhvWFBLLXItSFJoNFgtSUQ3Y2xFWnA2NlJ1cFNqdjBTcEwxWmJtTmZFcTY4YURaRTc3ekgxRVpLV1hSV25DMFVqSTF1eXJPUHE1VjBYTzBqbzNuS09hMXZZLThhZFZ6WE1MelhueHliWHRvX0R3TUs3V3lRckJYOXNXUzZHSWhsWWstRlhKcFdfWm9pSlB0cEZ1NUVzWE1yMGNEX2pZalhuZ3I3MWhzRlhaYk8tWWZIR0o2SHRMTHhFRkhZMzJUdm95ZmYxRW9IMEE2bEkzazJFQ09aLUxlTks3NlV5NkVuMEJJaGQtNlF3aHZRUzl0bzZ0VmU5ZzVpN2J0ejVZLURGVnhpNXhCbTNXRHpWWE5zajRmcnFEazNKSXRiU3M0dE9QV3dXMkdIb1R0eVJBOFQyeHU5YlpyeGFCaTViN0ROcGMwQVBHV0FEbEl2WEFMazkxU09aQUEtZE1YS25Cdw?oc=5",
+      "age": "2小時前",
+      "pubTs": 1795584666
+    },
+    {
+      "title": "黃仁勳復職激勵輝達暴漲3成 美股劇震引發AI泡沫疑慮",
+      "source": "Yahoo股市",
+      "url": "https://news.google.com/rss/articles/CBMi6AJBVV95cUxOU3oyTDVGbng0QzNLQUVQRmItWVVyVG1vbk1lNEZJeFpjSmJNWHRXU1Z3czZuODhSWElqVzJSNnNOdDJWQ25zQ1J3U2J5TXR1c2l2UXRJcFUzcFRKVElUendfRlpqY3ZDXzR6b2t1ZjZjcW9UYUdyeDFNNnIwcmcwTmthaHV4eElOUEVoOXlnc3dsZUI5LTdGMFNCVzJ6V2NyMVp4OE1MNEJaWmZfTVBDVTZheENJOXA5N0tsMW80N210WERfUG1CSVFRNzZSY1BkdHNPR1ByTkJWNGl6SVE4a25teG52cGptdFQxdzFWcDlMRnBFRlVJRHZ4RmJ6SHlQeDJ0V1hodU8zRkFEUW5rMXRCUkVRSHJhZTlJbUlLV2pucm1kTy1GNlR0SFgtWnlsVjJhVXQ4Y21EbVYwVnlpMkxISUxNM2hsTzVSa1FobHE4ZjNyYVpfdFUzdTJ3QklmNEhFMEJ1OWo?oc=5",
+      "age": "4小時前",
+      "pubTs": 1795577724
+    },
+    {
+      "title": "「謝謝黃仁勳！」輝達選擇權交易暴賺1984% 神秘買家海撈2380萬美元",
       "source": "鉅亨網",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9lSmNuWElsd2RnczZ0dFdEVTFVeTg5dmF0SFhEN2E3OEg1aG1iWXJqY2t3ZFBxVVRZX3lsTTV0bGFYcU1xWTVPcV9YLTZaQVE?oc=5",
-      "age": "3小時前",
-      "pubTs": 1795544198
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5fRklITHFacllzcjE3QWZNel9nbjF3OVJ4TTQyTUd4ZjJ2NG4wOVdiN2cta1lsMEFidHlMSVdIcWp2MUg5VzR1c29OQ3hOXzA?oc=5",
+      "age": "5小時前",
+      "pubTs": 1795575605
     },
     {
-      "title": "Nvidia回跌6%拖累科技股 道瓊逆勢上漲423點",
+      "title": "黃仁勳復職暴露川普軟肋？BBC：習近平恐再打稀土牌牽制美股",
+      "source": "FTNN 新聞網",
+      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE5rb2tnLXFwMWUwWlZOemx5cW9YZGtoNGFLUVMxZmhqdkh2ZTVncGNtcWxiQ2hjRVVtWlJFSzFKeDY1SHNXVG8xcktONA?oc=5",
+      "age": "1小時前",
+      "pubTs": 1795589700
+    },
+    {
+      "title": "輝達回歸行情僅1天 Nvidia股價從漲31%→跌近6%",
       "source": "世界新聞網",
-      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOdW0tLVVTSmpyRXd1bjk0RUR1eHA1TGdCUGNyOEc2dktCelo2cGIyMDNvY2JrZUkzQnhqcFBGOWhiZG1aZHYwYnRiQVZKZmhQa05rUU50TzBNZDFmdkpZaGtqV0QzZU1EX0p3YXNINU43STRuZUYtLWhNY29TU19LQ19R0gFnQVVfeXFMTV8zWGtPdnh5RGhxUjg2emlqMEZWbWxQN1FpYWZRV3B2ZkZGeFFPa1ZJaC1nbDN5U3NCS2F6VnQ2YjBPWFBnN1RfbmV1Mko2NEdNeVNoMlRmRkZaenV0V0FxX3IydlRjNA?oc=5",
-      "age": "39分鐘前",
-      "pubTs": 1795556149
-    },
-    {
-      "title": "輝達GTC新品發表撞期國會問話！黃仁勳回鍋後硬仗接連來",
-      "source": "鉅亨網",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE40SWJsTi1IMDNLeEZCWFNvY1JYbUNEcndvVWZGVU4wREMyeXM3cGY3OEVWUExfd2lyeWJmQk04U2dJa29VNXBJLWFCZGFTcFE?oc=5",
-      "age": "4小時前",
-      "pubTs": 1795541718
-    },
-    {
-      "title": "美股急漲急跌洗爆投資人！現在追高還是繼續觀望？",
-      "source": "鉅亨網",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE8xc00tZkw0aG92c1A2OUhsSU04dHh4dk1YUXdtWS1JYzdnM0FfZWZBancwX0xpNXNGXzEyVW9CUDVZX29XU05fVkxaUkg1cEE?oc=5",
-      "age": "4小時前",
-      "pubTs": 1795540790
-    },
-    {
-      "title": "輝達獲利了結回檔拖累美股 那指標普收黑道瓊獨漲",
-      "source": "LINE TODAY",
-      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9TZzkyUmxuWGR1WHlBZm9hM0ZKNm1JbTdUeGpDVXRDSUlTdXBYTG9jei0xbkdSOUZucUtkOTM3OV9xUHFiVU9yTUZzMFB5NlNKZVhMNmNB?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5JWjcyaFIxVjh1NE9VRkhWaThGcW9ZQWs1ZGJUamk1bE5wWWtoaXhGelpvdV9VTWZzTG5XOHBJcUxzc0dhNjlNRkRWM2ZxSklmN2gtMnNhX3ZBX3YyWi01UTE2TXU0UjTSAWdBVV95cUxOSVo3MmhSMVY4dTRPVUZIVmk4RnFvWUFrNWRiVGppNWxOcFlraGl4Rnpab3VfVU1mc0xuVzhwSXFMc3NHYTY5TUZEVjNmcUpJZjdoLTJzYV92QV92MlotNVExNk11NFI0?oc=5",
       "age": "1小時前",
-      "pubTs": 1795554781
+      "pubTs": 1795587240
     }
   ],
   "stocks": {
     "GOOG": {
       "headlines": [
         {
-          "title": "Google 推出 Gemini 私隱新設定 可保留對話紀錄同時關閉 AI 訓練",
+          "title": "Google Meet 網頁版全面開放 1080p 高清視像傳送",
           "summary": "",
-          "source": "流動日報",
-          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxObUN5amh3VWJ6aUd3RmUyWEtDbHBiM1VHWFhGOTFIbldPcDFMUVJ2Q3dRQVNFR2VrbGk5ZTlFQjBtZ2VIU3dBR1FMQ0dWZFVTdkpFV2tlUWM4Mjhyem9OcjZ0QlRtSm9jM0NEZ1U4MFEwQ3AtZlFidURDeFBMbFF5SzZaNjJOQQ?oc=5",
-          "age": "41分鐘前",
+          "source": "www.5news.com.hk",
+          "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1GTTdZOGwwSVEtN2lQTDhwbnhiZUNEVTF3QXNJNXYxemhydzdNMlF6cElEbnY2WnJSc054Q1F3MVZiMEplVk5TZkYwS2JHQUlqbk9aM1kyNE5tTndYeGdXbWlDLVBidGVodW9vSA?oc=5",
+          "age": "1小時前",
           "within6h": true
         },
         {
-          "title": "Gemini 4 Neon 編碼能力獲好評，Google Antigravity 卻爆 Token 消耗爭議",
+          "title": "未積極處理有害內容 馬來西亞向Google索賠46億元",
           "summary": "",
-          "source": "BigGo 財經",
-          "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBoc2hzWUJ6NjRIanlsTV9WemVjd3h3X2FSQWxETzVrZ3lYclo4a2xSb1hOSjBGVXRhMjVVV1hjU1UyMGRFcWhRdk1RQnJoUlBXUUp1aVNLX21SNDhTLTlXaXNLTnpXRVVZNmZVNGZkanQ3WUhJR3hnTEtR?oc=5",
-          "age": "3小時前",
+          "source": "民視新聞網",
+          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBhempMMXBVSTZ2MHo1SG5jM2RRNnVTc0ZUaE5hNmtQdWM5X1QzQmJTM1pFUXNJZTBUWUFWdVd5LWIzMG9mTjVNR2xGQ3UyNVFFSThtN1FqN1NoUldTMWRzSg?oc=5",
+          "age": "1小時前",
           "within6h": true
         },
         {
-          "title": "GrapheneOS 自建 RCS 使用者端，擺脫對 Google Messages 的依賴",
+          "title": "Google Maps中國陸地驚見「台灣地圖」！網曝座標超傻眼 真正用途曝光",
           "summary": "",
-          "source": "BigGo 財經",
-          "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1VUWJTT0p5UnVJenFvNnZLb0xERDNCaVo1M2x6THhxWTZONlJNUWJiMEdyRS14aVVVWjQ3blBPeEVxWU9ydGRYN3NOMEdCbW4tMVIzTld6MkJQQkt2LUI4aTF2aFNFcGs3RmY3dlh6MHNQbGxQVkloTkJB?oc=5",
-          "age": "4小時前",
+          "source": "udn科技玩家",
+          "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5SeFdiTTNGcjF3MWF5X091OURFOGRzaWVpYzFFQ3d6Qi01TjM1SGhxVkJIX3FhUU5reTBUOF9tSFdXWlJNcWNqRGgwbzAtNWNXRkZiVFk2c3M1cGQ1bXZqLTFlZ0JzVXdQUDNyajR30gFfQVVfeXFMTlp5LUZxRGRZQzJVVXk1OEdNX2NLNE00VFVYYW5wTnpMSm01T0E0NHJqYmpIY2JZYlh3X2lnX2JnWUpVcV84SVlsWTR6TF9YbnBTaFJ5bHJlLTAxd2FNX3c?oc=5",
+          "age": "1小時前",
           "within6h": true
         }
       ],
       "sentiment": {
-        "buyPct": 56,
-        "sellPct": 44,
+        "buyPct": 53,
+        "sellPct": 47,
         "dominant": "buy",
         "label": "想買略多",
-        "summary": "社群討論 50%偏多 · 買權成交比 55% · Reddit熱度 #20"
+        "summary": "社群討論 50%偏多 · 買權成交比 55% · Reddit熱度 #17"
       }
     },
     "TSM": {
       "headlines": [
         {
-          "title": "台指期失守3萬9！費半瀉9％輝達挫8％台積ADR跌5％ 原因曝光",
+          "title": "台積電變臉、外資一夕變苦主！昨賺3.6兆全吐光 還倒貼800億元",
           "summary": "",
-          "source": "自由財經",
-          "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1QWHBweWVicWU0am5ULXAtRnFUN2ZIcDdqMHF2akxRNEZTazh4WTlfOGJrSng4U2ZZZjFVWHktSUZiMnNoQjZKa2VkaTllSkNhazgxOXh6ZmlTMkJUMmJV0gFkQVVfeXFMTVhSRjQ3dS0xQkpjMzJ2RFdoay1DOTBHMmJCbmpzVkdySENYLXNVMEh2YnlTUnUyUUUwR095dGs0U0dodmtzTVRKV0NLV3drUjZ0bU1uVnpTOHBUTHYtNHNqbER3OA?oc=5",
-          "age": "5小時前",
+          "source": "Yahoo股市",
+          "url": "https://news.google.com/rss/articles/CBMijwNBVV95cUxNZ2k1YmFwdFJCMXM5b29ybXZPcnZrRWR6aVUxT25zWThTVEhOZlNuOWg0ZFREbXFsTXFqQ2ZkeW1PdXlyUElEWjR5Tno4LXRsd05GS3JkTVhsTUJFT21yZGtvVHlCTXZOSnkxUWx6YWpHZWRoQlV1VER0VzRsOUlKZFN1X21RQUhHTTZFdk04eWw2a1pqSWRveUpIMWVMYl92Sjd4WV90Y25HaGNDeldnS1d1Nk9MbmcwWnRBSVRMSlphYjZRaUxFZ0ExZGpBdlJIeVBhcV9ZVVc4OFc5RFAxT2g5ZF9DMmxiZFdhRzQ1UE5ENWcwZU5ETERBaGxGV2NGS2ViQTI3d3gwaEJQUDRCS3pRcWZUaDczU25FX1JsOVpYSFN6QlV2cXFJY0VjOXRPTzVUOUNaUExjNW5IVnFteWNFYkNsdVVEaDlVX25mcHh3bTQ2bHFlbzQteFR3ZWpIcmJjcFlxUVpCemNmeU5vYlNIXzRXb2tHYy1FRXZ1ZUg4Z3lsOGJka3dyRElScXM?oc=5",
+          "age": "3小時前",
           "within6h": true
         },
         {
-          "title": "ETF 也能超越台積電！00981A亮燈成交金額衝逾439億奔第一",
+          "title": "放心上班只一天！台積電29位副總身價高點以來蒸發161億元",
           "summary": "",
-          "source": "太報 TaiSounds",
-          "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFA4WEU2UnFxNkdFX3E3WFU1QjBfNVN5YksyMGhrYm4tdm40OWRmVTFqZzljYXVBbVJRUG9vRWVXTGU1eHNwYnBtRTZGV1FsVFcxZmU1ZWN3SnVYTk5h?oc=5",
-          "age": "5小時前",
+          "source": "Yahoo股市",
+          "url": "https://news.google.com/rss/articles/CBMiggNBVV95cUxORVRBbmpzNVYzSjR6RjczWk1TbFhOZHZ5SDBERmdEUnExXzlaZmZPYU5aQlBFMjVibTVFckNPUnNqcU5PdmMwME5aSG5tbUcwSUFjdGRjajhHNFNZNndXNEVKbFgwRGtfN0xxYVpZNTdCZ2lVcER1a1VvYl9jN2Q5bE5rSjVicjBnLVlLb28zMDRmQXJFT3FmQW5WZW9hZUtFc2MwOTNoS3lfOF9FY0NmRmlvQWEzZnNfc1FKOHhkeDQtS0k3dWZTM0Zzd01vbEtkWlVSR1N6U2lYazFCTHlTbFk0cm9CVUlRTnk5cEwzUVhIaUUzS1cwdHVfQ2UwSWgtOTFXdHpQN1NWNU9OVjhmNk5nTUZFRlo4bVJqVnM5WFZLUjZwMHNUX1FzOFVpOHFydGFJeFZaZFZrVldVY2paYVU0RUlTX016czlNQ0w0TU1ZZ3dMM1Q2UXdKWnEyWHVVTjhKTU43eXB3V3JwYzlPejMxOFlLaGtNZzgydEJHZExJZw?oc=5",
+          "age": "3小時前",
           "within6h": true
         },
         {
-          "title": "台積電減稅申請已送達州長及學區",
+          "title": "台積電殺210元創第2大跌點！外媒曝擬砸226億美元赴德州建2奈米廠 公司這樣回應",
           "summary": "",
-          "source": "KBTX News 3",
-          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQaXpVUjAySlFSRXMzOXJnblRfRGZCZl9kWmtldVRzYm9UczFsTF9uRjQ4WEtyLUt0TTZUZU9yRzBudVFfdmlCU2VBSG9VV2tVQzk1Rnl2Y2FSTlVzaUp3eGFlSUI3anNaVEx4LVNTOUlfZW91LUlNcEFVdjJBdXo1TUprUzdIdmxab0E5eHlHblNWM0Fm?oc=5",
-          "age": "16分鐘前",
+          "source": "Yahoo股市",
+          "url": "https://news.google.com/rss/articles/CBMi3ANBVV95cUxPVGF3NGZRNklOa29DWkVveHRMMEM0dmRRUUZJMjZITjQ1eHBJdS0yS240MlVmWU5lNDRzSG5YbG52YXd3ZjVjbU5YeTJEd0tDejRlYTFFZWlBMXBjbEgxZ1B5bEQ2LTdjQWkwVkdKclJzeWJwdmN3a2J2VldGZlV5VjA2RmFkOFpQVWctWXlWYXRETWh4ZU5TT2FVZ092cG5aMGtsQmQ2TXBFc25TT1lLbnBweFY3RkpGR0NQbV9pVTJUZmRocm9HZFI3ZEJZUldfUjdFRXpRTXcweWRPMjgtdmZLdG94UXI0a0tsRkJYQ0FQSFhIaTAwNUFaUEhFTURpeGRJVnlmUjhfZGpqRWlrbzExWmJ4WXkyWHp6OVdzNW5VdVFUbTdjWWpuQlZ3UnBZMkZ3SHBMU3RJUEtrWTg3dnl1WTFnRDQ3WkJpWjB3ZEN0WDZjMzQ1VlBHTzJtbGpWcFptbnVjNWxPU0xJZFhEb3FWM1AxZlNuOUVSeDhHRzhlUTIwRmdIMEFXOFB0bDVoYkZxUEVlM2JHREtvT0hzUmRtUEhmRkVRMnJ6SW1BZTk3b2QyakI1VUxaZ3dCVF9ncVdxbVhRZy1QQUp4UnZUUVRHeERRRTg0M2Rqag?oc=5",
+          "age": "5小時前",
           "within6h": true
         }
       ],
       "sentiment": {
-        "buyPct": 49,
-        "sellPct": 51,
+        "buyPct": 46,
+        "sellPct": 54,
         "dominant": "sell",
         "label": "想賣略多",
-        "summary": "社群討論 46%偏多 · 買權成交比 61% · Reddit熱度 #124"
+        "summary": "社群討論 35%偏多 · 買權成交比 60% · Reddit熱度 #159"
       }
     },
     "TSLA": {
       "headlines": [
         {
-          "title": "SpaceX、特斯拉合併有譜- 日報",
+          "title": "(影)特斯拉Cybercab無人計程車12/4登台！網看台路況笑喊：自動駕駛戰勝不了三寶",
           "summary": "",
-          "source": "工商時報",
-          "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9zbWxSd3F4TkkzOXRuTDBOOVN1b0QzcjhwdDBaYTVtNmRqRTJ5bENWSEVNeFROUm5WZHkwaWhSTGs5ZUhqaHY0VnFfM1didjRUUzVOMTFQN3ZpN1ZTWWdB?oc=5",
+          "source": "Newtalk新聞",
+          "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBsZzYwbmhtLVNmcm5NWDRHVlFPVlQ1N3Fha0otU1ZBa3RUY1N3ZTYtLWlEaVJhdGtvTnJCcEthOVhGWVctZktHdnFkTU4tWW5BbW55dWZuVnIxRFk?oc=5",
+          "age": "35分鐘前",
+          "within6h": true
+        },
+        {
+          "title": "特斯拉 CYBERCAB 無人計程車首度來台！12／4 全台巡展",
+          "summary": "",
+          "source": "自由電子報汽車頻道",
+          "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE1qNXA5cks2ck5Lcjdua2xucF9FWUlxb0h0S2IxVnhjRTFIdmRTZEZzaHpXUmhJVnZMN19EMk1QaTJmbUFZTGtjRUF30gFPQVVfeXFMT005c2M1MkFEb2J0ZUhPSjBDWWl4R2RkUFdHcXY3T3l2VGg5X24zdTBCMDBCSVo4dnYtLU1vUFN3QUlhNTZuT2ZuVTB3MGdKVQ?oc=5",
           "age": "3小時前",
           "within6h": true
         },
         {
-          "title": "加皇資本市場首次給予特斯拉(TSLA.US)買入評級，目標價480美元",
+          "title": "特斯拉 FSD V15 先推給部分使用者！畫面直接預告轉彎和停車位！",
           "summary": "",
-          "source": "富途牛牛",
-          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNelA4MnlzTmRiMXBNeEZiSXlrMTFrbnBjaS1SYW1FYW10eFZ0ekVuS01LemRsY1ZSVzZRUXdKbHRUMnhkdm1vTjdVZmwwNlN1MkdBYjdTaVlQYjNKajcxTWtJSlA2U1ZlYWNUSjZWV0NLb3V5a0NCbGF5QmxBVDFfemlWb3Vab192M3lDSUZhbXNwVnM0bGJzMWZIODV5dndoMldkenZHSU51aGM0TGsw?oc=5",
-          "age": "1小時前",
-          "within6h": true
-        },
-        {
-          "title": "UBS維持Tesla「中立」評等，目標價從425美元調升至430美元",
-          "summary": "",
-          "source": "TradingView",
-          "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBXOVBsbE4wbDR3cW13NjFfSXFlRTNmbW9PX0phT0FOWFFCd2paemtCa0R0UTYzT09MWjhKV3k1cWNCYUVycDBveXRRanJ3bFpYRWNZaG1lT2ZpUDYwcUhBdXZzMjdBbW5QUnBGVg?oc=5",
-          "age": "5小時前",
+          "source": "JUKSY 街星",
+          "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTFBpRFNfVG8zVmNYUXg5VVU3LV9fdDdrYUFpN0hEUmhqSXNzNVhYWXFmTHNJNkRfemJkaTM1UHpyODNmNHVWS053SUdwWHQ?oc=5",
+          "age": "4小時前",
           "within6h": true
         }
       ],
       "sentiment": {
-        "buyPct": 60,
-        "sellPct": 40,
+        "buyPct": 63,
+        "sellPct": 37,
         "dominant": "buy",
         "label": "想買略多",
         "summary": "社群討論 50%偏多 · 買權成交比 51% · Reddit熱度 #24"
@@ -169,62 +169,46 @@
     "NVDA": {
       "headlines": [
         {
-          "title": "神減碼！《大賣空》貝瑞搶在輝達飆漲31%前 出售75%賣權",
+          "title": "黃仁勳重返輝達被緊抱15秒！藍衣女子疑是「餐廳外包人員」 曾經共患難關係曝光",
           "summary": "",
-          "source": "鉅亨網",
-          "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1ZNjBhMUQ3b0ZGYVlGX1BuX2VpU3c2aUE2LW55Zm9LbG81ZnZTT0xYVUNobW13bk9fTFFVQmJSVjQ4WGFUN1d3UVpLbVA3Z28?oc=5",
+          "source": "Yahoo股市",
+          "url": "https://news.google.com/rss/articles/CBMi4gNBVV95cUxPUXZNd0FjWjZyOTVmS3BrdUd6b3VZcmExYkVuQjhpekZQa0lYWkRiSmpnQVZlWnduVy0zQ1FjRmMxVk8td0lCM0pFTlM1ZHlzeVhOMlFLak03bzlIRE9leXIxQ3RnN2xvVDEza3hVZURFNzJkR1hOWG1FM01LXzRIM0YtSHFybENDWjdnMi1qMDc0OG5wdUJLNGt3bVE4UE9vaENTX25Vb19tN0dsY1FTa005N2FzRzJCT3lwa0FWVWhwQV9XUzZOMkNUMjJNYXVlazBTeXE1dEJfNW9UYXZnRFhULVhmamdNVl9IWVE3XzNnTG9NeXJpNWE5M3hjY2twdEFxeTN0NlMwc29vejlYWXZLVVZZM0ZNU0dJODZLaVFTUGc1T0lkWGpSWnRadFlYcThIcFBuUkpqLWc5dDllNWwwOWsza1NjTlhHMG1KNDhpMkJweGtGMGRHUk42Tl9nZXFGMUpac3FVbVJlWVZnNVJNVjBQSGFkc3k4aG95UTVLeUNVcHJ4bE1ia2dDVjFsN2tlb1ZjVmFrMzJyeE9SY2MzaWpSV2t3V0F4Wi13bVlJX3ZpQ1RSSG1xY3JTRnNxLUxfbV9uWElPS25GeVl6UlBrLVV1eFVEVExsaHl6WlE4QQ?oc=5",
           "age": "剛剛",
           "within6h": true
         },
         {
-          "title": "才押中輝達反彈！億萬富豪大膽預言：美股至少得跌三分之一",
+          "title": "黃仁勳回歸輝達後首批「清算名單」曝！臨時CEO、《紐時》、Anthropic創辦人恐受波及",
           "summary": "",
           "source": "鉅亨網",
-          "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9LLS1pMGQ0N3pTVmZiWG9SWnhUdVlSWlFvOWxjbXRuQjh4WU5JLUxQYTNmN3JPZXpIeVMwVVhhLUNHb1o1NkZlUTRYZFFwRTg?oc=5",
-          "age": "24分鐘前",
+          "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE95ejExNlNpcnhfNE1vall6RjNHZHJuRF80Q0VYSklieDVuNnp3Y19nemhXX0Z2blVLbkxWSExZaUg4OE41ZVpMcC1FRUZZXzg?oc=5",
+          "age": "32分鐘前",
           "within6h": true
         },
         {
-          "title": "〈紐約匯市〉美元回落 輝達帶動的AI漲勢退燒",
+          "title": "黃仁勳回歸輝達有神助？網朝聖「台南武廟月老點燈文」",
           "summary": "",
-          "source": "鉅亨網",
-          "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5DUmdwWk9iV1hobDlEWlM4UHYybWRYX2d6MUFOUS02Yjl5SUhDQUtXcmVyZEt2LVRGRlRhWnBESW41dlN3QThmTGpJLU9mOUU?oc=5",
-          "age": "44分鐘前",
+          "source": "Yahoo股市",
+          "url": "https://news.google.com/rss/articles/CBMi5gJBVV95cUxOMmdkRGV2MnBmX3NyeHJWVWVCWmJKTmpRbmpqQThYQmk1LVVWcGxZdmhMS3hXM0g0Y25kLU9sVEtrOGdZM1VfTmgtNXJycURNejlPc1BZcmdFbUx4LXM5dC0tZGgwTEgzd3p6ZnRvbEItd1ZENWI3UEZIdDdLZlQyU0QtUGN5MFg4MDlKRXNNUXFyWWp4RTVyRDFFR2ZjZHg0R0xHRTk4Z3lnMmdKakNLN3RPcWJKcEh3VVNVS0hqSWJUNjZhUEstcEM1RVN0RGFRNUEwTjN3MmRnSGtKUnpRNjdmWjRqODJkSjNoSk5BaldGaEcyZTdqQXNpQ3gxaXg1Y3Q3RnRGWTZSVG43NHhvUnR6M1gyME9seFYxUGhTRk0zSDFsMVNtNmFNV1FNUU5hUHZJbEp1NnJKaVJkY2pGNzJWNi0yYXdSU2dSWXVFc1NsNWFJMUQzQ25KSE5SbkxzODY3WmZ3?oc=5",
+          "age": "33分鐘前",
           "within6h": true
         }
       ],
       "sentiment": {
-        "buyPct": 56,
-        "sellPct": 44,
+        "buyPct": 51,
+        "sellPct": 49,
         "dominant": "buy",
         "label": "想買略多",
-        "summary": "社群討論 31%偏多 · 買權成交比 55% · Reddit熱度 #1"
+        "summary": "社群討論 29%偏多 · 買權成交比 55% · Reddit熱度 #1"
       }
     },
     "TQQQ": {
       "headlines": [
         {
-          "title": "那指暴力反彈恐是逃命波？BTIG：史上12次類似反彈無一倖免",
+          "title": "《國際經濟》川普急喊願「特赦」老黃！那指期慘跌 AI晶片廠盤後崩38%",
           "summary": "",
-          "source": "鉅亨網",
-          "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBOTDZSWDh5VTZqdE92OVpWREk2UjY4QlNPbjJaYnFLSkp0a3RPamhtbTE4ZmlYZmlBdWJIcXhjRHJYYkhGYTJBeHFwdw?oc=5",
+          "source": "富聯網",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOWUZaRkk1RWxDR0djZExCZEpObF9EUFl6Szd0VjNYdVd3WHhhU1VMdm5VM05OM3ZHVHhsNkUyR2MxYmUtWHp6Z0tGbW5kQUtaWEFNQ2txQkNVbzRMZ3pEOUtuQzQwRVZMcXVtZU1Hek1JS3I4eG5YSUR5ZTFtSzVVLV9KM3VQT2dU?oc=5",
           "age": "3小時前",
-          "within6h": true
-        },
-        {
-          "title": "輝達重挫拖累美股那指跌1.5% 關稅陰影壟罩市場",
-          "summary": "",
-          "source": "民視財經網",
-          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1DUkRzZTd2YWdtZ29QM29EdUxOdWdRTU1DZDBkRkxZWnZDZVYtTTBTWHRfNXM5SEpST1NZcm9wWjYxSm9OcjNGU251SXJobmRvbDdGVS1DNm5oa0NFUUlZRG1yX2wtUQ?oc=5",
-          "age": "2小時前",
-          "within6h": true
-        },
-        {
-          "title": "輝達在飆升31.5%後未能延續升勢，那指同步回檔，高盛指週一暴漲是由空頭回補推動",
-          "summary": "",
-          "source": "TradingKey",
-          "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxQaTFxOG1sTW5SZHIyU2lTRTl0NkhQdXR3ZThGaHhuLWlSV1Q3VTRVcmpHMUhIYVd4SzBQemdHTzN0TjczWTJVcklROVVPcDhvR3ZqM21QT1JtaXcwZG50REZGdmFjcTdGd3FXVmppR3QyUER0Ny1FTDh0VGNiYzA3bzU0MVBPb1BDSkRUdFVSN0IwVmEzTWZ1TFRVeXBJcEZMVGU2WEh0UUlock5OWllGTldEVk1VQlZrRi1ZbEF0WE03WmRBWmJ3SGxrRWk0WGFkTWE2dXpMOUpYQ0lOLTA0cERlWmJuU1BXS1hj?oc=5",
-          "age": "2小時前",
           "within6h": true
         }
       ],
@@ -233,33 +217,68 @@
         "sellPct": 46,
         "dominant": "buy",
         "label": "想買略多",
-        "summary": "社群討論 50%偏多 · 買權成交比 66% · Reddit熱度 #54"
+        "summary": "社群討論 50%偏多 · 買權成交比 66% · Reddit熱度 #48"
       }
     },
     "BOXX": {
       "headlines": [
         {
-          "title": "聯準會升息衝擊股市？歷史數據顯示一年內多能重拾漲勢",
+          "title": "AI概念股強彈推升美債殖利率 美元指數創今年新高",
           "summary": "",
-          "source": "蕃新聞",
-          "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9BUFVxNFQ4bklxUXNUaERyMXEtcG4xYTVVV3puZHJZak9peGM3TWdPcGtYY0VWNmZicnlfYUF5bnVpTklfN0w4Xzh4NWR4ZE1YQ1E?oc=5",
+          "source": "Yahoo股市",
+          "url": "https://news.google.com/rss/articles/CBMi2wJBVV95cUxPd25XalNvcnJFNVM0WGY2VlBNYzhBTGpTXzBGakhGSVg3NXFoLUtFLXRYTDVENktsZGNJVHNrc2Zid21jaDl4Z1VrZUtldVVGM0JkRm0tTVFLUXJ5STFyY0tCb3d0eC1oR1N6cm9CTzNVQklSb0RWZ3lvelpTanBwM2lIaGtqV0V3WmdISUpvWjg5NkVxem1TY0NHUEU4d1lIRk9mU0poaVliaTdLbGIzZTdHWlFqUzdCaW9SV2dQamdxNzhlNG1heEZFUjQwY0dxUzA2NXFHNEw5cmNEbVNzNmYzc3B1THdlQUMzVmU1ZWNOT2FVSW5YeVNoZFRfNEhKWWpLaVlRTTVmb1IyWmtLWlB3ZDI5M0NlUGlrcm1KenBHNFFXSkpyNTkyb092VEZhWllkalgtQzA5Z0V4LTB4Q25jUDMwUzdXS3pLR3N6dHBGVXZTNC1MLWNRbw?oc=5",
+          "age": "52分鐘前",
+          "within6h": true
+        },
+        {
+          "title": "市場預計聯準會持續升息之際 債券交易員卡位2028年激進降息",
+          "summary": "",
+          "source": "鉅亨網",
+          "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE41Nno2NGdmOUpuQllMYzc0SktwNFAxZG5KUktjbmEzRTBMYlpyOTdiNnNiSlFCZ1lPcHJOYXhLbGk4bmRaVUdJeUNoTXlSQTg?oc=5",
+          "age": "1小時前",
+          "within6h": true
+        },
+        {
+          "title": "AI魔考時刻系列4一融資壓力爆表！美債殖利率牽動AI業者融資環境，Anthropic掛牌後市場最深層焦慮是...",
+          "summary": "",
+          "source": "今周刊",
+          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQX1RrN1h0cF9iTU5PcjJ3MXZfaHlsR21SbjBHVlZkR1VkNmZDOVJkQlAxZnV6WlFGSjNXaGVnblotZVNvdEp4a1hhNUE2YzFMQjdpMHQybmtybTFVUFA4ZVFLeHB1ekRfV1NST1F1ajYtTG9SSFBsVDBMNlZway1QMg?oc=5",
+          "age": "2小時前",
+          "within6h": true
+        }
+      ],
+      "sentiment": {
+        "buyPct": 68,
+        "sellPct": 32,
+        "dominant": "buy",
+        "label": "想買居多",
+        "summary": "社群討論 76%偏多 · 6H主動買盤 37%"
+      }
+    },
+    "IAU": {
+      "headlines": [
+        {
+          "title": "現貨黃金、美元指數、歐元美元、美元日元、英鎊美元、美元加元、澳元美元、美元瑞郎、紐元美元支撐阻力位作者FX168",
+          "summary": "",
+          "source": "Investing.com 香港 - 股市報價& 財經新聞",
+          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBvV3pPeE53ZkttZHlXLXFZclk4ZnU2RUItVmpuYkJqZ3ZlUzMxSWVNY09aaWN1c0JiYS1TN0w3M01hbkgxTGxZZGZPUjhEVk5fbG5wZzFuUnU2YkJKVU9PZkVEUDN4UE0?oc=5",
+          "age": "1小時前",
+          "within6h": true
+        },
+        {
+          "title": "金價連跌：中國掀搶金潮 交易所、銀行示警",
+          "summary": "",
+          "source": "世界新聞網",
+          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE51YllMYXRKNGRZNElILUNpU3FrQVl1anZnNGwxckRha2pNcmtvY0Z2dV8zTDZORThJTUlwakM2bW92MTRFdmI1djZseTRrZm1Gbl9QQy0yUmpYb3RoU2FsclJtY2FrVVHSAWdBVV95cUxOdWJZTGF0SjRkWTRJSC1DaVNxa0FZdWp2ZzRsMXJEYWtqTXJrb2NGdnVfM0w2TkU4SU1JcGpDNm1vdjE0RXZiNXY2bHk0a2ZtRm5fUEMtMlJqWG90aFNhbHJSbWNha1VR?oc=5",
           "age": "2小時前",
           "within6h": true
         },
         {
-          "title": "聯準會升息預期主導市場，黃金無視美元走弱仍下跌",
+          "title": "印度黃金價格：11月25日的價格",
           "summary": "",
-          "source": "www.tmgm.com",
-          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNNG81T3V1Q3Rpd19QVkFRMmQ0U0lTd1puaUFWOE5td1l5Q1g0UVc5NFp3MXRiSUF6T0Y0OEdFRnR6UTNqWDlBQmdMMnljYy1RbFN3ZThxbTRsT2oxQWlZNDNXV3BjRjloa0hLaDZXUFBLUDgyWlNFeVZnNzl5c1c1aGdZY2dDMUxhWUFZX05VTXZPTy13U3ExU29udVhLdmFTLUtBamc3OHlxY1lpWlBYdTVoX0JpNElXa0o2Yk1oNVRyWmlqOVdYOQ?oc=5",
-          "age": "4小時前",
-          "within6h": true
-        },
-        {
-          "title": "王國臣：美債殖利率恐衝6%特朗普是最大風險",
-          "summary": "",
-          "source": "中國評論新聞",
-          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9BMXdDeFphU2RBeFFIVnJ6a1lHd0ZidzhJUlNQdDZnZUIwOWx3Y0M5aXltVm14V0RFcE04Q21RdGI4RjlhN1FyYjM5ZjQxYXZWTndKcGJjQjlzajdLTHRXWmxyUkFkRFU?oc=5",
-          "age": "5小時前",
+          "source": "FXStreet",
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPNnhwWkFUVkttMHN1WEhXRm5heFJFXzNIMFBJSzFkZkJ4TGhfRjNNekV6bnQwMWxiWUFJLUctRFk1WGI3QkVyRFctYzJxbzE4Y09sVVJqR0ZuQTNGZUgzb2dmc0R1N0RJNndsQk13cGdreWVNMkpuOElCdFNSdDBCUFJKdmRVWDZZdU9VNFAzMGQxZzVCaTlsbDZLT1Eyc3ZNWXREbg?oc=5",
+          "age": "3小時前",
           "within6h": true
         }
       ],
@@ -268,32 +287,129 @@
         "sellPct": 66,
         "dominant": "sell",
         "label": "想賣居多",
-        "summary": "社群討論 76%偏多 · 6H主動買盤 33%"
+        "summary": "社群討論 34%偏多 · 買權成交比 46% · 6H主動買盤 56%"
       }
     },
-    "IAU": {
+    "VOO": {
       "headlines": [
         {
-          "title": "黃金避險神話現盲點 危機當頭為何反遭拋售變現？",
+          "title": "瑞銀：料明年底標普500指數目標為8200點，看好財務實力較強超大規模雲端服務商",
           "summary": "",
-          "source": "LIFE 生活網",
-          "url": "https://news.google.com/rss/articles/CBMixAJBVV95cUxQWEpWRmpXTnpPM0VCcWFpTkRvRDFRZTA4Vm0yc1B4S0d2THZJVWlrbUs4UDF4S0lSUVE0VHM1ZmlWN1lpcVVheGVVZnItbXJjVGZsWUtRaDBjM05CUl83cERRYktvVmhCSnl4QUhYQW02Y2pENFc1M0hqdUtVbTZMYWgxVE0tN2lvZERESzF2cjEzMVlJMDFQT29LSXp1T1ozQU1WZHZmNG42cFlsem1EZi1XRWJqSWpCb3JOQzV6cUNiYllhVERsczN2TTQtU0R1cXR6b3NxSXkwX2otSkcyUEVyYS1qaC10ME53WXJlbHN4b1BQeUZuOVRqOFVidGRpU0w2LUFCb1pUMG9ZSHN6d2lxMlVYRE1IVkhpdDF5bEdCaF9rdE03NjY2dzdhNGt2bmRtbVdGblJ6TGdyVEZSZ2NUaTQ?oc=5",
-          "age": "1小時前",
+          "source": "etnet 經濟通",
+          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPS292UkRJcGFpSGk0UWxRTzlWYWZ2SW96a2lDMldkVjNpR1dqTkhpUFl5dGpxQVRKVW05cWJhaERBMlBOc2pHZVZQQU45Ry1fdUV2YmVnVzloVzlIQmpfcGxsMWVsSURTZ1BMemljaG1yeXZSM09xb19aWU5qMHd3NXBFMWZzOGNmTUxvS1ZvdWlwU2FWSHFTbHROV1ZOZ3E4Rm1RaDdCeHE?oc=5",
+          "age": "2小時前",
           "within6h": true
         },
         {
-          "title": "期貨商論壇／黃金期 保持觀望",
+          "title": "SpaceX 有望提前進標普 500 被動買盤效應可期",
           "summary": "",
-          "source": "UDN",
-          "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9Cb2wyYnNlRFdxNzR1alFQWDV0cUExZ3N0UUtuSko0RHZ6VVcyQS1EX0FKZDZTT2E5Z1g3cWFaM1ppai05WkpuLTd0VkhtQkkt0gFWQVVfeXFMTnNES1g2SnBReWQ2QmhHOW0ySDh1eW9JQndWZGVQUGRZYUdkUVkwMEJxaXRTdVVCZ0hQeGp1dWFjU1V1U1ZjdU9Tb2pxM21uV2lTNzRFaXc?oc=5",
+          "source": "聚財網",
+          "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE9HMXpQVVdTelJmSlBMT2JIR1gwY2FNSXp3eE1xSlVWNmxjNUc2WkNJWXdIaGZwcTdvby1KWWRsQlZMbmZDNU1FZ1Z4Y1k?oc=5",
           "age": "3小時前",
           "within6h": true
         },
         {
-          "title": "大行晨報",
+          "title": "法人觀點：小摩稱，SpaceX若與特斯拉合併，可望提前納入標普500",
           "summary": "",
-          "source": "星島頭條",
-          "url": "https://news.google.com/rss/articles/CBMiuwJBVV95cUxOQ2JEUjhRS0xtSGMwZktMUGpnRWV4amJDLXJ0dFM4Zm03LWg5d2huUHl6ME4yczZweW1jV2tuVTYyUzdyNWtDY3ZwdjdrajZ2SG9tdEZjekU1bWpKWnViM0ZEZGhoWUFwMnVpeEJ1TEtHY0JKaEVVWDlpb1dBZmNJd2RxWlNKR3ljOU1OR0ZtYmRHWWZndzZ5bHBHYnMzTXB1M0c4b3Y2Y2NTTTRnZHNOYzhlZTVWdFlmbnBiUTAxTzFOM29tZVQ4UWVvWFlGRV9BTXN1emhWVzhwQkN5YzBsN2ppdDZ2QUdOUnlxZ2ZqMDVWOTB0eFl0SXR2SFdaTWpnZm1EbWdXUXFMN2pSNlVjZHVId2Jic2VpMS1WU0F0ajJyWlludUxSM1A1eUVfMk55RVV2ZnFtMWVZRUU?oc=5",
+          "source": "富聯網",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQVk9rUEtQOHN3N0Rhc3E5Wjl6eDR0MWoyQ0o1Yjlac1pReUV0el9XamVOaUh3MFc3cFFiZ3g3a1JaZml6VThRblV5TXRyNGx0MnZCbld3RGxSMTNGZEs2dVBpOXBEX2cwd2Rpak5VeUx0V1E5TG92VFhCbnFLS20zalBXXzA5T25J?oc=5",
+          "age": "5小時前",
+          "within6h": true
+        }
+      ],
+      "sentiment": {
+        "buyPct": 54,
+        "sellPct": 46,
+        "dominant": "buy",
+        "label": "想買略多",
+        "summary": "社群討論 50%偏多 · 買權成交比 53% · Reddit熱度 #16"
+      }
+    },
+    "QQQ": {
+      "headlines": [
+        {
+          "title": "不是V了嗎？台股狂震重挫逾3400點！富坦專家揭科技股長抱與必勝「2招」",
+          "summary": "",
+          "source": "TradingView",
+          "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9yM2s5a0w0N3ZvN0xMUktfQjEwUmEtX3BqS2xDanVWXzgwNi1BQnVPcW9RdmVWanQwRTdKanNzSTc5YzJQdnJUbVE2NzNBRk9Zbk9zN01NN0FxbzBWdi1aUFdzeFo?oc=5",
+          "age": "3小時前",
+          "within6h": true
+        },
+        {
+          "title": "《國際經濟》川普急喊願「特赦」老黃！那指期慘跌 AI晶片廠盤後崩38%",
+          "summary": "",
+          "source": "富聯網",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOWUZaRkk1RWxDR0djZExCZEpObF9EUFl6Szd0VjNYdVd3WHhhU1VMdm5VM05OM3ZHVHhsNkUyR2MxYmUtWHp6Z0tGbW5kQUtaWEFNQ2txQkNVbzRMZ3pEOUtuQzQwRVZMcXVtZU1Hek1JS3I4eG5YSUR5ZTFtSzVVLV9KM3VQT2dU?oc=5",
+          "age": "3小時前",
+          "within6h": true
+        },
+        {
+          "title": "iSpecimen Inc 宣佈已重新符合納斯達克股東權益規定 作者 Investing.com",
+          "summary": "",
+          "source": "Investing.com 香港 - 股市報價& 財經新聞",
+          "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9EX1RjRHZUOXpocEhwSVlnZXVPV3BoN0w1SnpZZksxY3lfYWN6TlBtZUxnNTVEa19XaUc1c2k0dThEMjhIMjhNcnhIMi1tcFNKYldsREpyVU5uN2JnR0RMbXRoR1p6OElsMk9wYVhoWQ?oc=5",
+          "age": "4小時前",
+          "within6h": true
+        }
+      ],
+      "sentiment": {
+        "buyPct": 40,
+        "sellPct": 60,
+        "dominant": "sell",
+        "label": "想賣略多",
+        "summary": "社群討論 50%偏多 · 買權成交比 48% · Reddit熱度 #3"
+      }
+    },
+    "MSFT": {
+      "headlines": [
+        {
+          "title": "從資料邁向決策：Space42 與 Microsoft UAE 聯合發表報告，探討地理空間代理式AI 如何協助政府更有效地服務社會",
+          "summary": "",
+          "source": "香港財經時報HKBT",
+          "url": "https://news.google.com/rss/articles/CBMipwJBVV95cUxQRWIzN2FiVWwzVkN1X1dFQWgyaXdKVTlweWlUSWF1TjdRSXZIY2JTSzByaHhhZ1I2akpOSTFiVnlaVG5VdnBlZkpNcHh1ZERTUUJfTnpKVVRsSXVBemNXVUJJTE4xSWtnQkRBRjA0RnJ3QTB2THlORDNsNU5nd01LOGdhUnl3UWUwS1RtQ2xwUU9BQkJiWTktTV9hV0RYVURoT0FsNC1CU2N1ZGtwSjY5eWlEclZwMGtwandUS3RIT2lCbU9UcHhuaGg2M0JHckhoek5qX3pFRmZzR0dYZk5uUlRGUDNaQldLaXBEYXZqaTFySS11ODlJM20yNDRFZTJMc1FXRFJtQm9lLXlUeXN5X1J3SkRXUGE2djVzUTJ2WnBtdVJOMU1F?oc=5",
+          "age": "剛剛",
+          "within6h": true
+        },
+        {
+          "title": "用了近10年掰了！微軟待辦事項App明年退場用戶記得備份",
+          "summary": "",
+          "source": "Newtalk新聞",
+          "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE05aUdLcU1xako5MEtEY0VNcXVVampIbnY1MnpzcWtfYXk1MDIwcW1nUUNrMllEbkJyWi1IRm5Za3VVWVpzNGVLdGEyZlBmRk1qOHlBSkpEcWZvX2c?oc=5",
+          "age": "11分鐘前",
+          "within6h": true
+        },
+        {
+          "title": "微軟祭「紅色警戒」全面檢討全球服務大當機 軟體維修怎和「戰爭迷霧」扯上關係",
+          "summary": "",
+          "source": "風傳媒",
+          "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE1ramlzc0txaXctLUhLd0lVdWVRQ3I5bkJXZU5HeVpWR25SZ1psNm1OUUZ5RTg5QlZMUW9YdW5lNnptdTRzaEJyVFFXNG9Ddw?oc=5",
+          "age": "1小時前",
+          "within6h": true
+        }
+      ],
+      "sentiment": {
+        "buyPct": 64,
+        "sellPct": 36,
+        "dominant": "buy",
+        "label": "想買略多",
+        "summary": "社群討論 41%偏多 · 買權成交比 60% · Reddit熱度 #25"
+      }
+    },
+    "META": {
+      "headlines": [
+        {
+          "title": "Threads終於有iPad版！大螢幕「聊脆」更爽　加碼1實用功能",
+          "summary": "",
+          "source": "自由電子報3C科技",
+          "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE1mMWh0dlRGZ0dNY1dDQ3BUenpHQTJoZjRxVDU5Q1dFTVN1cFFCZm1EM1p3R3F5T1hvRWZJR1g3WTB5ZFhyZGR4S3JMUnXSAUxBVV95cUxNZjFodHZURmdHTWNXQ0NwVHp6R0EyaGY0cVQ1OUNXRU1TdXBRQmZtRDNad0dxeU9Yb0VmSUdYN1kweWRYcmRkeEtyTFJ1?oc=5",
+          "age": "1小時前",
+          "within6h": true
+        },
+        {
+          "title": "Meta 把 Muse AI 助理搬進 Instagram 私訊，不必切換 App 就能問貼文、規劃行程",
+          "summary": "",
+          "source": "TechNews 科技新報",
+          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNSTBxTHFIaElmOWtpS3lNdWpyeTVVTWpEUmpHcTdVaUQ5VC1jNy1ZN294QS1oaFBZcE9WWHphc1JZTER4cUoyeEN1X0hoMGVTYkFfUEZ1TFNKbVRJT2RaT0ZqLVJaSzVhZXBrbEtQb2NxWXNqMTBoeWJud2NJWUJzSndEaTFCNDQ0ZUdkdkx5SkhyQjllaVFXSA?oc=5",
           "age": "4小時前",
           "within6h": true
         }
@@ -303,33 +419,33 @@
         "sellPct": 54,
         "dominant": "sell",
         "label": "想賣略多",
-        "summary": "社群討論 34%偏多 · 買權成交比 48% · 6H主動買盤 85%"
+        "summary": "社群討論 45%偏多 · 買權成交比 58% · Reddit熱度 #30"
       }
     },
-    "VOO": {
+    "SPCX": {
       "headlines": [
         {
-          "title": "美股還能再漲近25%？德銀喊標普2027年底衝9000點",
-          "summary": "",
-          "source": "鉅亨網",
-          "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9VZTNibTNUUXJVRnV1Q3ZxUV9jWld5cVJFek1NRGtsYVhNdEVzcTdOWTNsRjctSVdiTlZKQmRPcFRrZThkSkdJR19wSUhjcjg?oc=5",
-          "age": "3小時前",
-          "within6h": true
-        },
-        {
-          "title": "輝達獲利了結回檔拖累美股 那指標普收黑道瓊獨漲",
-          "summary": "",
-          "source": "LINE TODAY",
-          "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9TZzkyUmxuWGR1WHlBZm9hM0ZKNm1JbTdUeGpDVXRDSUlTdXBYTG9jei0xbkdSOUZucUtkOTM3OV9xUHFiVU9yTUZzMFB5NlNKZVhMNmNB?oc=5",
-          "age": "1小時前",
-          "within6h": true
-        },
-        {
-          "title": "納斯達克指數和標普500指數在周一受輝達提振大漲後於周二收低",
+          "title": "大行評級｜大摩：SpaceX在新興物理智能經濟中角色關鍵，維持“增持”評級及目標價300美元",
           "summary": "",
           "source": "TradingView",
-          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1ldlJ1bXVjaF9heWdydVduRDRGUHdIQUlQUTk4Qnd6NVZUckJxUnlET3hLbWZ5Rjl1VktqNzRXYkxMYjNVMHpSazFpeXRIWHhuZGh5VmctTkRwczA4UDFBYVhuZm9XYktKbWhNRUVIMFp0VjNyN2o0?oc=5",
+          "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5sc2dSbUhkNW9tMU9LT2dvQURiMkRZV0dLeDJRSmxNUWhEQXJvWG9QbFFKUkRaZjBtVnF1dWxYNVFKaXdHdjR5UjVUVmdLbTMxMmxLWHhTZXUzLXNicTZXWUZPZHE4WXNMakE?oc=5",
+          "age": "剛剛",
+          "within6h": true
+        },
+        {
+          "title": "亞馬遜衛星升空計畫受阻 難以追趕SpaceX星鏈",
+          "summary": "",
+          "source": "世界新聞網",
+          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9sWFViekF2SHB6Smd4dnYzamRpdEFTZXZxUjlMRUpTRGZLZnRHSGk4ZUplRE1UdWZ2ZlZObWRFYTBMWVBNRTg2My1HNVFxOGFiWG8yZmMxSUVxWGJlLVBBdk5Gdy02SHfSAWdBVV95cUxPbFhVYnpBdkhwekpneHZ2M2pkaXRBU2V2cVI5TEVKU0RmS2Z0R0hpOGVKZURNVHVmdmZWTm1kRWEwTFlQTUU4NjMtRzVRcThhYlhvMmZjMUlFcVhiZS1QQXZORnctNkh3?oc=5",
           "age": "1小時前",
+          "within6h": true
+        },
+        {
+          "title": "Tesla 與 SpaceX 力拚年底前達成合併協議，民主黨掌控國會恐增添交易變數",
+          "summary": "",
+          "source": "INSIDE",
+          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOekxIQlpfY0lTS3JLejJwLUF2bGlkeXVkOWt6QVhKZS1yRURBVEdVYndrQW1ySXQ1SEd6Nko5OWY2RG1XY0JESFBhWW9KcDlGZmV1WGFVS29lUDNJbXZoV2ZXUjBLN2kwdmRyNjhXQ2tfaE5XbldEdjV5dHIwVzhDMk9ZaDNKN2ZxbTlCT3lxWUNKLW5X?oc=5",
+          "age": "2小時前",
           "within6h": true
         }
       ],
@@ -338,242 +454,67 @@
         "sellPct": 51,
         "dominant": "sell",
         "label": "想賣略多",
-        "summary": "社群討論 50%偏多 · 買權成交比 57% · Reddit熱度 #19"
-      }
-    },
-    "QQQ": {
-      "headlines": [
-        {
-          "title": "那指暴力反彈恐是逃命波？BTIG：史上12次類似反彈無一倖免",
-          "summary": "",
-          "source": "鉅亨網",
-          "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBOTDZSWDh5VTZqdE92OVpWREk2UjY4QlNPbjJaYnFLSkp0a3RPamhtbTE4ZmlYZmlBdWJIcXhjRHJYYkhGYTJBeHFwdw?oc=5",
-          "age": "3小時前",
-          "within6h": true
-        },
-        {
-          "title": "那斯達克指數跌入修正區間 歷史數據顯示轉為熊市機率僅兩成",
-          "summary": "",
-          "source": "Yahoo股市",
-          "url": "https://news.google.com/rss/articles/CBMioANBVV95cUxNREVCYzg5cXRJM1paLVE3VF9IWWFLUzgyZUY0RlRFM2UtLWI2cjNlbndoRzlQUnZzRHVZTk9NRnprV3JRVGVCNFg2a2RfUkZSeURXWDRDTHFOUGJyMjlaeTh1RHJybG9IeDg4ZDJycmNJNjJjZzZaQmg2RjVzVkVIU3F5dEY4STItR0FoMnprMlIxc3dtSmY5OEEwTnRPUmdENEYtci1kUWF4Tjd0NGlSd3RMSmt0MFRIRVgwZnNNcWRhYjNzQm1QLW9nUnF6QUtadUduaHBHMmhJUHBLV0ZuNlhNYk56WWw2WktoU2V5Qzc2OHJjbFJYazJ2RkdLakF1ZlVqT3dlTGJfTGlGUUkxc2tKRmRRTnRqU3dOTnE3S0xPdjlBWjZEY3JaSVd3RndJcEdyUjM3dW9Iem1uWjdSSGZnQkNPUzRMTzZ0c1c0ZnJTRGVqejZxeUowTHlpV2FTYWl3elBneExVMGtqM2hvMWhLa1ZZN0dBUndPZ3g5TFNlZUktRGY4SDZ5bWZsNGllWmZFQUZqeU96UHVQTHhENg?oc=5",
-          "age": "5小時前",
-          "within6h": true
-        },
-        {
-          "title": "輝達獲利了結回檔拖累美股 那指標普收黑道瓊獨漲",
-          "summary": "",
-          "source": "LINE TODAY",
-          "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9TZzkyUmxuWGR1WHlBZm9hM0ZKNm1JbTdUeGpDVXRDSUlTdXBYTG9jei0xbkdSOUZucUtkOTM3OV9xUHFiVU9yTUZzMFB5NlNKZVhMNmNB?oc=5",
-          "age": "1小時前",
-          "within6h": true
-        }
-      ],
-      "sentiment": {
-        "buyPct": 44,
-        "sellPct": 56,
-        "dominant": "sell",
-        "label": "想賣略多",
-        "summary": "社群討論 50%偏多 · 買權成交比 47% · Reddit熱度 #3"
-      }
-    },
-    "MSFT": {
-      "headlines": [
-        {
-          "title": "微軟大當機檢討曝光！啟動「紅色警戒」拚1小時內恢復全球服務",
-          "summary": "",
-          "source": "鉅亨網",
-          "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFA3Y1E3MmlJV3ZMUkViemNzY0RCLUdONEJZY2FFTFVHdm1lUWJ3YmYzcUVxbkhOb3Rwb3N2VzBjVDhnNnN1LTdBcWY4QQ?oc=5",
-          "age": "3小時前",
-          "within6h": true
-        },
-        {
-          "title": "【MSFT】24小時全球大死機揭系統管理弊病 微軟頒最高級別緊急令 部署AI代理加快搶修",
-          "summary": "",
-          "source": "香港經濟日報HKET",
-          "url": "https://news.google.com/rss/articles/CBMiiwRBVV95cUxNM21HdEZSYm4wazBZSGlNanVRbWt1MV9JdDBvWGtIT2hYeWswbFA1YmlTRGpuQmdLeFktNW51OFdZV0EyeU04UGhQM2M5WE9GNU4wU1R6QWVEdVVRcjMySVlETW9EZzBmRnpwTXpsVG9ONkhzWHQzTHNGSXg3a1R4LUpMa25SeEJyRnU3S1lmOHNmWlpxY0Rlb0M0MTdTN0dBbU5kNmFDNFFtVlo2OGEtNHdqQjdydHMxUlRZOUUtVFQ0R0xDcnhETW1uM2NuMkNhN0lOcWxieWZpdlE3bHhfLS16TVZNbmxGdEo2eGZ3aGtfaTVBV2JOaFk4WHU3MHpPb1AtN1NwRGpPVHNGQ1hzcDVBSU92dnR4bWpvM2RWTWRtZXFEdkQwandaY2g5SlVyc0NnTlNidjM2Q2IxTTRyYlpVaGtsMEFvQ0dDOGR2bGMzdFJrZjlic1RJOERNSjdialF1NmdEYVBDRDlXSE0xZ25MUmpsbUh1RW85TjFNVmU3U25mMGJyZkZVMUVMSDV2RXh3MHd3ZVBOUkQzNF9lWjNwaUxQYmI1Wk1Bcnl4RENrZWRjbGpBdGVQTGJ5TXZRODdXaHlEUlNOdDR3cmZPMEM2QVU2dDQxM2J0ZWpFWHVURlpZSDU3TW94c2lVenBvdnIwSm5yWldURXQ0MGdJSkxUQWNjTG1RWGhv?oc=5",
-          "age": "1小時前",
-          "within6h": true
-        },
-        {
-          "title": "「Patchpocalypse」來了！微軟全球大當機揭露AI時代資安新危機：修補速度成為生死線",
-          "summary": "",
-          "source": "美股放大鏡",
-          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOc3pLczhYVmdlR21sQnozcDBDaHpTUmZVdU9ZLTNMZTVJeGVUa3FZaGNqODdEbE5vdkY5bmpQMmtmME9mdmRvdjdKbmNVc1hoODdLaU9pSEh4eml3TXZTMzVSRkRmeENGdzRtaHNfQlktVFljM2lmc21jX0hGaW5kTlpYS2hsMkwwT2ZEX3FRTVRVLVdq?oc=5",
-          "age": "2小時前",
-          "within6h": true
-        }
-      ],
-      "sentiment": {
-        "buyPct": 70,
-        "sellPct": 30,
-        "dominant": "buy",
-        "label": "想買居多",
-        "summary": "社群討論 41%偏多 · 買權成交比 60% · Reddit熱度 #27"
-      }
-    },
-    "META": {
-      "headlines": [
-        {
-          "title": "分析師評級下調後，Meta Platforms（NASDAQ：META）股價下跌 1.3%",
-          "summary": "",
-          "source": "MarketBeat",
-          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQblhmcldrZjE3YU5MNk9CYUF1MDN2dUpZTWhmRmI5VXIxNXpidlhvc3NxcDgxaHM3RFFDdGRFcEk4WVd0d1habWU5al9jQlF0TThKcUpTVFktdHgyTk03N1hsQTdId0Jpb1FnalJ2RG9kQjNxcF81d3ZaZFNGaW5WbjJ4UENRWjhLVkRUbVk5YjktLUZiMVBQZ2hnUkhhdjlTajA1VUNWU0g5QnptdVZxQTFNT21fZnAwaVFoN3phVWlEZ2M?oc=5",
-          "age": "11分鐘前",
-          "within6h": true
-        },
-        {
-          "title": "Meta 真的能上漲 30% 嗎？還是摩根大通完全錯了？",
-          "summary": "",
-          "source": "TIKR.com",
-          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQZTJTTW5oNDhKbjQtS204c2J4clRYRHRsa3djZXRSSEtZNHRvYnRmTzJhWENtemxWUzZteXdWcEZ5SW1aWlctaVJUeUJoN0ZfaS1MNHctaGwwVmcwUDJfcWhxakRIOHR6OVo4Ry1MZi0zSEZyaFlrN0VNVEE1a05EMkhzcks2THBrdWlDSUpxcWJydV92QkQtb09QVkF5MnNWWmJtRE5HVUhSNEVFN000cldkOGxXTnRoU045THVDNEY0YzBi?oc=5",
-          "age": "40分鐘前",
-          "within6h": true
-        },
-        {
-          "title": "人工智慧監管可能會讓比爾股票成為焦點",
-          "summary": "隨著英國監管機構將注意力轉向 Meta 的 Muse 等工具如何觸及真正的金錢、真正的客戶，人工智慧代理商突然與舊的規則手冊發生衝突…",
-          "source": "Yahoo Finance",
-          "url": "https://finance.yahoo.com/technology/ai/articles/ai-regulation-could-put-bill-211152422.html?.tsrc=rss",
-          "age": "1小時前",
-          "within6h": true
-        }
-      ],
-      "sentiment": {
-        "buyPct": 48,
-        "sellPct": 52,
-        "dominant": "sell",
-        "label": "想賣略多",
-        "summary": "社群討論 45%偏多 · 買權成交比 56% · Reddit熱度 #33"
-      }
-    },
-    "SPCX": {
-      "headlines": [
-        {
-          "title": "SpaceX、特斯拉合併有譜- 日報",
-          "summary": "",
-          "source": "工商時報",
-          "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9zbWxSd3F4TkkzOXRuTDBOOVN1b0QzcjhwdDBaYTVtNmRqRTJ5bENWSEVNeFROUm5WZHkwaWhSTGs5ZUhqaHY0VnFfM1didjRUUzVOMTFQN3ZpN1ZTWWdB?oc=5",
-          "age": "3小時前",
-          "within6h": true
-        },
-        {
-          "title": "【AMZN】9日前火箭故障痛失40枚衛星 亞馬遜今再射36枚 追趕馬斯克Starlink衛星網絡",
-          "summary": "",
-          "source": "香港經濟日報HKET",
-          "url": "https://news.google.com/rss/articles/CBMi6ANBVV95cUxOZkN6Z3Y0YTMzY09lZzFBWk1xWHNhM2xGVlhQbzJoeXFvMkQ1NEljTnlZYk91eTBHczJWeW5kMHhTSVJsZUFORVVEVm9qY19QMEpEdEFRNkpKZXJaX29sUEhjQ2Vua25OLWduVDNHdzZEM291TE5raXIzZjg5M1J4ZkpWVnpaeGZPYjBfMjZydVBwQmZGN1hDQWw0alFIRUZvaGwxTDhuMElPeTBMaE5aZC1jZTR6SXdFU0NyRTAzTURWdzZRc3pjdFplTFAtXzI2Tk5jRTVyMmdBWS1tbXl0NmJjby02QVVMdzJQWFg5dmFLUFZtaFNTd2YxZ1lXT0s4R2ZVXzk0X3Q2akphSUdyamJuRnowem9RLWtlR0VrTGV3eGRFVVpuMzR2ZjRXWl9GNlVPYWtTVlNzRC1Yd1hyam9vaU1ha2xGR0gzZm1oVndZTE01c1RLbWZMYWlxbG1kbUxrcnhTTnB1S3d1TGR4Q3JsWkdaczJQeVRUYllMdGJCRnNFeWFiN1k1ci1Wc0pLWTZFLXVWNEcwZm1Zc3UwbExpeC13U1lLNGJ5SWRDS0JGNFJrX0N6M0xZd2x6UlNSUHJmRjNGS1ZQd2JCRjFfeVZRLXhRQXVnRjhWRDZpTm9ZZ2FWbXJFdQ?oc=5",
-          "age": "6分鐘前",
-          "within6h": true
-        },
-        {
-          "title": "英防相：SpaceX限烏用星盾 惹歐諸國擔憂",
-          "summary": "",
-          "source": "東方日報",
-          "url": "https://news.google.com/rss/articles/CBMi4gJBVV95cUxPWDE2Z19UZEpjUmtHWGNUaTR3emw3Ti16dlVKY2xCaGFnbnhDM0ZjUkVEcVpyN05qOGs0clVkM0FmQ0ZLbEE5TDNsWVl0UXc5dG1QSmhGaWNscGhQMWY4OGJXaWFDWEkyRHMxTng4S3NOU0Y2NVA1MXRPRURzb1NrWXE5Q1ZFdE9NWDJTMjJscnpJSklNQnBhUlBWWHRXWmduTGZvZlY3MXFWdnBFc0x2S3hiRmVibllZckNteHB6MWhzNEwwVDVUamNUd0k0dnNLcjZPTWJQbE1QZERaT3VsYTVwY3NMcjcwTnRxRi1zVWdBanVOMmZLY1B5US1YN2lFbFZHc2hJVEstNVdYaVk2d1lTX193NVRnTzY3eHhac2h5SFVFTTRZdjQ1akVkaVh0Sy0tUmg1UUs5YXc3bktsWlkzSXdubTA5RG1ZLXhrbml4VUlSV1VqZFVjRlJYT1dITEE?oc=5",
-          "age": "1小時前",
-          "within6h": true
-        }
-      ],
-      "sentiment": {
-        "buyPct": 44,
-        "sellPct": 56,
-        "dominant": "sell",
-        "label": "想賣略多",
         "summary": "社群討論 50%偏多 · 買權成交比 58% · Reddit熱度 #12"
       }
     },
     "MU": {
       "headlines": [
         {
-          "title": "美光科技期權聚焦：11月24日成交80.66萬張，未平倉合約為357.93萬張",
+          "title": "美光CEO年領13億！安全預算暴增2000%原因曝光",
           "summary": "",
-          "source": "Moomoo",
-          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOdHVYaTMwd2JPYUcySkpTREZtRlhQeE1ZUkNHRlhhRTJtbDEyYWRZcWVwWTNDcUxNejVRTlJhSkhyRGRyNWphS3dkSUVvZjNHb3Fpb1FGWk12eWxpSlpDT0RLV1lUWTNoVXZpN19uZWhZdF9JcHk1SXd4YUtGdXl3WlBiTTZUVk5QYUtqMmpNWE9JSnRmcWhUeTdIbGZWa0JrakZqblN5OWJhMzg?oc=5",
-          "age": "45分鐘前",
+          "source": "鉅亨網",
+          "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE05VmxQVGdsMGRQZDJBdGFMRkhaQTcxVmFIbWRKaDkxbTlJVzVLSzVGYXI2RnZiOFczeGNLNFlza1daUWVYc0FJRGFsbw?oc=5",
+          "age": "4小時前",
           "within6h": true
         },
         {
-          "title": "法國巴黎銀行評等調降後美光股價下跌",
+          "title": "美光桃園1117調解方案投票「八成反對」 工會籲明提合理方案對等協商",
           "summary": "",
-          "source": "富途牛牛",
-          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPR0tsamxMdFdfYTZpVzZ3dXF1MkJFOFRMd2hXZXVmbGJhbVI1Sklna2d5QTdla2NfdWoxUzFXSl9aR3g3aXhCT09GSWdabktqTzlxNFREdUtqeUo2YkZTOC1jbjhVUWc3SGctVWRRSXd2dk1mbkJ2MGU0WWsxUkZtbDRSLVV4bmdsbmJLaXlIa2ZRVU0?oc=5",
-          "age": "1小時前",
+          "source": "Yahoo新聞",
+          "url": "https://news.google.com/rss/articles/CBMinwNBVV95cUxNYTZGUkgzRU03RnY4cWh3YjR5bXkxcDhiT2g1TllJNDVLNGdXbWQ4SnRrR21zdFp3NmZsa2VCRm9FVWpJdHRZSUt1bWpkaUZKRHpTWTgzWmZSbEtUUHAwWldNNW5IeTl3UmhRMFNKVzZqS2E0NGhOTlRUS1VXWmNtQlBhT2J0dmxXLURJVXg0NEtlcTlfXzEzUWw3ZHhLLTNidks3NVBhY3ZNcUJTVzE3eElmSnBzckVfaGxuS1Q3WURKR3g3ejlnY01nSzBpcjJtT1NFbVhpaTBXMmNQbm5nX0ZtWkhTU3BrZkx6OTRFRnNXWFF0UzM5VzhDR0xVd21CSS1JVFBZR3hwREx5WW9iX1lPOG5zWGhtcnRYWjNza2piRlpZNEN2WXNkbHYxYmhFWU56emNkX0J6NVBnSFhFUTBObkR5dHBnX0g3S1dSSGVBNmh6d0h1WUptOG02QXFHTVZETHNMS2hXY3pkOU9DUVpIWkNYMzlnWFozWHBuaW9zTWkyU0twQlVHb05xVHVUd0hzel9fTE5NOEJUeTBF?oc=5",
+          "age": "2小時前",
           "within6h": true
         },
         {
-          "title": "法國巴黎銀行下調美光評級，警告2028年超大規模數據中心擴容計劃面臨風險作者Investing.com",
+          "title": "簽協議10年禁止罷工、拒絕加班！美光桃園工會1567票壓倒性否決",
           "summary": "",
-          "source": "Investing.com 香港 - 股市報價& 財經新聞",
-          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1JaE4takd5XzgxUkdBWXh2MG9MREdLdEMyc3AzcTZ0R09QRThfSWlLdFk1ak1BbllITXZTZ1RFUW1VV3hBSmJmbUl5RUxrX2dIcG9BU3RvNkcwN2dQbEhLSU9UUm1oQ3dSMHlOLW1tNHA?oc=5",
-          "age": "5小時前",
+          "source": "中時新聞網",
+          "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFAtX3BrZWVHNHRxNnJRZVhfUmxXMlVrd1FaZ1QzbWtzMXVrcW15ZGV2ZTNYdkxuMER5TnhzTXFUN3VTQ2ZvcDctcjFITkJfTXR5TWNCU1oxYjNhVVI2amM1SktPb0xYZ3JLMEpGdllR?oc=5",
+          "age": "2小時前",
           "within6h": true
         }
       ],
       "sentiment": {
-        "buyPct": 35,
-        "sellPct": 65,
+        "buyPct": 44,
+        "sellPct": 56,
         "dominant": "sell",
-        "label": "想賣居多",
+        "label": "想賣略多",
         "summary": "社群討論 50%偏多 · 買權成交比 53% · Reddit熱度 #6"
       }
     },
     "AMD": {
       "headlines": [
         {
-          "title": "美國超微公司期權聚焦：11月24日成交89.1萬張，未平倉合約為348.5萬張",
+          "title": "Mouse Computer推出掌上型迷你PC「mouse CA」，搭載AMD Ryzen處理器、頂規18.98萬日圓",
           "summary": "",
-          "source": "Moomoo",
-          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNMjI5NklFam1BYmYzVkdjLU9CN3BXOThXVlI4Q3dzajU0V2tJa0c1Z25Nb2JGOEdJaThQT1FwY3hwWGtnZkQ4bkdsRDJuT2h5SmNnM2R1Q3JnSjM3cEFQeU5veTRwbXY4S29zYmpGTVloOEE0a1BjTGJUY2lRREVIektKUzd1TkFJWEx0cHdZaUZkYkx4UEc5MEc3NE1qZ0xnZ1ZJbWVGUmNWTDB2SFE?oc=5",
-          "age": "45分鐘前",
-          "within6h": true
-        },
-        {
-          "title": "熱門板塊速睇：美股盤中CPU概念走勢疲弱，美國超微公司領跌",
-          "summary": "",
-          "source": "Moomoo",
-          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQVS1xZGE0TFdEcnRFeXMwYWZvT3RwY296c1Nhd3BCdms0TkRyeHJxa2FUQkFHNmdqc3pCLTY5OHZNUEpJZG85NnpwUGlSLXVma00wNDBGWmlPT1ZIMHc1eTM2X0EyNlhIZHBHOW1TSk9ObUtaUG1CN2FNal9CelA2UFNadTJIQ2pRY2lPM0JPdWJGUU01cDhjbnhxYXFRVkRlR05sa0lNa2JjME9pV19KbUhLU0NnQQ?oc=5",
-          "age": "5小時前",
-          "within6h": true
-        },
-        {
-          "title": "隨著美國審查威脅進入中國市場，AMD 是否會面臨進一步的股價壓力？",
-          "summary": "",
-          "source": "Traders Union",
-          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1XUXVyOERHZU1Md09kVmcwbUtFeTcyZS0xYTNvcmY1bXdsNzRRZ1hBY0Q2SnZKc2k3T1dmYVFISElDc0JjZWpMUnNfXzlHT0NLTnlMdHZNTVRJbTgtMGlQU1l6RWxoTDZZYzY4ZXozcm91b1ZmU3daTlZ5ZzJxeWs?oc=5",
-          "age": "26分鐘前",
-          "within6h": true
-        }
-      ],
-      "sentiment": {
-        "buyPct": 47,
-        "sellPct": 53,
-        "dominant": "sell",
-        "label": "想賣略多",
-        "summary": "社群討論 71%偏多 · 買權成交比 42% · Reddit熱度 #4"
-      }
-    },
-    "AVGO": {
-      "headlines": [
-        {
-          "title": "博通選擇權現貨：11 月 24 日，合約成交量為 257,520 萬份，持倉量為 241 萬份",
-          "summary": "",
-          "source": "Moomoo",
-          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOdVBqNmVuSzF4VEhkMWFOQ1hDY3lWVFV0M3VOY0FvdnpnVXR5SzVwYlpteWdJSTFidTdONENhcmdsQUhLWGEyVm16NEpUNzRCdW14THdwZXZteUpQOUdQUnZrSVdNeXRid045YTZKd1ZyR2E5enpLUEQ3T1diM0dPTTMyTU5pMmIzUmxILUh5ZXEzd2VCTUZsRDRmT1pJaGt5VmdFbDVn?oc=5",
-          "age": "45分鐘前",
-          "within6h": true
-        },
-        {
-          "title": "分析師表示，博通股票可能上漲 70%。 AVGO 的估值揭示了什麼。",
-          "summary": "",
-          "source": "Barchart.com",
-          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQcU12d00yZVNmZjZIb0JjZmlGb3NpUUl0RGhNUEdYLS01TTJ4R1NoYmNWcElseFlTZy0zYm1hQm9kM1lyN3R1ZE5DNkJQdmE3ZXNwa0lxT09BYkJVQUVPWV9zN2x1cVhLaEZwZC00VGVqVlh2Y1EtUl9IcUltNUEyMVR4MFMtZmhWNFlIR2tlZjhMZnZabDV0YlM5X3ptRlF5VnhQZFhqTmVITXRJOUJRLXFaMmtjVjE1VmFiQjN3?oc=5",
+          "source": "BigGo 財經",
+          "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBPMk00RWVlWTlnV0JsWlBDdWptbExxdWd2N0RSby13QXlUWjZSdWpQS3RNMzBLMjJoMTNrTzBMdEdwS3d6QUZxNUpSWmExbEFtQ1FZUkRwTWIzRzFrOTVtdEwyQUVBbDNyT1U3eTZDNFc2cnFranZMTENR?oc=5",
           "age": "2小時前",
           "within6h": true
         },
         {
-          "title": "AMD 股票顯示黃仁勳戲劇性回歸後市場已不再有意義",
-          "summary": "AMD 和博通的股票顯示投資者周一得意忘形，一旦興奮消退，情況可能會變得醜陋。",
-          "source": "Yahoo Finance",
-          "url": "https://finance.yahoo.com/m/fad1db36-fd86-34e4-866b-804987e46e84/amd-stock-shows-the-market.html?.tsrc=rss",
+          "title": "蘇姿丰 AI 快報",
+          "summary": "",
+          "source": "BigGo 財經",
+          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9ZM2VtTWtmRG9lQ0xzLUNaVjRJQ1NoUzVLT2R2ZzNrRG5TNERHVS1WeWU2LXpINkMyUzdLakxyTjMtcU9lMFRSemRFWjRwSzBWWlBheE5KdkhMSW11QUxIOU9zaFU2UQ?oc=5",
+          "age": "3小時前",
+          "within6h": true
+        },
+        {
+          "title": "AMD EPYC 新世代Zen 6 效能測試陸續出爐！Zen 6c 整數浮點雙升級，網友吵翻：「買不起記憶體」 中的YouTube影片",
+          "summary": "",
+          "source": "JUKSY 街星",
+          "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1iQkNBbGtLX0VaUVlkYTB2bGZsS1p3ZTVwSFB4N0hONzFBaHFPcmlzWDRkZ3g5M0VCQ1Vfa0w4YUk1VmZrZ1FGak9md2h6OXZwQWFMVFZsVzBpa1VFalhEN2NKUDU?oc=5",
           "age": "4小時前",
           "within6h": true
         }
@@ -583,208 +524,68 @@
         "sellPct": 51,
         "dominant": "sell",
         "label": "想賣略多",
-        "summary": "社群討論 67%偏多 · 買權成交比 55% · Reddit熱度 #52"
+        "summary": "社群討論 71%偏多 · 買權成交比 42% · Reddit熱度 #4"
+      }
+    },
+    "AVGO": {
+      "headlines": [
+        {
+          "title": "Broadcom發布VMware緊急修補，修復23項漏洞含3項CVSS 9.8重大缺陷",
+          "summary": "",
+          "source": "BigGo 財經",
+          "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE91dkF4YUpXcWlPTDJ6cDdhZ0daXzF6VlRmZVFzRDhnbHF6a2xuRUtQc0I1UU5PUGl2R04xNk1hRGVUZVU4VnRpY3dIUjlNMzFjcnZRZzVHZnpZZUg3UXp0SzY4VUc1NWdoOW01SGRGcS1ldkJKWmJPMmR3?oc=5",
+          "age": "2小時前",
+          "within6h": true
+        },
+        {
+          "title": "2026年12月台美股行事曆｜年底關鍵！聚焦FOMC利率決議是否升息、博通與美光財報，6檔台股法說會輪番登場",
+          "summary": "",
+          "source": "永豐金證券",
+          "url": "https://news.google.com/rss/articles/CBMi5ARBVV95cUxQNGl0b0E3TnhsWHNZVWc3cl9KRGhpUUZmQVFVX293a1o0YnhIRXF3LV9TM1lwbHdsN0JKVXo1R0hmUjlDNVRZT0JfcDFmWklWWHRZNjhRRGM5Ykluc3dlQlNKd0xBcC1YTldlWFp1VGZURHpHamRmU29uMUZvdEJXS1dVNVp2TXctYno1MnZ1MEp2Y3ByUHRHMHlLaDRqSjdrTXhYRmItSklFLTNiSUFUTnZIV0g4eW1DLWV2STRXRFo2Nng4YmZEMnQtajRMSV9YLTVqMEthZlZqdTFwTlZVX0E5bXRnNzRLQnBrWWNzRjJqU0l0N2Zfd0hCWkN5blBrVklmRnY1Xy1zUkFUMXJia3VwTWxyWmNuZGw3bUVJQUFEOVBHM2gxU0NXNE1VMGZxbkpYUVN4YjFrSWo3ZHR2RmNJTHY3Vmx4SGs2cWJCZWlWLUZTbE1ZRHFWYkZZekxQQU92cERfZzQ4c0NGUV9kZTJWaF85S2t2aEFucW1hU1dyNktpN3lGdGxWc0tudGVOTXJRUHFEc2VkR2tJM3BKZDBQSmx6VE9KWHJERUh3bmI5TjBIN3RCUDBXWVZpQXVKMmpBT0Q5ajJUYW5ZV29qU1dGWjhPVUNkOUtRQXZ3SnJ0M3J1aTJnVmVHTjRfYzNxZ2hmbGtWaTlRUFZTZHNxNTZxb0V0c1NFSDJXakdXQ05BYWNaOEFDVEdTdXNVY2dJRlF4QWpWYmgtdlVjWlJBVWdyZjAtTWQ4U0FTRWdycnZ6Sm8yX2xXUDh5dElLYkprLXowMVBHeWFlT2VIenJJNEVQUmo?oc=5",
+          "age": "4小時前",
+          "within6h": true
+        },
+        {
+          "title": "Broadcom修補VMware產品23個漏洞，含影響vCenter的身分驗證繞過重大漏洞",
+          "summary": "",
+          "source": "iThome",
+          "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9sUFdSMnF1M1h4T1VxZXVOYkRSZXFITkxYak53elA5X01aYmt6cDEwamE1Qy1rd3UzdElwLVdCQjV5c2dzTHJaa2ZlTkVGdw?oc=5",
+          "age": "4小時前",
+          "within6h": true
+        }
+      ],
+      "sentiment": {
+        "buyPct": 35,
+        "sellPct": 65,
+        "dominant": "sell",
+        "label": "想賣居多",
+        "summary": "社群討論 67%偏多 · 買權成交比 53% · Reddit熱度 #41"
       }
     },
     "INTC": {
       "headlines": [
         {
-          "title": "東擎攜英特爾攻實體 AI",
+          "title": "吃下英特爾近10％股權後...川普突拋震撼彈「考慮入股輝達」專家驚揭背後盤算：老AI組裝比重恐洗牌",
           "summary": "",
-          "source": "經濟日報",
-          "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9LbGxkV2FWb3psWnV3QlJBb252LWFtUmJ6N1MtQ3FXb2pXRjNfOHN1bXl3STB5NG1iLXJxRU9xWGg3NjFrTENiNmd6ZGY3OVV6OF93bVFzU0ExUdIBX0FVX3lxTE1FdC1MbXBpVkFQSVJKeTNlMWFTV3BRWGRwUW1mMXoyRUtPNEZWTW1SbmU1amp6YnEyc1Q5eEtEWTNFem5GZTMzQmpNU09UNmRCa0JDUjMtdWF4ajFxWnM0?oc=5",
-          "age": "5小時前",
+          "source": "旺得富理財網",
+          "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5SRGM5SXcyRU5OU0JaMTRTdGIyUDEzTmxfZ0kyNGdDdXVBWDlpcVJWN09PbGd3STl6czcyLUZJUFVNUmJteW1Ud1FLaURKNS1qc2dpd3RlX2loWGtmeC1xcHB5bzRvMUplQ1E?oc=5",
+          "age": "49分鐘前",
           "within6h": true
         },
         {
-          "title": "非機密情報系統遭駭客攻擊，影響中央情報局、國家情報總監辦公室",
+          "title": "英特爾傳推入門級掌機晶片 搶攻平價遊戲市場",
           "summary": "",
-          "source": "CyberScoop",
-          "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9WSGo0dHNXV2x3RUlPeDBQeDNORWF0WkJtYXRwNXFKTlE3MFpjYm5JelVDLXNEQnY4MlNJVl8wYkU4RFJGb3ZJakV2RG1KZzlFZkxISm02MzVOWWxjUmVN?oc=5",
-          "age": "13分鐘前",
+          "source": "商傳媒",
+          "url": "https://news.google.com/rss/articles/CBMi1wJBVV95cUxQSHNsb0t5Slh5RHRyZ3NYSUc4V01oendjU1hNZm5Lczg1RExBMC1zRzNYM1ktN3E3dmFReTRtTmxBVDhSRGpCaDNTWDR5cWRkekxfbWd0c3RIeTJMbi1wVGptNzluMzNLRmd1ZTdIb1hxb0NKaEhzMTd0UlY2SnNiQUFGWXBPZkdaVDQxaW1ZeU4xcG13blhtV00zUDJsTzUxSjVObTB0NGh1Y05YN09uQWdMSHE4NWNFQ0FRSzFYekZuTEZHNjNrQkZaaGNPRWFBaERXMkEwRkxSWldfUVkyaUhFTDBIRlAwblJwRkY1RXdvRHZZU205aUlkVzZoUU9IU0s0M05OSUJYdGxwWmJtdXhWa1dRcXpCOG5tM09FUHg3cW55cm9vQ3MzTFZMOFZRam04WXk4b3o2bTQ4VFJkcEhOLWR1d2c0QUU0R3RnWjBuSnJwdURr?oc=5",
+          "age": "2小時前",
           "within6h": true
         },
         {
-          "title": "英特爾、Marvell 和戴爾股票將受益於 Nvidia 執行長黃仁勳的回歸",
+          "title": "軟銀與輝達相繼注資 日美聯手力挺英特爾重振半導體製造",
           "summary": "",
-          "source": "Barron's",
-          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNWVpMRTFtbjZxRFJvWUdPYmpIR3FsY0ltQnFZNW45dk1DQTJoZkVNUlVPbkNUNEJiWWJ2QVBwbWxRb093Z3QzSmI0bGMyUVRXSU1TdGZMOHpIVzNZNW9wdUl4SVJWYlRFVFNjbkx6RDlUdkVjYldLR1hFVXJienN0MmExME5kQQ?oc=5",
-          "age": "14分鐘前",
-          "within6h": true
-        }
-      ],
-      "sentiment": {
-        "buyPct": 48,
-        "sellPct": 52,
-        "dominant": "sell",
-        "label": "想賣略多",
-        "summary": "社群討論 50%偏多 · 買權成交比 67% · Reddit熱度 #55"
-      }
-    },
-    "SOXL": {
-      "headlines": [
-        {
-          "title": "台指期失守3萬9！費半瀉9％輝達挫8％台積ADR跌5％ 原因曝光",
-          "summary": "",
-          "source": "自由財經",
-          "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1QWHBweWVicWU0am5ULXAtRnFUN2ZIcDdqMHF2akxRNEZTazh4WTlfOGJrSng4U2ZZZjFVWHktSUZiMnNoQjZKa2VkaTllSkNhazgxOXh6ZmlTMkJUMmJV0gFkQVVfeXFMTVhSRjQ3dS0xQkpjMzJ2RFdoay1DOTBHMmJCbmpzVkdySENYLXNVMEh2YnlTUnUyUUUwR095dGs0U0dodmtzTVRKV0NLV3drUjZ0bU1uVnpTOHBUTHYtNHNqbER3OA?oc=5",
-          "age": "5小時前",
-          "within6h": true
-        },
-        {
-          "title": "快訊／台股開盤又完了?台指期狂瀉逾2千點 費半挫近900點",
-          "summary": "",
-          "source": "Yahoo新聞",
-          "url": "https://news.google.com/rss/articles/CBMi5AJBVV95cUxOUFgzVjRRV1c1MkxFbWZSQlczZS1IRE1ydE1VRFlVZjl2VzlmenZ0cmxTcWdwRW0tOUs3Y1phTUNZY0JHcE1VQkRvaU04OTdfM2lfV0ZyYjcwaTJXQmtoLWZzRzJnOVNkOGU0bEhvd3FYa294bUt1TGZoZm1WdzJqOTVUaGhSQUhHSmFjeHc2dEtQd3JTcWVWUlJCSjBwcWdzSE1tNkw1aGsxUG5jOURzZFJVNlZjbU1jMk1Pbjk4bGd6WFY5UERCVTRGbF9FMERscHA2cEIwWllqTHIwSFBISFpjc2lzbDlmTlYzbDVVOWhVQ1BQclJRMnFwN09mWGg1M0F1VGotZ0ttdXVCRnVSR3lNYXdkc0g0VVRWNmJ2YlZqdUVuODRhU3gxbFZkWm5LUmhDM0ZiUGF3WFFnaDJrZFhVX091bVhmcmlnM1U1WGZxZ2dxVlo0TlhnLWdEVTdadFhySA?oc=5",
-          "age": "5小時前",
-          "within6h": true
-        },
-        {
-          "title": "那斯達克指數下跌 1.5%，輝達下跌 5.9%，晶片股下滑；道瓊斯指數上漲 0.9%，Anthropic 收盤價低於 IPO 價格",
-          "summary": "",
-          "source": "MLQ.ai",
-          "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOTjI1b0RKanFNcjFJS19PYTBfM01tLVlxQ3QwUkN3SlNCdXl0d1RWLVRQNWJrOUQyY2YwTHQzTzJocHhvdzREM1l4RmthYUhiYldUbEY4WmEwQzIwanJNOEVaNWw4WHpVZW55QVJoNEJCMC13THJrR1FoWjJFbHQ1Y3VNV3VFUlBJS09lUTRqeWpzSmFfTDE4bFhYVjJ5V0RaVDYwbV9MeXNxcEkyNzFZR0M5dzFEbThtYVVTNkpHUjRGM1Y4N3dtbUJobw?oc=5",
-          "age": "48分鐘前",
-          "within6h": true
-        }
-      ],
-      "sentiment": {
-        "buyPct": 41,
-        "sellPct": 59,
-        "dominant": "sell",
-        "label": "想賣略多",
-        "summary": "社群討論 66%偏多 · 買權成交比 63% · Reddit熱度 #11"
-      }
-    },
-    "IBIT": {
-      "headlines": [
-        {
-          "title": "Next Technology Holding Inc出售500枚比特幣，更新加密貨幣策略作者投資。com",
-          "summary": "",
-          "source": "Investing.com 香港 - 股市報價& 財經新聞",
-          "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9rUEtqdklTRjRSUDdOX0tkaHBKYjFPSlpjWDNsd3czdnpSNDZ3dzlOMmlUMVJ1V1MyaUtFeGstU3FGd1R4Yl9SRDJzaHpVWEhwZzRvclF4Q2JCQUVxM2QwaHFxX3FLa1QxMkd1bTRhMA?oc=5",
-          "age": "5分鐘前",
-          "within6h": true
-        },
-        {
-          "title": "Kraken開放美國候補名單，Krak Visa卡最高回饋4%比特幣",
-          "summary": "",
-          "source": "BigGo 財經",
-          "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFB3SVVFQ0prUm1DakxFLTdqYXRQSnk2c292UnNKM1RmT0pWbWladUh0QXBDSFdyaHRxNGFpNjhSckZET1RBV2JmLTFOX3pBR0xkTjdmRVZ4Z1R0WXRWclBlcnMwMzdNUDM0NFg2OUtuLUNVWWpaam4yajJR?oc=5",
-          "age": "10分鐘前",
-          "within6h": true
-        },
-        {
-          "title": "美國比特幣ETF 11月流出創史上最大，單日贖回逾5.7億美元",
-          "summary": "",
-          "source": "BigGo 財經",
-          "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE45VGRfajFodUs1VWxrSTBGX3J5NGQwRE0waEhONW9hSGo2eENEbVhWZi1ncWtFWWtuLWxhVGlZS2RPSi03RjM0VVYzZGxfUG9MazFYaVNuT1oyOElvcWFlY3VoLV8xVk42SURMZ05kQU13TXdveDQzSnJ3?oc=5",
-          "age": "50分鐘前",
-          "within6h": true
-        }
-      ],
-      "sentiment": {
-        "buyPct": 36,
-        "sellPct": 64,
-        "dominant": "sell",
-        "label": "想賣略多",
-        "summary": "社群討論 28%偏多 · 買權成交比 36% · 6H主動買盤 39%"
-      }
-    },
-    "CL=F": {
-      "headlines": [
-        {
-          "title": "荷莫茲海峽頻傳油輪遇襲　國際油價小升",
-          "summary": "",
-          "source": "經濟日報",
-          "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5RV252LXVFV1pNT2daa21ZS0pCaUdnMmRGWUZTbVExbUItdExvVEhIYlUyME5Ud0Y3T0RjZFktUklUUzdBNVJyV21icmpfcnhWYjNyTHJZb1ZvOU5FSWZJdU1uLWZqOFlqUW1oZVAwNG1CWWtkZzFrMFNKWdIBX0FVX3lxTFAzZktiM21heWFsRld2QWdGU2ZtTEVESkxNYnJob3F3YjczYmwwa1lQdk1lWnVYY3lVbG5xN2kwX2VfUDFlQ2FndDhEQzB5dGZoaXdoemUtZ2c1Y3VXU1JB?oc=5",
-          "age": "1小時前",
-          "within6h": true
-        },
-        {
-          "title": "供應過剩？油價創近三個月新低- 日報",
-          "summary": "",
-          "source": "工商時報",
-          "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBPcWlGZ3M0UGJQRGVzVlVCYTg5bjNWZ3VWVkRFNHNINTN3c3QwUDhDVXlpQkI4QnBhV01LcW83R2xPRjlRTXh5a1JTM1VmMWRkbzBXLWpoWnJ3LTdPSHJJ?oc=5",
-          "age": "3小時前",
-          "within6h": true
-        },
-        {
-          "title": "中東戰火延燒、國際油價飆漲！ 中油盤點：國內油氣供應至明年2月春節無虞",
-          "summary": "",
-          "source": "台灣好新聞",
-          "url": "https://news.google.com/rss/articles/CBMi3wNBVV95cUxOWWMwMUFXT1pkWnZ2NjRjMGp2RTdKS3k4aHF2cTlaVFU4ZHIzSDktdlBrTVVTcUJLcDVlalVDdy0waXNpcF95LU9hUUNXTlB5NUZjdUZhTEQ2TWdwblR0a0FFd3FtcVRkb2lRVGFKdFRUZ1JzUDdOVHBwWHRTeXloeGF4b1BGNXBDTHpMUlZ2STNXVmwyZlNvRk16YldtZnF2MmhoWlpvVk9xOHF5aThBYUdiakZlUVF4OGZOYUdMQzlFai0zUVItQ0txT0EyVG9KaFI4MUtzZlItUlJzQXhCb1psZ0prWGg2SEJ6eUZ3VFBiOGZsN0k4NFhOR2ZxUkpDa0tIMWE1UjN5eFVVYWhHVVlhaUhwQTBFVDV6bUNRNDR6eGJkemtXMklUQlQ0aGVaeExVMmx6Zmk4V0w3cFcwclZEWFZFS1JKZjBKclRZSHJwemxoUEFGNUNyeThKQjc1d1FDNlJISjdyNzZiLW9TWjUxamFpb1V0WXdFd19DS05YbFRfUHFYOHFOSEFNOGRuYXV4NXM5R0NKNWt6YmlOMGJJLTc1ZTI4Znc4ajNJQmxDNHYzU21YZ05YZUN1cXBkQUpwQlVRbG44eFJycngzbF96QURoajE5MFNQZVZvQQ?oc=5",
-          "age": "41分鐘前",
-          "within6h": true
-        }
-      ],
-      "sentiment": {
-        "buyPct": 56,
-        "sellPct": 44,
-        "dominant": "buy",
-        "label": "想買略多",
-        "summary": "社群討論 52%偏多 · 6H主動買盤 55%"
-      }
-    },
-    "UCO": {
-      "headlines": [
-        {
-          "title": "荷莫茲海峽頻傳油輪遇襲　國際油價小升",
-          "summary": "",
-          "source": "經濟日報",
-          "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFAzZktiM21heWFsRld2QWdGU2ZtTEVESkxNYnJob3F3YjczYmwwa1lQdk1lWnVYY3lVbG5xN2kwX2VfUDFlQ2FndDhEQzB5dGZoaXdoemUtZ2c1Y3VXU1JB0gFfQVVfeXFMUDNmS2IzbWF5YWxGV3ZBZ0ZTZm1MRURKTE1icmhvcXdiNzNibDBrWVB2TWVadVhjeVVsbnE3aTBfZV9QMWVDYWd0OERDMHl0Zmhpd2h6ZS1nZzVjdVdTUkE?oc=5",
-          "age": "1小時前",
-          "within6h": true
-        },
-        {
-          "title": "〈能源盤後〉荷姆茲海峽3艘船遇襲 原油漲逾2% 但供應過剩仍壓頂",
-          "summary": "",
-          "source": "Yahoo股市",
-          "url": "https://news.google.com/rss/articles/CBMijgNBVV95cUxNVjVsX29JRjN2cWo4eGg1Z3Bwd3E0VWx3emREcFYzRm80RExnQk9meGlpZXB0dHNnOUg4bE13U1hWYUFQaU5ab0N5RnNZQkRXVjhUekRxY2c3S040SnRjTHZ3RlFybmtoLUhaTlI5UzNMT2ctQVFfYWwwMWg4NmM0YUFWVkxCUFE0VTJmb3FyMVVmeGZ6MjRHZWZ3SVh0ODF6bmNVNV94cWw2c0pqM1FhQ1ZQZF9ZR0w5QXB3NDRWYjZuSlNXMDFRaHpod1RsbUktVnVGaGU2ZWpmdGw4U205STBBWGFqOTFKVTAyWGFoemQ2Qkk0R0U4YzZ2ZTNySFdWQkVMbFFsZVgtaV9zZlFyMy1mQTN5SnNqWlFPeEZWTHRfNlhTaVQwYTFiSmlkOWpGZWQ3NjBVMlI2WWxSa3RQRXl3NmRoaVQ0Z2g5LVVTcTh6UklnSmcwdFdtNjA0LXJ6ODJ3cVRGY05wb0N4MUpidjRtTl9fTXBvSnR3cU01UDhpUExidkZ5b1hSa1pzdw?oc=5",
-          "age": "1小時前",
-          "within6h": true
-        },
-        {
-          "title": "供應過剩？油價創近三個月新低- 日報",
-          "summary": "",
-          "source": "工商時報",
-          "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBPcWlGZ3M0UGJQRGVzVlVCYTg5bjNWZ3VWVkRFNHNINTN3c3QwUDhDVXlpQkI4QnBhV01LcW83R2xPRjlRTXh5a1JTM1VmMWRkbzBXLWpoWnJ3LTdPSHJJ?oc=5",
-          "age": "3小時前",
-          "within6h": true
-        }
-      ],
-      "sentiment": {
-        "buyPct": 69,
-        "sellPct": 31,
-        "dominant": "buy",
-        "label": "想買居多",
-        "summary": "社群討論 50%偏多 · 買權成交比 75% · 6H主動買盤 82%"
-      }
-    },
-    "^VIX": {
-      "headlines": [
-        {
-          "title": "美股先爆衝又急跌令投資人陷進退兩難 趨勢反轉訊號何時出現？",
-          "summary": "",
-          "source": "鉅亨網",
-          "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFByQ1ZFenkxa0FJVmJmelNQTTR3Vk90cExTU29SY1hfSjN2TWZ4Mm1uSTV2R3BMZjBkSkdMQXIwdWltTldrS0VxNG1aMFNLSWs?oc=5",
-          "age": "14分鐘前",
-          "within6h": true
-        },
-        {
-          "title": "由於科技擔憂持續存在，VIX 週二收盤幾乎持平",
-          "summary": "",
-          "source": "ad-hoc-news.de",
-          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOWDZhMEpYS2VSRUJBQUYzN21QeVN1Y0IwNWRUdGNtQ181SlROTXRra1d2VjJfbHlYRC11YWJuU3JRdnF1UVAxSldWMjlhdTlPSlFvdHFSS2Nla0Y2YmNZM0tZNjFhclZfSmpDMEhfZjNTU3hXb0V3R3UyTW9ybFA1RUxGYy1KSHh6T0REVWgyczR0TDNxa3ZIdDRfQ2NrVFdOVVFOVDN3UFlQOWs1VWZKejdYZXA?oc=5",
-          "age": "27分鐘前",
-          "within6h": true
-        },
-        {
-          "title": "什麼是波動率指數？為什麼週二開盤前股價達到 32",
-          "summary": "",
-          "source": "FourWeekMBA",
-          "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5PSWtiVnJiX1FYa2F2elBWaGdwUkFxNURYVEVfREZpRFJXbFdSNC1xaGRrbWp3aEJ4SWRvOFV6czQwTkdHUjdvQzRmcWlobERJNXJJ?oc=5",
-          "age": "3小時前",
+          "source": "商傳媒",
+          "url": "https://news.google.com/rss/articles/CBMikwNBVV95cUxOQjRCbEVhMUJ5azYySDBNb2l4Y0hQbkFsRVVuVGY1UUpIM3lZa25pbkFYRGMyMHd4eHgtQkNfWDRMdW1XUDlHNWthSFBGRms2QU1qZlpOaHR6cjFQMWFqV3k1aTBCQlBTUFN4WTB0eGpIaHZNVFhudGc0WUpOWS1CVXFYdVpUcEFxRU54LVZXQVh4YU9yanVVOUxBLXJ4YWJXVlo0a3BfSUd0LXF2N3hXNWwwTThJaUE4T0Y0ODlKdGZTY1dhcmxKaFRmOExmeTZVbHJJS2ZFdjUtTXU0RVZjcUNHTzBDWTNtM1JGb2FjOFBnRk0zbW00UnZad2hRMU5CNWFNWmpFQUpvS2lBT1YzelJiLU1CdW1HY0FhV1VtVUxGSUlaLTFReTlsUkhPTGtnaFR1QjRiX1VYNDVTMGxwclBnV1hNSWRWR1NoanpjMXRQVUVpZFhRVFcxWGtDWWE2YWpxM2tvTlBld0ZTRlpIRzVRZFR4Zi0zTFRTRHpIVXVXeE9qcDRMdXdQbFZFQndTTklJ?oc=5",
+          "age": "4小時前",
           "within6h": true
         }
       ],
@@ -793,145 +594,304 @@
         "sellPct": 48,
         "dominant": "buy",
         "label": "想買略多",
-        "summary": "社群討論 62%偏多 · 買權成交比 52% · 6H主動買盤 51%"
+        "summary": "社群討論 50%偏多 · 買權成交比 67% · Reddit熱度 #45"
+      }
+    },
+    "SOXL": {
+      "headlines": [
+        {
+          "title": "AI股反彈只撐一天？費半重挫7.88%、台積電ADR跌近4% 台股早盤狂瀉逾千點",
+          "summary": "",
+          "source": "LIFE 生活網",
+          "url": "https://news.google.com/rss/articles/CBMirwJBVV95cUxOSmRzZEpIVnZWZVFDN05md3JNSXlDUm96ZF84Z2VqeTJqSndrS2M1U29JamJGQUxueFJXbl82QlNLOEhtVW11anBYejN2d2RtTWRSX1BGTXQxZUxYS182Wmc5eUg2d3UxeG54RWFmeUN0TkYxQy00T0tMZkhyREtYY3pEXzJWM2JybTJpdVFnS0kzX195LUxqLVV5YV9xbFVqR0FfYnNtQ3ZST0tIWGVCM0NXNXFRaG9KUlVUUFZZT3dNR3E2NFVzTHJFUDNNUzJzR1hYbjM2RXU2YU9mV1RnMFJoNWktcV9JdXJqa29id191RlpINktqSzU3TmcxRjMtVW5IWUZOck8yc3h3R0xJNmk2bzFrN1pYZF9KREdCMXNSSFJrUF8wMXhzcGNnZTQ?oc=5",
+          "age": "4小時前",
+          "within6h": true
+        },
+        {
+          "title": "國泰費城半導體(00830) 成分股、配息、折溢價｜台股 ETF",
+          "summary": "",
+          "source": "口袋證券",
+          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9heUt6MzZIMDVpNXN2QTNYN1VKdFZ1UTdsWW9xdW5iSzRKNVI0RE9SazNIS1ZZVVRZWmVSWGxMenJiSmwzTnRnZ29QX2xHSFhja3l3UHNVZC1iUFlXSk9ZNw?oc=5",
+          "age": "4小時前",
+          "within6h": true
+        },
+        {
+          "title": "《盤中解析》費半重挫拖累 狂瀉3000點失守4萬點",
+          "summary": "",
+          "source": "富聯網",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNRERzSkFsZkFTZmk0bExLRnFTSHJIX2YzbFktNnB6b00wekdqWm8xbE9SU2M1TFRuQjlqMFEzR1FMc0NJeHZ1WWZoU3NHc1BUcGpoUDFhaW1HZ2ZiRTBVLU1XTE91WG5lc1YxMDhiam9ZdmxFZk5BemJOWER0QXN6dHJ4U2dtNmU3?oc=5",
+          "age": "4小時前",
+          "within6h": true
+        }
+      ],
+      "sentiment": {
+        "buyPct": 39,
+        "sellPct": 61,
+        "dominant": "sell",
+        "label": "想賣略多",
+        "summary": "社群討論 66%偏多 · 買權成交比 55% · Reddit熱度 #8"
+      }
+    },
+    "IBIT": {
+      "headlines": [
+        {
+          "title": "比特幣ETF本月資金淨流出逼近50億美元 恐創上市以來最差紀錄",
+          "summary": "",
+          "source": "Yahoo 財經",
+          "url": "https://news.google.com/rss/articles/CBMikgNBVV95cUxOc21GM1ROYVRmQWk0bXNjZlRpMnA2WklWczQ1LXM1cUh0Qmp5RDl1OFVtVEFma1FBMl9mb01WSURTSzBjeGpTWWZsRENPVTkzOXdKclNzbjRlc1dlM0tFWGw4cDZIbUh3ZW1BSUNSZ2hNUHF0ZDhuUFpzbWo2VmZZSHBrVmhmLWpmSWxocF9RbjQ3QjVod1hiNGlFR0hIWFdBQmJVQ2lGdDdVT3R3U1lyWTduSDRNakRBXzZQN25IUVhFWWpKNW9WeGI5N2F3U2o2VVBsRjBzRWZIUEVwX1AtejB6UEV5T25Md09ncHlPZzVtRVJZLWhzamNtRS1QaDJKbDFZc1BXWDJaNWgzUGJOUEZ4SWtqaDZfal9rc0FuRkg4QUlMLVFDRU9JaTFYdHdwU2d3QXU4UWd5OXdyVXZ6MVJFaGlVNHREdVdsOGJranZFbkxCUnFxTDY4eFR4aEQ4MXhxR3F6R2lNRlFnSndEdlpFWFNpd0tYRHBpdmpkb185UU1wZWM0UGpIQm1IXzZwdHc?oc=5",
+          "age": "59分鐘前",
+          "within6h": true
+        },
+        {
+          "title": "Arthur Hayes：比特幣恐測 5 萬美元，AI 崩了人才會回幣圈",
+          "summary": "",
+          "source": "鏈新聞 ABMedia",
+          "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9ObWFrNTI5dmtRNTdXSEJQX001Mkh3c3BQajBGbTdfWWxNTHJvRlFXV3lMMy05YkRhZUkwSVB1c25qYXA4ZERNS2RuUmY3QWpocnZsZTYwUHp6NmJtMG5QWFI1a01VMXZSVzdldWlYcHg4UQ?oc=5",
+          "age": "11分鐘前",
+          "within6h": true
+        },
+        {
+          "title": "分析师：过去7天现货比特币ETF净流出34785枚BTC",
+          "summary": "",
+          "source": "TradingView",
+          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBlM2tvaUE0ODVnbG5GNWZTUFVpWkM5N213cDZpcTFCMWlCdFNYZlVfSHU2c1NxVl91WGFiUXlJeWxlMEQwdE1YYkhmSkw2cWtrVDNYTURlTDFXYXBsZHEtLUJDRkh5UQ?oc=5",
+          "age": "20分鐘前",
+          "within6h": true
+        }
+      ],
+      "sentiment": {
+        "buyPct": 36,
+        "sellPct": 64,
+        "dominant": "sell",
+        "label": "想賣略多",
+        "summary": "社群討論 28%偏多 · 買權成交比 41% · 6H主動買盤 44%"
+      }
+    },
+    "CL=F": {
+      "headlines": [
+        {
+          "title": "《國際油價》供應過剩前景 11/25美期油電子盤跌逾1美元",
+          "summary": "",
+          "source": "富聯網",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQZ01IV21CQ1hsNWkxcUItSm9laGdQRGNfQlJtMTlnS3Z2SDlQeU0wUHo5blpaektpX05LYXNHSlZSZE4yUXNNT3FmUEdKMEtHd2tFRHVoZ0puUjB5SGwzbkI0WHVfTHRiUF9XeUt1WTRNXzliUHlxZ1djcV9oZU96enc5bEhqa0Vy?oc=5",
+          "age": "1小時前",
+          "within6h": true
+        },
+        {
+          "title": "荷莫茲海峽再傳油輪遇襲！國際油價小升2美元　供應過剩仍壓抑漲勢",
+          "summary": "",
+          "source": "ETtoday新聞雲",
+          "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE12cC1kX0E5bllRM2tocG9jNDlMMjRsdXFJWXM0ZmxJUmoyaDVqWGwwLW92bXF3WU9jOW1WeXc2QzZuSDZnUTNkSGFzWE5jcjRMa3dtbTJvbWhmdzNRRlHSAUtBVV95cUxQVjlfNW0yYnRQM2tfUDdpUnRTMVdILWtySjdlMUdmVXFTQUtJR1RBSmNycy1SWFJnWXdlaGhXVmhjMVhmNjEyYjJLZzQ?oc=5",
+          "age": "4小時前",
+          "within6h": true
+        },
+        {
+          "title": "【TMGM 財經回顧】油價為何可能接近底部？",
+          "summary": "",
+          "source": "www.tmgm.com",
+          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNYWpGTkdGQVV6YUQwOU5qU2NRQUJiZGNhWlhVcjdjQXhKd3R3eW5Vc1JseUlCREVXNGhReko5SWJVZGtPUWQ5UFJfYS1JMW95R19SdnNETHk3Sm5laDhSbFdvalRMUUdYX1duc3I0RXdGcGZzUllxVnYtY3NwQlNVUg?oc=5",
+          "age": "4小時前",
+          "within6h": true
+        }
+      ],
+      "sentiment": {
+        "buyPct": 53,
+        "sellPct": 47,
+        "dominant": "buy",
+        "label": "想買略多",
+        "summary": "社群討論 52%偏多 · 6H主動買盤 36%"
+      }
+    },
+    "UCO": {
+      "headlines": [
+        {
+          "title": "《國際油價》供應過剩前景 11/25美期油電子盤跌逾1美元",
+          "summary": "",
+          "source": "富聯網",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQZ01IV21CQ1hsNWkxcUItSm9laGdQRGNfQlJtMTlnS3Z2SDlQeU0wUHo5blpaektpX05LYXNHSlZSZE4yUXNNT3FmUEdKMEtHd2tFRHVoZ0puUjB5SGwzbkI0WHVfTHRiUF9XeUt1WTRNXzliUHlxZ1djcV9oZU96enc5bEhqa0Vy?oc=5",
+          "age": "1小時前",
+          "within6h": true
+        },
+        {
+          "title": "布蘭特原油跌破91美元，WTI下滑逾1.5% 作者 Investing.com",
+          "summary": "",
+          "source": "Investing.com 香港 - 股市報價& 財經新聞",
+          "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBpZVBnNnpUbUJFblcydklaaUlUbVZ3ZTAzNklSV3ZOT2FDMVVHeXc2QS04TkxnUXBKMmQybHQyZVU2WXYxX3A5RU1vSzVZcktZd0JucGZ0dndRNWVadVFTT2hUQWhJcmJTQXA3S0tINA?oc=5",
+          "age": "1小時前",
+          "within6h": true
+        },
+        {
+          "title": "OPEC+ 年內最重要會議即將登場 將為2027年制定產量方案",
+          "summary": "",
+          "source": "聚財網",
+          "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE1Va0RfbjN5bldBWXgyTU5jeVZGWXZyMEJLeFplRm9TUTZSa05aZldtZ0pFeVNBek05REU4a1BheDdMVU4yVm9nREgxbmI?oc=5",
+          "age": "2小時前",
+          "within6h": true
+        }
+      ],
+      "sentiment": {
+        "buyPct": 68,
+        "sellPct": 32,
+        "dominant": "buy",
+        "label": "想買居多",
+        "summary": "社群討論 50%偏多 · 買權成交比 75% · 6H主動買盤 41%"
+      }
+    },
+    "^VIX": {
+      "headlines": [
+        {
+          "title": "VIX破60爆量換手 台股回測打第二隻腳，領攻第一棒看誰？",
+          "summary": "",
+          "source": "鉅亨網",
+          "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE5kLWVvRjdmRXVMUzRoYVN6TklZdmNNcWxtc3oyVHZoMy1BZElYMF9EN3JJRFNSb1FCVmtrTzM5VmhJQUlSUkFKTkE4OA?oc=5",
+          "age": "5分鐘前",
+          "within6h": true
+        }
+      ],
+      "sentiment": {
+        "buyPct": 71,
+        "sellPct": 29,
+        "dominant": "buy",
+        "label": "想買居多",
+        "summary": "社群討論 63%偏多 · 買權成交比 93% · 6H主動買盤 51%"
       }
     }
   },
   "cioAdvisory": {
     "regimeTag": "高波動謹慎期 (VIX 26.36)",
     "regimeTone": "caution",
-    "regimeSummary": "VIX 處於 26.36 (-0.98%) 高波動區，標普 -0.50%、那指 -1.48%。高 IV 環境嚴禁追價 3 倍槓桿 ETF（TQQQ/SOXL），資金宜以 BOXX ($119.20) 等類現金作緩衝，僅鎖定觀察名單中具支撐或錯殺之核心標的分批佈局。",
+    "regimeSummary": "VIX 處於 26.36 (-0.98%) 高波動區，標普 -0.50%、那指 -1.48%。高 IV 環境嚴禁追價 3 倍槓桿 ETF（TQQQ/SOXL），資金宜以 BOXX ($119.24) 等類現金作緩衝，僅鎖定觀察名單中具支撐或錯殺之核心標的分批佈局。",
     "cards": [
       {
         "rank": 1,
-        "symbol": "NVDA",
-        "displaySymbol": "NVDA",
-        "name": "輝達",
-        "price": 153.67,
-        "changePct": -6.89,
-        "dd52w": -36.9,
-        "rangePct": 5.7,
-        "buyPct": 56,
-        "sellPct": 44,
-        "role": "AI 算力晶片霸主",
-        "focusTag": "事件催化警戒",
-        "title": "NVDA 輝達 ($153.67)",
-        "action": "突發事件・靜待利空沉澱",
+        "symbol": "SOXL",
+        "displaySymbol": "SOXL",
+        "name": "Direxion 半導體3倍做多",
+        "price": 29.28,
+        "changePct": -10.18,
+        "dd52w": -90.3,
+        "rangePct": 18.0,
+        "buyPct": 39,
+        "sellPct": 61,
+        "role": "費半 3 倍做多槓桿",
+        "focusTag": "槓桿風控警示",
+        "title": "SOXL Direxion 半導體3倍做多 ($29.28)",
+        "action": "高波動警戒・禁追刀",
         "actionType": "alert",
-        "detail": "受近期新聞事件牽動跌 -6.89%（6H 想賣 44%，距 52 週高點 -36.9%）。資料中心算力市佔核心，惟高基期與財測/治理訊息易放大單日振幅，宜等站穩均價再行動。事件發酵期切忌搶反彈，待負面影響範圍釐清與量縮止跌再評估。",
-        "headlineTitle": "神減碼！《大賣空》貝瑞搶在輝達飆漲31%前 出售75%賣權",
-        "headlineSource": "鉅亨網",
-        "headlineUrl": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1ZNjBhMUQ3b0ZGYVlGX1BuX2VpU3c2aUE2LW55Zm9LbG81ZnZTT0xYVUNobW13bk9fTFFVQmJSVjQ4WGFUN1d3UVpLbVA3Z28?oc=5"
+        "detail": "單日波幅達 18.0%（區間 $30.16–$37.93，距 52 週高點 -90.3%）。在 VIX 26.36 環境下多倍槓桿複利耗損驚人，嚴禁盤中急跌盲目攤平，務必待現股權值止跌出量後再評估。",
+        "headlineTitle": "AI股反彈只撐一天？費半重挫7.88%、台積電ADR跌近4% 台股早盤狂瀉逾千點",
+        "headlineSource": "LIFE 生活網",
+        "headlineUrl": "https://news.google.com/rss/articles/CBMirwJBVV95cUxOSmRzZEpIVnZWZVFDN05md3JNSXlDUm96ZF84Z2VqeTJqSndrS2M1U29JamJGQUxueFJXbl82QlNLOEhtVW11anBYejN2d2RtTWRSX1BGTXQxZUxYS182Wmc5eUg2d3UxeG54RWFmeUN0TkYxQy00T0tMZkhyREtYY3pEXzJWM2JybTJpdVFnS0kzX195LUxqLVV5YV9xbFVqR0FfYnNtQ3ZST0tIWGVCM0NXNXFRaG9KUlVUUFZZT3dNR3E2NFVzTHJFUDNNUzJzR1hYbjM2RXU2YU9mV1RnMFJoNWktcV9JdXJqa29id191RlpINktqSzU3TmcxRjMtVW5IWUZOck8yc3h3R0xJNmk2bzFrN1pYZF9KREdCMXNSSFJrUF8wMXhzcGNnZTQ?oc=5"
       },
       {
         "rank": 2,
         "symbol": "MU",
         "displaySymbol": "MU",
         "name": "美光科技",
-        "price": 631.0,
-        "changePct": -10.84,
-        "dd52w": -49.7,
+        "price": 603.83,
+        "changePct": -4.12,
+        "dd52w": -51.9,
         "rangePct": 7.0,
-        "buyPct": 35,
-        "sellPct": 65,
+        "buyPct": 44,
+        "sellPct": 56,
         "role": "HBM 高頻寬記憶體循環龍頭",
         "focusTag": "急跌風險警示",
-        "title": "MU 美光科技 ($631.00)",
+        "title": "MU 美光科技 ($603.83)",
         "action": "高波急殺・等止穩訊號",
         "actionType": "alert",
-        "detail": "單日大跌 -10.84%（振幅 7.0%，距 52 週高點 -49.7%）。HBM 需求帶動獲利循環同時具高振幅特性，急漲急跌時務必分批節奏操作。高彈性個股下殺動能強，切忌左側重壓接刀。",
-        "headlineTitle": "美光科技期權聚焦：11月24日成交80.66萬張，未平倉合約為357.93萬張",
-        "headlineSource": "Moomoo",
-        "headlineUrl": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOdHVYaTMwd2JPYUcySkpTREZtRlhQeE1ZUkNHRlhhRTJtbDEyYWRZcWVwWTNDcUxNejVRTlJhSkhyRGRyNWphS3dkSUVvZjNHb3Fpb1FGWk12eWxpSlpDT0RLV1lUWTNoVXZpN19uZWhZdF9JcHk1SXd4YUtGdXl3WlBiTTZUVk5QYUtqMmpNWE9JSnRmcWhUeTdIbGZWa0JrakZqblN5OWJhMzg?oc=5"
+        "detail": "單日大跌 -4.12%（振幅 7.0%，距 52 週高點 -51.9%）。HBM 需求帶動獲利循環同時具高振幅特性，急漲急跌時務必分批節奏操作。高彈性個股下殺動能強，切忌左側重壓接刀。",
+        "headlineTitle": "美光CEO年領13億！安全預算暴增2000%原因曝光",
+        "headlineSource": "鉅亨網",
+        "headlineUrl": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE05VmxQVGdsMGRQZDJBdGFMRkhaQTcxVmFIbWRKaDkxbTlJVzVLSzVGYXI2RnZiOFczeGNLNFlza1daUWVYc0FJRGFsbw?oc=5"
       },
       {
         "rank": 3,
-        "symbol": "SOXL",
-        "displaySymbol": "SOXL",
-        "name": "Direxion 半導體3倍做多",
-        "price": 33.09,
-        "changePct": -23.42,
-        "dd52w": -89.0,
-        "rangePct": 18.0,
-        "buyPct": 41,
-        "sellPct": 59,
-        "role": "費半 3 倍做多槓桿",
-        "focusTag": "槓桿風控警示",
-        "title": "SOXL Direxion 半導體3倍做多 ($33.09)",
-        "action": "高波動警戒・禁追刀",
+        "symbol": "NVDA",
+        "displaySymbol": "NVDA",
+        "name": "輝達",
+        "price": 149.72,
+        "changePct": -3.64,
+        "dd52w": -38.5,
+        "rangePct": 5.7,
+        "buyPct": 51,
+        "sellPct": 49,
+        "role": "AI 算力晶片霸主",
+        "focusTag": "急跌風險警示",
+        "title": "NVDA 輝達 ($149.72)",
+        "action": "高波急殺・等止穩訊號",
         "actionType": "alert",
-        "detail": "單日波幅達 18.0%（區間 $30.16–$37.93，距 52 週高點 -89.0%）。在 VIX 26.36 環境下多倍槓桿複利耗損驚人，嚴禁盤中急跌盲目攤平，務必待現股權值止跌出量後再評估。",
-        "headlineTitle": "台指期失守3萬9！費半瀉9％輝達挫8％台積ADR跌5％ 原因曝光",
-        "headlineSource": "自由財經",
-        "headlineUrl": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1QWHBweWVicWU0am5ULXAtRnFUN2ZIcDdqMHF2akxRNEZTazh4WTlfOGJrSng4U2ZZZjFVWHktSUZiMnNoQjZKa2VkaTllSkNhazgxOXh6ZmlTMkJUMmJV0gFkQVVfeXFMTVhSRjQ3dS0xQkpjMzJ2RFdoay1DOTBHMmJCbmpzVkdySENYLXNVMEh2YnlTUnUyUUUwR095dGs0U0dodmtzTVRKV0NLV3drUjZ0bU1uVnpTOHBUTHYtNHNqbER3OA?oc=5"
+        "detail": "單日大跌 -3.64%（振幅 5.7%，距 52 週高點 -38.5%）。資料中心算力市佔核心，惟高基期與財測/治理訊息易放大單日振幅，宜等站穩均價再行動。高彈性個股下殺動能強，切忌左側重壓接刀。",
+        "headlineTitle": "黃仁勳重返輝達被緊抱15秒！藍衣女子疑是「餐廳外包人員」 曾經共患難關係曝光",
+        "headlineSource": "Yahoo股市",
+        "headlineUrl": "https://news.google.com/rss/articles/CBMi4gNBVV95cUxPUXZNd0FjWjZyOTVmS3BrdUd6b3VZcmExYkVuQjhpekZQa0lYWkRiSmpnQVZlWnduVy0zQ1FjRmMxVk8td0lCM0pFTlM1ZHlzeVhOMlFLak03bzlIRE9leXIxQ3RnN2xvVDEza3hVZURFNzJkR1hOWG1FM01LXzRIM0YtSHFybENDWjdnMi1qMDc0OG5wdUJLNGt3bVE4UE9vaENTX25Vb19tN0dsY1FTa005N2FzRzJCT3lwa0FWVWhwQV9XUzZOMkNUMjJNYXVlazBTeXE1dEJfNW9UYXZnRFhULVhmamdNVl9IWVE3XzNnTG9NeXJpNWE5M3hjY2twdEFxeTN0NlMwc29vejlYWXZLVVZZM0ZNU0dJODZLaVFTUGc1T0lkWGpSWnRadFlYcThIcFBuUkpqLWc5dDllNWwwOWsza1NjTlhHMG1KNDhpMkJweGtGMGRHUk42Tl9nZXFGMUpac3FVbVJlWVZnNVJNVjBQSGFkc3k4aG95UTVLeUNVcHJ4bE1ia2dDVjFsN2tlb1ZjVmFrMzJyeE9SY2MzaWpSV2t3V0F4Wi13bVlJX3ZpQ1RSSG1xY3JTRnNxLUxfbV9uWElPS25GeVl6UlBrLVV1eFVEVExsaHl6WlE4QQ?oc=5"
       },
       {
         "rank": 4,
         "symbol": "SPCX",
         "displaySymbol": "SPCX",
         "name": "太空探索技術 (SpaceX)",
-        "price": 126.67,
-        "changePct": -5.01,
-        "dd52w": -43.9,
+        "price": 123.34,
+        "changePct": -1.96,
+        "dd52w": -45.3,
         "rangePct": 6.7,
-        "buyPct": 44,
-        "sellPct": 56,
+        "buyPct": 49,
+        "sellPct": 51,
         "role": "SpaceX 太空探索主題",
-        "focusTag": "急跌風險警示",
-        "title": "SPCX 太空探索技術 (SpaceX) ($126.67)",
-        "action": "高波急殺・等止穩訊號",
-        "actionType": "alert",
-        "detail": "單日大跌 -5.01%（振幅 6.7%，距 52 週高點 -43.9%）。星鏈與航太龍頭題材彈性極高、同步伴隨估值與融資波動，適合右側順勢小倉參與。高彈性個股下殺動能強，切忌左側重壓接刀。",
-        "headlineTitle": "SpaceX、特斯拉合併有譜- 日報",
-        "headlineSource": "工商時報",
-        "headlineUrl": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9zbWxSd3F4TkkzOXRuTDBOOVN1b0QzcjhwdDBaYTVtNmRqRTJ5bENWSEVNeFROUm5WZHkwaWhSTGs5ZUhqaHY0VnFfM1didjRUUzVOMTFQN3ZpN1ZTWWdB?oc=5"
+        "focusTag": "焦點動態",
+        "title": "SPCX 太空探索技術 (SpaceX) ($123.34)",
+        "action": "關鍵價位觀察",
+        "actionType": "watch",
+        "detail": "現價 $123.34（-1.96%，振幅 6.7%，距 52 週高點 -45.3%）。星鏈與航太龍頭題材彈性極高、同步伴隨估值與融資波動，適合右側順勢小倉參與。",
+        "headlineTitle": "大行評級｜大摩：SpaceX在新興物理智能經濟中角色關鍵，維持“增持”評級及目標價300美元",
+        "headlineSource": "TradingView",
+        "headlineUrl": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5sc2dSbUhkNW9tMU9LT2dvQURiMkRZV0dLeDJRSmxNUWhEQXJvWG9QbFFKUkRaZjBtVnF1dWxYNVFKaXdHdjR5UjVUVmdLbTMxMmxLWHhTZXUzLXNicTZXWUZPZHE4WXNMakE?oc=5"
       },
       {
         "rank": 5,
-        "symbol": "MSFT",
-        "displaySymbol": "MSFT",
-        "name": "微軟",
-        "price": 496.85,
-        "changePct": 0.88,
-        "dd52w": -11.1,
-        "rangePct": 2.7,
-        "buyPct": 70,
-        "sellPct": 30,
-        "role": "企業雲端與 AI 軟體龍頭",
-        "focusTag": "相對強勢領頭",
-        "title": "MSFT 微軟 ($496.85)",
-        "action": "相對抗跌・資金避風港",
-        "actionType": "bull",
-        "detail": "逆勢表現 +0.88%（超越標普 +1.38%），展現基本面防禦與買盤韌性（區間 $488.43–$501.80）。Azure 與企業訂閱現金流穩健，非基本面短期利空引發之急跌往往提供中長線折價買點。",
-        "headlineTitle": "微軟大當機檢討曝光！啟動「紅色警戒」拚1小時內恢復全球服務",
-        "headlineSource": "鉅亨網",
-        "headlineUrl": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFA3Y1E3MmlJV3ZMUkViemNzY0RCLUdONEJZY2FFTFVHdm1lUWJ3YmYzcUVxbkhOb3Rwb3N2VzBjVDhnNnN1LTdBcWY4QQ?oc=5"
-      },
-      {
-        "rank": 6,
         "symbol": "QQQ",
         "displaySymbol": "QQQ",
         "name": "Invesco 納指100 ETF",
-        "price": 638.64,
-        "changePct": -1.9,
-        "dd52w": -16.3,
+        "price": 626.74,
+        "changePct": -1.78,
+        "dd52w": -17.8,
         "rangePct": 1.9,
-        "buyPct": 44,
-        "sellPct": 56,
+        "buyPct": 40,
+        "sellPct": 60,
         "role": "那指 100 成長基準",
         "focusTag": "指數分批買點",
-        "title": "QQQ Invesco 納指100 ETF ($638.64)",
+        "title": "QQQ Invesco 納指100 ETF ($626.74)",
         "action": "估值修正・分批佈局點",
         "actionType": "bull",
-        "detail": "現價 $638.64 較 52 週高點 $762.86 已回落 -16.3%（今日 -1.90%），進入中長線指數折價擊球區。配合 BOXX ($119.20) 現金緩衝，適合分 2–3 批紀律承接，保留空間因應 VIX 26.36 餘震。",
-        "headlineTitle": "那指暴力反彈恐是逃命波？BTIG：史上12次類似反彈無一倖免",
-        "headlineSource": "鉅亨網",
-        "headlineUrl": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBOTDZSWDh5VTZqdE92OVpWREk2UjY4QlNPbjJaYnFLSkp0a3RPamhtbTE4ZmlYZmlBdWJIcXhjRHJYYkhGYTJBeHFwdw?oc=5"
+        "detail": "現價 $626.74 較 52 週高點 $762.86 已回落 -17.8%（今日 -1.78%），進入中長線指數折價擊球區。配合 BOXX ($119.24) 現金緩衝，適合分 2–3 批紀律承接，保留空間因應 VIX 26.36 餘震。",
+        "headlineTitle": "不是V了嗎？台股狂震重挫逾3400點！富坦專家揭科技股長抱與必勝「2招」",
+        "headlineSource": "TradingView",
+        "headlineUrl": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9yM2s5a0w0N3ZvN0xMUktfQjEwUmEtX3BqS2xDanVWXzgwNi1BQnVPcW9RdmVWanQwRTdKanNzSTc5YzJQdnJUbVE2NzNBRk9Zbk9zN01NN0FxbzBWdi1aUFdzeFo?oc=5"
+      },
+      {
+        "rank": 6,
+        "symbol": "META",
+        "displaySymbol": "META",
+        "name": "Meta 平台",
+        "price": 579.35,
+        "changePct": -1.78,
+        "dd52w": -25.7,
+        "rangePct": 2.7,
+        "buyPct": 46,
+        "sellPct": 54,
+        "role": "AI 廣告變現與開源生態",
+        "focusTag": "焦點動態",
+        "title": "META Meta 平台 ($579.35)",
+        "action": "關鍵價位觀察",
+        "actionType": "hold",
+        "detail": "現價 $579.35（-1.78%，振幅 2.7%，距 52 週高點 -25.7%）。AI 精準廣告推升利潤率與自由現金流，震盪期高 Beta 屬性常創造波段承接與收租空間。",
+        "headlineTitle": "Threads終於有iPad版！大螢幕「聊脆」更爽　加碼1實用功能",
+        "headlineSource": "自由電子報3C科技",
+        "headlineUrl": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE1mMWh0dlRGZ0dNY1dDQ3BUenpHQTJoZjRxVDU5Q1dFTVN1cFFCZm1EM1p3R3F5T1hvRWZJR1g3WTB5ZFhyZGR4S3JMUnXSAUxBVV95cUxNZjFodHZURmdHTWNXQ0NwVHp6R0EyaGY0cVQ1OUNXRU1TdXBRQmZtRDNad0dxeU9Yb0VmSUdYN1kweWRYcmRkeEtyTFJ1?oc=5"
       }
     ],
     "scannerBullets": [
-      "觀察名單廣度：可交易標的 19 檔中 3 檔上漲 / 16 檔下跌（最強：UCO +4.59% ｜ 最弱：SOXL -23.42%）。",
-      "波動與現金基準：VIX 報 26.36 (-0.98%)、停泊基準 BOXX 報 $119.20；以上前 6 大焦點完全依即時報價、52 週折價與 6H 頭條情緒動態排名，不預設任何個人持股。"
+      "觀察名單廣度：可交易標的 19 檔中 0 檔上漲 / 19 檔下跌（最強：IAU -0.69% ｜ 最弱：SOXL -10.18%）。",
+      "波動與現金基準：VIX 報 26.36 (-0.98%)、停泊基準 BOXX 報 $119.24；以上前 6 大焦點完全依即時報價、52 週折價與 6H 頭條情緒動態排名，不預設任何個人持股。"
     ]
   }
 }
