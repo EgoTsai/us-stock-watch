@@ -1,45 +1,13 @@
 {
-  "generatedAt": "2026-11-25T09:16:36.960392+00:00",
-  "updatedAtTW": "2026-11-25 17:16:36",
+  "generatedAt": "2026-11-25T21:30:14.508549+00:00",
+  "updatedAtTW": "2026-11-26 05:30:14",
   "refreshIntervalMinutes": 3,
   "universeNote": "嚴選美國前 30 大市值科技股動態 ＆ 聯準會升降息/重大宏觀政策快報",
   "items": [
     {
-      "title": "分析師憂記憶體過剩 美光目標價腰斬",
-      "source": "經濟日報",
-      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQTHpjZkM0LUJKVWVxZ2lCT1pFUHVzTGV4b0ZnV0dWdm16UW5pbWtTT2VnMTNlcFZDNGRCOXcxWVVYaldMVGJVbW93S2RLaTdlR3oxYzVZY29JWV9BLXJlNzBFcEVRRjN1d1VObjVvR1d2eFYyZjdIQ2E3YnloR2lHanF2QdIBYkFVX3lxTE9YNW5CVzRkMHBWNFRlUnJPR1RYSDBMYTRlWWtjY0Q1c3RBaGwxYWlxQU5BZDBHNEJKcjJRUDk0NFZnMHZmVUxUZHVCdzN4TVFCYk43QXlOZVU0T05VRlBwaGRn?oc=5",
-      "tags": [
-        "MU"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": false,
-      "timeTW": "11/25 17:10",
-      "clockTW": "17:10",
-      "age": "6分鐘前",
-      "pubTs": 1795597844
-    },
-    {
-      "title": "金州勇士攜手 Google 指定 Gemini 為官方 AI 合作夥伴",
-      "source": "蕃新聞",
-      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBGalhUWjU4d0NGcFhtTzRJYmNxX2MxRFRCVHlHdFRJRlhhS05peXdicFdfbE53bmRiclowTjh4VFdiclUwNTVxdTUzOEFEamo5MkE?oc=5",
-      "tags": [
-        "GOOG"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": true,
-      "timeTW": "11/25 17:06",
-      "clockTW": "17:06",
-      "age": "11分鐘前",
-      "pubTs": 1795597564
-    },
-    {
-      "title": "微軟祭「紅色警戒」全面檢討全球服務大當機 軟體維修怎和「戰爭迷霧」扯上關係",
-      "source": "Yahoo新聞",
-      "url": "https://news.google.com/rss/articles/CBMiqANBVV95cUxPLW1lMlZTZXBiR0VsbG1NVTZnOXZZUGFqR1NWbV96UEQ4bnlTY1d1Rk9Td2hYTWFPOUNuWjg5QjFaeTJGUXlSTUpyNXY4WWZZM0dEMVZlSm90cHNHOXZyU3JpTU92RGkwSzNGT0cwTDh2Qm82amdqVXBPbkJwMUZIN0xKNEpkMWdIcmtwNjZHT1lkSUx2Y1NGQVhJcThhTEVBajRKYlpUTnpUU3VGUTNrZXNQS01zVVlYRl9qeEU1Q0FzMEd3RFdrMm9Ja3VNNV9QaTZNOXVHU2N3TmVuZUVkcXBLTDQ1QzlCVlh2cGRaWkc5ODhEa2pIVXhlYmJkamdGRWM5MVRaWC1ZUmtUdmdoWlJ6S2E3cGpIS283dU9LZFRrSVpHN2JMZWJCZm5yWWtLRzZZWk1OVDhWX1h1WC1JZEhtZVYxb2R0SmhrTXBDcm9fWjhiU1lVcmZkZktBZGZoeVBSR0FkUjhHOUNJM2U4QnN6aU5WQXc3N29NMzIwb3d2NEpXVjhNeWwxbVBOWlA4am8tempfQWdteHV1cXp6Y3NoWnJhUnM3?oc=5",
+      "title": "重大當機暴露系統缺陷　微軟宣布進入「紅色警戒」",
+      "source": "自由財經",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBfczkwWWtNaHR2bkEzMFl0eUowR28wTHBfRlY1RFZaTmgxQTRtaFVqcGliYkNROTV4MExIOHRKM1lLSWpndDlHT2M1Xy1SWUQxd0s0UGdwR1BlZXJNalZJ0gFkQVVfeXFMTVpCaTQxTm04UlhyT3hwZ1JGNGRmTW0yc2N0amdoc2VTUy10Ti1YVUxNUE15OGZIcW9BUENEdGJpZjdRUkpHSzBLMU02YU1hNVQzcmdjNXlQbVZmcjMzbUp6R0tWZA?oc=5",
       "tags": [
         "當機/異常",
         "MSFT"
@@ -48,47 +16,48 @@
       "isOutage": true,
       "isMacro": false,
       "affectsHoldings": false,
-      "timeTW": "11/25 17:01",
-      "clockTW": "17:01",
-      "age": "15分鐘前",
-      "pubTs": 1795597288
+      "timeTW": "11/26 04:30",
+      "clockTW": "04:30",
+      "age": "1小時前",
+      "pubTs": 1795638605
     },
     {
-      "title": "標普：美國AI晶片出口新規增東南亞數據中心營運和信貸風險(16:00)",
-      "source": "明報財經網",
-      "url": "https://news.google.com/rss/articles/CBMiowNBVV95cUxPTzNCM2xHd3V5aGJ1T0FHWWZjRVFoeVduaEpfSE5MM3ZZdzRNd0NWNmttbjJza0ViQ2k3OGliRTZfN3FWaFB3MlBWU0dFaWItVGkyT2dpaTBpcGgxOUpLNUNUZXNuMS1OQV9KRzREUlRvWjVxa2VXOUFMT2hfLUZMYkVDVkgyeWsxNVh4d3JSR1VxUWY3WEI5OTl1bXRnSjFzeEphTDdBYXFUTFZ2YmZJNmNRcjZGajJlYThCWFZwLV94ODlIQ19LdkZfNXktM29XRWNIOTdERnJHVkZ2TFZ2bXRTTWlsYmt2TUZzc3JhOXloYzBicEU0OWhYNm9Ob1ZDT1hGME52LWEwdUtSemNRT3V1WTdOYzRsbGJ2SE1ETDZCdWJfdEJjRXF5YlNCNUJMbGdEWkF5czZVSXFlQVYwWk5EemZYcmhhSnBZaUVyU0lHRlRuOXBwZW51R0RURGNKcGN0NHJHSDluQm5Ca3ljMWh4TGE4SEF4ck13MHlVU0YwZ2lxdC1Sd3kxNWlPZHNibXc0MlJRNEhucUhLRHp5MEpMWQ?oc=5",
+      "title": "Meta 將個人人工智慧代理「Muse」整合到 Instagram 中：自動對已儲存的貼文進行排序並透過私訊處理購物",
+      "source": "Mashdigi",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBVX2swNjlfZV84Q1h3U0MyVTJjdnFZTGJMZ0tLb0p6clBiQjFOT0M2YjR6YV85eTNwdFBIS0s5ZzdJYmpYWm1FWXBTa29DTE1iUzhJVW9XVnBDTWhQaUl1ekN4Y0RXVThXV2ZSd2RFbXhmUGZrQWlwZ3d3?oc=5",
       "tags": [
-        "FED/宏觀"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": true,
-      "affectsHoldings": true,
-      "timeTW": "11/25 16:27",
-      "clockTW": "16:27",
-      "age": "50分鐘前",
-      "pubTs": 1795595224
-    },
-    {
-      "title": "AI 舉債疑慮升 CoreWeave、甲骨文 CDS 利差飆史高",
-      "source": "聚財網",
-      "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE81cjc2RGJOcXh2ZEp2YTZLdVBnNUQ4MTdMcHJTWFFxWmpDNVp2T2ZWS0piMWJaeld0b3JVS0JwTE1iM3hZTTRhMVlVTzc?oc=5",
-      "tags": [
-        "ORCL"
+        "META"
       ],
       "urgent": false,
       "isOutage": false,
       "isMacro": false,
       "affectsHoldings": false,
-      "timeTW": "11/25 15:34",
-      "clockTW": "15:34",
+      "timeTW": "11/26 04:19",
+      "clockTW": "04:19",
       "age": "1小時前",
-      "pubTs": 1795592092
+      "pubTs": 1795637949
     },
     {
-      "title": "市場預計聯準會持續升息之際 債券交易員卡位2028年激進降息",
-      "source": "鉅亨網",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE41Nno2NGdmOUpuQllMYzc0SktwNFAxZG5KUktjbmEzRTBMYlpyOTdiNnNiSlFCZ1lPcHJOYXhLbGk4bmRaVUdJeUNoTXlSQTg?oc=5",
+      "title": "「黃仁勳行情」僅一天！市場憂 AI 展望、Fed 升息前景",
+      "source": "經濟日報",
+      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBXMkNXUVFSRUwwc0p4cXZudDVXOHpBU3RLeUtfdTVzY202RmlfcnR6STBGRWMyelI1RHVLbmNEUWZkcUQxdjB5RV94TnhiNVdRVk1YU05QY3ZlVGdp0gFiQVVfeXFMTWxVcHJzZ3Z2VkdtOXA3ZUs5alpIVjNEVFFOS1drYkR3TFVYWkNDb0VWMWx5bTBCcVBLWWgzZmxVTXI5TGE4cGk2bmJLUzRhWHhNZHpmT05TNDdEZDhfWnhQcHc?oc=5",
+      "tags": [
+        "FED/宏觀",
+        "NVDA"
+      ],
+      "urgent": true,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsHoldings": true,
+      "timeTW": "11/26 03:36",
+      "clockTW": "03:36",
+      "age": "1小時前",
+      "pubTs": 1795635360
+    },
+    {
+      "title": "川普收緊晶片出口管制 亞洲資料中心消化算力 找美買家",
+      "source": "經濟日報",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNRXlPTjBIbkZMX3g2WFRNRVBJa1lLWGxiRzNHajdkZEJjOGpCSnV3bUlhVzRlVTFnMDBDSDQ3bXktNE1jcXhtcnJwN1BxeDBCc2JXUTkxNDJOZmxkWGo5d0djaWE1aWk0S1pRRmdXN0RjcmFTTlhBSzdRbERZQnphONIBX0FVX3lxTE1WdTZMRlpFLWFQMUxWcDZMcEY5NzlVLUZmZ0sxNjQxUDJYSzhXSmhOLUo5cnkwWmZad18tM1BtREFyNzE2MmJZQTQ4RFQ1VjNEcWRFNVprQUxCSlZDYUo0?oc=5",
       "tags": [
         "FED/宏觀"
       ],
@@ -96,59 +65,91 @@
       "isOutage": false,
       "isMacro": true,
       "affectsHoldings": true,
-      "timeTW": "11/25 14:20",
-      "clockTW": "14:20",
+      "timeTW": "11/26 03:09",
+      "clockTW": "03:09",
       "age": "2小時前",
-      "pubTs": 1795587604
+      "pubTs": 1795633770
     },
     {
-      "title": "美股本周迎通膨、Fed 雙重考驗！法人建議防守布局 AI 股賣壓仍是變數",
-      "source": "udn",
-      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9NSW9TWTJMODhqNnYtS05qSGVzT0ExQy04X0FBR05acFRNeExrY2lXbmJFYjNRZ3gtWVl1SHZyTk1aSzZNZi1iUmhiOEZ6Z2Za0gFWQVVfeXFMUExucThOVFhmWXJuQUI0RFR5TGt4aWRScEhPY1FUNFhtN1NjZzFwYVo2ZlI1V1dHZFlndXRfWkpZZm5ac2F2Q2ZPbmdzMEh3VkJOU2RPb2c?oc=5",
+      "title": "美國第三季GDP上修至4.3% 通膨升溫恐迫使聯準會升息",
+      "source": "民視財經網",
+      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE93LUw5ODVpZUY4NlQzeWJUZFpNU1hWYU5lQWg3ZlM1bWxmc0ttZ3Vrenk4bDBBaWdaOWd0Q05KWWxRNVFNX1laWEljNW8xOEV4a1RaUGM2TmZKZVJsZzlDTHQ5clJnQQ?oc=5",
       "tags": [
         "FED/宏觀"
       ],
-      "urgent": false,
+      "urgent": true,
       "isOutage": false,
       "isMacro": true,
       "affectsHoldings": true,
-      "timeTW": "11/25 14:04",
-      "clockTW": "14:04",
-      "age": "3小時前",
-      "pubTs": 1795586688
+      "timeTW": "11/26 02:53",
+      "clockTW": "02:53",
+      "age": "2小時前",
+      "pubTs": 1795632839
     },
     {
-      "title": "Google 限縮企業 AI 存取權限 Workspace 明年強制導入受控架構",
-      "source": "商傳媒",
-      "url": "https://news.google.com/rss/articles/CBMi5gJBVV95cUxPaW9laTVFc0U3bGpsOFJkV3I2Vm53WUt1LUl3OUtDQWRyVDQtZ2pQZmdLMl84X1JGanphdEt6aUpRa2pEUjNiQlQxSTE5V0YwNy1jY0FpckVJeTJYNnFENXROVDhzZjU1RTFoTU96OEwwMjlBanVpcVMySW5EMWlIa2lEbHU2RmVsaVhjdlJkNXJEekVQNFQzc1Y0VW1zbXpoZE9RakI1eXRlWXpkaXZKRXV1OE5FMjFKM1hzUlRqZHc3ak54N2FUWno5M1U2MC0zVGNxa1ZKa3lnV0tmZEZjY2EzZjFhZi1vYllSSHBXbWM1TEllLS05U1lQLWtmSTJjeTlVcFQ4UGluTGZRcTF0eVp0UnZLaUhNc19Edy00M3ZKUi1OV2x0STE4SDVhamVINGpwdkFxVjRsaFlva2FVWUNiRUttejBnMXd0Y3NrdmhQV3ZCZTNzZWZzOFRMYVBzZWtQeTRn?oc=5",
-      "tags": [
-        "GOOG"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": true,
-      "timeTW": "11/25 13:55",
-      "clockTW": "13:55",
-      "age": "3小時前",
-      "pubTs": 1795586132
-    },
-    {
-      "title": "亞馬遜傳砸75億美元收編AI新創！強化自研晶片 挑戰輝達霸主地位",
-      "source": "Yahoo股市",
-      "url": "https://news.google.com/rss/articles/CBMimwNBVV95cUxNTl9FSVE5eTJpSHVpOUpBdFNnandBQU9QZTAwQUZDcWZNZlRja25rX1VvYzBKMWZpcTdIaXNQTWg5Qm5yZUFPR1VmdHA2VW1EZm9iRlRKbG4wUl9LM0dLMnNMU0RGZXdvTE9iSXJJYkR2d1hETFBfV2hHZkFIY2M5dXhRQnV1c1FabGtLWmRCcVZkUU0zMVNXNXp1S2pIWllVaEFNMWk2R293dHhpR2JEaEhpbHVhQVEwTDdUVUlDUFo4MWpZclVIRkZ2LVJISElUdUNHZGFXQ3R3OW50UGhSUjJGYnltSmFZd0dVbjVhX1hCM0E3U0NhZy02b21mbHY1ZTJmV0QzaTBCNnJvbXVnazNwU3RncTFyLXhqaGw2amFpb1psRzF1QXB1YlExUzZuTWNmNlQyN1hGelBsTkYzbTdpdnRrYy1lRXQ0SGRWX2N3QlgwdGQ5Vk82VzJFZFphUkRGbFZ3SW55MjJtZndnZWxRVWJsWTJxclZJZmVUV19LNVFGTDFXVk8wRlZEU202bGNDbUowaW5WYkU?oc=5",
+      "title": "SpaceX砍輝達Blackwell租金最多35% Anthropic為何不續租5萬顆H200？",
+      "source": "鉅亨網",
+      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9nbU1aUUNFYkFtVFRGQW9yR3owcTNnV0I2b0l1M3FES2hpeC01c1VrSXRuZjNOeXRQRVY1dFZFTlNzSVNZRFFGbHRUMA?oc=5",
       "tags": [
         "NVDA",
-        "AMZN"
+        "SPCX"
       ],
       "urgent": false,
       "isOutage": false,
       "isMacro": false,
       "affectsHoldings": true,
-      "timeTW": "11/25 13:35",
-      "clockTW": "13:35",
+      "timeTW": "11/26 02:39",
+      "clockTW": "02:39",
+      "age": "2小時前",
+      "pubTs": 1795631985
+    },
+    {
+      "title": "標普：美晶片禁令 亞太雲商影響巨",
+      "source": "信報網站",
+      "url": "https://news.google.com/rss/articles/CBMimwJBVV95cUxOSUozb3I1blVPdWZoY0RjUTBacndSYWRDQTl0cmh0dXduRHBpWnhOcmFNdjlfZXNYc3o3X3JMa1Q1amJKY18wX2FGLWxZMkFheWdsam9TQnZlT05FbVJ1NkE1bE0yVlFBUlpYdDVXbW5KWWlqb016VGIzUHFFV3lwb0NkaDFBM2U0dDFCNWVXdzJYUWpMOURHWnVmbW1hYkUzWnJ5QVNiSWJkU1RxTUwyRWRwVERQTWpzSUtGWGlUV0hSLWRZZllRejl6b09CREpsS1dISXBXRnh4MDVCbjRpTTI3akdzZkJEaWJNc1c5QzhHZ2VLZ3pFdFZQUVhERlZWUngycDh2ZGdoTHdTMXFHNm9vcTMyMjNvZFhZ?oc=5",
+      "tags": [
+        "FED/宏觀"
+      ],
+      "urgent": true,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsHoldings": true,
+      "timeTW": "11/26 01:59",
+      "clockTW": "01:59",
       "age": "3小時前",
-      "pubTs": 1795584902
+      "pubTs": 1795629573
+    },
+    {
+      "title": "Netflix 放棄大型併購，轉攻亞洲、AI 與直播尋求成長",
+      "source": "K-EnterTech Hub",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBMbVN0VlRVR2tNdjJpMmxVY2k5WjcwYm1vNGc2UWdyeVEyeHhaTXZRSV9NT2JsMl9UZVV1emRjcDFKRkJxNGtuMUpuVHc0N3BmcFU1SE5vRWk2dXN0c2xyR2xEa2JKU29VNGc?oc=5",
+      "tags": [
+        "NFLX"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": false,
+      "timeTW": "11/26 01:06",
+      "clockTW": "01:06",
+      "age": "4小時前",
+      "pubTs": 1795626411
+    },
+    {
+      "title": "中國AI伴侶App「Talkie」向未成年人發送不當訊息！蘋果全球下架",
+      "source": "自由時報",
+      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE41UGdENzI2YVkxbDJTWE1CRlZuRWo4bnZjUlRHMXR4OHB2ZEtvU3RLRGZORThwbHkwTlMtLXJodVNOVWFpUVpPMU00UlVoQTB2SXR3SDRsXzdLSmgyc3owOEVBazJRQdIBa0FVX3lxTE1WTGQwX0ZfVlRhNkduRnNEWGV0QzJKZV85U1R1amttbHRMVjQ2cGdvRlYwdkwtcDV5TmRYT3NFNExQaXU3OHZoY0xqM1hjb0liRTF2N2tBQjR0WnByYXJ5VFRGdkExWGZEOUQw?oc=5",
+      "tags": [
+        "AAPL"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": false,
+      "timeTW": "11/26 01:01",
+      "clockTW": "01:01",
+      "age": "4小時前",
+      "pubTs": 1795626065
     },
     {
       "title": "Meta為什麼修正2030淨零目標？解析AI算力擴張引爆的伺服器隱含碳排危機",
@@ -161,74 +162,74 @@
       "isOutage": false,
       "isMacro": false,
       "affectsHoldings": false,
-      "timeTW": "11/25 12:53",
-      "clockTW": "12:53",
+      "timeTW": "11/26 00:54",
+      "clockTW": "00:54",
       "age": "4小時前",
-      "pubTs": 1795582396
+      "pubTs": 1795625662
     },
     {
-      "title": "蘋果新品｜傳明春分兩批推8新品",
-      "source": "EJ Tech",
-      "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxNYlBjNUpsanM2T0RkTWwxWmE2UTlXUEtxbkw2MHI1N3Jyb1JSMVFIQWN1b1dQVkVoZG5VMU1GN1VaVWdqVmE5MkJ4WGtCTkc5bFpUT1c1Yjh1N29PX241Q3FvTDVtRW1QUnY1LXdCbHFNUTJfbzlIeEpqUEh3dTZlWWhvLWxSeFEza3l6RG5wZTJjRVhUVDRYWFlfeFY4bFVyN2ZPNWhKSzF5ZU1wRVVIbmJIbDBNX0UxbWZiaXo5cGFGSndfcTBDM2VfWjdMNWFEVXdOY2FjZ2ZZSFpzMWNBNGNwWDlCM2UwVWFzXw?oc=5",
-      "tags": [
-        "AAPL"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": false,
-      "timeTW": "11/25 12:34",
-      "clockTW": "12:34",
-      "age": "4小時前",
-      "pubTs": 1795581294
-    },
-    {
-      "title": "AI信用違約互換利差擴大，甲骨文5年期CDS創歷史新高",
-      "source": "TradingView",
-      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5NQ2g4SWRBQmczRkZ1OG1OZnNrRkF5TkZGaDJ5VHI1R0hybjhlV3hyWGpreGZoSWRpMVp0Q1FmWmFmWVp0YXRycDRYaUhJeW1DREtaMlk3Q0pBMXJhdjlnbWtXOS1QU0pwV0E?oc=5",
+      "title": "甲骨文股價重挫8%，CDS飆歷史新高356bp，AI債務恐慌擴散",
+      "source": "BigGo 財經",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1IVU5PZHhBdzJlNGVka2JSRE1CMUhxdHR0MTgtc1pQT2dvZHlMVFdBS1l0WlVmclFETW9ad2MyV2dEckxDcXNlajlLMWVXaGFCM1V1Z0w5RG1vSVBEUGxYTjNTRUFRYlpuRkc2dnotOGduUE95TFJ4d2xB?oc=5",
       "tags": [
         "ORCL"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": false,
-      "timeTW": "11/25 12:11",
-      "clockTW": "12:11",
-      "age": "5小時前",
-      "pubTs": 1795579890
-    },
-    {
-      "title": "Anthropic 股價跌破發行價 輝達重挫逾 7% 市值蒸發千億美元",
-      "source": "Yahoo股市",
-      "url": "https://news.google.com/rss/articles/CBMi3gJBVV95cUxPWXc4WHFSYlVMaTFkcHJfbFVPaDBpUVp1bExUbERRVTlXeXI3YjR6aXFQV1ZUbTd4eFVzZVdsWFZlaklJT2V1REFwd0Y1VjVnSTVJbFVqQXRPMWRqTXpuXzk1R0ladGFqcDctWTRERVVKV1V4ZnlNRURfTzNhV0NpNV9qR0NUQ0puT1VQNU54Y09EbTV6WmdHQ1c5aVFIYkxRR2Y3YS1xMWF4dW5vZy11NUlobkFMMXFfTjBPQVQtcEVDTkpoVUZhU09BUG5SRnU4ZGo0aS13d3o4a0E5cDVrMWQzVkJtTGY4dEd1X2wzeUpPUmN6Ync2bEJuZW5BbnBHcEJXWFlGU3JoV2MtTXVPTFpSZ0Y3b2NNLUhNa2NXR21wZ1I1Q0ZHOHRnWTNIdUl3cTFlQ3lqVHhVZmlrOUlNcTdxWVh6MEctVEl4N2Z0TWJnNUhKckVtMFk3MGFSZw?oc=5",
-      "tags": [
-        "NVDA"
       ],
       "urgent": true,
       "isOutage": false,
       "isMacro": false,
-      "affectsHoldings": true,
-      "timeTW": "11/25 11:56",
-      "clockTW": "11:56",
-      "age": "5小時前",
-      "pubTs": 1795578965
+      "affectsHoldings": false,
+      "timeTW": "11/26 00:35",
+      "clockTW": "00:35",
+      "age": "4小時前",
+      "pubTs": 1795624500
     },
     {
-      "title": "美光CEO年領13億！安全預算暴增2000%原因曝光",
-      "source": "鉅亨網",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE4zWjUxNWtqcHhQOEpxVkNmcERaWTFxM2RRWGlaaUFkeUNnbjhqcTJVang4M204MHZXc2x5M3ZINVZybjczbHZTZVdOSFVJeDg?oc=5",
+      "title": "雲端營收翻倍 Google仍燒91億現金",
+      "source": "短新聞SHOTNEWS",
+      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5yR1lVd0JqbnRsRy15RWQ4aHNRNVFrZm82WVlzdGcyQzlfNnJZbzI0SDZsU2daaE9IUm0ybUFGM2VlRENfRzhWUldiT2oxcmQ4c3c5eQ?oc=5",
       "tags": [
-        "MU"
+        "GOOG"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": true,
+      "timeTW": "11/26 00:30",
+      "clockTW": "00:30",
+      "age": "5小時前",
+      "pubTs": 1795624200
+    },
+    {
+      "title": "亞馬遜公司股價今日為何下跌？ 作者 Investing.com",
+      "source": "Investing.com 香港 - 股市報價& 財經新聞",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5TRzFDa19ULXNocHBablFhWHhpYXE0QkRWYkt4MlY4elY0SnhDekVNZ29zdkFxeTZzMXpvVDhsX0JIVkQ5aWI2MkYwSUgtbVZKMm1ZMXN0REx1ZWhmM0txLUJrQlFpY2dCVWxMQ1k4M1F1X2ZwaGJZ?oc=5",
+      "tags": [
+        "AMZN"
       ],
       "urgent": false,
       "isOutage": false,
       "isMacro": false,
       "affectsHoldings": false,
-      "timeTW": "11/25 11:30",
-      "clockTW": "11:30",
+      "timeTW": "11/25 23:32",
+      "clockTW": "23:32",
       "age": "5小時前",
-      "pubTs": 1795577405
+      "pubTs": 1795620749
+    },
+    {
+      "title": "微軟在「Patchpocalypse」中間宣布了一個紅色代碼",
+      "source": "Yahoo Finance",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNZkFDRTB4YVJvZmdsWlkydmdSakxwTTdjU3k3dTZxY0hXdDdLWVcxSDFYWWdrbnpiWjl5ZmNMcjF5UzVTaFNkRmk0RmJhTFcwMFNfeTVkb09OcXVfelRMN2VSbzN2TTc4eDAxR0l2NUJVUkJPWUFCZmFkSXE5RndxYXFCSHExOUYxZDdDdzg1MWFSd1Q1STRhZ2tmR2U4a2FLanRtWDhuZmJ5dUdjVFMtd2tKajFSN2lnLUw1MA?oc=5",
+      "tags": [
+        "MSFT"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": false,
+      "timeTW": "11/25 21:42",
+      "clockTW": "21:42",
+      "age": "7小時前",
+      "pubTs": 1795614141
     }
   ]
 }
