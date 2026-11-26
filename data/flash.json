@@ -1,24 +1,57 @@
 {
-  "generatedAt": "2026-11-26T07:53:38.526477+00:00",
-  "updatedAtTW": "2026-11-26 15:53:38",
+  "generatedAt": "2026-11-26T08:56:38.919604+00:00",
+  "updatedAtTW": "2026-11-26 16:56:38",
   "refreshIntervalMinutes": 3,
   "universeNote": "嚴選美國前 30 大市值科技股動態 ＆ 聯準會升降息/重大宏觀政策快報",
   "items": [
     {
-      "title": "AI投資愈熱，金融市場愈脆弱？摩根大通預警：明年聯準會利率恐衝上5%",
-      "source": "天下雜誌",
-      "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9ELTVyLTRZcURhZDJWdTFjdDc1VEdwNThyc05LWGJFM0hIM2lxeDJmTXVsMTd0UWZBSHdiTzBCYm5rVXN5S2dGbVdIbHNQUQ?oc=5",
+      "title": "蘋果前工程師打造隱私AI 新創Maple 獲 530 萬美元種子輪募資，主打連平台也看不見原始資料",
+      "source": "LINE TODAY",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9vMHNiV0NzUHdReU13bFpjeEJwbmpuNm9iNXo3aHBGb1pmVDZ5NV9OdlBfZnlaME9TY081amJfSWZJVjhKVGtTcjZmOUEyQW4zeUNaQ1VB?oc=5",
       "tags": [
-        "FED/宏觀"
+        "AAPL"
       ],
       "urgent": false,
       "isOutage": false,
-      "isMacro": true,
+      "isMacro": false,
+      "affectsHoldings": false,
+      "timeTW": "11/26 16:11",
+      "clockTW": "16:11",
+      "age": "46分鐘前",
+      "pubTs": 1795680683
+    },
+    {
+      "title": "黃仁勳回來了，但AI危機還沒走！全球AI基建豪賭迎來關鍵時刻- 國際",
+      "source": "工商時報",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBjV3VpeDZ6a2lwRnEydDRSbGtHbXJFOTJ0Y29vbHJ2MGdDYzMtVTVUdkZCaFItUERtcUFLUnZiN1lZbDQ2cldhWHkyTFR4VG0tZjc3bDE0dkZ1M0tZRFlV?oc=5",
+      "tags": [
+        "NVDA"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
       "affectsHoldings": true,
-      "timeTW": "11/26 15:14",
-      "clockTW": "15:14",
-      "age": "39分鐘前",
-      "pubTs": 1795677271
+      "timeTW": "11/26 16:02",
+      "clockTW": "16:02",
+      "age": "55分鐘前",
+      "pubTs": 1795680120
+    },
+    {
+      "title": "Microsoft 總裁警告當機潮還沒完，未來幾個月恐再迎大停擺",
+      "source": "UNIKO's Hardware",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9aWG13OVFMQTJVYkJMN0w5OHFMajYyd0o0c2NjM1M3ZXd4b2M2cUZkWUREWDVPMUZpdENlTi0xQ2FjcEJEMGEzbF9OSTAtWmdQNFVLMno0dktUNUNkV3g4SlR4RDFJSU05STBCbDJrNEk4eno4VHQ0RDdsaWJ1dw?oc=5",
+      "tags": [
+        "當機/異常",
+        "MSFT"
+      ],
+      "urgent": true,
+      "isOutage": true,
+      "isMacro": false,
+      "affectsHoldings": false,
+      "timeTW": "11/26 15:37",
+      "clockTW": "15:37",
+      "age": "1小時前",
+      "pubTs": 1795678670
     },
     {
       "title": "美收緊AI晶片出口 字節/阿里/騰訊貸款遭銀行暫緩推進",
@@ -33,7 +66,7 @@
       "affectsHoldings": true,
       "timeTW": "11/26 15:03",
       "clockTW": "15:03",
-      "age": "50分鐘前",
+      "age": "1小時前",
       "pubTs": 1795676592
     },
     {
@@ -49,7 +82,7 @@
       "affectsHoldings": false,
       "timeTW": "11/26 15:00",
       "clockTW": "15:00",
-      "age": "53分鐘前",
+      "age": "1小時前",
       "pubTs": 1795676458
     },
     {
@@ -65,25 +98,8 @@
       "affectsHoldings": true,
       "timeTW": "11/26 14:50",
       "clockTW": "14:50",
-      "age": "1小時前",
+      "age": "2小時前",
       "pubTs": 1795675847
-    },
-    {
-      "title": "用戶崩潰！微軟大當機內幕曝光 罕見啟動「紅色警戒」",
-      "source": "Yahoo新聞",
-      "url": "https://news.google.com/rss/articles/CBMi0wJBVV95cUxNSXdiaHAwbkdHRnB0RmVES0RYcEJBbFdrVGNfdVk4QmdvS0lTeWViUUFVczM3UkRLSnlZWU0zN3VhcVBJQ2huWk1LS0s4anpvUWFNUUlEc1puVk5GX0tBYW9FeWxScjRSbGxNLUJnNE9WZ1pzZFIxSGYwZjJRSDFSUjUwbmVIUm9vMFhpTUhzZXU1Ym5LMDJNWDRiX25GTmIwOFVzQU5nMnVYZzBZSlZqNzBYVGFVd1ZGRFRhek1rMGVhNkt1d2E2Z3gwTURPcjE1RlZCbnJhbTdwQ0dNaDlscXhiYjJtM3FUTV9OeXFQR0I5dW8tUkRhSUtsY2x5UjZfWFNzQUhuSFg1UEI2aVU4cXlQRHROM1JHYjB6dVhUV1M5SVNGU1JYbGZBbDZORlp0YzZYREoyX28zQ01BVmpBSXRGYWUwd2ZYV1J5dXZYTENZX2c?oc=5",
-      "tags": [
-        "當機/異常",
-        "MSFT"
-      ],
-      "urgent": true,
-      "isOutage": true,
-      "isMacro": false,
-      "affectsHoldings": false,
-      "timeTW": "11/26 14:43",
-      "clockTW": "14:43",
-      "age": "1小時前",
-      "pubTs": 1795675393
     },
     {
       "title": "Google擴充AI代理安全防護，新增執行前政策檢查機制",
@@ -98,7 +114,7 @@
       "affectsHoldings": true,
       "timeTW": "11/26 14:15",
       "clockTW": "14:15",
-      "age": "1小時前",
+      "age": "2小時前",
       "pubTs": 1795673750
     },
     {
@@ -114,7 +130,7 @@
       "affectsHoldings": false,
       "timeTW": "11/26 13:19",
       "clockTW": "13:19",
-      "age": "2小時前",
+      "age": "3小時前",
       "pubTs": 1795670395
     },
     {
@@ -130,25 +146,24 @@
       "affectsHoldings": true,
       "timeTW": "11/26 13:09",
       "clockTW": "13:09",
-      "age": "2小時前",
+      "age": "3小時前",
       "pubTs": 1795669740
     },
     {
-      "title": "CBS：中資美企獲輝達高階晶片　出口管制漏洞浮現",
-      "source": "經濟日報",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE12eE14Yk5UWmRRNU9RTjlfY3NsX2pPNzNOX3FPZHJjamNnN194SXBMMWVsVUVIc2dWVGNfNDFnNWd0TzVJMXoybUJwalJYMXZqNTBwdndzaDloZ9IBX0FVX3lxTE5KWHdBbHRZRXdSTkxLdjRDWERhYmFva18yaFd1T3lUWGtfd0swZVZYWms1QklxbkN4VkRuS0I5OWRDZmNOX1pTTlpBVUZIak1oRjNUSTZLVzF5M1ozQkFZ?oc=5",
+      "title": "AI投資愈熱，金融市場愈脆弱？摩根大通預警：明年聯準會利率恐衝上5%",
+      "source": "天下雜誌",
+      "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9ELTVyLTRZcURhZDJWdTFjdDc1VEdwNThyc05LWGJFM0hIM2lxeDJmTXVsMTd0UWZBSHdiTzBCYm5rVXN5S2dGbVdIbHNQUQ?oc=5",
       "tags": [
-        "當機/異常",
-        "NVDA"
+        "FED/宏觀"
       ],
-      "urgent": true,
-      "isOutage": true,
+      "urgent": false,
+      "isOutage": false,
       "isMacro": true,
       "affectsHoldings": true,
-      "timeTW": "11/26 12:54",
-      "clockTW": "12:54",
-      "age": "2小時前",
-      "pubTs": 1795668888
+      "timeTW": "11/26 12:50",
+      "clockTW": "12:50",
+      "age": "4小時前",
+      "pubTs": 1795668600
     },
     {
       "title": "Meta 旗下 AI 助理 Muse 橫掃電商訂單 囊括逾半自動下單市占",
@@ -163,7 +178,7 @@
       "affectsHoldings": false,
       "timeTW": "11/26 12:39",
       "clockTW": "12:39",
-      "age": "3小時前",
+      "age": "4小時前",
       "pubTs": 1795667948
     },
     {
@@ -179,7 +194,7 @@
       "affectsHoldings": false,
       "timeTW": "11/26 12:12",
       "clockTW": "12:12",
-      "age": "3小時前",
+      "age": "4小時前",
       "pubTs": 1795666321
     },
     {
@@ -195,29 +210,13 @@
       "affectsHoldings": true,
       "timeTW": "11/26 12:07",
       "clockTW": "12:07",
-      "age": "3小時前",
+      "age": "4小時前",
       "pubTs": 1795666025
-    },
-    {
-      "title": "SpaceX太空資料中心獲批 發射100萬顆衛星 把算力搬上太空",
-      "source": "鉅亨網",
-      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBCTTkwUDlkTjNBWXNwRWpRcFJyTEdxU1lIMm1UMFlaWVQtOEtScmhJak1pRGtMWms1NW9pdW9LbzlkTWJxLVo4Ti1ZYw?oc=5",
-      "tags": [
-        "SPCX"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": false,
-      "timeTW": "11/26 12:01",
-      "clockTW": "12:01",
-      "age": "3小時前",
-      "pubTs": 1795665666
     },
     {
       "title": "SpaceX大手筆送股！每個活躍川普帳戶獲1股 馬斯克再加碼1股",
       "source": "鉅亨網",
-      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9jWGlEYWprWUdOY2Z2R0c2cFduazJsZVp4NEFkZngwNGVmS1NTU2R3Q2tackNNUVhVUm5NRXYxTnhNQVNLMzJCci1iRQ?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE41Q3JCR0lHMmROMk1fU3dldG9jQnRLemEzVkx2bWp6Ui1Za29lWXFIbDRTT0dfdUVHRklDR3BrZC1ScUl2NjhXX1JTSEdMUFE?oc=5",
       "tags": [
         "TSLA",
         "SPCX"
@@ -228,7 +227,7 @@
       "affectsHoldings": true,
       "timeTW": "11/26 08:40",
       "clockTW": "08:40",
-      "age": "7小時前",
+      "age": "8小時前",
       "pubTs": 1795653605
     }
   ]

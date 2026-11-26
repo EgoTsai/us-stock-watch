@@ -1,96 +1,96 @@
 {
-  "generatedAt": "2026-11-26T07:53:38.526477+00:00",
-  "updatedAtTW": "2026-11-26 15:53:38",
+  "generatedAt": "2026-11-26T08:56:38.919604+00:00",
+  "updatedAtTW": "2026-11-26 16:56:38",
   "scheduleNote": "每 6 小時自動更新 ＋ 台股盤中即時同步",
   "marketHeadlines": [
+    {
+      "title": "鴻海攜北榮打造智慧醫療新場域 AI化療自動化系統亮相",
+      "source": "鉅亨網",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9Id3pKbzdhMTF5d1dXTjFTRGR5eV9WQUNyckZqZ2ZjWlVsVlBpZkk4cU1yVmZJa3FwVTlwVjhDSHZ6aGdDWDl2ZjB1ZTRiaTg?oc=5",
+      "age": "14分鐘前",
+      "pubTs": 1795682584
+    },
+    {
+      "title": "【Follow法人】外資提款台積電392億元！同步翻臉重砍台玻8萬張 中華電也難逃萬張賣超",
+      "source": "Yahoo股市",
+      "url": "https://news.google.com/rss/articles/CBMiggRBVV95cUxQSHNncVJnMWFUUUxPSWxUSjhIVHZNWC1lMlJoMEVzQlc0WTdlRkphazhxbEFqWFRVSmNYZ2hLMmxmSy1uZ19qdFNtUjg4b3A1WXRVZGpuZjhRSWw3SkRJeEVoRlJOMnhmdTNmNDJsTDBTeUJha2tpY2JDOVRRV1k4R1NyQkZlWFByUDNLQ0JCcTRxbkNLRks1TG1GVnFqVENqaWROcTlRUHdVZVFKUGtZVFFkR3hfUW9BQnA2aUtCc1FHVGZuek1VX3dlNmZORDJkVFR3UnZoUzlmX3J6TzZfbzJuUFJSUGhzaXZnM2JFXzllLVlZTTlWeHlDdjlWTGhpUTN0Wl9yQjVCN1RDQUQ1VHZjZjB2YVZVOUtzOW5JckZmaDd2QUNwWnR2M3pRRDlBa2ZTY2RyLWZvb3dfNkM0MUhjOUlzMDNBdldITS15NWNJNlNPdGJpM1R3TjF5RmVIYy1JMmNHQjFnZTZQWWNRU3ZOVmdPRVE3S1dVakhyNjgwRnZCWnhNSnFEMmRXcU9Bdi1nVHJoNU5qZGdRcnpTdEhjRU92RlBvbm42RGtQeTM4dDZ4b2wzX1JQNlJLd1lLX0FFRWU5NGtiU1ZSNWRuOWdKTzBIVTE4TDd3VEdWQjNQZnJJT2tsS3lDWU9DaHF6aGJrYi04ajFHU21rMHVwaDZn?oc=5",
+      "age": "20分鐘前",
+      "pubTs": 1795682200
+    },
     {
       "title": "越跌越買！抄底族搶買0050、00981A、00406A 一周吸金破千億元",
       "source": "Yahoo股市",
       "url": "https://news.google.com/rss/articles/CBMi4gJBVV95cUxPVk1RN20zTnk0allLb1I1MUxWeXprX25sRWlBYk95bTF2X0gxZnpnaE96MlhRZ0FaMTNGbWsydE1iUDd5VVBJOVBDU3g1N0dWSVZ4WXZ4VkZweklMemVEZnpzTVBGOVhEWHVVdWtqWGc4UWpMTms0U1BEZWxjQmE2Z0VfX0RrQ1dRQ2RZNU1MUVFmN05GRU5vUURSc0dHLVhLU1BhbkozSGE1SUtJcjZoNWdaem5sVkR3OFlZZWhkaF9ITk5yTm1NSllNMUFRYUJaaDh6UEZXOFFDMERkNFVac0NoYnhuc0dsVHoyRkkyT0FjWlc4V2tyY2hfQlpCcnpKSHQzeHRENFRmNnF5alVfR3JlXzNYYW8yQTlhWUExSnZTWmg0YVRaOHFyNjdsdURMeWlPM0lfRmpBZXd2NzB0SXEzYzd1cFJZOWZ5WDB3V0tLS1lHY29xME85UjVKblQwcHc?oc=5",
-      "age": "45分鐘前",
+      "age": "1小時前",
       "pubTs": 1795676944
-    },
-    {
-      "title": "台股強彈956點重返3萬9！關稅真的沒問題?底部到了嗎?",
-      "source": "鉅亨網",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE01akRpTXk5dmt5RXZsZjVhZUVPNFR5ZVd0Ql9FMnVTR2p4YUs5NnhaYzVOSE9MTk0zQ1lvZWtDaVcwb3B1SlJEYUNuOV9jbG8?oc=5",
-      "age": "55分鐘前",
-      "pubTs": 1795676301
     },
     {
       "title": "美股修正藏買進良機！外媒點名「3檔AI概念股」台積電榜上有名 現在還是甜甜價",
       "source": "Yahoo股市",
       "url": "https://news.google.com/rss/articles/CBMi2ANBVV95cUxOT2V5ZEhLMDB6cTZQbVZKRlBPZFlFLVJ2N2pJRlo1cFdTWXFpNTU3SWtVVWFWdHNKNGtEaG1OMExRZHlEYTlKWEE0X3ZUVTVwMldiY1JZY25NTUsxN1B0SWhLbmRyc1pxT3BDcFRhdDdzeHRUQ1BCTHRGYVEzYWhkX1lOc015VFI1RmxJdDZlUVk5ODhKWWk5TzdnaFFGa1NZMnFfM2JkVjBkTXhyei1tS2dWMFQ4MHZja2d4TWlJMG1DM1RfejYyTXplUUdpaWc3ZDdNS3hwR1dzdlFWX1piaWo0QU5FcEdGbHNvQXh4dFUtMUV4RDV0Q1VndTFWb2R5cWlDNXJfclpBdmhTTFllNFMyLWlncGJiQkppUWhBaHh6VnI2ZVNOSC0wc2RjN3NiQlNsSHl5S3p1Z3lSY1VVdmJOcm5TdVN5WmQ0RHlFUjVRY0tDZzJUX3E3UTNjcWhUbWNuSGFDVmhjUkdVcVR3d3lVNGZRa0lkMHNLdGp0X25lb01QSndoUmFIUDBfLXIxOEIwb2xRSDlxMFJSNFlkRThsTWFwWWtpMW9ncXR5enR6TjJ1X0d3TExtOFpFc1FUYnM5RV9NNlhnWkJSLVA0U1BodDFYNjZC?oc=5",
-      "age": "1小時前",
+      "age": "2小時前",
       "pubTs": 1795675370
     },
     {
       "title": "台積電尾盤被偷襲！台股收漲956點 被動元件、PCB大噴漲",
       "source": "Yahoo股市",
       "url": "https://news.google.com/rss/articles/CBMi1wJBVV95cUxNdWRzOTRpRm9FLWxVMV9sOS1pbGZzNVdteWY3bmdIUm1QQW1ULXdnR0NKUkh5MlI4aG5xN3hUTnlDc0lFNl9aZXUtYkQ5NFJIdVlBVExEMWthbGxPRmE4R3JqbS1sTGxLdEFkNzNKQThwTEhzRkVqOS1jV0dyNV80aW8tMHRnUXRlREwzend2NFBVRTZLalVDZUtFNmstZk1ReGt6bUNYb2xwSm9hM0tfTjVqNzNJR1hFdG93czgwcnlFMWJTV3h3aWxvTzZLbWJJUWdmMDFNaU1JRjhBaVJTNDVHc0RYTnpWVHRVRm9HMlBrbERpaGNCZkVJZE05Rm51cDRfUWxQVkZ2Qk5lMnItNUFRZzlSM1AwRHRZVkxLQmZTTWNKajhGZnJsMXZ6cTVQdzZidmtTUURMVWoycmx1TzJGdUJqdVpOajd3VU05QW8tOUxpamNZ?oc=5",
-      "age": "1小時前",
+      "age": "2小時前",
       "pubTs": 1795674752
     },
     {
       "title": "亞洲首發！施羅德00419A聚焦半導體與AI基建今上市 證交所掛牌衝245檔",
       "source": "鉅亨網",
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE44ZzJuQS0zU1BHNmhhQVdFU21XZWJEQjRRRkFCazl3Yl8yYkhIbE5zdzc4NmhpNXdTVzFGLVRRZjZJX0ZJY01XUzdwNmZnclk?oc=5",
-      "age": "1小時前",
+      "age": "2小時前",
       "pubTs": 1795673073
     },
     {
       "title": "台股上漲956點收39151點　PCB散熱族群反彈",
       "source": "經濟日報",
       "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBnMmNvVEJfTGF0WjBTXzFZY3BuaHY0dDZmcVBUeVdzWTJZTS10RHFKVnBDYmdGX0FtU3BmRVhuUXFEMGo3YzFfWER2cFlyaXBfRG9xbGJTa1c5UdIBX0FVX3lxTE15T2FPamJtWG1VM1N4VnlpWm55YzQzX09jMGQtOThNM2JsYUFKVnUzY2JhNmx0dnBBN1kxODRfWU5mTFhEYi14WVJqRk9XMHVCUDNqdDhDLXpKbXRFSHBj?oc=5",
-      "age": "1小時前",
+      "age": "2小時前",
       "pubTs": 1795672910
     },
     {
       "title": "台股一路向北！南亞科、欣興領1645家齊飆 指數收漲956點",
       "source": "自由財經",
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9QcmJya2NlYUJEa0NoQnZONUVzaVdnQW1fLUtFZTQyOVJsM3JRcDRVR0ZWS0VRNGZLU1g1b2VhZkhoNXBrUkZRV2ZfY1FFN1Vna3RUWXdHNEVjbUlPdmlB0gFkQVVfeXFMTThGSjBGcFVaa2IxcVhhUlB6X3V4WVkwTmZnSkJ2Nzcxci1aT2o4TkNaSVRlSUhneS0zWE9aXzlHdzFVZlVLcVpUTmU3Z0I5NEh0NVRJZGMyaDRNVi10TElMV2gzOA?oc=5",
-      "age": "2小時前",
-      "pubTs": 1795672140
-    },
-    {
-      "title": "才剛嗆聲「台灣偷晶片」！川普12/4將赴台積電美國廠動土典禮 白宮證實行程",
-      "source": "Yahoo股市",
-      "url": "https://news.google.com/rss/articles/CBMiwANBVV95cUxNM2Vqbnh3WWFtUXNGN1VNMlNveFZDSnhnUHh6LVl4MFdDVUlXZ2RxZmdLV2trMzZWYkMzbmlMaHZmcDJ4QWNtV2dEUHBmQjhBSmVJalRvLXhpLVN4QWpramdzbnNSMHBhLTNlSHBfU3JrcEVMMWtpbmJJM2dEaWwxa0l2SjVLRUROOXN5WHpfbU5kR1RETXpab0IwZnlLMEduMVJVeGRDQnI2bTBCSGpBenctQklQMnMyZm52SG1jRE1Zb0YwVHJEN3ZqSjR0ZXBmc1pqc3RLX0hpakZkc3RhZUoxM2xqdDM1NU1vS2x5Ym52V3ZNZ2psTGxQRDdDRmZzYVdqWVVoN1JNS0ozZV9rWTFlZ3JKRGlhWUxfUHRiSUUtUi1FZkp1dnBDZEV6Qlhab3N6eGtUVGR2eTh0WXFFOG4xT0VVdXRJT05pX21pR1UxcE1zR2dkTEVZNS05QXFLUGduOENueDZrSmV4Skx2RENZSjRoREpTZzZPR3Y5TldhNklsdkJOVkV0ODctVk9qQi04T1h2alh1eklaRHIzZ1MtWEE4NUZJS2hzSGxMZUlSOFRmdUNYR091em50WVZD?oc=5",
       "age": "3小時前",
-      "pubTs": 1795666193
+      "pubTs": 1795672140
     }
   ],
   "stocks": {
     "2330.TW": {
       "headlines": [
         {
-          "title": "美股修正藏買進良機！外媒點名「3檔AI概念股」台積電榜上有名 現在還是甜甜價",
+          "title": "【Follow法人】外資提款台積電392億元！同步翻臉重砍台玻8萬張 中華電也難逃萬張賣超",
           "summary": "",
           "source": "Yahoo股市",
-          "url": "https://news.google.com/rss/articles/CBMi2ANBVV95cUxOT2V5ZEhLMDB6cTZQbVZKRlBPZFlFLVJ2N2pJRlo1cFdTWXFpNTU3SWtVVWFWdHNKNGtEaG1OMExRZHlEYTlKWEE0X3ZUVTVwMldiY1JZY25NTUsxN1B0SWhLbmRyc1pxT3BDcFRhdDdzeHRUQ1BCTHRGYVEzYWhkX1lOc015VFI1RmxJdDZlUVk5ODhKWWk5TzdnaFFGa1NZMnFfM2JkVjBkTXhyei1tS2dWMFQ4MHZja2d4TWlJMG1DM1RfejYyTXplUUdpaWc3ZDdNS3hwR1dzdlFWX1piaWo0QU5FcEdGbHNvQXh4dFUtMUV4RDV0Q1VndTFWb2R5cWlDNXJfclpBdmhTTFllNFMyLWlncGJiQkppUWhBaHh6VnI2ZVNOSC0wc2RjN3NiQlNsSHl5S3p1Z3lSY1VVdmJOcm5TdVN5WmQ0RHlFUjVRY0tDZzJUX3E3UTNjcWhUbWNuSGFDVmhjUkdVcVR3d3lVNGZRa0lkMHNLdGp0X25lb01QSndoUmFIUDBfLXIxOEIwb2xRSDlxMFJSNFlkRThsTWFwWWtpMW9ncXR5enR6TjJ1X0d3TExtOFpFc1FUYnM5RV9NNlhnWkJSLVA0U1BodDFYNjZC?oc=5",
+          "url": "https://news.google.com/rss/articles/CBMiggRBVV95cUxQSHNncVJnMWFUUUxPSWxUSjhIVHZNWC1lMlJoMEVzQlc0WTdlRkphazhxbEFqWFRVSmNYZ2hLMmxmSy1uZ19qdFNtUjg4b3A1WXRVZGpuZjhRSWw3SkRJeEVoRlJOMnhmdTNmNDJsTDBTeUJha2tpY2JDOVRRV1k4R1NyQkZlWFByUDNLQ0JCcTRxbkNLRks1TG1GVnFqVENqaWROcTlRUHdVZVFKUGtZVFFkR3hfUW9BQnA2aUtCc1FHVGZuek1VX3dlNmZORDJkVFR3UnZoUzlmX3J6TzZfbzJuUFJSUGhzaXZnM2JFXzllLVlZTTlWeHlDdjlWTGhpUTN0Wl9yQjVCN1RDQUQ1VHZjZjB2YVZVOUtzOW5JckZmaDd2QUNwWnR2M3pRRDlBa2ZTY2RyLWZvb3dfNkM0MUhjOUlzMDNBdldITS15NWNJNlNPdGJpM1R3TjF5RmVIYy1JMmNHQjFnZTZQWWNRU3ZOVmdPRVE3S1dVakhyNjgwRnZCWnhNSnFEMmRXcU9Bdi1nVHJoNU5qZGdRcnpTdEhjRU92RlBvbm42RGtQeTM4dDZ4b2wzX1JQNlJLd1lLX0FFRWU5NGtiU1ZSNWRuOWdKTzBIVTE4TDd3VEdWQjNQZnJJT2tsS3lDWU9DaHF6aGJrYi04ajFHU21rMHVwaDZn?oc=5",
+          "age": "20分鐘前",
+          "within6h": true
+        },
+        {
+          "title": "張惠妹將登台積電開唱！搶先曝光新歌⋯對習慣逞強的自己喊話",
+          "summary": "",
+          "source": "Yahoo股市",
+          "url": "https://news.google.com/rss/articles/CBMiqwNBVV95cUxNTTNnYXNfXzQ4VkdRNGhRTFJhVk9rMVVPdkE3dFNBanJjRmVWT2tLZzFNZWt4Z3dqX01ULXZFcHlpRVdwbEJXekVnQ2tpREVHVVhfLXROTzZqREFnQ3RYWEhLdUg0WnVRd0VBaUtvMkM3SmlYYW9RLWVSWHJmVmR2VDBiYjNjOVRiUGhvdlRsN0MtdmpTdWdFMUhBTU5JUzBWT0lhWHNSZ3kwS2hmM28zZy10NWVUbDUzT2xUOVlnQU94ek16UGdNZTVKT0MwMElqazdqWWtxVDktLTRjMmFBTDFlUVNZSE9ZQXUzdXNQX0NUdjRxaG93YkVIN3F2T3dlRE5ab2dfRGZZc1g5YXYyVnZXLWl5MGNINFdTVkJrRnIxOVBIVjkxc2piQW9kUEdCNzBqZ3lnLWdjRWxwS0JFYkJIWVA0MTJzWm5xdmhhU1lELXpEdndvTmtJYmVpUHI1bFRDLVRJcV9Bbkp6M2ZmTkFCWkF3SmJMRWVnSnhVQlExbWhvcGVrVFNOcWVoSVZFTXMtMkROTzVpY3lVVmVqX0JlX2VGRmdwS2U4?oc=5",
           "age": "1小時前",
           "within6h": true
         },
         {
-          "title": "台積電尾盤被偷襲！台股收漲956點 被動元件、PCB大噴漲",
+          "title": "台積電500億神祕買盤曝光！臺銀證券連日買超 累計逼近千億",
           "summary": "",
           "source": "Yahoo股市",
-          "url": "https://news.google.com/rss/articles/CBMi1wJBVV95cUxNdWRzOTRpRm9FLWxVMV9sOS1pbGZzNVdteWY3bmdIUm1QQW1ULXdnR0NKUkh5MlI4aG5xN3hUTnlDc0lFNl9aZXUtYkQ5NFJIdVlBVExEMWthbGxPRmE4R3JqbS1sTGxLdEFkNzNKQThwTEhzRkVqOS1jV0dyNV80aW8tMHRnUXRlREwzend2NFBVRTZLalVDZUtFNmstZk1ReGt6bUNYb2xwSm9hM0tfTjVqNzNJR1hFdG93czgwcnlFMWJTV3h3aWxvTzZLbWJJUWdmMDFNaU1JRjhBaVJTNDVHc0RYTnpWVHRVRm9HMlBrbERpaGNCZkVJZE05Rm51cDRfUWxQVkZ2Qk5lMnItNUFRZzlSM1AwRHRZVkxLQmZTTWNKajhGZnJsMXZ6cTVQdzZidmtTUURMVWoycmx1TzJGdUJqdVpOajd3VU05QW8tOUxpamNZ?oc=5",
+          "url": "https://news.google.com/rss/articles/CBMiggNBVV95cUxPVU03SkxJLXJoczVTSjJPNWp4T1NBeXlhR2syTzVUQTgyWE9WLVFlS1N1Unp3dm5KRmF4QVFnNVV4c0EzdTdaUTQtZ0lQOGlNOTNWNmFzSThxSVFnejFrRS1rN3FUNU9OOF9WaG5jZi1WOGFVRWpTcXhFSTlnN1pmZkZwUU1MdEhVREl3QXBGY2RNNVh0M2FxWEhpNlZYM3NkWUx2aWpDQzJDNlo3QlozMk13eDJENHp5a1o4UF9ZR0hXN2NvTGtXTlMtNDZfTVNwb3c3b0Utdmg5ZUJHSTJmendpVEJmZWhybGlsQUc3Y0R4aXgzZTNzOVY2THdkMmE1QUFzMUNlQTBHbE5MWFZ0UHp3RWxXcHJ0ZEc2Y2M1M1MyR0FkeWFjbUhvYkRpM3dUX0Nzb0tIU2JLdDk4dWpUWUlscVowZjR3WDlBRmJEbHRtMVU5dUxGSGlLckNGWkc1X2dVTmtkdGZWOUxraVpRR0ltZ2FYODd6RVlNS0k5UDVIQQ?oc=5",
           "age": "1小時前",
-          "within6h": true
-        },
-        {
-          "title": "才剛嗆聲「台灣偷晶片」！川普12/4將赴台積電美國廠動土典禮 白宮證實行程",
-          "summary": "",
-          "source": "Yahoo股市",
-          "url": "https://news.google.com/rss/articles/CBMiwANBVV95cUxNM2Vqbnh3WWFtUXNGN1VNMlNveFZDSnhnUHh6LVl4MFdDVUlXZ2RxZmdLV2trMzZWYkMzbmlMaHZmcDJ4QWNtV2dEUHBmQjhBSmVJalRvLXhpLVN4QWpramdzbnNSMHBhLTNlSHBfU3JrcEVMMWtpbmJJM2dEaWwxa0l2SjVLRUROOXN5WHpfbU5kR1RETXpab0IwZnlLMEduMVJVeGRDQnI2bTBCSGpBenctQklQMnMyZm52SG1jRE1Zb0YwVHJEN3ZqSjR0ZXBmc1pqc3RLX0hpakZkc3RhZUoxM2xqdDM1NU1vS2x5Ym52V3ZNZ2psTGxQRDdDRmZzYVdqWVVoN1JNS0ozZV9rWTFlZ3JKRGlhWUxfUHRiSUUtUi1FZkp1dnBDZEV6Qlhab3N6eGtUVGR2eTh0WXFFOG4xT0VVdXRJT05pX21pR1UxcE1zR2dkTEVZNS05QXFLUGduOENueDZrSmV4Skx2RENZSjRoREpTZzZPR3Y5TldhNklsdkJOVkV0ODctVk9qQi04T1h2alh1eklaRHIzZ1MtWEE4NUZJS2hzSGxMZUlSOFRmdUNYR091em50WVZD?oc=5",
-          "age": "3小時前",
           "within6h": true
         }
       ],
       "sentiment": {
-        "buyPct": 60,
-        "sellPct": 40,
+        "buyPct": 64,
+        "sellPct": 36,
         "dominant": "buy",
         "label": "想買略多",
         "summary": "社群討論 50%偏多 · 6H主動買盤 47%"
@@ -99,70 +99,62 @@
     "2454.TW": {
       "headlines": [
         {
-          "title": "台股狂飆！聯發科領軍強彈，散熱強攻、光學氣勢如虹，「5檔PCB飆股」一堆人不知道",
+          "title": "Vivo X500 在印度推出，配備聯發科天璣 9600M、64MP ZEISS 驅動潛望鏡、7,500mAh 電池：價格、規格",
           "summary": "",
-          "source": "聚財網",
-          "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE93cmM2S1hlVm03VUd4QmpwSllJQ2tocFFwM0VtYVNIQU4tV0FaQ2lPVmdNV0NMcklaRFZrbHpiQXRzQ3NyYzYyLThIUFk?oc=5",
-          "age": "5小時前",
+          "source": "91Mobiles",
+          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQVTlSci1ZVGVzbUticVRuSVFfd25Ed19zcFZWd0ZhdHNtZTFjd1JiS3lhT3g2WTBXcFFOZVpVNTAtSGUyNGtEMEtCcjYzbjVvcExOR2p6ZEszaldoSUhyVW1RMjJZcXdJRUJkSmxJN2NXVWdmY3l3WnhrcmxCVWRqMFp2c2pmcmJmc1dpUHJSRU92SlXSAZgBQVVfeXFMTW55aFlPQmdfaTVjLUxlS3ppQXNPNWw1Z0lNSmdWU1NHM2NWTTBjZmpMUTBMV19UZko4bFh1Zk9xLXg3X0hvc3ktcTdRYmpSU0ozbnE1UHFuanRoRkducHhxLXZYNXZ1TGNrdnR4cVlSS29QNDI3bHF5YWUtbUNESVlDdm5DaV9HY2t4MGRLOFA5VEQ5blBIQUw?oc=5",
+          "age": "35分鐘前",
           "within6h": true
         },
         {
-          "title": "AI ASIC 動能強勁，花旗維持聯發科買進評等目標價 6,800 元",
+          "title": "Vivo X500 Pro、X500 Pro Max 在印度推出，搭載 MediaTek Dimensity 9600 Pro、OriginOS 7、90W 充電：價格、規格",
           "summary": "",
-          "source": "TechNews 科技新報",
-          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNQ0l2dG9QNW9keGJybG1OclYtVDdUUURYRTFxUm5oMG9oOGtBQUJNT19xNjJlbUs4NWFQWlkyMjc4NWh1dThfTVNUTm8xU0pQMkxqbmkxTkM4eDNkeUp3c29xZ3YyT0hHZmtaTTlmOFNDZnF2Wm4yak5MbTRELUFRMVhHZzE3dmNrYWRVNDJhRU1wSHRUZU5oUjBTdF9CRHhreC1WRXFrcDhmTnM?oc=5",
-          "age": "5小時前",
-          "within6h": true
-        },
-        {
-          "title": "《半導體》聯發科AI ASIC業務爆發 外資估2027年放量、2028雙箭齊發",
-          "summary": "",
-          "source": "富聯網",
-          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOQkg4X3dtREtyRHVlOFViTWd1VmpYTmczcTdaem9pUERBSzJ1ZTFjSHZtbl82Q2hlUzRpcXBPS0prVW1weURZZDB4eTFuSUZobGpscTdmbEF5VVVEUVhfWXJJbHdsTUVvbmZRZ1pKR2hHdVNsNXVMYnVNa0JoR2pnTFdVOUQ2RkRk?oc=5",
-          "age": "5小時前",
+          "source": "91Mobiles",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPQWdReG4wWmdJVmtIZXJ5clFFUzdidFhFOUVTM1RrSkZyaG5mUF9BaEV2UXlGalVubVIzZ19ZYWcxOUgyVGhleXdpRkpYai1kXzA3YnRlazZELWkxWTNNcHFTMjNrTlhoOWJiUHk2czBVVmNHQW1weGg2dktaR1RQSmpIUzJDSmJnQUJCQU1OVk4tNU0ta29ISXkxblFrUdIBowFBVV95cUxOLTBGVDVvcmxkUEtxcy1ta2lSbDN2MHhSdjB5eWJ1YnlXLS1KaHpSaGNTVWhPWm9HQ0twOUZyNTFqUnFyWGE3QXkzVENvc2NvZTV1NFNpTFRfem9KczJsOWFoR1ZiRi1td1dOdjJNWHVObHAwUHFPVnZTOUZQc0xwdXRXamRLWU0temtqWFU0RFVRMEpMR0hSbnFoZldWV1c0Nndv?oc=5",
+          "age": "41分鐘前",
           "within6h": true
         }
       ],
       "sentiment": {
-        "buyPct": 66,
-        "sellPct": 34,
+        "buyPct": 56,
+        "sellPct": 44,
         "dominant": "buy",
-        "label": "想買居多",
+        "label": "想買略多",
         "summary": "社群討論 51%偏多 · 6H主動買盤 59%"
       }
     },
     "2317.TW": {
       "headlines": [
         {
-          "title": "鴻海攜手臺北榮總打造智慧醫療新場域 AI 化療自動化系統正式亮相",
+          "title": "鴻海攜榮總拓智慧醫療新場域 AI化療自動化系統亮相",
           "summary": "",
-          "source": "經濟日報",
-          "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE00dWZfdTVkMC16UUhZcFVaMzUzU1lzRklrZExQMnUwdkhGUlk3OTZqdUZuTFFhWjV1NE1KYkZFVVdaR1BsV29kVUl5alJMelc5azJnNVRTTWkwZ9IBX0FVX3lxTE1WOHlZNkJxajJfT3VyRS1LX1NoQ2cxMnhpbUxxX3p5X2QwbEZOWG1ZOVpxMHVxbEFBR1dzemdzS3VKY0stMnJsSEZMcnZyeHllQzN0LW5ubnZ4ZEhFOGZj?oc=5",
-          "age": "1小時前",
+          "source": "Yahoo股市",
+          "url": "https://news.google.com/rss/articles/CBMi5wJBVV95cUxQQnpwNWNmVElkX3FqeEJNdm9wVXB3SXQzRE9QNktoLUVwaFBIcjFLbXR3WmNWWUhGT29vOUE0SGFDa3dzMHM4WFE1MmFFTGJlVFRiLUEtMHowWFlYVkl2Q2haQXR3cS1zQV9OZTZBdm1KZVU0b1QzamdzOVc5R00zWldOVlNyYVJ6R2lOR2RMVkZrMTY0ZGx3QXVzcy0zbW0zZHc4bk5Wc2lubmxCajd3TU4wejkwV25QMGhqblRkZC1MeVd0NUpKSm10LWF4MkpkMmhPX2JTbV9lN0owamhCTDIyeTJMcVJSYUVTMS04N29WNGhYQ3E3T2dPRUdxY3lTdzlLRHB2OHJ4X3dQbUhYb0lUemJoRkxOMEs5c0ZnS2Zmb0E3Qjhyc3hZUEZ1WjdNWG1QUVNETkZHX2xWbUlpdTZJQmxrMnFFWDdhMFJ1ZE1rUlBkanlUcWEtczNSVW5ZdTlxRTY1QQ?oc=5",
+          "age": "7分鐘前",
           "within6h": true
         },
         {
-          "title": "戴爾三度上修財測！鴻海、緯創、仁寶股價齊漲法人最愛這一檔- 證券",
+          "title": "鴻海串聯湯山、川崎重工與NVIDIA 北榮化療自動化成果亮相",
           "summary": "",
-          "source": "工商時報",
-          "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9iRUtiSU5PdGZ6a1FpZ19EY0FjVE9zWWw3RUNOMzRZeW1oajZGNUJkaHgtbTJxUW1FbnZMTnVDUjVsd1ZQZ3FvcHdwZEQ3cHoxbFpHcWQyWkEzWm5YckVN?oc=5",
-          "age": "5小時前",
+          "source": "DIGITIMES",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNOU5TeVZzaUV2RnY4clhxei1RVHgyTEVyT3NRS19NcmxTbGNwOWR0X2MyeEJya1JTNHZHdGdLN0JUYVVBbzRoLWRjU05kaDNXbEZfbmRsQURvMDkyYmNHczFJd0p0TVI0MUcxNDd0WVhvMEtKNVVrYjZqQlFsZm1US0hfMUswMkhVY0RheG9EVkFTOGxpOFNv?oc=5",
+          "age": "11分鐘前",
           "within6h": true
         },
         {
-          "title": "焦點股》鴻海：盤中猛漲半根 電子五哥衝鋒",
+          "title": "北榮攜手鴻海打造化療調劑機器人 盼把時間還給醫護",
           "summary": "",
-          "source": "自由財經",
-          "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5Gd0ZjMkl0MUdyVm5ObVpCZ1dBYUNTMzJ5R2tQa3VueW5TVGkwMXkwcHFSNnVVcmgxM2RzYzBTLVp4clB2OWEzZTZiclBDQnY2YkJhSmxHQXR3RUkydXFR0gFkQVVfeXFMUERRUk1LZHhVUHBmc1FTQzhuWGtiT3A5WDZjNlJSTnBPOHlhbkxoUEtfZVpxU1Y2RzdRMGZrbF8yQWZRWUtZV1dOZUYwR3kwZnQwNTg4Wm9fbGJ6VTFWYk9FVUxWSg?oc=5",
-          "age": "5小時前",
+          "source": "自由健康網",
+          "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1fSDhRSWpoTjgzcWZnODA0bUI0V0ctOUxfYUtnUTJKTk5CYmk4U3Y2SHF5aEU5XzJoTkxjRWExZ0M3T29jMlpra2dKVzgxbzNJYmFzbmFMR2VXSFg2UW9YRjlaZHY?oc=5",
+          "age": "15分鐘前",
           "within6h": true
         }
       ],
       "sentiment": {
-        "buyPct": 49,
-        "sellPct": 51,
+        "buyPct": 30,
+        "sellPct": 70,
         "dominant": "sell",
-        "label": "想賣略多",
+        "label": "想賣居多",
         "summary": "社群討論 18%偏多 · 6H主動買盤 69%"
       }
     },
@@ -173,7 +165,7 @@
           "summary": "",
           "source": "Yahoo新聞",
           "url": "https://news.google.com/rss/articles/CBMigwNBVV95cUxPRkxwbkFMUEstQnN0Z2lQQmhrTE1GWlJ0dXB2TjVpSjBoTHBPSVNfaDkxNDc4MjdKaXdfN3hrcW5Kbzd1OUptcnUtWGhzWW0zZmUydnpDTUItUTlUeTRsdHVEYU1vR1dIVjlNVWZGRkpvVklpUFBpVXBLdU0wQThaUGtndmJ2SFVBVVpkX0QySW93RWljRmNnYTM1WHN2aDVsRHFYbEt5d0MzQW1Ka2RrcmRLenBCWjZzQjB6dDBuSHZwLURUMmtjVnZOdDBHckpDeVowOTJvcWpGazh6aVdiQ3BMSHNMQ0Uyc0JVdUh6bmtrWC1Nd1VrTVlrODlZWHJGeklpNVJmeTJKZ3hGR015c0dEcEV2a29mU1A0eXNPU0VQeTlFVjF1RmI2LXE5WXpwNXdxcHFPaXFrZlBUUk1HSk9kQnFnMnpJdFBjNy1QT1AxUlNsQTB2ZjEwbC1EV3hNcS1sNHJoOHMtRWVSZXdqUjZfYzdLeGc1OFNKTXNLaTl3eEE?oc=5",
-          "age": "30分鐘前",
+          "age": "1小時前",
           "within6h": true
         },
         {
@@ -181,7 +173,7 @@
           "summary": "",
           "source": "ETtoday新聞雲",
           "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9BQUtxWFpydHFRbU5yNXp5MERkdWRwSUUtWVd3YmcweEhqMU5mU2pHWEVPT1BPRlNzMWY5OHRnTkNYV24ybWJxeF9Ca3NhV3d1NXBqa1dqVGxDcnFTZFHSAUtBVV95cUxNeXpabDI5YXhPd0hpRkdISXhIQWloUWN4cngtYk5Ea1FUUnZWM0pkZmpzNXBUTDV4LXdPS1hJeUpaeFhXWmNsTDhIOXc?oc=5",
-          "age": "3小時前",
+          "age": "4小時前",
           "within6h": true
         },
         {
@@ -189,7 +181,7 @@
           "summary": "",
           "source": "PeoPo 公民新聞",
           "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBhLUNDTklfTEdNa3VXWF9hc01YWURTMG5YUDZ6TDM3MzZFNkU3VUYzd1JsTzktZVFBclNsd0FEMVRYTVZPVTFmSA?oc=5",
-          "age": "4小時前",
+          "age": "5小時前",
           "within6h": true
         }
       ],
@@ -204,27 +196,27 @@
     "3017.TW": {
       "headlines": [
         {
+          "title": "低軌衛星起飛！「這檔」累漲近40%牽17檔漲停 華通、國巨、奇鋐、穩懋、昇達科都亮燈",
+          "summary": "",
+          "source": "Yahoo股市",
+          "url": "https://news.google.com/rss/articles/CBMisgJBVV95cUxQeFN1ektqYVY1R19PTG05Nm1JaTZtN2NKblVCYmFMX3BRUGNiZGgyc204ZEdPYzhfeEZuTnc2MnlkNzBGLUJ2OHcxUkstRlpfUkhYaXQwcGFDcUJOeWRfNGRvSTdRVHlMM0FISmh6U0hoclQ3UFNFRXJDVXVYQmlESWY4RGxGU2UyN2Nha0JIRzRzcTcyVXpRV2dncGstMmRjblBWWmc1dUliQWowal8zdWp5ZXVic3RaaF9TOVlmOTJYRjN1Y2h0VVc2S1R2cXlVWkluMXRLWWphU2ZxVlFrQl93bWR1eGZRRHlVS3FVd1pUOE5KSWprR0tHbU85WEI2SVJpRTVsajhVbEZFVWNpV1N1ajBYUnJvTUcybFkwTzFNZHdhTUlkTGxJUlRZamZ2cEE?oc=5",
+          "age": "42分鐘前",
+          "within6h": true
+        },
+        {
           "title": "焦點股》奇鋐：明年AI業務正向 股價強攻漲停",
           "summary": "",
           "source": "自由財經",
           "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1WVVVTOTZZNlZ6Z3RKdUhPZHlfY2dtLWZKbFA5em9ZVlF1dVprZjRzNFRZRUhad0pwUk9WWmpWWWRuaG12aWdTeXFpLTY1TUxpSC1uVTFkM3l1UDJTcUtn0gFkQVVfeXFMTnJGNnBrS3U5bjZQUFAzeko2UTZWdjVTcjZyUVhON0xPalFaUlF6ei1XV09Ma2xDT0NkS1ZFejllanpxZTNYLW1mdFBlbGE1Skx5TDJUN1JuTVpFUGlrOWd5bTlZQg?oc=5",
-          "age": "4小時前",
+          "age": "5小時前",
           "within6h": true
         },
         {
-          "title": "台股強彈逾千點！散熱族群同步升溫 健策處置中仍漲停、奇鋐也亮燈",
+          "title": "輝達親兒子債信拉警報！金像電、欣興、奇鋐誰能挺過寒冬？「台股4淘汰、3倖存族群一次看」外資點名1條件是關鍵",
           "summary": "",
-          "source": "udn",
-          "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE04X1FlU0RYbElPMWxqNDh3UF94ZFJoQzFPUEd3alhBRGlEcjdCaFFzanR6OUMwMzZqRVVJa3VTOWQ4dFQybW5JLWhucTVkOHVT0gFWQVVfeXFMTVYxNUxWOTZadXZyTVdwdU9zaVRQcmphczVrRkxqbHZuWElPdzBoOGFOZ0JoX2kyRjhrc1AwdjhUb2p4THNCOUY1aGI5ZU5raUotYjRyWmc?oc=5",
-          "age": "3小時前",
-          "within6h": true
-        },
-        {
-          "title": "AI電源散熱8雄全面反攻！奇鋐、健策雙漲停 台達電大漲逾6%",
-          "summary": "",
-          "source": "聚財網",
-          "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE1tMmRMNF9UQ0xZdnpiaF94QnZRTWxRNU54R0RjN296SGJ6N0pDWW50YS0wWFFPcVZwN2ZrMDNDRkJkdU1qQkQ4RnVfajE?oc=5",
-          "age": "3小時前",
+          "source": "旺得富理財網",
+          "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1pdVBEc0NMS2dFZzdtZVl4Q0t0WFkza2hRTl9qRDBVblkxOTV6Skh5dGgzbGQ0R3BtS3p3czFvaThCdWZxeVJhdzNTb1F6VkJpMl92SWhnT1JVXzB6aVZqTGs3M19kdTdiMHc?oc=5",
+          "age": "40分鐘前",
           "within6h": true
         }
       ],
@@ -243,15 +235,7 @@
           "summary": "",
           "source": "Yahoo新聞",
           "url": "https://news.google.com/rss/articles/CBMi8AJBVV95cUxQZFo2bDdzT3JLWXBZRGx5UzRJUm8xbFFsc2hFUWYzSGdoZzFyTGJfcUFtVERpbllkRHdsWE1ZeGhoMUowakJiQTV3REFxU1ExcW1VaGRKVzV5UEdIYm5DUHZYZW1RWkllajYzWm1VWGVrNEo2cGtNc1pSczNsQzJReXJpcmp2XzNhNnZUWnBCcnAySWNpTDZJNHlkSk8wbS1ubnZBQXlMVWphU3JONkswa2hraVFJaVc0VDRucjBvMElqR2UxR2hsOEhnQ3p1d0NBSlNkRzh2aENsYmtlV0RUeUZNTnV3elBJRXBPZVVKY1V1UkhQbWpjMVdoVjZCQjhfRjRPeWF4bUx0a3J0Um9wMERSVXRLR0lCS1llUEgzVk0wQ1h2bi1vUzdMZk0tcUpNUEdiSWdmQUw5el9VcHpYN1d0TFlaaUhUSGR3bUszUC1zUUoyZ0laZm1TUFFGMkRlejZPSW9vZEVXSTd3QWxVVQ?oc=5",
-          "age": "3小時前",
-          "within6h": true
-        },
-        {
-          "title": "盤中速報 - 緯穎(6669)股價拉至漲停，漲停價1570.0元，成交2,253張",
-          "summary": "",
-          "source": "TradingView",
-          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE53RGRsbWc1aVJOcGxQbUU2VFdrRnk1RjR1dFZHQWE2bldVTk1lVFVDQ2dyMzVlUUREWXQ3Q3FkeHoxcFN1RnNfZmdlamIzQVR1QzhQMDUzNnI3VlZ4VWJHVkNTQS1zdw?oc=5",
-          "age": "5小時前",
+          "age": "4小時前",
           "within6h": true
         }
       ],
@@ -266,11 +250,19 @@
     "0050.TW": {
       "headlines": [
         {
+          "title": "大學生追高0050！撐不住低點賣出 虧6萬後決定改定期定額投資",
+          "summary": "",
+          "source": "自由財經",
+          "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9rRFhLVUtVUm5WNC1NbDVHMUZMaFc3Z2xfU1JiZkt6bURCcDJHNGZDZVVNRjFrOFRpZXgwSGttekN2ZkVCejM4Nlp5MWhqcjZPQmhPTFA0OVRjazljYXg00gFkQVVfeXFMT2I0WmpCcjBTcFlMTDNyZzRJUFJpOTRKcW5KOWgxcXlsTnBfVGczZ3dmYlV3VmJOeGdYd2V0V3JkeHlSQkdHZUhnNnhOYVprMEVsS1RwYTNpOUxwb0ZIM0xyR0VhMQ?oc=5",
+          "age": "1小時前",
+          "within6h": true
+        },
+        {
           "title": "越跌越買！抄底族搶買0050、00981A、00406A 一周吸金破千億元",
           "summary": "",
           "source": "Yahoo股市",
           "url": "https://news.google.com/rss/articles/CBMi4gJBVV95cUxPVk1RN20zTnk0allLb1I1MUxWeXprX25sRWlBYk95bTF2X0gxZnpnaE96MlhRZ0FaMTNGbWsydE1iUDd5VVBJOVBDU3g1N0dWSVZ4WXZ4VkZweklMemVEZnpzTVBGOVhEWHVVdWtqWGc4UWpMTms0U1BEZWxjQmE2Z0VfX0RrQ1dRQ2RZNU1MUVFmN05GRU5vUURSc0dHLVhLU1BhbkozSGE1SUtJcjZoNWdaem5sVkR3OFlZZWhkaF9ITk5yTm1NSllNMUFRYUJaaDh6UEZXOFFDMERkNFVac0NoYnhuc0dsVHoyRkkyT0FjWlc4V2tyY2hfQlpCcnpKSHQzeHRENFRmNnF5alVfR3JlXzNYYW8yQTlhWUExSnZTWmg0YVRaOHFyNjdsdURMeWlPM0lfRmpBZXd2NzB0SXEzYzd1cFJZOWZ5WDB3V0tLS1lHY29xME85UjVKblQwcHc?oc=5",
-          "age": "45分鐘前",
+          "age": "1小時前",
           "within6h": true
         },
         {
@@ -278,23 +270,15 @@
           "summary": "",
           "source": "Yahoo股市",
           "url": "https://news.google.com/rss/articles/CBMivgJBVV95cUxPSXhpamV0X3lUUWZfQjIzbTJ6OEJQRmpLTHllTmMtVm4zVjFMLS1WdUN1Vm4yUUJWbG5ZV2pCVlB1Wk8taFBCTS1RWDhEWGhyWlp0dENxcHlHQ2ZVTVJ6NjNlWXFhaGN6clB3ZGtmSFpTM0NxRm1IOC1KcExNOFp6eWpQc2hJNDRUTlZpNm1WSGtsNTBqZUR2T2NpNWhvRVd2YW5MSkRCNU5WZkVRRFhnSW5ibUltdWZHVExRWmIxUDlMU3RFTzVlbF9PRjdiSGw0MHhycFNfeER3bndBdmotS2g2S0hIMEVZNGpxYTBZd1ZCUEhqVzZsUVNoY0l2ajBkejNNZWNJX01fNWZ6ekJwbkl3MFd5M1hCUFNZTWljdVRJRmRsR2tEbXprMFQ2dnlndEhsM3dDLWpORHd4dWc?oc=5",
-          "age": "1小時前",
-          "within6h": true
-        },
-        {
-          "title": "高點進場0050均價115！他抱10張已虧逾30萬 大學長曝攤平策略：越跌越開心",
-          "summary": "",
-          "source": "Yahoo股市",
-          "url": "https://news.google.com/rss/articles/CBMipgNBVV95cUxPVkdiTnlCTEVnY3JoUmUyWFBjT0phSWhxc1FIRmZLamlzYzlSNERWMnRid0prQ3A0aENSV2xLYjZMd0hsZS1SSzA5QkNkQXdmUEppelA0MktWZUR1c1VMdl9hcW1MMnRCTmxVR2xEekRwRllNWUNXdHZENVRTSnpyYU5OSmVydDZ0U2xON3ZoS0FGRE1pcXEtLXhmZTRGMUJEd05wenN5R1J0SU5QTW1iYmdoYnBNd09DbDB5YzNvS0k3OHppMDUzd1I5Tnk0bzI5NVc0U05GVnprZWpZQXBXVVRqSkFJa0I1N3dTclU2WnBnV3pGNllRUFhzNHZhMjdSQzBWcTRSQWhJS3FZNXRWaDdYWTFPVTB2WDQ4Y3dqdXNka0FwbXlQMVFNSlBmNTMzTTdVbE01OXlOTFBqYjVnWFdwSl85LUNDcVFfNGFkek1JWnZMZHNFXzAxeG1Wb2FEdnVtbjRTVlNLMW55Y3ZlNGtrRzk4LXhfMGRaTndiakxhX0RMZmRXcHY0RXdlUTllTGY0V1FIVVVQSGdZc1MxX19Ic2JaZw?oc=5",
-          "age": "3小時前",
+          "age": "2小時前",
           "within6h": true
         }
       ],
       "sentiment": {
-        "buyPct": 65,
-        "sellPct": 35,
+        "buyPct": 62,
+        "sellPct": 38,
         "dominant": "buy",
-        "label": "想買居多",
+        "label": "想買略多",
         "summary": "社群討論 68%偏多 · 6H主動買盤 53%"
       }
     },
@@ -305,7 +289,7 @@
           "summary": "",
           "source": "鉅亨網",
           "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBHRkRueHEwU19ZRGkxVDdhQWttbXVnQ0pia05aeUVxbHJWelBFcGZlSHlMSDBvb3JWeXhTYkp1dURIc1Nza292S1pTeFp2Szg?oc=5",
-          "age": "1小時前",
+          "age": "2小時前",
           "within6h": true
         },
         {
@@ -313,7 +297,7 @@
           "summary": "",
           "source": "Yahoo股市",
           "url": "https://news.google.com/rss/articles/CBMivgJBVV95cUxPSXhpamV0X3lUUWZfQjIzbTJ6OEJQRmpLTHllTmMtVm4zVjFMLS1WdUN1Vm4yUUJWbG5ZV2pCVlB1Wk8taFBCTS1RWDhEWGhyWlp0dENxcHlHQ2ZVTVJ6NjNlWXFhaGN6clB3ZGtmSFpTM0NxRm1IOC1KcExNOFp6eWpQc2hJNDRUTlZpNm1WSGtsNTBqZUR2T2NpNWhvRVd2YW5MSkRCNU5WZkVRRFhnSW5ibUltdWZHVExRWmIxUDlMU3RFTzVlbF9PRjdiSGw0MHhycFNfeER3bndBdmotS2g2S0hIMEVZNGpxYTBZd1ZCUEhqVzZsUVNoY0l2ajBkejNNZWNJX01fNWZ6ekJwbkl3MFd5M1hCUFNZTWljdVRJRmRsR2tEbXprMFQ2dnlndEhsM3dDLWpORHd4dWc?oc=5",
-          "age": "1小時前",
+          "age": "2小時前",
           "within6h": true
         },
         {
@@ -321,7 +305,7 @@
           "summary": "",
           "source": "Yahoo股市",
           "url": "https://news.google.com/rss/articles/CBMihgNBVV95cUxNd0p4RjRlOVZ0amRleUZfN3lQZ0pTb01UdFY0WUFIcUEzRkE2WXdSSU8tS1lFX1RjMkppVHpKc3BSNGFfblRxdXlOOXoyZXZocjFpUUNaLVBMUWtvR1VrVXZFc01USmJpa2lsOGNoakRpS1ZuZnBQQVZ1YUdWRzVPaVZHNTZVUFpwVm5BaGRSczJiM1AySGl0VHFSdW9TWlJMN3p2Nm92UWFnWElRQjI3RFdieXRQdHFHb1NzWDJfNlJoVUpnRUsyT2h1Mlp6c3FLel9DcGh5eUk4MWVTdWFlWjg3UmNYaWhfRGhMTmxoNGRmeG9uaG9peWRiSVdPcFI0UzFwNjgtTGJEcU4wdnVDY25vYXB5RUpfRjFCX2tMZklFSUpaeVN3OGIxaEozMDZRNWtMN2FkTDhrWm9BRkZFYVRlWmhqU2RuZTZFYlFiRDBmZENnV0JURjN2VFlVTnhHN0lRUy1LUE16OGh3dHZrOGxVZjRINC01WHUxS2cyQkhqOV9sSlE?oc=5",
-          "age": "4小時前",
+          "age": "5小時前",
           "within6h": true
         }
       ],
@@ -336,11 +320,19 @@
     "2308.TW": {
       "headlines": [
         {
+          "title": "以 AI 驅動成長、用海外布局突圍！2026 年 100MVP 經理人揭曉，台達電、群創、群聯、台北 101皆入列",
+          "summary": "",
+          "source": "經理人",
+          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBaR3EtS2RLdnFFd3QzUDJEbWFCM2s3cGpxZjRsTFJ3ckhiVEVvQmlwZDZBUXFGeFhxU0dkTXVtd2RUei1pUUlBeXpUejJodlVMejZxSmxDSjE1bU9NZ2xtcw?oc=5",
+          "age": "57分鐘前",
+          "within6h": true
+        },
+        {
           "title": "國巨、欣興、台達電洗盤完畢準備噴出？「最狂分析師點名6檔AI超跌股」最新目標價、法人進出籌碼全揭露",
           "summary": "",
           "source": "旺得富理財網",
           "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1KN0tnMGFPdGNPUGZiNzBtVHI2dE94c2wxWjRYemtEZFhjVm5CS1kybEdOUUhWR1A0ZWh2cGdRaXJRMjlXeW1GdUN6bDMzRjV1a0ZsUFVncm1ZWTR3N3dUWEhJZUZjRnlmcGc?oc=5",
-          "age": "1小時前",
+          "age": "2小時前",
           "within6h": true
         },
         {
@@ -348,14 +340,6 @@
           "summary": "",
           "source": "聚財網",
           "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE1tMmRMNF9UQ0xZdnpiaF94QnZRTWxRNU54R0RjN296SGJ6N0pDWW50YS0wWFFPcVZwN2ZrMDNDRkJkdU1qQkQ4RnVfajE?oc=5",
-          "age": "3小時前",
-          "within6h": true
-        },
-        {
-          "title": "神拉2464點！台指期夜盤上演暴V秀台股穩了？瑤池金母出手日月光、台達電、金像電...00981A最新抄底名單1次看- 上市櫃",
-          "summary": "",
-          "source": "旺得富理財網",
-          "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9oZDFfQjVHXzRaM184S213ZTR6U2VFQUktUGhwcmIwVVJQdFpfcnhGS0E1WDlIM2NhUVZTVmdCLVhVdzk0NFFKY3lWaXVvN1M3NUxHYmRlTWtMRTNUeGMxZ0dZMGVjRFJwamc?oc=5",
           "age": "4小時前",
           "within6h": true
         }
@@ -371,11 +355,19 @@
     "3711.TW": {
       "headlines": [
         {
+          "title": "記憶體、封測反攻！台股收漲956點 穎崴董座看旺明年、股價亮燈",
+          "summary": "",
+          "source": "經濟日報",
+          "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9ZVGRTc0R0SkpEaFB0ZGRteHR5dVp0QkNiNmczU1UwZG9adndJdlhCMDNQb2xoc0VTaU1FYTRld3R4alp2dnZBbU83dzAzQjY3Z0UxbmhDU3owT1NhZlVv0gFfQVVfeXFMT1lUZFNzRHRKSkRoUHRkZG14dHl1WnRCQ2I2ZzNTVTBkb1p2d0l2WEIwM1BvbGhzRVNpTUVhNGV3dHhqWnZ2dkFtTzd3MDNCNjdnRTFuaENTejBPU2FmVW8?oc=5",
+          "age": "2小時前",
+          "within6h": true
+        },
+        {
           "title": "CoWoS產能塞爆！ 台積電封裝訂單外溢 日月光大受惠",
           "summary": "",
           "source": "東森電視",
           "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9HQ0ZMY2pBZ2hxQnF5NlMtRDJrN1JTRjRCY0xVcURsVXBRTng5WHRDb1hpZ2VQMEl1VlBPT0p4NDNfUUZCbEp2eF84X1lKQmRzYXhYWnBKYUhHUQ?oc=5",
-          "age": "2小時前",
+          "age": "3小時前",
           "within6h": true
         },
         {
@@ -383,15 +375,7 @@
           "summary": "",
           "source": "旺得富理財網",
           "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9fOUtvcE83YmRiaTlUM056LWtobFFITlU0YjRVcmVQQXYzTW9MS01HR2VBZ3M0cWM2SHY1bUQ5WElqV3dlUkt1LWJUNE9iS19oR3B1QTFSYmZUclJzM0NQb2lDb1I5eFYyRGc?oc=5",
-          "age": "3小時前",
-          "within6h": true
-        },
-        {
-          "title": "AI帶動封測需求強！日月光、京元電雙強爭霸 最新目標價出爐",
-          "summary": "",
-          "source": "TVBS",
-          "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5US2t2QlRjNGhycl9nZkpzXzVRSVFVWHBVVEFnUFNtZEVrNGRXX1ZCYUIyY0p5Skc1VlNmdGQzb3FTR2Rwbk1aYkN0MGdBdms?oc=5",
-          "age": "3小時前",
+          "age": "4小時前",
           "within6h": true
         }
       ],
@@ -410,7 +394,15 @@
           "summary": "",
           "source": "鉅亨網",
           "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBHRzZaNjBOelNlUWJuZ1k5TVFsRWZPVUM4Y01YVnhNT1BBN0luSUt3ZXNpb3RGVzQtSjJkOVctOWlSZDE0cGpEX0hWOVhKd3M?oc=5",
-          "age": "2小時前",
+          "age": "3小時前",
+          "within6h": true
+        },
+        {
+          "title": "擷發科首戰慕尼黑展 AI 無人機詢問破六成 帶動 ASIC",
+          "summary": "",
+          "source": "Yahoo新聞",
+          "url": "https://news.google.com/rss/articles/CBMixAJBVV95cUxNY3pvSnl6MDZxS3NDV0RGODZwSmROdVoxcy1wTDhzRzJOUzBqeWQ0Zm03T09BMXpDSzY0NkwwQ1lHbTBjSXVKbGFfTW9FUnZ1RC1ucG5oRVBfWFljMEQ3OEwxbTBOXy1DYmVyWFZ6QlktMzc1MEJ6UXFuV0Vvelk3QXluZlhiYTBicnVXMUZLOUtsYWUxcnhEaVVnYzZ0V2pPTVd1M2NOLXFyWWk1cmRsd19zQ2hMcDdVcmhWdmFsV3R0djBUNVFsZEdmTHdVWDJMTFdZZXhnb2xLaW5iVlctbW8yZTJDOXYyVXdVbUpuWmVUMFBOZXExWURVcENULXdGNmZPdU9tcC1rdmdONXVZa2hEaXUwSFFEWC1McmlDdFFuV0p5NXZ1bjFQdWY4cjdZTlZGd2t2dkozRWZaZzB1Y1pLb1o?oc=5",
+          "age": "52分鐘前",
           "within6h": true
         },
         {
@@ -418,15 +410,7 @@
           "summary": "",
           "source": "東森電視",
           "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE42ZGRSNDlHRHBEWkxhcDhnQnB5dmVsNkJOUFl1SWhVdGFmcmJrZnMzRVNwLXJEaWh6M3dwQnJTUmxTM1JDV2RwT09LaXdQMnRhQUFUWVlCMTRXUQ?oc=5",
-          "age": "1小時前",
-          "within6h": true
-        },
-        {
-          "title": "精測擴AI測試產能，明年ASIC新案放量",
-          "summary": "",
-          "source": "台視全球資訊網",
-          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOUVN5UTZQcXM3WEQ2YXBCbDllQ3U5UjhNbzh6ZGtlVVlidTdkSk5QRS1lakVkMmFCTXRsMFE2ZkF6YmMzLWlQWTZzanFuMXNxbloxdW9xdXZFcmY2RV9UYld1SzhSYlNndXh5NTRWYlhXYVQzOFhlX0NFeVE5b3Q4VGRXOXp1c3dBcUIwRzROZ0lELWUzMElvYkp5SUI?oc=5",
-          "age": "4小時前",
+          "age": "2小時前",
           "within6h": true
         }
       ],
@@ -441,19 +425,19 @@
     "3443.TW": {
       "headlines": [
         {
+          "title": "《台北股市》注意股：26日26檔創意、漢測、晶豪科、敬鵬、資通等- 上市櫃",
+          "summary": "",
+          "source": "旺得富理財網",
+          "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBwZGdZZ1pYVERTcFdBZFR4cFREbTRndjE3OWJSZjE3bEtlY0dXTmhJbG90b1d4a1I4SE1fSXRtb05ma2pZS1FNODJwVWIwZldMaXpGSUFnMXM2SE1FdGVYVENmSklwVDRmMEE?oc=5",
+          "age": "9小時前",
+          "within6h": false
+        },
+        {
           "title": "《半導體》注意股：創意 近5日跌23.93%",
           "summary": "",
           "source": "富聯網",
           "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPTTh2SE1wTHo2Y3pSWUdncE9WeU9fUDNGVFVwTGZzVTR3dlFnNGN5YmI0QUxyRUVlT1Npc0xvMEkzYjR1WXRQT1BNRmZMdVRzd2lKVk5maEUyVVlORS15dTBWa3o5WFlmQW5NN1ZocmV1M0p5Z3FPVHZZYUV3ZnNycFMzT3J4VUpv?oc=5",
-          "age": "8小時前",
-          "within6h": false
-        },
-        {
-          "title": "1表看》創意腰斬又跌停還有救？世芯、力旺、智原…法人仍喊買6檔ASIC概念股：未來3年贏家浮現- 上市櫃",
-          "summary": "",
-          "source": "旺得富理財網",
-          "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFA4Uk96c1N1TjJyS1RiV04tZzZ2ZU9tbVFXY25TanpBX3pFaG4xSzBxUmRTaEFidDhkMXFvOVFOSE53U0g3NzdFV3VGQVlLTXdGTWJpb21DSW9mbzVBa2w0LWg5TEp5XzZSUXc?oc=5",
-          "age": "8小時前",
+          "age": "9小時前",
           "within6h": false
         }
       ],
@@ -468,11 +452,11 @@
     "3231.TW": {
       "headlines": [
         {
-          "title": "戴爾三度上修財測！鴻海、緯創、仁寶股價齊漲法人最愛這一檔- 證券",
+          "title": "盤中速報 - 緯創(3231)股價拉至漲停，漲停價167.0元，成交28,649張",
           "summary": "",
-          "source": "工商時報",
-          "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9iRUtiSU5PdGZ6a1FpZ19EY0FjVE9zWWw3RUNOMzRZeW1oajZGNUJkaHgtbTJxUW1FbnZMTnVDUjVsd1ZQZ3FvcHdwZEQ3cHoxbFpHcWQyWkEzWm5YckVN?oc=5",
-          "age": "5小時前",
+          "source": "TradingView",
+          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFB0MjNFVGxlRU4wRkk3Z2VsM2xvS09fNjB6LTZSellwMmlKVXBkbFhCMUtRdDRwbmxUZ2pjNTRoUFBzVWdCZFQ5V2N3UHY0bGRDWmFVd0hxWlJrUUswYjVKdWlXLTBKUQ?oc=5",
+          "age": "4小時前",
           "within6h": true
         },
         {
@@ -480,7 +464,7 @@
           "summary": "",
           "source": "臺南市政府全球資訊網",
           "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9qZjZ3UlhocFJVMmR3aUFMY3YwLWlBeG81QmJ4dXlmWWJCeTlQMVFUcG9lRENZeUNIbDRnUmVUVzcxWGZxTUw1N0dLQjBrY0RxUjlKZTAyLU5IOS1Wbk9fZ1ZldFYxWG1OX3d1aWh3?oc=5",
-          "age": "4小時前",
+          "age": "5小時前",
           "within6h": true
         }
       ],
@@ -495,11 +479,19 @@
     "2345.TW": {
       "headlines": [
         {
+          "title": "啟碁明年營運看增，800G交換器放量為成長主力",
+          "summary": "",
+          "source": "Yahoo股市",
+          "url": "https://news.google.com/rss/articles/CBMiugJBVV95cUxObHNJcXdqcU1YZHF4andaT3pXeDRWMVFwX2pOQ3p4akNMT1dzVzVqTDM4c0ZkVlpERnl3Tk81eTBZQWZIVmNmcGxSTkpIcVI3Q2ZPUURIZ3pKc3ptSU45MlFGaDFvTHpGNWNhS2VmNEtlSjUwNUNiV1hzUlpVRHBNY0dHQXV6RHFERFJ4SDdmSmVQVllrQ3QyS2FvNHVSUXpUcjdCaF9BbXlnUndHQ1hPdDd1OVRsQTh2MTd5cncyd250ZHVUODdLNTJJR3JXMTVTeHAwa0NCWHpwMHJycHo1cm55N0kwUlkwcVZzUnlRUk02LWxfX3pmcGk4UGgwd0VEWUdjMHpFbjR5eWNJZkxFMGtXZjZvVi1Jd181bzhZaDlMRUl2dWhWUXV5NDNCZVdRcnFHVmpjbzY1dw?oc=5",
+          "age": "5小時前",
+          "within6h": true
+        },
+        {
           "title": "智邦 (2345) 年報全方位解密｜理柴知道:法說最速報!",
           "summary": "",
           "source": "vocus",
           "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1jTzJrNmZ1cFBIazlrQ29JaXZqMnRSUng2OU1hTG9MTzFjYnJkdE15SXF0M0hmR2Q4M2xwTFc5azA4RWVhWUxFaXQ1QU5HWk1rNUx2ZTNxaXJPNll4SkHSAWNBVV95cUxOcVBoR2I0WnZ2YjhIZXVwNTFoTkVFVFZ1RFNkcTRnQ1FqQWlqSUhwdVQwc0VsRTQ2LTdSMllKVVhGZlZNMUV4VmhWT0U0ZldObm04Xzl1VnVwV3pZdXNDbnVubzQ?oc=5",
-          "age": "58分鐘前",
+          "age": "2小時前",
           "within6h": true
         },
         {
@@ -507,14 +499,6 @@
           "summary": "",
           "source": "富聯網",
           "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOdDBVT0ZaLTZrbWI1M0laVjJhLXpaQk10ZmdHR2p0cV9XV2dPMXBwcXUwTkZYbVc0ekxsMmwxNEctMkFGSjI1Z1R2UVQ0dzBfcWpEZ3g2b1pLck5NVGJrWjBqdnFGOVNqZWswTkFXNmlHNHZwUndiVnNNd3dZY2Y0cEZfUnRycDVq?oc=5",
-          "age": "3小時前",
-          "within6h": true
-        },
-        {
-          "title": "啟碁明年營運看增，800G交換器放量為成長主力",
-          "summary": "",
-          "source": "台視全球資訊網",
-          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNVHFCemVnNmhiT3RQT3hXSmFZWXNxa3NQb1FtMlc1dnRUS3VwR296M2UwMVZDYnAwQ2E2RE9PMnF0cHU0aXJjV1BXdjVwTkFTdm40Mlpzd1dia003aFVJdWx0YUM5WW5wSE5NTmVVYTJyTFJ4dDl1RzV2QWsyMkoxanc1X0NIYjV6NFRWMzh4UGpyZUt0dXB6VkNtYjY?oc=5",
           "age": "4小時前",
           "within6h": true
         }
@@ -534,7 +518,7 @@
           "summary": "",
           "source": "工商時報",
           "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE45R3V2OVNNRUp6bjBPcklHUV8wMTBQbUUxblZRcmdFMVJPa3d6VnpvaGVxSFJIaXo4MWczNXRBZkpCUVU5a21jZ0Z5aVRBTmJyZzZCRU5KVk5JcTFFQkxz?oc=5",
-          "age": "12小時前",
+          "age": "13小時前",
           "within6h": false
         }
       ],
@@ -553,7 +537,15 @@
           "summary": "",
           "source": "永豐金證券",
           "url": "https://news.google.com/rss/articles/CBMimgRBVV95cUxNMFgwUWoyUmtaU0lPYjhyX3BaajdvNldJeS1IMmFmRzg1Uzh2NTFOTVp2MnNHbTFGWVpQVWNfQlpUWnVST0pBbjdBV2htUFpHRUs5cXdaUUliWEZ1cUEtX21tSTBSU3lCUG1tUEZuUzlNcW9IcHRyUlFZdk5TTXlVRDctNXowejlweE40YllReml4T3FQQVlNVUlZajJIQkQwSTNDY25aZTVhdkNSd2FuNVQ1Y0kzZmQ4WnhRRkdONVg3bUI2QVg0UzI0OWxxUzRUQXFYSVoyVlhtam5nN2NpcWVHNFExZnNXOENsY2hCZnlpbkVGaldiQTdwMTI1Q1ZQYWtON2E1Sm56QzlsZUIxTmZJTG1SbmhJMGRHeHBfU1UzaUF5WUp5SnlnYk9zMzhGaFBTZXNHamw0RjdTdEdjZ3pzSGY2eE8wSU5vUzNTOHAyS3pkT2VwZ2ZFVl9JaHlkaVdfQXhvaWk0TmJDQkUzODJLRDJhVVJPM282RHNYZDVTdXNwNDRSZ2RucjI5WHlYSXlKdTVTRVpBVzZwUXg1SmpRWnJ3TGFZWTl3S21hdWQ5a2tEUF9ZV1RiRmhfa19Kdng1dFptQWNaYkNma2NnRTJCencyQ0d0SHViYlhXVDFaanhNZkxBcTFrRnpHTFJNMkEwZHlDaDd3RnZhZEJ2elpHQjd3bVV6SWFhejdMVW96LWVUdHZWTm9n?oc=5",
-          "age": "59分鐘前",
+          "age": "2小時前",
+          "within6h": true
+        },
+        {
+          "title": "【零股排行榜】 盤中零股成交量TOP 20｜0050 元大台灣50、2330 台積電、00631L 元大台灣50正2、00406A 主動中信台灣收益、0056 元大高股息(1126)｜豐雲學堂2026 年 11 月",
+          "summary": "",
+          "source": "永豐金證券",
+          "url": "https://news.google.com/rss/articles/CBMihwVBVV95cUxOVUlJdVhMUHlkaTFLb2Nab2cwNEwyVUpNSjZlNUdGYlZJY09EUndIdUNabDhTVkxTMy1YYXhkQ3dRakp6LXlDTF9xQUZkM3Q4MTlwdnh3RXBsYjZxdFhrN2U1NUVwMzN3emU2b191U3BmM2UwekYxNnNkYTV4Szl5UW1sQ00wMVJha3I3b2VDREk4bWZpOHAxUy16LWZTd2FCcHBNcFRrS3NnRE43ekZQWHluTVZVeUlPbW03eHBfTy1xWEdfS1NJRFBIOGRFZWVDblRZZmlRM1k4VXdpOHVLM0hyVzQtdXFKam9NMkhhRWJMT3loM2wzc0dGYjNNWGZmSmRoSjVnMnZOZ1YzTkZwc0M0TEJOVmtLY0U0MzNRQ0t3ZHZ4ekpidEQ0eUFaemFDcDYtX2FDaHI0emNzNEdyOFhkclpnUGhDNFp1blBqS1FWUnl6dVd0M2dzTjFUWkIyM0lxcktnVjVLWkEweVVIV1llRzBsY0pLaXBCSXhCcTJaRE00NnktT0UwZUFKUzdIS1BUeEhza1dCLVV0ek1tamo5Y2ZSRE5Qb054aXJQWEZVNmEyMFZ5QTF1X3BqWnhfZlBycHprUEp6a2dKQzRkc3dzWWtyRXhNbjV3U1R1aGowYlozellsYlpxMlp3ZjlxZTJWUXRKcDZfNmNWVGRKeDRGNDdKY2VWS1RQWUNsYndjWjFOX0xMdnBWbHByWVN0aXVsZV90eGNUdnA0Snp5NW1UMEI5cUdrSVZkOS1YbllsaUNiaWxrYmRTRHFnX25iRGIzRHZRbzhneG9wRHZMRFRna3ctN2RNR3BNVE85Q0F4REhabDZ6dUh3dE5TYnVlNHhPX0dlVQ?oc=5",
+          "age": "2小時前",
           "within6h": true
         },
         {
@@ -561,14 +553,6 @@
           "summary": "",
           "source": "經理人",
           "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9vUzRuNFVXUk91cGZoYmFQcWhaQ1RDSWZNc2dUOEYwVUFzOEpkR1lqMFlDaVhxQjl4NXlONHZwZjhDR2ljVGF4aE95SVRaLUhOYUtzXzJ5UUtVTTR4NUhqaw?oc=5",
-          "age": "2小時前",
-          "within6h": true
-        },
-        {
-          "title": "台股市值一個多月蒸發50兆 專家示警：高股息ETF配息恐撐不住",
-          "summary": "",
-          "source": "TVBS",
-          "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBiNjhfQlVyb0Zzd1M2U1FQelo2UnJ4bEUyNWZXUHpUS2xFYXFIcFNtZV9TYzdQZVI2YmJCemptSUhXbzFwallYX1JKdGJDSVk?oc=5",
           "age": "4小時前",
           "within6h": true
         }
