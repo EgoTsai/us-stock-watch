@@ -1,9 +1,90 @@
 {
-  "generatedAt": "2026-11-27T07:54:53.409099+00:00",
-  "updatedAtTW": "2026-11-27 15:54:53",
+  "generatedAt": "2026-11-27T09:09:27.582558+00:00",
+  "updatedAtTW": "2026-11-27 17:09:27",
   "refreshIntervalMinutes": 3,
   "universeNote": "嚴選美國前 30 大市值科技股動態 ＆ 聯準會升降息/重大宏觀政策快報",
   "items": [
+    {
+      "title": "Outlook 今天又爆災情！微軟的「當機一小時修復」做得到嗎？",
+      "source": "動區動趨",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPMVZaV2xnUnZUSmpTSGQ4Nmpsa1FhS1l6Zi1LZFUyc2VwdFk5LW1qV0J1VlN3QWNvcDBOdzZUcHVCd1FjdzdCMDZCOVFZTS1neng5Z1dQWWtuYnh3WjVLLV9RNW1FRFEtaXh3SU9fb0U2UG5CTjhkWU4xRjRDd09NX3FvLTAxVHN3NmFRRE1JSVo?oc=5",
+      "tags": [
+        "當機/異常",
+        "MSFT"
+      ],
+      "urgent": true,
+      "isOutage": true,
+      "isMacro": false,
+      "affectsHoldings": false,
+      "timeTW": "11/27 16:57",
+      "clockTW": "16:57",
+      "age": "12分鐘前",
+      "pubTs": 1795769849
+    },
+    {
+      "title": "不必學Antigravity也能自動化！教你用Gemini寫Apps Script，搞定新人試用期提醒",
+      "source": "數位時代",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQZGE0b1BkN0lTM1lQamMwQS1MNU0tV2k1Z0h6YmFYTkJsU0tLVTAzOHpKbXpGa19rVXU4NTFPX0dCOS00dTdYRTh3ZmZ3UjhVQm1VaUtvSGo1NVJBdDdVcUxtWVl2MEJxTktmbVJhQ1JCM0ptOGtVSVdCNmRXdkNWSQ?oc=5",
+      "tags": [
+        "GOOG"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": true,
+      "timeTW": "11/27 16:48",
+      "clockTW": "16:48",
+      "age": "21分鐘前",
+      "pubTs": 1795769325
+    },
+    {
+      "title": "AI泡沫先從債市爆？CoreWeave、甲骨文亮紅燈，資金轉抱非AI公司債",
+      "source": "商業周刊",
+      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9UUXpGWjJ0bXB5Q29PRklEaEpiVnVGTlF3dFFpdG1WQzNiVFhlTjgtWVBTMkY5aWlaRXM3RzRManpCdmhUTUtBY2trTlFOTjdkbVM1RzNoQlk1cmJqUUdtdDdJaXd3UQ?oc=5",
+      "tags": [
+        "ORCL"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsHoldings": false,
+      "timeTW": "11/27 16:00",
+      "clockTW": "16:00",
+      "age": "1小時前",
+      "pubTs": 1795766453
+    },
+    {
+      "title": "從「石油美元」到「晶片美元」 全球晶片出口額首度超越油氣",
+      "source": "鉅亨網",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1kdy1HMkgwamNyS2NYb2txLTRxb3NfS2JmYV9ZRGg4c01jTDJ1UjVJSDdTRm82YlB1Nm9jVFIweS1fWVZEUTJEWk9nblg4bGM?oc=5",
+      "tags": [
+        "FED/宏觀"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsHoldings": true,
+      "timeTW": "11/27 16:00",
+      "clockTW": "16:00",
+      "age": "1小時前",
+      "pubTs": 1795766406
+    },
+    {
+      "title": "黃金在15個月低位附近企穩，聯準會加息預期抵銷科技股漲勢",
+      "source": "Yahoo 財經",
+      "url": "https://news.google.com/rss/articles/CBMijgNBVV95cUxORjVyblF5ZkJzczI0d2J2ZnhnMkRIVGdiYmo5OUhURU1qVXM4Sk9vOVlrMVVzbUJWWjNRdzA5UTI2SlBWWVY0ZDRKTmVycE5sYWNTaFdVM2xuRGFDUElGVlA5UGQyTWJIcFAwZmk1NnVHYnBkeC1jcnM1ek16bmxnR01TbjFKVlU1YUJLUVJMUjBKMThScm1EOTMya19jLXpLRXlxQUxlOE1mWU1xdFVTUklaR1VKUGpjVXRyZEIwbW9aczVOQjlGLThwZk85NUlfSG1WaVJYbFBzT2EzalJuQTJhY3VPY01EMnhScDVWclRvNFNwVVhvcUpsdlhaME1tbjRfdW9kWExOV1BoSnBtS2hyZXdtRWtXYXdQcGpoZ2Q1Q3RnM0d1WkxFQmpPSm52YWhoa29ma1k5TVNwTUpEWkhZWExqMlJhNUVWNlIzZ05oazFTWmxRNlJvNmVEaEM4WXE5MDdvdVR0Y3FWVEVKcnV1OEp2YkQtREtlVFVjUkJJQnUtbloxamh0VFVYdw?oc=5",
+      "tags": [
+        "FED/宏觀"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsHoldings": true,
+      "timeTW": "11/27 15:41",
+      "clockTW": "15:41",
+      "age": "1小時前",
+      "pubTs": 1795765265
+    },
     {
       "title": "美股夜盤AI鏈全線狂飆！三倍做多半導體ETF暴升超17%，閃迪升超10%，美光、邁威爾升超7%",
       "source": "TradingView",
@@ -17,7 +98,7 @@
       "affectsHoldings": false,
       "timeTW": "11/27 14:31",
       "clockTW": "14:31",
-      "age": "1小時前",
+      "age": "2小時前",
       "pubTs": 1795761116
     },
     {
@@ -33,7 +114,7 @@
       "affectsHoldings": true,
       "timeTW": "11/27 13:46",
       "clockTW": "13:46",
-      "age": "2小時前",
+      "age": "3小時前",
       "pubTs": 1795758387
     },
     {
@@ -50,24 +131,8 @@
       "affectsHoldings": true,
       "timeTW": "11/27 13:29",
       "clockTW": "13:29",
-      "age": "2小時前",
+      "age": "3小時前",
       "pubTs": 1795757340
-    },
-    {
-      "title": "日圓徘徊159關卡，假期交投清淡之際聯準會升息預期再起",
-      "source": "BigGo 財經",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFB1cldQWnFtR2tqS0Y0ZVE1Z2tuZjAxb0N3TTA5a0RnY25lRDJkekZNeGk3MTBObXo2OUhKVzhveWZ6ZXY3MTUzT0ZYOEM1TDR1QVFtWFpobzY5QU00bVdrd0pISUY2a19HQlNVOWNFXzQ1cnlHdWlxbW1B?oc=5",
-      "tags": [
-        "FED/宏觀"
-      ],
-      "urgent": true,
-      "isOutage": false,
-      "isMacro": true,
-      "affectsHoldings": true,
-      "timeTW": "11/27 13:25",
-      "clockTW": "13:25",
-      "age": "2小時前",
-      "pubTs": 1795757100
     },
     {
       "title": "美收緊先進AI晶片出口管制　東南亞AI基礎建設面臨考驗",
@@ -82,25 +147,8 @@
       "affectsHoldings": true,
       "timeTW": "11/27 13:09",
       "clockTW": "13:09",
-      "age": "2小時前",
+      "age": "4小時前",
       "pubTs": 1795756149
-    },
-    {
-      "title": "AI 購物助理迎假期大考：Google、Meta、OpenAI 搶進，Amazon 築牆護今年逾800 億美元廣告事業",
-      "source": "TechOrange 科技報橘",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOYm04Z0d4aXhiNjBPYnRLQXZqMGNRUTZLTVFmQVlZbDNNR25yX0o1MnA4YTN4cldQU1ZBcmdicnN5NWhVbkNZMzJqa1ZIdzZFcUgxTkZENUVGRGtkVWFDRkxZakc1dUxjaWdEWFhURFluNWlKMnJJSUdGTzhqeVRXNDBXNkhYdlRTelZyalpfN0k0Wm9GNmk1NjNlVWI1SE4w?oc=5",
-      "tags": [
-        "GOOG",
-        "AMZN"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": true,
-      "timeTW": "11/27 13:04",
-      "clockTW": "13:04",
-      "age": "2小時前",
-      "pubTs": 1795755847
     },
     {
       "title": "再拋天文數字願景！馬斯克：SpaceX成功將值全球GDP的100萬倍",
@@ -116,7 +164,7 @@
       "affectsHoldings": true,
       "timeTW": "11/27 12:50",
       "clockTW": "12:50",
-      "age": "3小時前",
+      "age": "4小時前",
       "pubTs": 1795755004
     },
     {
@@ -132,25 +180,8 @@
       "affectsHoldings": false,
       "timeTW": "11/27 12:35",
       "clockTW": "12:35",
-      "age": "3小時前",
+      "age": "4小時前",
       "pubTs": 1795754100
-    },
-    {
-      "title": "中朝駭客利用開源AI工具犯案 微軟示警全球系統面臨自動化入侵",
-      "source": "商傳媒",
-      "url": "https://news.google.com/rss/articles/CBMirgNBVV95cUxQZlB0SkdzamxhOFBhdjV5QjZab3JacjlRMUVDYlQ2cFd6MHFQaXhpX21LaVVRZkJ6OHJXUEVVWTVGUFJRdzNKMlJ3blU5YXg4NXFUT21JUzE4cWFoczBpSWU3UWhyb1BrR0I3ejhVVVViS19kQ3hKQVQ1M09RYzFIeGVYTXhYZ2ZBeTU0cC1kMC1pb2MxOElNaFJLZ2RIQU9Gd1V6Q0FobUpuWk5oaVNkZXlTUzBaaW1Iamk5aEZuWGZpWU9ENXJkdnQxNVRtcENXMElmYlB4MjN4VUo1OXN5MEhlM0lHbmlxUnNTOG9MWUZRM0l4QXJZelBQVTYweWIwOU41Y3p1RElkZHlRaEZLZUpveC0tMGptaDIxczd3NEJGRUhzczdTODgyeXk3YXFwU0ZkcjVXd1lqWDRhT05BemU3MEFBSk9Ta0NvOEVhUDVvSHZpd05RZjM3bkRURFVodm54UDBoQllGTWlfRmk3Vlh1WGViNDh2MG91WEdxejZ6a3JzTkpqVlF6U25VbFJud1BUNUhYdm4xVnhVWEM5VVVuV0xLRHgzZkx4R2RB?oc=5",
-      "tags": [
-        "當機/異常",
-        "MSFT"
-      ],
-      "urgent": true,
-      "isOutage": true,
-      "isMacro": false,
-      "affectsHoldings": false,
-      "timeTW": "11/27 12:14",
-      "clockTW": "12:14",
-      "age": "3小時前",
-      "pubTs": 1795752883
     },
     {
       "title": "這些人想離開Meta！不甘作品被免費拿去餵AI 還遭仿製搶生意",
@@ -165,7 +196,7 @@
       "affectsHoldings": false,
       "timeTW": "11/27 12:05",
       "clockTW": "12:05",
-      "age": "3小時前",
+      "age": "5小時前",
       "pubTs": 1795752312
     },
     {
@@ -181,41 +212,8 @@
       "affectsHoldings": false,
       "timeTW": "11/27 12:00",
       "clockTW": "12:00",
-      "age": "3小時前",
-      "pubTs": 1795752027
-    },
-    {
-      "title": "美股七巨頭今年股價：蘋果花最少錢漲 30.8% 稱王，輝達跌 20% 墊底",
-      "source": "動區動趨",
-      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPLXVnM0RHdkdQUGhsYTNSQm02YXVmQmZpUDlXcWloS0pkeXM5bERQaHRVOVFIbEZEcEdiOEhxWThueTNvbU1Eb3pFWVg0MGpFR3hPYlFodG1EcWZfRjVxUzh6QXk1ak5TS2tpUlVKVGtPNmpWNUxVMnJFRlMyNlpxMWlvSjhYaG9sXzUtLUw4Vml4azJNOUxjM1pzNFY?oc=5",
-      "tags": [
-        "AAPL",
-        "NVDA"
-      ],
-      "urgent": false,
-      "isOutage": false,
-      "isMacro": false,
-      "affectsHoldings": true,
-      "timeTW": "11/27 11:59",
-      "clockTW": "11:59",
-      "age": "3小時前",
-      "pubTs": 1795751945
-    },
-    {
-      "title": "美AI晶片禁令升級！惠譽示警亞太AIDC融資趨緊 這類業者壓力最大",
-      "source": "鉅亨網",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1TNkJvc3A2TEM5TTQ0RFBpQjNGQlp0QU5fdW9vYkJjVHlDMFRhQkRaTUZyX2hZaTBtREkwMkxfVkJLUk9kc1dxd2RkcTFwaGs?oc=5",
-      "tags": [
-        "FED/宏觀"
-      ],
-      "urgent": true,
-      "isOutage": false,
-      "isMacro": true,
-      "affectsHoldings": true,
-      "timeTW": "11/27 10:52",
-      "clockTW": "10:52",
       "age": "5小時前",
-      "pubTs": 1795747931
+      "pubTs": 1795752027
     },
     {
       "title": "儘管輝達晶片出口受到限制，但「非常看好東協」：紐約銀行",
@@ -230,7 +228,7 @@
       "affectsHoldings": true,
       "timeTW": "11/27 10:32",
       "clockTW": "10:32",
-      "age": "5小時前",
+      "age": "6小時前",
       "pubTs": 1795746763
     }
   ]
