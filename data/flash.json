@@ -15,11 +15,12 @@
       "urgent": true,
       "isOutage": true,
       "isMacro": false,
-      "affectsHoldings": false,
+      "affectsHoldings": true,
       "timeTW": "11/27 16:57",
       "clockTW": "16:57",
       "age": "12分鐘前",
-      "pubTs": 1795769849
+      "pubTs": 1795769849,
+      "affectsWatchlist": true
     },
     {
       "title": "不必學Antigravity也能自動化！教你用Gemini寫Apps Script，搞定新人試用期提醒",
@@ -35,7 +36,8 @@
       "timeTW": "11/27 16:48",
       "clockTW": "16:48",
       "age": "21分鐘前",
-      "pubTs": 1795769325
+      "pubTs": 1795769325,
+      "affectsWatchlist": true
     },
     {
       "title": "AI泡沫先從債市爆？CoreWeave、甲骨文亮紅燈，資金轉抱非AI公司債",
@@ -51,7 +53,8 @@
       "timeTW": "11/27 16:00",
       "clockTW": "16:00",
       "age": "1小時前",
-      "pubTs": 1795766453
+      "pubTs": 1795766453,
+      "affectsWatchlist": false
     },
     {
       "title": "從「石油美元」到「晶片美元」 全球晶片出口額首度超越油氣",
@@ -67,7 +70,8 @@
       "timeTW": "11/27 16:00",
       "clockTW": "16:00",
       "age": "1小時前",
-      "pubTs": 1795766406
+      "pubTs": 1795766406,
+      "affectsWatchlist": true
     },
     {
       "title": "黃金在15個月低位附近企穩，聯準會加息預期抵銷科技股漲勢",
@@ -83,7 +87,8 @@
       "timeTW": "11/27 15:41",
       "clockTW": "15:41",
       "age": "1小時前",
-      "pubTs": 1795765265
+      "pubTs": 1795765265,
+      "affectsWatchlist": true
     },
     {
       "title": "美股夜盤AI鏈全線狂飆！三倍做多半導體ETF暴升超17%，閃迪升超10%，美光、邁威爾升超7%",
@@ -95,11 +100,12 @@
       "urgent": false,
       "isOutage": false,
       "isMacro": false,
-      "affectsHoldings": false,
+      "affectsHoldings": true,
       "timeTW": "11/27 14:31",
       "clockTW": "14:31",
       "age": "2小時前",
-      "pubTs": 1795761116
+      "pubTs": 1795761116,
+      "affectsWatchlist": true
     },
     {
       "title": "Google首席AI架構師：Gemini代理「自己跑實驗」練下一代",
@@ -115,7 +121,8 @@
       "timeTW": "11/27 13:46",
       "clockTW": "13:46",
       "age": "3小時前",
-      "pubTs": 1795758387
+      "pubTs": 1795758387,
+      "affectsWatchlist": true
     },
     {
       "title": "華強北公然賣輝達B300 報價貴美國7倍 美晶片禁令愈堵愈大洞？",
@@ -132,7 +139,8 @@
       "timeTW": "11/27 13:29",
       "clockTW": "13:29",
       "age": "3小時前",
-      "pubTs": 1795757340
+      "pubTs": 1795757340,
+      "affectsWatchlist": true
     },
     {
       "title": "美收緊先進AI晶片出口管制　東南亞AI基礎建設面臨考驗",
@@ -148,7 +156,8 @@
       "timeTW": "11/27 13:09",
       "clockTW": "13:09",
       "age": "4小時前",
-      "pubTs": 1795756149
+      "pubTs": 1795756149,
+      "affectsWatchlist": true
     },
     {
       "title": "再拋天文數字願景！馬斯克：SpaceX成功將值全球GDP的100萬倍",
@@ -165,7 +174,8 @@
       "timeTW": "11/27 12:50",
       "clockTW": "12:50",
       "age": "4小時前",
-      "pubTs": 1795755004
+      "pubTs": 1795755004,
+      "affectsWatchlist": true
     },
     {
       "title": "JERA東京圈電廠旁蓋AI機房 招手Anthropic、Meta直供電力",
@@ -177,11 +187,12 @@
       "urgent": false,
       "isOutage": false,
       "isMacro": false,
-      "affectsHoldings": false,
+      "affectsHoldings": true,
       "timeTW": "11/27 12:35",
       "clockTW": "12:35",
       "age": "4小時前",
-      "pubTs": 1795754100
+      "pubTs": 1795754100,
+      "affectsWatchlist": true
     },
     {
       "title": "這些人想離開Meta！不甘作品被免費拿去餵AI 還遭仿製搶生意",
@@ -193,11 +204,12 @@
       "urgent": false,
       "isOutage": false,
       "isMacro": false,
-      "affectsHoldings": false,
+      "affectsHoldings": true,
       "timeTW": "11/27 12:05",
       "clockTW": "12:05",
       "age": "5小時前",
-      "pubTs": 1795752312
+      "pubTs": 1795752312,
+      "affectsWatchlist": true
     },
     {
       "title": "微軟AI執行長駁斥晶片過剩說 直言訓練成本恐飆千億美元",
@@ -209,11 +221,12 @@
       "urgent": false,
       "isOutage": false,
       "isMacro": false,
-      "affectsHoldings": false,
+      "affectsHoldings": true,
       "timeTW": "11/27 12:00",
       "clockTW": "12:00",
       "age": "5小時前",
-      "pubTs": 1795752027
+      "pubTs": 1795752027,
+      "affectsWatchlist": true
     },
     {
       "title": "儘管輝達晶片出口受到限制，但「非常看好東協」：紐約銀行",
@@ -229,7 +242,8 @@
       "timeTW": "11/27 10:32",
       "clockTW": "10:32",
       "age": "6小時前",
-      "pubTs": 1795746763
+      "pubTs": 1795746763,
+      "affectsWatchlist": true
     }
   ]
 }

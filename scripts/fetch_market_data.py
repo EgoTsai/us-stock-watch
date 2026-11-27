@@ -4,11 +4,10 @@ US Stock Watchlist Data Pipeline
 Fetches:
 1. Previous/latest completed trading session intraday chart + closing price & % for Dow (^DJI), Nasdaq (^IXIC), S&P 500 (^GSPC)
 2. Top US market headlines (concise bullet points + source links, authoritative financial sources prioritized)
-3. 15-minute watchlist quotes across all sessions (夜盤 Overnight, 盤前 Pre-Market, 盤中 Regular, 盤後 After-Hours),
-   with user's portfolio holdings prioritized at the top
+3. Live watchlist quotes across all sessions (夜盤 Overnight, 盤前 Pre-Market, 盤中 Regular, 盤後 After-Hours)
 4. Per-stock 6-hour key headlines (updated every 6h + 10 mins before US market open)
 5. Per-stock 6-hour netizen sentiment index (想買 % green vs 想賣 % red)
-6. Dynamic CIO (Chief Investment Officer) tactical portfolio & market advisory
+6. Dynamic CIO (Chief Investment Officer) Top-6 watchlist tactical advisory
 """
 
 from __future__ import annotations
@@ -45,127 +44,21 @@ INDICES = [
     {"symbol": "^GSPC", "displaySymbol": "SPX", "name": "標普 500 指數", "enName": "S&P 500 Index"},
 ]
 
-# Holdings prioritized at the very top, followed by the rest of the watchlist
+# Unified US Watchlist (21 tickers, no separate personal holdings section)
 WATCHLIST = [
-    # === Group 1: 我的核心持倉 (Prioritized First) ===
+    # === 科技巨頭 (5) ===
     {
         "symbol": "GOOG",
         "displaySymbol": "GOOG",
         "name": "Alphabet (Google)",
         "enName": "ALPHABET INC-CL C",
         "category": "tech",
-        "isHolding": True,
-        "holdingBadge": "現股持倉",
+        "isHolding": False,
+        "holdingBadge": "",
         "twQuery": '"Google" OR "Alphabet" OR "GOOG"',
         "enQuery": '"GOOG" OR "Alphabet" OR "Google stock"',
         "mustMatch": ["goog", "google", "alphabet", "gemini", "waymo", "youtube", "tpu"],
         "pttKey": "GOOG",
-    },
-    {
-        "symbol": "TSM",
-        "displaySymbol": "TSM",
-        "name": "台積電 ADR",
-        "enName": "TAIWAN SEMICONDUCTOR-SP ADR",
-        "category": "semi",
-        "isHolding": True,
-        "holdingBadge": "現股＋CC",
-        "twQuery": '"台積電ADR" OR "台積電" 美股',
-        "enQuery": '"TSMC" OR "TSM stock" OR "Taiwan Semiconductor"',
-        "mustMatch": ["台積電", "台積", "tsmc", "tsm", "cowos", "魏哲家"],
-        "pttKey": "台積",
-    },
-    {
-        "symbol": "TSLA",
-        "displaySymbol": "TSLA",
-        "name": "特斯拉",
-        "enName": "TESLA INC",
-        "category": "tech",
-        "isHolding": True,
-        "holdingBadge": "現股＋CC",
-        "twQuery": '"特斯拉" OR "TSLA"',
-        "enQuery": '"Tesla" OR "TSLA"',
-        "mustMatch": ["特斯拉", "tesla", "tsla", "cybercab", "robotaxi", "optimus", "fsd"],
-        "pttKey": "特斯拉",
-    },
-    {
-        "symbol": "NVDA",
-        "displaySymbol": "NVDA",
-        "name": "輝達",
-        "enName": "NVIDIA CORP",
-        "category": "semi",
-        "isHolding": True,
-        "holdingBadge": "賣Put持倉",
-        "twQuery": '"輝達" OR "NVDA"',
-        "enQuery": '"Nvidia" OR "NVDA"',
-        "mustMatch": ["輝達", "nvidia", "nvda", "blackwell", "rubin", "kress", "柯蕾絲", "克雷斯"],
-        "pttKey": "輝達",
-    },
-    {
-        "symbol": "TQQQ",
-        "displaySymbol": "TQQQ",
-        "name": "ProShares 納指3倍做多",
-        "enName": "PROSHARES ULTRAPRO QQQ",
-        "category": "macro",
-        "isHolding": True,
-        "holdingBadge": "衛星持倉",
-        "twQuery": '"TQQQ" OR "那斯達克" 槓桿 OR "那指"',
-        "enQuery": '"TQQQ" OR "ProShares UltraPro QQQ"',
-        "mustMatch": ["tqqq", "那斯達克", "納斯達克", "那指", "納指", "qqq", "nasdaq"],
-        "pttKey": "TQQQ",
-    },
-    {
-        "symbol": "BOXX",
-        "displaySymbol": "BOXX",
-        "name": "Alpha Architect 箱型套利現金池",
-        "enName": "ALPHA ARCHITECT 1-3M BOX ETF",
-        "category": "macro",
-        "isHolding": True,
-        "holdingBadge": "現金擔保池",
-        "twQuery": '"美債殖利率" OR "聯準會" 利率 OR "短債"',
-        "enQuery": '"BOXX ETF" OR "Treasury bills" yield OR "Fed rate"',
-        "mustMatch": ["boxx", "美債", "短債", "殖利率", "聯準會", "treasury", "fed", "yield"],
-        "pttKey": "美債",
-    },
-    {
-        "symbol": "IAU",
-        "displaySymbol": "IAU",
-        "name": "iShares 黃金信託 ETF",
-        "enName": "ISHARES GOLD TRUST",
-        "category": "macro",
-        "isHolding": True,
-        "holdingBadge": "黃金避險",
-        "twQuery": '"國際金價" OR "黃金價格" OR "現貨黃金"',
-        "enQuery": '"Gold price" OR "IAU ETF" OR "gold futures"',
-        "mustMatch": ["金價", "黃金", "gold", "iau", "盎司"],
-        "pttKey": "黃金",
-    },
-
-    # === Group 2: 自選觀察名單 ===
-    {
-        "symbol": "VOO",
-        "displaySymbol": "VOO",
-        "name": "Vanguard 標普500 ETF",
-        "enName": "VANGUARD S&P 500 ETF",
-        "category": "macro",
-        "isHolding": False,
-        "holdingBadge": "",
-        "twQuery": '"VOO" OR "標普500" OR "S&P 500"',
-        "enQuery": '"VOO" OR "S&P 500"',
-        "mustMatch": ["voo", "標普", "s&p 500", "s&p500", "sp500", "vanguard"],
-        "pttKey": "VOO",
-    },
-    {
-        "symbol": "QQQ",
-        "displaySymbol": "QQQ",
-        "name": "Invesco 納指100 ETF",
-        "enName": "INVESCO QQQ TRUST SERIES 1",
-        "category": "macro",
-        "isHolding": False,
-        "holdingBadge": "",
-        "twQuery": '"QQQ" OR "那斯達克" OR "納斯達克"',
-        "enQuery": '"QQQ" OR "Nasdaq 100" OR "Nasdaq"',
-        "mustMatch": ["qqq", "那斯達克", "納斯達克", "那指", "納指", "nasdaq", "科技股"],
-        "pttKey": "QQQ",
     },
     {
         "symbol": "MSFT",
@@ -194,6 +87,19 @@ WATCHLIST = [
         "pttKey": "META",
     },
     {
+        "symbol": "TSLA",
+        "displaySymbol": "TSLA",
+        "name": "特斯拉",
+        "enName": "TESLA INC",
+        "category": "tech",
+        "isHolding": False,
+        "holdingBadge": "",
+        "twQuery": '"特斯拉" OR "TSLA"',
+        "enQuery": '"Tesla" OR "TSLA"',
+        "mustMatch": ["特斯拉", "tesla", "tsla", "cybercab", "robotaxi", "optimus", "fsd"],
+        "pttKey": "特斯拉",
+    },
+    {
         "symbol": "SPCX",
         "displaySymbol": "SPCX",
         "name": "太空探索技術 (SpaceX)",
@@ -206,18 +112,46 @@ WATCHLIST = [
         "mustMatch": ["spacex", "spcx", "starship", "starlink", "星艦", "星鏈", "太空探索"],
         "pttKey": "SpaceX",
     },
+
+    # === 半導體 (7) ===
     {
-        "symbol": "MU",
-        "displaySymbol": "MU",
-        "name": "美光科技",
-        "enName": "MICRON TECHNOLOGY INC",
+        "symbol": "TSM",
+        "displaySymbol": "TSM",
+        "name": "台積電 ADR",
+        "enName": "TAIWAN SEMICONDUCTOR-SP ADR",
         "category": "semi",
         "isHolding": False,
         "holdingBadge": "",
-        "twQuery": '"美光" OR "Micron"',
-        "enQuery": '"Micron" OR "MU stock"',
-        "mustMatch": ["美光", "micron", "hbm", "dram", "記憶體", "mu "],
-        "pttKey": "美光",
+        "twQuery": '"台積電ADR" OR "台積電" 美股',
+        "enQuery": '"TSMC" OR "TSM stock" OR "Taiwan Semiconductor"',
+        "mustMatch": ["台積電", "台積", "tsmc", "tsm", "cowos", "魏哲家"],
+        "pttKey": "台積",
+    },
+    {
+        "symbol": "NVDA",
+        "displaySymbol": "NVDA",
+        "name": "輝達",
+        "enName": "NVIDIA CORP",
+        "category": "semi",
+        "isHolding": False,
+        "holdingBadge": "",
+        "twQuery": '"輝達" OR "NVDA"',
+        "enQuery": '"Nvidia" OR "NVDA"',
+        "mustMatch": ["輝達", "nvidia", "nvda", "blackwell", "rubin", "kress", "柯蕾絲", "克雷斯"],
+        "pttKey": "輝達",
+    },
+    {
+        "symbol": "AVGO",
+        "displaySymbol": "AVGO",
+        "name": "博通",
+        "enName": "BROADCOM INC",
+        "category": "semi",
+        "isHolding": False,
+        "holdingBadge": "",
+        "twQuery": '"博通" OR "Broadcom" OR "AVGO"',
+        "enQuery": '"Broadcom" OR "AVGO"',
+        "mustMatch": ["博通", "broadcom", "avgo", "asic", "陳福陽"],
+        "pttKey": "博通",
     },
     {
         "symbol": "AMD",
@@ -233,17 +167,17 @@ WATCHLIST = [
         "pttKey": "AMD",
     },
     {
-        "symbol": "AVGO",
-        "displaySymbol": "AVGO",
-        "name": "博通",
-        "enName": "BROADCOM INC",
+        "symbol": "MU",
+        "displaySymbol": "MU",
+        "name": "美光科技",
+        "enName": "MICRON TECHNOLOGY INC",
         "category": "semi",
         "isHolding": False,
         "holdingBadge": "",
-        "twQuery": '"博通" OR "Broadcom" OR "AVGO"',
-        "enQuery": '"Broadcom" OR "AVGO"',
-        "mustMatch": ["博通", "broadcom", "avgo", "asic", "陳福陽"],
-        "pttKey": "博通",
+        "twQuery": '"美光" OR "Micron"',
+        "enQuery": '"Micron" OR "MU stock"',
+        "mustMatch": ["美光", "micron", "hbm", "dram", "記憶體", "mu "],
+        "pttKey": "美光",
     },
     {
         "symbol": "INTC",
@@ -270,6 +204,73 @@ WATCHLIST = [
         "enQuery": '"SOXL" OR "semiconductor ETF" OR "PHLX Semiconductor"',
         "mustMatch": ["soxl", "費半", "費城半導體", "半導體", "semiconductor", "chip"],
         "pttKey": "SOXL",
+    },
+
+    # === ETF / 期貨 / 波動率 (9) ===
+    {
+        "symbol": "VOO",
+        "displaySymbol": "VOO",
+        "name": "Vanguard 標普500 ETF",
+        "enName": "VANGUARD S&P 500 ETF",
+        "category": "macro",
+        "isHolding": False,
+        "holdingBadge": "",
+        "twQuery": '"VOO" OR "標普500" OR "S&P 500"',
+        "enQuery": '"VOO" OR "S&P 500"',
+        "mustMatch": ["voo", "標普", "s&p 500", "s&p500", "sp500", "vanguard"],
+        "pttKey": "VOO",
+    },
+    {
+        "symbol": "QQQ",
+        "displaySymbol": "QQQ",
+        "name": "Invesco 納指100 ETF",
+        "enName": "INVESCO QQQ TRUST SERIES 1",
+        "category": "macro",
+        "isHolding": False,
+        "holdingBadge": "",
+        "twQuery": '"QQQ" OR "那斯達克" OR "納斯達克"',
+        "enQuery": '"QQQ" OR "Nasdaq 100" OR "Nasdaq"',
+        "mustMatch": ["qqq", "那斯達克", "納斯達克", "那指", "納指", "nasdaq", "科技股"],
+        "pttKey": "QQQ",
+    },
+    {
+        "symbol": "TQQQ",
+        "displaySymbol": "TQQQ",
+        "name": "ProShares 納指3倍做多",
+        "enName": "PROSHARES ULTRAPRO QQQ",
+        "category": "macro",
+        "isHolding": False,
+        "holdingBadge": "",
+        "twQuery": '"TQQQ" OR "那斯達克" 槓桿 OR "那指"',
+        "enQuery": '"TQQQ" OR "ProShares UltraPro QQQ"',
+        "mustMatch": ["tqqq", "那斯達克", "納斯達克", "那指", "納指", "qqq", "nasdaq"],
+        "pttKey": "TQQQ",
+    },
+    {
+        "symbol": "BOXX",
+        "displaySymbol": "BOXX",
+        "name": "Alpha Architect 箱型套利現金池",
+        "enName": "ALPHA ARCHITECT 1-3M BOX ETF",
+        "category": "macro",
+        "isHolding": False,
+        "holdingBadge": "",
+        "twQuery": '"美債殖利率" OR "聯準會" 利率 OR "短債"',
+        "enQuery": '"BOXX ETF" OR "Treasury bills" yield OR "Fed rate"',
+        "mustMatch": ["boxx", "美債", "短債", "殖利率", "聯準會", "treasury", "fed", "yield"],
+        "pttKey": "美債",
+    },
+    {
+        "symbol": "IAU",
+        "displaySymbol": "IAU",
+        "name": "iShares 黃金信託 ETF",
+        "enName": "ISHARES GOLD TRUST",
+        "category": "macro",
+        "isHolding": False,
+        "holdingBadge": "",
+        "twQuery": '"國際金價" OR "黃金價格" OR "現貨黃金"',
+        "enQuery": '"Gold price" OR "IAU ETF" OR "gold futures"',
+        "mustMatch": ["金價", "黃金", "gold", "iau", "盎司"],
+        "pttKey": "黃金",
     },
     {
         "symbol": "IBIT",
@@ -1892,7 +1893,7 @@ def build_cio_advisory(
         )
     scanner_bullets.append(
         f"波動與現金基準：VIX 報 {vix:.2f} ({vix_chg:+.2f}%)、停泊基準 BOXX 報 ${boxx_p:.2f}；"
-        "以上前 6 大焦點完全依即時報價、52 週折價與 6H 頭條情緒動態排名，不預設任何個人持股。"
+        "以上前 6 大焦點完全依即時報價、52 週折價與 6H 頭條情緒動態排名，提供自選觀察名單操作參考。"
     )
 
     return {
@@ -1981,7 +1982,7 @@ FLASH_EN_TRUSTED_SOURCES = {
     "Financial Times", "Barron's", "MarketWatch", "TechCrunch", "The Verge", "AP News",
 }
 
-HOLDING_TECH_TICKERS = {"GOOG", "TSLA", "NVDA"}
+WATCHLIST_FLASH_TICKERS = {w["symbol"] for w in WATCHLIST if w["category"] in ("tech", "semi")}
 
 
 def fetch_tech30_flash() -> list[dict]:
@@ -2088,7 +2089,7 @@ def fetch_tech30_flash() -> list[dict]:
             tags.append("科技30")
 
         urgent = any(uk in low for uk in FLASH_URGENT_KEYWORDS)
-        affects_holdings = bool(is_macro or (set(matched_tickers) & HOLDING_TECH_TICKERS))
+        affects_watchlist = bool(is_macro or (set(matched_tickers) & WATCHLIST_FLASH_TICKERS))
 
         selected.append(
             {
@@ -2099,7 +2100,8 @@ def fetch_tech30_flash() -> list[dict]:
                 "urgent": urgent,
                 "isOutage": is_outage,
                 "isMacro": is_macro,
-                "affectsHoldings": affects_holdings,
+                "affectsWatchlist": affects_watchlist,
+                "affectsHoldings": affects_watchlist,
                 "timeTW": dt.datetime.fromtimestamp(it["pubTs"], TW_TZ).strftime("%m/%d %H:%M"),
                 "clockTW": dt.datetime.fromtimestamp(it["pubTs"], TW_TZ).strftime("%H:%M"),
                 "age": format_age_label(it["ageHours"]),

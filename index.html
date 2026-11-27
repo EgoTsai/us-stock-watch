@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>美股 / 台股即時觀察站 — 三大指數・AI半導體與核心持倉・投資長操作建議</title>
+  <title>美股 / 台股即時觀察站 — 三大指數・AI半導體與自選觀察名單・投資長操作建議</title>
   <meta name="description" content="清爽簡潔的美股與台股雙市場線上觀察站：支援一鍵切換「美股即時觀察站（漲綠跌紅）」與「台股即時觀察站（漲紅跌綠）」，即時追蹤指數走勢、AI與半導體供應鏈、市值型ETF、6小時重點頭條、網友買賣情緒指數與投資長專業操作建議。" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./styles.css?v=20261123v2" />
+  <link rel="stylesheet" href="./styles.css?v=20261128v1" />
 </head>
 <body>
   <header class="site-header">
@@ -81,7 +81,7 @@
           <div class="flash-filter-group" role="tablist" aria-label="快報篩選">
             <button type="button" class="flash-filter-pill active" id="flash-pill-all" data-flash-filter="all">全部快報</button>
             <button type="button" class="flash-filter-pill" id="flash-pill-urgent" data-flash-filter="urgent">重磅・升降息・當機</button>
-            <button type="button" class="flash-filter-pill" id="flash-pill-holdings" data-flash-filter="holdings">關聯我的持倉</button>
+            <button type="button" class="flash-filter-pill" id="flash-pill-holdings" data-flash-filter="holdings">關聯觀察名單</button>
           </div>
           <span class="flash-drawer-note" id="flash-updated-note">嚴選美國前 30 大科技股 ＆ 聯準會升降息/政策衝擊 · 每 3 分鐘自動掃描</span>
         </div>
@@ -109,17 +109,16 @@
       </div>
     </section>
 
-    <!-- 3, 4, 5. 核心觀察名單 (Firstrade / 富途 Moomoo 橫列式 + 持倉置頂) -->
+    <!-- 3, 4, 5. 自選觀察名單 (Firstrade / 富途 Moomoo 橫列式) -->
     <section class="section-block" aria-labelledby="heading-watchlist">
       <div class="section-header">
-        <h2 class="section-title" id="heading-watchlist">核心觀察名單（持倉優先置頂）</h2>
+        <h2 class="section-title" id="heading-watchlist">自選觀察名單</h2>
         <span class="section-subtitle" id="watchlist-subtitle">每 8 秒自動即時同步盤前 / 盤中 / 盤後價（夜盤 45 秒極速同步，按「立即更新」秒級直連） · 點擊橫列展開 6H 頭條</span>
       </div>
 
       <div class="watchlist-toolbar">
         <div class="filter-tabs" id="watchlist-filter-tabs" role="tablist" aria-label="觀察名單分類">
           <button type="button" class="tab-btn active" id="tab-all" data-filter="all">全部 (21)</button>
-          <button type="button" class="tab-btn" id="tab-holdings" data-filter="holdings">我的持倉 (7)</button>
           <button type="button" class="tab-btn" id="tab-tech" data-filter="tech">科技巨頭 (5)</button>
           <button type="button" class="tab-btn" id="tab-semi" data-filter="semi">半導體 (7)</button>
           <button type="button" class="tab-btn" id="tab-macro" data-filter="macro">ETF / 期貨 / 波動率 (9)</button>
@@ -143,8 +142,6 @@
             <option value="sell-desc">網友情緒：想賣 ➔ 想買</option>
             <option value="symbol-asc">代號：A ➔ Z</option>
             <option value="symbol-desc">代號：Z ➔ A</option>
-            <option value="all-change-desc">全表合併：漲 ➔ 跌 (不置頂)</option>
-            <option value="all-change-asc">全表合併：跌 ➔ 漲 (不置頂)</option>
           </select>
         </div>
       </div>
@@ -191,7 +188,7 @@
     <section class="section-block" aria-labelledby="heading-cio">
       <div class="section-header">
         <h2 class="section-title" id="heading-cio">投資長 (CIO &amp; CRO) 觀察名單前 6 大操作建議</h2>
-        <span class="section-subtitle" id="cio-subtitle">動態掃描觀察名單即時價位、52週位階、6H頭條情緒與 VIX 波動率，精選前 6 大操作焦點（不綁定個人持倉）</span>
+        <span class="section-subtitle" id="cio-subtitle">動態掃描自選觀察名單即時價位、52週位階、6H頭條情緒與 VIX 波動率，精選前 6 大操作焦點</span>
       </div>
       <div class="cio-panel" id="cio-advisory-container"></div>
     </section>
@@ -202,6 +199,6 @@
     </footer>
   </main>
 
-  <script src="./app.js?v=20261123v2" defer></script>
+  <script src="./app.js?v=20261128v1" defer></script>
 </body>
 </html>

@@ -682,7 +682,7 @@ body {
   text-align: center;
 }
 
-/* Group Divider Strip (我的核心持倉 / 自選觀察名單) */
+/* Group Divider Strip (核心焦點 / 自選觀察名單) */
 .moomoo-group-banner {
   background: var(--bg-group);
   border-bottom: 1px solid var(--border-row);

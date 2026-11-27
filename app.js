@@ -138,11 +138,43 @@
     }
   }
 
+  function isPinnedRow(item) {
+    return state.market === "tw" && Boolean(item?.isHolding);
+  }
+
+  function syncSortOptionsForMarket() {
+    if (!elSortSelect) return;
+    const isTw = state.market === "tw";
+    const opts = [
+      { value: "default", label: "排序：預設順序" },
+      { value: "change-desc", label: "漲跌幅：漲 ➔ 跌" },
+      { value: "change-asc", label: "漲跌幅：跌 ➔ 漲" },
+      { value: "price-desc", label: "最新價：高 ➔ 低" },
+      { value: "price-asc", label: "最新價：低 ➔ 高" },
+      { value: "buy-desc", label: "網友情緒：想買 ➔ 想賣" },
+      { value: "sell-desc", label: "網友情緒：想賣 ➔ 想買" },
+      { value: "symbol-asc", label: "代號：A ➔ Z" },
+      { value: "symbol-desc", label: "代號：Z ➔ A" },
+    ];
+    if (isTw) {
+      opts.push(
+        { value: "all-change-desc", label: "全表合併：漲 ➔ 跌 (不置頂)" },
+        { value: "all-change-asc", label: "全表合併：跌 ➔ 漲 (不置頂)" }
+      );
+    } else if (state.sortBy.startsWith("all-")) {
+      state.sortBy = state.sortBy.replace("all-", "");
+    }
+    elSortSelect.innerHTML = opts
+      .map((o) => `<option value="${o.value}">${escapeHtml(o.label)}</option>`)
+      .join("");
+    elSortSelect.value = state.sortBy;
+  }
+
   function renderFilterTabsForMarket() {
     if (!elWatchlistFilterTabs) return;
     const rawList = state.quotesData?.watchlist || [];
     const total = rawList.length;
-    const holdCnt = rawList.filter((x) => x.isHolding).length;
+    const holdCnt = rawList.filter((x) => isPinnedRow(x)).length;
 
     let tabsConfig = [];
     if (state.market === "tw") {
@@ -162,7 +194,6 @@
       const macroCnt = rawList.filter((x) => x.category === "macro").length;
       tabsConfig = [
         { id: "tab-all", filter: "all", label: `全部 (${total || 21})` },
-        { id: "tab-holdings", filter: "holdings", label: `我的持倉 (${holdCnt || 7})` },
         { id: "tab-tech", filter: "tech", label: `科技巨頭 (${techCnt || 5})` },
         { id: "tab-semi", filter: "semi", label: `半導體 (${semiCnt || 7})` },
         { id: "tab-macro", filter: "macro", label: `ETF / 期貨 / 波動率 (${macroCnt || 9})` },
@@ -191,7 +222,7 @@
     }
     document.title = isTw
       ? "台股即時觀察站 — 加權/0050/0052走勢・AI半導體供應鏈・投資長操作建議"
-      : "美股即時觀察站 — 三大指數・核心持倉與觀察名單・投資長操作建議";
+      : "美股即時觀察站 — 三大指數・自選觀察名單・投資長操作建議";
 
     if (elBtnMarketUs) elBtnMarketUs.classList.toggle("active", !isTw);
     if (elBtnMarketTw) elBtnMarketTw.classList.toggle("active", isTw);
@@ -209,7 +240,7 @@
       elFlashPillUrgent.textContent = isTw ? "重磅・法說・法人" : "重磅・升降息・當機";
     }
     if (elFlashPillHoldings) {
-      elFlashPillHoldings.textContent = isTw ? "關聯AI核心股" : "關聯我的持倉";
+      elFlashPillHoldings.textContent = isTw ? "關聯AI核心股" : "關聯觀察名單";
     }
     if (elHeadingIndices) {
       elHeadingIndices.textContent = isTw ? "台股大盤與核心市值 / 科技指標走勢" : "美股三大市場走勢與報價";
@@ -220,7 +251,7 @@
     if (elHeadingWatchlist) {
       elHeadingWatchlist.textContent = isTw
         ? "AI 與半導體供應鏈＋市值型 ETF 觀察名單（核心焦點置頂）"
-        : "核心觀察名單（持倉優先置頂）";
+        : "自選觀察名單";
     }
     if (elWatchlistSubtitle) {
       elWatchlistSubtitle.textContent = isTw
@@ -235,7 +266,7 @@
     if (elCioSubtitle) {
       elCioSubtitle.textContent = isTw
         ? "依據加權指數、台積電 ADR 溢價、外資動向與 AI 伺服器供應鏈位階動態更新"
-        : "動態掃描觀察名單即時價位、52週位階、6H頭條情緒與 VIX 波動率，精選前 6 大操作焦點（不綁定個人持倉）";
+        : "動態掃描自選觀察名單即時價位、52週位階、6H頭條情緒與 VIX 波動率，精選前 6 大操作焦點";
     }
     if (elFooterColorRule) {
       elFooterColorRule.innerHTML = isTw
@@ -247,6 +278,7 @@
         ? "排程：瀏覽器每 8 秒即時跳價 · 後台每 45 秒同步台股證交所官方行情 · 6H 頭條與投資長建議每 6 小時更新"
         : "排程：瀏覽器每 8 秒即時跳價 · 後台每 45 秒同步美股夜盤與盤前/盤後 · 6H 頭條與投資長建議定時更新";
     }
+    syncSortOptionsForMarket();
   }
 
   async function switchMarket(targetMarket) {
@@ -738,8 +770,9 @@
     const sentMinorText = isBuyMore ? `賣 ${sent.sellPct}%` : `買 ${sent.buyPct}%`;
 
     const isExpanded = state.expandAll || state.expandedSymbols.has(item.symbol);
-    const holdingBadgeHtml = item.isHolding
-      ? `<span class="holding-tag">${escapeHtml(item.holdingBadge || "持倉")}</span>`
+    const pinned = isPinnedRow(item);
+    const holdingBadgeHtml = pinned
+      ? `<span class="holding-tag">${escapeHtml(item.holdingBadge || "核心")}</span>`
       : "";
 
     let priceSubText = "";
@@ -781,7 +814,7 @@
       : `<div class="quiet-note" style="padding:0">近 6 小時無突發新聞</div>`;
 
     return `
-      <div class="moomoo-row ${item.isHolding ? "is-holding" : ""} ${isExpanded ? "expanded" : ""}" data-symbol="${escapeHtml(item.symbol)}">
+      <div class="moomoo-row ${pinned ? "is-holding" : ""} ${isExpanded ? "expanded" : ""}" data-symbol="${escapeHtml(item.symbol)}">
         <div class="moomoo-row-main" role="button" tabindex="0" aria-expanded="${isExpanded}">
           <div class="cell-symbol">
             <div class="symbol-line">
@@ -838,7 +871,7 @@
     `;
   }
 
-  // 3, 4, 5. Render Firstrade / Futu Moomoo Horizontal Watchlist (Holdings Pinned Top)
+  // 3, 4, 5. Render Firstrade / Futu Moomoo Horizontal Watchlist
   function renderWatchlist() {
     const rawList = state.quotesData?.watchlist || [];
     const insightsMap = state.insightsData?.stocks || {};
@@ -850,9 +883,9 @@
       return { ...item, originalIdx, sentiment, headlines };
     });
 
-    if (state.activeFilter === "holdings") {
-      list = list.filter((it) => it.isHolding);
-    } else if (state.activeFilter !== "all") {
+    if (state.activeFilter === "holdings" && state.market === "tw") {
+      list = list.filter((it) => isPinnedRow(it));
+    } else if (state.activeFilter !== "all" && state.activeFilter !== "holdings") {
       list = list.filter((it) => it.category === state.activeFilter);
     }
 
@@ -875,38 +908,44 @@
     }
 
     let htmlParts = [];
-    const mergeAll = state.sortBy.startsWith("all-");
-    if (!mergeAll) {
-      // Keep Holdings pinned on top and sort within each section
-      const holdingsGroup = sortItemsWithinGroup(list.filter((it) => it.isHolding));
-      const watchGroup = sortItemsWithinGroup(list.filter((it) => !it.isHolding));
-      const topGroupTitle =
-        state.market === "tw"
-          ? `★ 核心 AI 供應鏈 ＆ 市值型 ETF 焦點 (${holdingsGroup.length})`
-          : `★ 我的核心持倉 (${holdingsGroup.length})`;
-
-      if (holdingsGroup.length) {
-        htmlParts.push(`
-          <div class="moomoo-group-banner">
-            <span>${topGroupTitle}</span>
-            <span>優先置頂監控</span>
-          </div>
-        `);
-        htmlParts.push(holdingsGroup.map(buildSingleRowHtml).join(""));
-      }
-
-      if (watchGroup.length) {
-        htmlParts.push(`
-          <div class="moomoo-group-banner">
-            <span>☆ 自選觀察名單 (${watchGroup.length})</span>
-            <span>市場焦點與潛在機會</span>
-          </div>
-        `);
-        htmlParts.push(watchGroup.map(buildSingleRowHtml).join(""));
-      }
+    if (state.market === "us") {
+      const sortedAll = sortItemsWithinGroup(list);
+      htmlParts.push(`
+        <div class="moomoo-group-banner">
+          <span>☆ 自選觀察名單 (${sortedAll.length})</span>
+          <span>市場焦點與操作追蹤</span>
+        </div>
+      `);
+      htmlParts.push(sortedAll.map(buildSingleRowHtml).join(""));
     } else {
-      const mergedSorted = sortItemsWithinGroup(list);
-      htmlParts.push(mergedSorted.map(buildSingleRowHtml).join(""));
+      const mergeAll = state.sortBy.startsWith("all-");
+      if (!mergeAll) {
+        const coreGroup = sortItemsWithinGroup(list.filter((it) => isPinnedRow(it)));
+        const watchGroup = sortItemsWithinGroup(list.filter((it) => !isPinnedRow(it)));
+
+        if (coreGroup.length) {
+          htmlParts.push(`
+            <div class="moomoo-group-banner">
+              <span>★ 核心 AI 供應鏈 ＆ 市值型 ETF 焦點 (${coreGroup.length})</span>
+              <span>優先置頂監控</span>
+            </div>
+          `);
+          htmlParts.push(coreGroup.map(buildSingleRowHtml).join(""));
+        }
+
+        if (watchGroup.length) {
+          htmlParts.push(`
+            <div class="moomoo-group-banner">
+              <span>☆ 自選觀察名單 (${watchGroup.length})</span>
+              <span>市場焦點與潛在機會</span>
+            </div>
+          `);
+          htmlParts.push(watchGroup.map(buildSingleRowHtml).join(""));
+        }
+      } else {
+        const mergedSorted = sortItemsWithinGroup(list);
+        htmlParts.push(mergedSorted.map(buildSingleRowHtml).join(""));
+      }
     }
 
     elWatchlistRows.innerHTML = htmlParts.join("");
@@ -1460,7 +1499,7 @@
     }
     scannerBullets.push(
       `波動與現金基準：VIX 報 ${vix.toFixed(2)} (${formatSignedPct(vixChg)})、停泊基準 BOXX 報 $${boxxP.toFixed(2)}；` +
-        "以上前 6 大焦點完全依即時報價、52 週折價與 6H 頭條情緒動態排名，不預設任何個人持股。"
+        "以上前 6 大焦點完全依即時報價、52 週折價與 6H 頭條情緒動態排名，提供自選觀察名單操作參考。"
     );
 
     return {
@@ -1582,10 +1621,25 @@
     `;
   }
 
+  function itemMatchesWatchlistFlash(item) {
+    if (!item) return false;
+    if (state.market === "tw") {
+      return Boolean(item.affectsHoldings);
+    }
+    if (item.isMacro || item.affectsWatchlist) return true;
+    const watchList = state.quotesData?.watchlist || [];
+    const watchSyms = new Set();
+    for (const w of watchList) {
+      if (w?.symbol) watchSyms.add(String(w.symbol).toUpperCase());
+      if (w?.displaySymbol) watchSyms.add(String(w.displaySymbol).toUpperCase());
+    }
+    return (item.tags || []).some((t) => watchSyms.has(String(t).toUpperCase()));
+  }
+
   function flashTagClass(tagStr, item) {
     if (tagStr.includes("當機") || item.isOutage) return "outage";
     if (tagStr.includes("FED") || tagStr.includes("法人") || item.isMacro) return "macro";
-    if (item.affectsHoldings) return "holding";
+    if (itemMatchesWatchlistFlash(item)) return "holding";
     return "";
   }
 
@@ -1657,7 +1711,7 @@
     if (state.flashFilter === "urgent") {
       items = items.filter((it) => it.urgent || it.isMacro || it.isOutage);
     } else if (state.flashFilter === "holdings") {
-      items = items.filter((it) => it.affectsHoldings);
+      items = items.filter((it) => itemMatchesWatchlistFlash(it));
     }
 
     if (!items.length) {
