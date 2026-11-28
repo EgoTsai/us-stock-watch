@@ -1,0 +1,533 @@
+{
+  "generatedAt": "2026-11-28T07:24:38.923455+00:00",
+  "updatedAtTW": "2026-11-28 15:24:38",
+  "scheduleNote": "每 6 小時自動更新 ＋ 台股盤中即時同步",
+  "marketHeadlines": [
+    {
+      "title": "台股上揚檔不住國家隊大刀！「小台積電」遭放血捲走2.2億元 轉身猛砍正2教「這檔」1.5萬張",
+      "source": "Yahoo股市",
+      "url": "https://news.google.com/rss/articles/CBMiwANBVV95cUxPd2tHQlN0NjBmOUlpMDJpS3lBUFlkaGNhN0hHMzdoemczY2hRWktrRVJZd2VGeUkxUUEtbGtOT2VobDF4UThkRk5YTUhrQjc5SjloaC1tdkZXSGYtYkhEY3o0SG92UzhQakN6dEVOWUNuN2U1N21MS1NCQUZqMjhpaUg2MGZKZ1gzRnk2eERRdUlmbGoxRzRSLXpxazhPdktaUDZLQTVrdlc4SzRSWkNDeFFIX1dKQ01rTklWWXFBOWxSM2EyWTVwcGFGWGFZY0tnXzIyTWx4UnVvazlTd3FjOWZBakpuOVI3aWF5XzNZbklpUGRmUlZhaWtJNnN5amsxS201M1JqUGE4ZlNseWdtNEZJV3dnTlZxUzR2ZlJqTDhsYU5NbUJsblE3SENMbFRJRnhaTFFzdHdrQ2oxT2F0aGdzSy05Tm9TbXRhbm1Tb0hiMVZvUVZNQ0JfLUNuNGxrLWoyUFNfRTRfZXh1OWVHNHpsWjlqQXhxTy1VZjlONExDVUhpbnM1amwyYnRDNXNEdU9pc2IxX2x3VENYTjRtalpfaDdaWGRPcVRVZTFsejFGTzFzZUJpMUc1ZmNGbFhU?oc=5",
+      "age": "3小時前",
+      "pubTs": 1795838108
+    },
+    {
+      "title": "外資今年提款3.5兆逃離台股？阮慕驊揭真相：9成全賣這2檔",
+      "source": "TVBS新聞",
+      "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFB1dkRKYmNBdlJoQmJ5WjV0MENLSmJhaVlISjNyWWhPNDJRWWJlTlNCTm9YbUpLV2tuTHZtU1VSZ0ttVVN1V2xBU3ZWb1BNZw?oc=5",
+      "age": "41分鐘前",
+      "pubTs": 1795848240
+    },
+    {
+      "title": "台股上演大怒神！投信示警下週4大變數、反彈勿追高 台積電成關鍵",
+      "source": "Yahoo新聞",
+      "url": "https://news.google.com/rss/articles/CBMinANBVV95cUxQX21xSXdfb3pZRWt6ZDJ1OWRYNm80RmJhdG5VNnZ2cmI0SFVPSEhiUThRdm14RG9kZDlkbXJnQ1RXcGp5dnRtRWFmOU8wamtieWRIWUx3NnNqUFRUZGVxR3pqeUltX0Q4TVJfZ1lweVhBem9nbXdfdUttUzZTYTJsV3FrbVY3cGZEMUFXMFVhaURlMV9UOTFWc1otRC1scC01VllwU09SdVE3cDlvSDRIV1JXYnN0ZHpwZXlpZ2ZMTmJkTzJjb0FwS09vdXg3Nk5fN082Wmg0dHNTaHEtZmxIVnliTkRVQzN5WVFYS3JqMXBTbWcxU2JBbGlHRXZiYXhBaWJUdEV0SndsdFBHZFBFQ0drQjN6OTdjUC1JakJuZWlfYUtEWTBpSnE3Y0JIanlrM0VjMU9QbkhwOVhTUUE1c1R6ZUkxMWw5bG96T2s0MENzNGY1M3c4MEkxcDRxWVdLakV1U08wSFU4ZXdRUjJNSEJmT3BvTXYtclo4eUt2WTJLbnJUTFZweC0zaEhmWmlMbUJKa1lDeVA4TE83?oc=5",
+      "age": "49分鐘前",
+      "pubTs": 1795847748
+    },
+    {
+      "title": "台股漲778點　聯發科台達電收漲停",
+      "source": "經濟日報",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE15Vkw0Tm1nWHpWR1lWWFp0ak96Z3lmSmFpaldFX0hQd2VKQ3VqZXo1MVBTaUFEd2EyQ2c3aTR2SkR3VURsbEZTUWF4T3RsVnVsZURkdDFEOEl2UdIBX0FVX3lxTE1FQmRsNTdmYWxpVUFrWG41R1ZsNFhuRU12am1hbW1UejdCQzV3WUxMRDdqVUltbzVsaEhIalFGNTRSRFk0YWpONFRWdWxYY1U4bHFzOTlMV24tVWQzaGMw?oc=5",
+      "age": "5小時前",
+      "pubTs": 1795831657
+    },
+    {
+      "title": "外資狂賣3.5兆逃離台股中？近9成鎖定這兩檔 阮慕驊3點示警：台積電不能失守2000元",
+      "source": "Yahoo新聞",
+      "url": "https://news.google.com/rss/articles/CBMi1wNBVV95cUxNVGIwcFFhQzJMdEtZenIyTElNMXVfbG5KampoU3N5a1Yta3lNS1NqRU1qY3EwXzFKWGZCSUY0cUN1TThybXJLUlpVbm8tOVRYNGt6VTlFbEZCb3dwZFpNbE02MHMzUHh6RTZuejNaQWVDa1hhTGIzZUFFN1R1UmVocnB6ZWJfc0RkTmZjVHd4Y2t0ajJzdkd0aWN2RHotMHc2cmZNVEk4enlUNnRXaUtxQjRSbWhjdF9YdHUwTWwxdW1qcGJwanAzZjVJUmRNeGc2dDNXRmhSRmVQOWQ4aFBsbkxKbFoyYzNJRWhvOHdsb1d1WHRta3dXWDRCWjJvZUI3TWFoSlctWXhrcnctODBoWnlPcWRXc1V4aXVqcUIxaVVmblhaVFBsbC1qdldOalZkc2ZaQnJrT2J0NGp5Zi1zb0RfUmhWWV9KSFA3OGgtWUZVcHlUa1p3cjNFSDBVMkIzNksxcjRReWVJT3RFVDJSN3hzUlA1OUIwbTEzWXhfMDh1bFhJcHd2Qjlhd3VzZWF0Y0NKYUp2WG92czZlbkktN19KUXdKeGJtdGw1bGZSeGVwYm9WVUtpRGRWZlYwUGRaMVJxMGFFQkVZdy1nRDc5ck5Gbzd5aEk?oc=5",
+      "age": "1小時前",
+      "pubTs": 1795845565
+    },
+    {
+      "title": "外資連12日撤離！國家隊反向加碼台積電289億 聯電、台達電、廣達也全包下",
+      "source": "Yahoo股市",
+      "url": "https://news.google.com/rss/articles/CBMitwNBVV95cUxNQU83MHplMlAxZ0tmb3lUa2dNdnZxRTlGcFJyQlJINzRrRzVwQmJ6TnhBeDNOWlRDekVLZndtSy14NXkyY0NjR2xRWlg4dUNzTnRETU5qaG9GQlhXeDlfRzdRcWlnVDhwSjd3dnRXRDF2ZHpwcjVsTEpQOXRFUDVmU3hCLVFmeUJELXhYNHR0dG00c2Q4NUJuWDR5ejlqSnVKWHhvVmxxdmo0bHp3M0dHSE90a1pSV0IyVU1zRC1SZ0I5bHZ0RV9hZzl5ZVRIdkY5N3FJY3QzZTBQMjVuVll5ZkVhX2dzamJvWGxsb1RyUjZabWRSTElJXy1yR1BUZXB0RWp1VThsZ3ZzelZwTEw3Q1hLdUZKaTRMTVprRFRjUmtuSmd5TGF4SVBoM0hTb3ZQSC16ZVY4T3dLNmlLeWJxVVByOWp6b1M0WDNHVEdGdHpEdXJvcko1cDR0QzVsY3VJLXpuYjI2c1gwSl9IeHpDNzBGZTNWNzVfMFdhaFpZbl9xczBMTjdDWmVYTExaZkJSdTJ5RjRxcXRaQnlSbk55YlpTeGpFWUR2cW1GOG5PcXptM0FhLV9N?oc=5",
+      "age": "6小時前",
+      "pubTs": 1795826845
+    },
+    {
+      "title": "台股現在是「甜甜價」？多頭總司令張錫開示：台積電2年後拚5,000元、聯發科估值曝光- 證券",
+      "source": "工商時報",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFA5U3ZicFJ1WUlhUU14YmlzcmctbFNkNXNEWk54b05MNWM0UjFmMmlJNm1jeFY1dFI0eU1PLWY3bTliNnlXUE01NGZmX1pFOF9FcmtjRnIyUmtvdGg2R0lN?oc=5",
+      "age": "6小時前",
+      "pubTs": 1795826100
+    },
+    {
+      "title": "選前壓力測試！台股戲劇性尾盤逆轉 謝金河：國安基金確實穩盤了",
+      "source": "TVBS新聞",
+      "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9DYnJseGFfQ3hjcldqdFBxSHRLclNsdmNvMC1GQ1RZSXB4aG01UXVxWGdaWFNuV0g3SlR3ZGZBS19sZ0JJOWR4QVhXU1JSUQ?oc=5",
+      "age": "3小時前",
+      "pubTs": 1795838280
+    }
+  ],
+  "stocks": {
+    "2330.TW": {
+      "headlines": [
+        {
+          "title": "台股上揚檔不住國家隊大刀！「小台積電」遭放血捲走2.2億元 轉身猛砍正2教「這檔」1.5萬張",
+          "summary": "",
+          "source": "Yahoo股市",
+          "url": "https://news.google.com/rss/articles/CBMiwANBVV95cUxPd2tHQlN0NjBmOUlpMDJpS3lBUFlkaGNhN0hHMzdoemczY2hRWktrRVJZd2VGeUkxUUEtbGtOT2VobDF4UThkRk5YTUhrQjc5SjloaC1tdkZXSGYtYkhEY3o0SG92UzhQakN6dEVOWUNuN2U1N21MS1NCQUZqMjhpaUg2MGZKZ1gzRnk2eERRdUlmbGoxRzRSLXpxazhPdktaUDZLQTVrdlc4SzRSWkNDeFFIX1dKQ01rTklWWXFBOWxSM2EyWTVwcGFGWGFZY0tnXzIyTWx4UnVvazlTd3FjOWZBakpuOVI3aWF5XzNZbklpUGRmUlZhaWtJNnN5amsxS201M1JqUGE4ZlNseWdtNEZJV3dnTlZxUzR2ZlJqTDhsYU5NbUJsblE3SENMbFRJRnhaTFFzdHdrQ2oxT2F0aGdzSy05Tm9TbXRhbm1Tb0hiMVZvUVZNQ0JfLUNuNGxrLWoyUFNfRTRfZXh1OWVHNHpsWjlqQXhxTy1VZjlONExDVUhpbnM1amwyYnRDNXNEdU9pc2IxX2x3VENYTjRtalpfaDdaWGRPcVRVZTFsejFGTzFzZUJpMUc1ZmNGbFhU?oc=5",
+          "age": "3小時前",
+          "within6h": true
+        },
+        {
+          "title": "趁反彈偷賣台積電！杜金龍曝「這價位」可長線布局",
+          "summary": "",
+          "source": "Yahoo股市",
+          "url": "https://news.google.com/rss/articles/CBMizwJBVV95cUxPVVBqc052T2FyRGp6VG1Da3Nxc2prQVBDemN2UHhHUFVsbGtGYXRiYWJzSGZTeVE4a2J4RnRlQjZTYmxoZHltWDE3Q1hidkZURng0eEUteVctYllyMGZtck5LUnZjRk9hM1pYNDFtSlh4YlNjcEFWcEp1YWkzVHZUMHRyYVJodjh2Z1Z2TDE5WThta2hxMVBWREIybHN2YUtUU09XV192UEVlSmpncWxfNFVnT1VPaVVOVGlYeVVOZERBUTAtUnFjWTZEMTZzWTlPTjBNRC1rRmRfTDNTemNKQkxzdVN1cDN1RTJhQWt2S01HSGpneEljXzNnTjR4cVJXVG81M2dxakxJNzBSS044YzVOaVM2bnlUdG1Yb1hZdkt0RG9sR2lJUklhcHF1a0hVbVVQa0hvNk94VDhZZlVKdkNWMzFreExMcWJhbFlvZw?oc=5",
+          "age": "4小時前",
+          "within6h": true
+        },
+        {
+          "title": "台股上演大怒神！投信示警下週4大變數、反彈勿追高 台積電成關鍵",
+          "summary": "",
+          "source": "Yahoo新聞",
+          "url": "https://news.google.com/rss/articles/CBMinANBVV95cUxQX21xSXdfb3pZRWt6ZDJ1OWRYNm80RmJhdG5VNnZ2cmI0SFVPSEhiUThRdm14RG9kZDlkbXJnQ1RXcGp5dnRtRWFmOU8wamtieWRIWUx3NnNqUFRUZGVxR3pqeUltX0Q4TVJfZ1lweVhBem9nbXdfdUttUzZTYTJsV3FrbVY3cGZEMUFXMFVhaURlMV9UOTFWc1otRC1scC01VllwU09SdVE3cDlvSDRIV1JXYnN0ZHpwZXlpZ2ZMTmJkTzJjb0FwS09vdXg3Nk5fN082Wmg0dHNTaHEtZmxIVnliTkRVQzN5WVFYS3JqMXBTbWcxU2JBbGlHRXZiYXhBaWJUdEV0SndsdFBHZFBFQ0drQjN6OTdjUC1JakJuZWlfYUtEWTBpSnE3Y0JIanlrM0VjMU9QbkhwOVhTUUE1c1R6ZUkxMWw5bG96T2s0MENzNGY1M3c4MEkxcDRxWVdLakV1U08wSFU4ZXdRUjJNSEJmT3BvTXYtclo4eUt2WTJLbnJUTFZweC0zaEhmWmlMbUJKa1lDeVA4TE83?oc=5",
+          "age": "49分鐘前",
+          "within6h": true
+        }
+      ],
+      "sentiment": {
+        "buyPct": 59,
+        "sellPct": 41,
+        "dominant": "buy",
+        "label": "想買略多",
+        "summary": "社群討論 50%偏多 · 6H主動買盤 53%"
+      }
+    },
+    "2454.TW": {
+      "headlines": [
+        {
+          "title": "台股漲778點　聯發科台達電收漲停",
+          "summary": "",
+          "source": "經濟日報",
+          "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE15Vkw0Tm1nWHpWR1lWWFp0ak96Z3lmSmFpaldFX0hQd2VKQ3VqZXo1MVBTaUFEd2EyQ2c3aTR2SkR3VURsbEZTUWF4T3RsVnVsZURkdDFEOEl2UdIBX0FVX3lxTE1FQmRsNTdmYWxpVUFrWG41R1ZsNFhuRU12am1hbW1UejdCQzV3WUxMRDdqVUltbzVsaEhIalFGNTRSRFk0YWpONFRWdWxYY1U4bHFzOTlMV24tVWQzaGMw?oc=5",
+          "age": "5小時前",
+          "within6h": true
+        }
+      ],
+      "sentiment": {
+        "buyPct": 48,
+        "sellPct": 52,
+        "dominant": "sell",
+        "label": "想賣略多",
+        "summary": "社群討論 51%偏多 · 6H主動買盤 45%"
+      }
+    },
+    "2317.TW": {
+      "headlines": [
+        {
+          "title": "A-Lin尾牙唱酬傳2年翻倍！鴻海4度邀約 45分鐘開價600萬",
+          "summary": "",
+          "source": "鏡報",
+          "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5aeXJqVFNzSzNXOXJEa3MtZ1ZVNW5jR2VmSVNmbEVIVjRjeUV0clQxTjBJc2hzVlFDVkxvR3h3QklFYWNsdG9NRlA1bGhJZmQ2SWFB?oc=5",
+          "age": "2小時前",
+          "within6h": true
+        },
+        {
+          "title": "小參數大效能！鴻海AI語言模型FoxBrain 單台伺服器就能跑",
+          "summary": "",
+          "source": "TVBS",
+          "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFBaakJNQ25zOVkxbFYwSkNqWXY0ZFdaUENNaUxLNnRlckxhSmMwQ3NqTE81aWNydUcySjFNNHdlM1pBXzctRWwtY2VCOTRYQQ?oc=5",
+          "age": "4小時前",
+          "within6h": true
+        },
+        {
+          "title": "劉揚偉攜輝達攻進北榮 機器人幫癌患配藥、搭電梯送藥",
+          "summary": "",
+          "source": "Yahoo新聞",
+          "url": "https://news.google.com/rss/articles/CBMi6gJBVV95cUxQWUJwWWxFSnJmX1h6T3REaDN0OXBQWE82X3I0M0pBRG1udk1QLXNXR0lib2NNRVVQV3l1dU9uX3pXRjVuWTREcGxja25Yald6X19aUWJuMUNpRXQ0OFBRZndUSGVBdVFMa08xUm5nZTlJVXc1UzJCcFdvci16RnE5dlkzb1A2VXN6bkVFWW81c0lxRjhwbFRGWTBIUzJoSGo5NFRlalc0R09PcXM4QUROZDNXTkVkUV9UeHR4eGtnME5FRHQ4SlVCaFlMckRaaHQ3UTBseGt2bUFjdVI2V1JPNDV4WGVpRTRjel9vNzNNT0dYSWM4VFJRbHo1Q25pd21GOG5WcDdnanpoNktva3dNazNTLWh5UnlCSDBiMWdaVkQyMWFMYTZtY1N2cWVwZV9hamZESkVTNGNXR3JsVVZqdWNZcmNOUWlCRnhVZ0tiRmhSSklNbXB2VWhNZnFDSFlvRFFzSEh1dzFEZw?oc=5",
+          "age": "5小時前",
+          "within6h": true
+        }
+      ],
+      "sentiment": {
+        "buyPct": 40,
+        "sellPct": 60,
+        "dominant": "sell",
+        "label": "想賣略多",
+        "summary": "社群討論 18%偏多 · 6H主動買盤 57%"
+      }
+    },
+    "2382.TW": {
+      "headlines": [
+        {
+          "title": "解析 CoreWeave、Nebius 與 Oracle 的資本支出分化，對台系伺服器ODM（鴻海、廣達、緯穎）與散熱／電源供應商的訂單能見度與應收帳款風險？",
+          "summary": "",
+          "source": "蕃新聞",
+          "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE40b0tPRy1mRkgyNVJsZmNIR3hXbVdVbWE4NVhRZjlfbEt0WFBIUy1pME50LXFRa1ZrT1FrVmR2UUoxeWljaDYzSHdkaU9JRUlVMXc?oc=5",
+          "age": "5小時前",
+          "within6h": true
+        },
+        {
+          "title": "矽品砸 197 億元接手友達華亞廠，價格和廣達終止案一樣",
+          "summary": "",
+          "source": "鏈新聞 ABMedia",
+          "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBGRVdlOEtxUVBrUksyMG5mdmtLd2lrTlBkdk0wejl1d3pHNVN5bV9oY0I4R3ZobmFldEFvY1BXamlMN0dlX2loVHoxRl9pUDdkdjVZSVZkaw?oc=5",
+          "age": "5小時前",
+          "within6h": true
+        }
+      ],
+      "sentiment": {
+        "buyPct": 49,
+        "sellPct": 51,
+        "dominant": "sell",
+        "label": "想賣略多",
+        "summary": "社群討論 50%偏多 · 6H主動買盤 51%"
+      }
+    },
+    "3017.TW": {
+      "headlines": [
+        {
+          "title": "AI散熱也散不掉賣壓！健策、雙鴻跌停 法人喊多照樣殺",
+          "summary": "",
+          "source": "聚財網",
+          "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTFBac3FmaURTRUVCTXBQRmtnT2szWjNidHZEUnZrUUdOb0hhanFnTEd0RWQtcjl0eGV0ajNmUmFmeFJNN2g3THQtU1owdXg?oc=5",
+          "age": "1小時前",
+          "within6h": true
+        },
+        {
+          "title": "花旗喊價1800元也救不了！雙鴻、健策跌停 散熱股殺成一片",
+          "summary": "",
+          "source": "聚財網",
+          "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE1uNEVsMjI4WTdIQ09iZGZvZjQtdjNkcEtpTlVuTWpVVXV2OWp5Wi1LQkZMODY3S0NsdWdZU1BIZXI1cWpXTHVRcGNUZDU?oc=5",
+          "age": "1小時前",
+          "within6h": true
+        }
+      ],
+      "sentiment": {
+        "buyPct": 47,
+        "sellPct": 53,
+        "dominant": "sell",
+        "label": "想賣略多",
+        "summary": "社群討論 46%偏多 · 6H主動買盤 45%"
+      }
+    },
+    "6669.TW": {
+      "headlines": [
+        {
+          "title": "AWS液冷機櫃商機升溫！緯穎放量大漲6.37% AI伺服器新戰線浮現",
+          "summary": "",
+          "source": "聚財網",
+          "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE9ZRWN2czdneFQyUVNIQkQ4cUswcG5kS0pDazBVdEtOU0JyY1dHRHo3alpheWNJdFU0R3k3UUM0MC1qdEM3VWlleUtfMXA?oc=5",
+          "age": "3小時前",
+          "within6h": true
+        },
+        {
+          "title": "解析 CoreWeave、Nebius 與 Oracle 的資本支出分化，對台系伺服器ODM（鴻海、廣達、緯穎）與散熱／電源供應商的訂單能見度與應收帳款風險？",
+          "summary": "",
+          "source": "蕃新聞",
+          "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE40b0tPRy1mRkgyNVJsZmNIR3hXbVdVbWE4NVhRZjlfbEt0WFBIUy1pME50LXFRa1ZrT1FrVmR2UUoxeWljaDYzSHdkaU9JRUlVMXc?oc=5",
+          "age": "5小時前",
+          "within6h": true
+        }
+      ],
+      "sentiment": {
+        "buyPct": 78,
+        "sellPct": 22,
+        "dominant": "buy",
+        "label": "想買居多",
+        "summary": "社群討論 50%偏多 · 6H主動買盤 66%"
+      }
+    },
+    "0050.TW": {
+      "headlines": [
+        {
+          "title": "006208分割擬1拆7！投票時程、配息、成分股，和0050差別一次看－ETF指南｜商周",
+          "summary": "",
+          "source": "商業周刊",
+          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE8xbVM4T25UNk9LOWdwY2NnYkh6N3o1bmNpNTR3YkcwbmVtNl93dUZwaUc5b3M2YjdVU21QanZ2V19sQy1hZ29WdW1zLU1pUzhVVWZ5cWktdldER3JGWDFVM3RvekNSUQ?oc=5",
+          "age": "5小時前",
+          "within6h": true
+        }
+      ],
+      "sentiment": {
+        "buyPct": 54,
+        "sellPct": 46,
+        "dominant": "buy",
+        "label": "想買略多",
+        "summary": "社群討論 67%偏多 · 6H主動買盤 41%"
+      }
+    },
+    "006208.TW": {
+      "headlines": [
+        {
+          "title": "黃仁勳回鍋輝達CEO台股噴漲3310點創紀錄、富邦006208分割投票、融資維持率120%上路本周大事回顧",
+          "summary": "",
+          "source": "鉅亨網",
+          "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE55SVRLclBpTmg3UkFGV1lZYUo5NGFLN2xJa1FkQVg1bERMNGxzeUpIVG5pdWNYdW5tTFdWRlNCMC1uWWtDRFJvdVk2TThaa00?oc=5",
+          "age": "4小時前",
+          "within6h": true
+        },
+        {
+          "title": "006208 富邦台 50 ETF 分割案開始投票！11 月配多少股利？｜成分股？配息多少？優缺點？",
+          "summary": "",
+          "source": "StockFeel 股感",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPRF91eFVTZU9uTlNuQzFHTHZ2c1JDY1A2Z1V1OHUwWDBJeVVGX1VIR2hURlBEX3pfME5ST1k5XzVTaHlFaFMzY3NuRDNmbHZvZUFMclNxMDFSanpGSmY4N1JkT0hOYVk3NTBENzBTczRzY0RQcjFUNm1GUHNsZmxRamd1Wk94SGNYbTlSaVFocDJkTWlXRVg1ZDNBeGxjbUU?oc=5",
+          "age": "2小時前",
+          "within6h": true
+        },
+        {
+          "title": "006208擬1拆7！每張門檻降至3萬元 75萬受益人別忘投票",
+          "summary": "",
+          "source": "壹蘋新聞網",
+          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPWXV2VGlCUUZWVEcwYzFVV05XX3V5OEZfZWZnMjhrazNHQVNiRVBYTndQc1ViWWZad2ZmVEFOVUlRU3c3M0dRQ1NvTzFYYnlOQXZKUTZsYkZkY2Vjc2N4NS1VUHpQYk1IUTBfNWgwZFFHY2FRc2QwaEV0blhGQmNGVTF3?oc=5",
+          "age": "3小時前",
+          "within6h": true
+        }
+      ],
+      "sentiment": {
+        "buyPct": 45,
+        "sellPct": 55,
+        "dominant": "sell",
+        "label": "想賣略多",
+        "summary": "社群討論 50%偏多 · 6H主動買盤 35%"
+      }
+    },
+    "2308.TW": {
+      "headlines": [
+        {
+          "title": "台股漲778點　聯發科台達電收漲停",
+          "summary": "",
+          "source": "經濟日報",
+          "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE15Vkw0Tm1nWHpWR1lWWFp0ak96Z3lmSmFpaldFX0hQd2VKQ3VqZXo1MVBTaUFEd2EyQ2c3aTR2SkR3VURsbEZTUWF4T3RsVnVsZURkdDFEOEl2UdIBX0FVX3lxTE1FQmRsNTdmYWxpVUFrWG41R1ZsNFhuRU12am1hbW1UejdCQzV3WUxMRDdqVUltbzVsaEhIalFGNTRSRFk0YWpONFRWdWxYY1U4bHFzOTlMV24tVWQzaGMw?oc=5",
+          "age": "5小時前",
+          "within6h": true
+        },
+        {
+          "title": "國家隊本週10大買賣超出爐！單週狂砸1577億台達電、聯電、中華電入榜反手賣信驊、國巨",
+          "summary": "",
+          "source": "旺得富理財網",
+          "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFB6Q0dUY1hVQkE1ekFxMU8xOHVqQ09STVlaMUJjR3djeXpORFEydVdNT2N5OTFEZGY5RThxZWxVSVBYbkZpRHh5UmtFSk5OX080UkxPZmtmSXNvRWJxRmVyR3hlZmRld2tjX1E?oc=5",
+          "age": "5小時前",
+          "within6h": true
+        }
+      ],
+      "sentiment": {
+        "buyPct": 69,
+        "sellPct": 31,
+        "dominant": "buy",
+        "label": "想買居多",
+        "summary": "社群討論 45%偏多 · 6H主動買盤 50%"
+      }
+    },
+    "3711.TW": {
+      "headlines": [
+        {
+          "title": "投票前夕傳憾事！35歲日月光員工身亡",
+          "summary": "",
+          "source": "東森新聞",
+          "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBCeXhmTVJBOHlvMElLcFkwTnZQNEpBTkJ6ZmlZVFlKRTRZZ19FQXRWZ3JpODFMM3NuRGk1S3E4RmluTlJXNFRnZ0hHbF9KbmtoRUw4WlZn?oc=5",
+          "age": "4小時前",
+          "within6h": true
+        },
+        {
+          "title": "《光電股》華亞廠197億元售予日月光旗下矽品 友達處分利益估104億元",
+          "summary": "",
+          "source": "富聯網",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPdVdFZk5VMk9BMFVhY2VCREY3azlPZW5tWkdvSVBacmNyWnNoNlN6a00tek9YSTFTZEhFN25KejN1QlkzS25SdGgzZ1pNVk5IbV94QXVyeEN1ZTV6OW1fRmN1eTJHT1pncGhaa2lsSnk4cWoxekpEUGVLeFJ6ckRielJrU3VnRHhM?oc=5",
+          "age": "5小時前",
+          "within6h": true
+        }
+      ],
+      "sentiment": {
+        "buyPct": 52,
+        "sellPct": 48,
+        "dominant": "buy",
+        "label": "想買略多",
+        "summary": "社群討論 56%偏多 · 6H主動買盤 46%"
+      }
+    },
+    "3661.TW": {
+      "headlines": [
+        {
+          "title": "擷發科技AI無人機攻歐洲！逾6成買主關注 航太大廠洽談專屬ASIC",
+          "summary": "",
+          "source": "壹蘋新聞網",
+          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQREdyX2kzcWxhNGNMV3lsMXJSa1pYQXM2Q3NJX3FYUVFNei1rRkJyc1dMdXFOTzZ1LXh3ekdYa0twMDV5U091ZXpnUVZfUWQwZzhIbE84Q1JGOWhyT3NxU0x2dnVjLVJ1RXpSM05XcThyTnNaS1hhOFJfSXI5dzNVSFdB?oc=5",
+          "age": "3小時前",
+          "within6h": true
+        },
+        {
+          "title": "PCB獲利王再迎大爆發！「這檔」全年營收拚破千億 砸逾250億擴產、ASIC新平台訂單到手",
+          "summary": "",
+          "source": "FTNN新聞",
+          "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE4weEg4bUhXb1dyeklPUm1pVXZ5ZkRldzZ5UXY4YnNMYlBEVzdzX1FoZkkycTR2UDBpWmFCT2pUcEpmSXZscTBRWjBLNA?oc=5",
+          "age": "4小時前",
+          "within6h": true
+        },
+        {
+          "title": "台塑四寶大黑馬！「它」搶攻AI與ASIC商機 法人估明年EPS衝23.5元",
+          "summary": "",
+          "source": "三立新聞",
+          "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1seUlHVE9YR0xWQ2pXMHF1MmZCTDBoekNka0c5a0VOM29ndXpZVHl6LW5PcG1fVk1ncnY1X0oxZ3Q5eW42SjN6cXpQdw?oc=5",
+          "age": "5小時前",
+          "within6h": true
+        }
+      ],
+      "sentiment": {
+        "buyPct": 41,
+        "sellPct": 59,
+        "dominant": "sell",
+        "label": "想賣略多",
+        "summary": "社群討論 50%偏多 · 6H主動買盤 38%"
+      }
+    },
+    "3443.TW": {
+      "headlines": [
+        {
+          "title": "創意、金像電等4檔熱門股爆違約交割 買賣相抵淨金額缺口創史上第二大",
+          "summary": "",
+          "source": "經濟日報",
+          "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE8zVE5yR2JiM25kNTJhWVNiS2NxbzUtM1ZtRDhNcFlveFFvRUFaUVl6WHFJaTgtWmdYSVc5Z2tNYWNNUXROTlZzWlNZUFUxMXh1RVl6ZzN0RTVmQdIBX0FVX3lxTE03cGNoeFQ2QXFZUkUxS01FaXZaa3N1ZnZXbTFac1J6VHNja2F1YWRodDY0Nzh0QXU0ckdTNkkwOFRXUllUbW5BSndWNHpseEU1Y1AxZk80UmlrcVJ0d1lR?oc=5",
+          "age": "23小時前",
+          "within6h": false
+        },
+        {
+          "title": "【台股盤中】台積電、鴻海領漲台股震盪拉高量縮站回10日線",
+          "summary": "",
+          "source": "非凡新聞台",
+          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5adC1ieHVzMnNSd0VKOTMxZmI3MWlXSWtvUDRiamIyS1dyelFLYlVYSGo3dGZwbER4NzNqdFY4VnhKQUpCdmdkOFoydjhLcWhTbXlzaWFuRDFNRVJ1OXNsbw?oc=5",
+          "age": "17小時前",
+          "within6h": false
+        }
+      ],
+      "sentiment": {
+        "buyPct": 62,
+        "sellPct": 38,
+        "dominant": "buy",
+        "label": "想買略多",
+        "summary": "社群討論 42%偏多 · 6H主動買盤 44%"
+      }
+    },
+    "3231.TW": {
+      "headlines": [
+        {
+          "title": "OpenAI 提 AI 規範助益產業鏈 有利台積、緯創等做大市場規模",
+          "summary": "",
+          "source": "經濟日報",
+          "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5SVEpmeTNvQ0E0a2R4Z1puTGMzNG8wWlhQZGdlZjJtZ2ZYblJsMVJsX3lqZ25VOVNZeGIxQ1VNVXpRd2FFMWJqWmhHM3lHZGRqdHhZQlJMQUN0QdIBX0FVX3lxTE1RUDlxSERFS1VLOFdUakxpMWU5ZnJVZnZOdUgxWDVhSFBOTVVPU2RJUmdjMklyMzhESW1jck1XYmwyUmZIbDVKY0JfRW9YQThRQ3RrbjRIOTNvVkFZRFZv?oc=5",
+          "age": "23小時前",
+          "within6h": false
+        },
+        {
+          "title": "《外資買超19-10》彰銀(456)、緯創(435)、中鼎(434)",
+          "summary": "",
+          "source": "富聯網",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNTngxZ29EdW1QTmVEMkwwMmRJNzEzNWxsWHVyNTNyZlJIODZXWmwwT183RHZxaEczZ090VXdUN0xXM3I0UmtlRjJURVJvay1vRGpRRDJnM2lpcWNNbWJneDIwMFJzckhLMFdWbmhoZ2dmTTZQNWo1VTBhMksxazNTQlJ1S2ljaVdj?oc=5",
+          "age": "6小時前",
+          "within6h": false
+        }
+      ],
+      "sentiment": {
+        "buyPct": 48,
+        "sellPct": 52,
+        "dominant": "sell",
+        "label": "想賣略多",
+        "summary": "社群討論 53%偏多 · 6H主動買盤 54%"
+      }
+    },
+    "2345.TW": {
+      "headlines": [
+        {
+          "title": "《通網股》智邦睽違近30年再辦現增！折價逾2成、搶攻AI大商機",
+          "summary": "",
+          "source": "富聯網",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNVllRb21yWUtGU3hvMjMtNU5uRlFKZXpvN0Zod2UyWGF1bGplOVp1OW1JcFlBT25PZDc0dUh2NElZTUV1TEJsUjBvX045TENodXJsSnR6ckpRbWY1Y1JXTVB5cWlfNnk5UzZrLUpxb2VTY1hHSG1HMWhyNmNnTV95SUd6d0pCLXg0?oc=5",
+          "age": "5小時前",
+          "within6h": true
+        }
+      ],
+      "sentiment": {
+        "buyPct": 49,
+        "sellPct": 51,
+        "dominant": "sell",
+        "label": "想賣略多",
+        "summary": "社群討論 58%偏多 · 6H主動買盤 56%"
+      }
+    },
+    "0052.TW": {
+      "headlines": [
+        {
+          "title": "台股上揚檔不住國家隊大刀！「小台積電」遭放血捲走2.2億元 轉身猛砍正2教「這檔」1.5萬張",
+          "summary": "",
+          "source": "FTNN新聞",
+          "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE5NdXRDd1F6RnhfTm9YZnM2c2lLVmpNMEpEaXJ1elhJZlNnWXYzdUpScnZxT2ViWjlQcmxFcGUtNThmS2pEZ1FMRDctMA?oc=5",
+          "age": "3小時前",
+          "within6h": true
+        },
+        {
+          "title": "外資賣超296億！狂賣「1檔ETF」15萬張 台積電也被屠殺",
+          "summary": "",
+          "source": "TVBS新聞",
+          "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE15NHFTTWxMeTZhenRSLVBTVExMZzIzaFZLM0JxSEhNMG9aMzhJbUlESlE4MnFhU2V3X0hJdDFSX3FsUVlEYnZESHo2bk9iQWc?oc=5",
+          "age": "6小時前",
+          "within6h": true
+        }
+      ],
+      "sentiment": {
+        "buyPct": 46,
+        "sellPct": 54,
+        "dominant": "sell",
+        "label": "想賣略多",
+        "summary": "社群討論 50%偏多 · 6H主動買盤 38%"
+      }
+    },
+    "00878.TW": {
+      "headlines": [
+        {
+          "title": "00918配息開獎倒數！上季1.75元、這次恐縮水？ 達人揭換股底氣：估配「這數字」",
+          "summary": "",
+          "source": "中時新聞網",
+          "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1OY1lwbGxQQTdyRmwwcUczc2NydzUwdUNvX0R1UUhBM3lpQ09yZUNxZ2xwRGFmZGk5akdNSFZPZGM4bmxiTzRjVW5rRTV3Z1F1d0IxY2dyTnRJN29fSEptcVZfTEJsQVFrN2tpS1BR?oc=5",
+          "age": "5小時前",
+          "within6h": true
+        }
+      ],
+      "sentiment": {
+        "buyPct": 46,
+        "sellPct": 54,
+        "dominant": "sell",
+        "label": "想賣略多",
+        "summary": "社群討論 50%偏多 · 6H主動買盤 41%"
+      }
+    }
+  },
+  "cioAdvisory": {
+    "regimeTag": "高檔區間換手・個股表現期 (加權 +0.40%)",
+    "regimeTone": "neutral",
+    "regimeSummary": "加權指數於 39,308.08 (+0.40%) 區間震盪整理，資金在先進製程、IC設計與 AI 伺服器間良性輪動。維持市值型 ETF 底倉，聚焦基本面營收創高且法人籌碼集中的 AI 龍頭。",
+    "cards": [
+      {
+        "title": "2330 台積電 (NT$2,180) ＆ 2454 聯發科 (NT$3,680) — 雙晶片核心",
+        "action": "逢低分批佈局",
+        "actionType": "hold",
+        "detail": "台積電 ADR 最新報 $353.00 (+3.11%)，台股現貨展現強勁低接買盤（CoWoS 與 2 奈米產能滿載至 2027 年）；聯發科 (-0.67%) 受惠天璣旗艦晶片與雲端 AI ASIC 專案推進，雙龍頭拉回皆為中長線核心買點。"
+      },
+      {
+        "title": "2317 鴻海 (NT$219.0) ＆ 2382 廣達 (NT$278.0) — AI 伺服器機櫃雙雄",
+        "action": "區間守穩續抱",
+        "actionType": "hold",
+        "detail": "鴻海 (+1.15%) 與廣達 (-1.07%) 為輝達 Blackwell / GB200 / GB300 整機櫃出貨主力，下檔具高殖利率與低本益比保護，建議沿月季線支撐區間操作，不隨短線外資期貨結算噪音殺低。"
+      },
+      {
+        "title": "3017 奇鋐 (NT$2,805) ＆ 6669 緯穎 (NT$1,670) — 高彈性液冷與 ASIC 伺服器",
+        "action": "嚴控部位・等止跌紅K",
+        "actionType": "hold",
+        "detail": "奇鋐 (+0.36%) 掌握 CSP 液冷散熱水冷板高市佔，緯穎 (+6.37%) 深度綁定雲端大廠自研 ASIC 伺服器。高價股 Beta 值高、受美股科技股修正波動較大，務必等量縮止跌紅 K 再分批承接，嚴禁單筆重倉追高。"
+      },
+      {
+        "title": "0050 (NT$92.40) ＆ 006208 (NT$208.00) — 市值型 ETF 長線引擎",
+        "action": "大盤回檔優先加碼",
+        "actionType": "hold",
+        "detail": "0050 (-0.48%) 與 006208 (-0.36%) 涵蓋逾 55% 台積電與台灣前 50 大權值龍頭。每當加權指數單日回檔逾 1.5%–2% 時，即為紀律執行定期定額與逢低單筆加碼的最佳擊球區。"
+      }
+    ],
+    "scannerBullets": [
+      "盤面抗跌領頭羊：6669 緯穎 逆勢表現 +6.37% (6H 網友想買 78%)，法人買盤相對穩健。",
+      "短線修正觀察：3443 創意 回檔 -5.57% (6H 網友想賣 38%)，高估值 AI 供應鏈短線獲利了結賣壓湧現，宜靜待籌碼沉澱。",
+      "高含積量 ETF 追蹤：0052 富邦科技最新報 NT$53.45 (+0.00%)，台積電權重高達約 65%，適合看好先進製程獨佔優勢但想分散單一個股波動的投資人。"
+    ]
+  }
+}

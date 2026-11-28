@@ -1,0 +1,250 @@
+{
+  "generatedAt": "2026-11-28T10:09:30.317976+00:00",
+  "updatedAtTW": "2026-11-28 18:09:30",
+  "refreshIntervalMinutes": 3,
+  "universeNote": "嚴選美國前 30 大市值科技股動態 ＆ 聯準會升降息/重大宏觀政策快報",
+  "items": [
+    {
+      "title": "川普示好習近平又挺黃仁勳華府鷹派反彈揚言限晶片出口- 兩岸",
+      "source": "工商時報",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBicHpjN0hxX1Boc0NqUmpMdVJQM19VNDhXeGFab1podFNMT0pkRG1OcUNic1FnN3lmSmgwNU1BU3RnWFFIc0ZXcGNPbTBSeGJBWFNzbDJIRVZBZTg5U3Fj?oc=5",
+      "tags": [
+        "FED/宏觀",
+        "NVDA"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsWatchlist": true,
+      "affectsHoldings": true,
+      "timeTW": "11/28 17:26",
+      "clockTW": "17:26",
+      "age": "44分鐘前",
+      "pubTs": 1795857960
+    },
+    {
+      "title": "前高盛策略師警告：股市、黃金恐遭拋售 Fed 12月升息添變數",
+      "source": "Yahoo股市",
+      "url": "https://news.google.com/rss/articles/CBMi7wJBVV95cUxPdG1mYkRPZFRGc3JONXh1RjR0bjRBdTZQaXpIeHZVSnhSQTcwSmJSbDROQVdEQVZyWkl0RFJPSVVwUWxHOTVwelc1M3gtWVh0WHRialRMamprWGNLamJxQkNBdGJtS2RmZF9JZkVFOE9NbDlwUDZha1E5RUNUUGpHZTM0Ujg0dVBJcncwZEdRTUtaT0Jzd2V3ODI5OTE0ZVBqUkhVUGtuOFZOTWh0RTVlWlV2Njl4VExZcW5VSUdKZXJNbWZMSzBjbzJyZHoyRDVja0VpXzZFaFdHb05aOXBUU2JsQi1tcnp4V1NfRTJzLTY2QmJTbkJlcDFWcW1PVHE0bnlGVGVtTmZlbVVDR1ZxUmlHd3YtYkRVM3VEODVmbWtGaVRhd0h5NlRrMk8ycjhPZi1XQjVwdG5DMHl2ZUp1LVVHX2R5Z1N5MnlJNGE3d0Vldy05WTAxa2xJZjhQZkN5djcxbmVJNkJJREZuTEtZ?oc=5",
+      "tags": [
+        "FED/宏觀"
+      ],
+      "urgent": true,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsWatchlist": true,
+      "affectsHoldings": true,
+      "timeTW": "11/28 16:40",
+      "clockTW": "16:40",
+      "age": "1小時前",
+      "pubTs": 1795855200
+    },
+    {
+      "title": "Google 攜手聯發科推進新 TPU 客製化 HBM5 基礎晶片，韓國憂心主導權弱化",
+      "source": "TechNews 科技新報",
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNZmswWTNxU2F4MFVCUmdjYnRRVjYzRTNlVHUta2lmVXZzMjVFU0dzd0FIQlA4ZHNrMUU4VTBtS1Jmbk1LeXNPaG41NEVRMXM4T0d0SllhbldLVlZrV3hSbDVaY3YtdzNYR1U2VHl5Ykp4bU5ZRU55c2w0aGxvWHJPbHpJNFMydEtPUllFQ0pmT0ViTmFjYjJUWnh4R3BLc2NhN2tvQ3NOYVNZZmw2NVE?oc=5",
+      "tags": [
+        "GOOG",
+        "MU"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsWatchlist": true,
+      "affectsHoldings": true,
+      "timeTW": "11/28 16:10",
+      "clockTW": "16:10",
+      "age": "1小時前",
+      "pubTs": 1795853436
+    },
+    {
+      "title": "AI硬體霸主之爭！OpenAI反訴蘋果竊密控逾百份未發表機密外流",
+      "source": "Newtalk新聞",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5YUEtReUstLVlGY0tJSmRISGpMbHFyX2NWd1EwT1Q3ZTlqc2xLR1ctcEZDN1NqeFF3QmFOdFVlWjZBU0EwdkVmX1R1R3B6SVY4eFgxaHJsQmlZX3M?oc=5",
+      "tags": [
+        "AAPL"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsWatchlist": false,
+      "affectsHoldings": false,
+      "timeTW": "11/28 16:10",
+      "clockTW": "16:10",
+      "age": "1小時前",
+      "pubTs": 1795853428
+    },
+    {
+      "title": "防學生過度依賴！洛杉磯學區封鎖Google AI摘要　家長歡呼",
+      "source": "CTWANT",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE81a3FwY0ZmZnVVQkFiZ1RVUFlYOXNBV1VKLThpQ1RvTzBVVFNnY0p2RkpXLXh0X1lHc0ZUdlp5VHpNR2VOeDltb2paQmkyelnSAVRBVV95cUxQVEs2aEpiREozODQzR2hLR0YxTERzWTZRNlViYWZENTdIVkFxNkRxVmoydGJDd2xReEswa3huUHh2THNDc0U0Rk1vOElPcVJCeGhDQ1o?oc=5",
+      "tags": [
+        "GOOG"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsWatchlist": true,
+      "affectsHoldings": true,
+      "timeTW": "11/28 16:08",
+      "clockTW": "16:08",
+      "age": "2小時前",
+      "pubTs": 1795853322
+    },
+    {
+      "title": "馬來西亞拒選邊站 總理安華表態不因美晶片禁令中斷與中合作",
+      "source": "商傳媒",
+      "url": "https://news.google.com/rss/articles/CBMiuANBVV95cUxQdnlfUVRzY0tna2QzbjJ3VEVMVVBScy1XeFdMdlV1dHBfbjZKWGlFOTZCQkhndWt6a3pnbXZjUTJsX0YwZGMtaDl1YUZ4XzJvYXYya0JaaFdZSTkzakpIN2JmYUg1RFpjQk1DR01KWE1acURMNEwyWHB5TW9MTjNQYW5PcDlPZHF3c1Z1NGE1YVBYZHBhQm1tdVpqQ1BIb1JEYnVURDlDQVEyMVdDd2x1SVhMZUE3UUl3R3JpT0Y2azNaT0NDb2FrbHhuSDVYbmJ2clZScjJDVkVHTTJhWGRpaWYtU1pIbmljenZfaTdTdDhCQUxjZWV1TnJ5YWNhWkdFWkd3NHZzT0lLUjdrRVJCR2haNlNuN3pNU3VWbV81ZmpCRnNnSUs3S3QxczB3elhPSVJsSUh3bFIwcFhxUUtueWlaVVBIUnVGTDRTV0VoOWhZRGNGR2Y5VDd5bG5HWkYxQkhEcmdmTjV5V2ZDY3Jjb18zR2hiZlpNYWFYckFPeHQycEZHemFVclpXb0loMDZiaTBVM25LSlZSSVIyMy1jdm1pXzVrbzE2UmxkeG9WenJrQXVtWHpPNQ?oc=5",
+      "tags": [
+        "當機/異常"
+      ],
+      "urgent": true,
+      "isOutage": true,
+      "isMacro": true,
+      "affectsWatchlist": true,
+      "affectsHoldings": true,
+      "timeTW": "11/28 15:19",
+      "clockTW": "15:19",
+      "age": "2小時前",
+      "pubTs": 1795850383
+    },
+    {
+      "title": "AI 神童基金 Q3 慘虧 65%！股東信預言輝達、微軟將失去護城河",
+      "source": "鏈新聞 ABMedia",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9yZ1ljelBCX3F5d3UwVndVaUVINUxYd2JUdjB0aW1oQjB3OTd4OUk3cVJQY2V4bkFSaFdHaHEzcWJ4TXVTMldSY0dyOE9YMUs1Y1VPRkxKZVU?oc=5",
+      "tags": [
+        "MSFT",
+        "NVDA"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsWatchlist": true,
+      "affectsHoldings": true,
+      "timeTW": "11/28 14:58",
+      "clockTW": "14:58",
+      "age": "3小時前",
+      "pubTs": 1795849098
+    },
+    {
+      "title": "甲骨文股價較高峰重挫近7成、市值蒸發逾6000億美元AI泡沫疑慮升溫- AI頻道",
+      "source": "自由時報",
+      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9zNTF5OG1mV1lqWG5EdGNobDRuV3p0anZrYjlEcmcyclQ0QlhPR2kxTG1HajV6ZEp5TTFZYnZGdVBCekxoUHdjX1lJV2tiQnBVOGFxSXBHcGxlV2xfeDdHSUVfUmxFVWpaNnpJ?oc=5",
+      "tags": [
+        "ORCL"
+      ],
+      "urgent": true,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsWatchlist": false,
+      "affectsHoldings": false,
+      "timeTW": "11/28 14:42",
+      "clockTW": "14:42",
+      "age": "3小時前",
+      "pubTs": 1795848173
+    },
+    {
+      "title": "中企砸近20億元建輝達工作站GPU集群 規避美晶片禁令",
+      "source": "商傳媒",
+      "url": "https://news.google.com/rss/articles/CBMi6gJBVV95cUxQbzY2cV9lcnl3TnlkWU84VDdBTUdLVVF4U1NmQUs4UzBvWUdCS3FwTE1VRGlxbWxkcl9zd2tuMkJYNGIzVGsyV3ZyNkZjQWlrNHdyLWFVYXl6c21qWkpfTUx4bENFbXZuUkZzZ0JEbWVaVUhWYkdKeXJBckdnVnZGd0o4Mk9QeVl3dFFwTzh5QjZZSDlTS29WQ2JsVTNXMXJ4NGM0ZU04Q1ZfLUh1X0dyaFZRN1ZMUC1KN1Btakg4TkU3Q1g2bEk5ZU52czN6NURfLS1iMmJJNGM3dm41LWQtaUt4ano2RU1Wc0w4TENVZ3FiRjRWX2g0ekpSNVIyRE9hajNETWNBYXE2ckowTzNfdjJPU1ZCaWFqMVNpcmpkN3VoMTFqQlNwdkpjcGQwZFlmUmc1VnUydkV4XzhvWmsxVm1ZNXEwaDBTN0tyeXhkUzdiWUd4U25Qei1zN043MnZmVFhXTW91UTB0Zw?oc=5",
+      "tags": [
+        "FED/宏觀",
+        "NVDA"
+      ],
+      "urgent": true,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsWatchlist": true,
+      "affectsHoldings": true,
+      "timeTW": "11/28 13:23",
+      "clockTW": "13:23",
+      "age": "4小時前",
+      "pubTs": 1795843415
+    },
+    {
+      "title": "不急著推出Windows 12！微軟坦言：Windows 11穩定性仍待改善- 科技新聞",
+      "source": "PChome Online 新聞",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOdEpmMHRHZXF1YXdkbXI0U0o1SmRvWGhDdS0zZUJOMUYwN3dua2tDcTUzMVBSVGVmc3lHRVhCTkZxbC1aZG5XNE1nV2lvMnV1cjFCb19SQkZTQ3podGZldk1fb3dfTU1YaUhjby1mNHRpY1VkaUx3Y2RKclExMlpwUTB5UWV5M3J1ZWc?oc=5",
+      "tags": [
+        "MSFT"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsWatchlist": true,
+      "affectsHoldings": true,
+      "timeTW": "11/28 13:11",
+      "clockTW": "13:11",
+      "age": "4小時前",
+      "pubTs": 1795842714
+    },
+    {
+      "title": "憂美管制晶片出口波及產業　荷總理計畫G20會川普",
+      "source": "經濟日報",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBhNkM4MGRUS0JIb0hSd1dlWmtsczBzWjZwNEtZY2tjcU03M3JhcHBnRHEtLWNIOHJ5R3c2NDRCR2ZQeWlyTjk2NTdlLS1OcGZ4WlI3Yl9KdDJkRklTQ1V2NUVuY1RGNlhHNm9LX3ZnTHJ1ZGpPVXRZ0gFfQVVfeXFMUEZQekp6aV9uTFgtMUxEc0NjQng2ZV9iSXhVZWEtNDFHenRUT3FpS2wzdWFkRk96U0dWaE83UkxZd0pJenBrLVBXSThrQzY5WDBHZThrSXVUVV9veGxKYU0?oc=5",
+      "tags": [
+        "FED/宏觀"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": true,
+      "affectsWatchlist": true,
+      "affectsHoldings": true,
+      "timeTW": "11/28 12:36",
+      "clockTW": "12:36",
+      "age": "5小時前",
+      "pubTs": 1795840597
+    },
+    {
+      "title": "OpenAI反擊蘋果！控施壓供應商、限制員工跳槽 阻撓進軍AI硬體市場",
+      "source": "鉅亨網",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFA4QVZJUEl3MDE4LTRPNi1oby0xNGJHc25sN1hpeV9Ga3AwQmhBU0huMk1aMlUxclR5VzFqWmlfMV9mVXYwZ2thZzc3amdleEU?oc=5",
+      "tags": [
+        "AAPL"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsWatchlist": false,
+      "affectsHoldings": false,
+      "timeTW": "11/28 12:10",
+      "clockTW": "12:10",
+      "age": "5小時前",
+      "pubTs": 1795839005
+    },
+    {
+      "title": "Meta因AI代理Muse的用户條款受英國監管審視",
+      "source": "TradingView",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5JZlR0cU0zaW1qaGxGVHNBQ3BSZGVJZ2FnQWJLUFIxYkhqT2Y5RHFYQTFxNEItWWVHTV9uX1ZRSEhEaFBhTVIwdmkwQVlEa0JKenBpM1FzRkJIOFhnM1QyRnBLRkdWUWpHVmc?oc=5",
+      "tags": [
+        "META"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsWatchlist": true,
+      "affectsHoldings": true,
+      "timeTW": "11/28 07:38",
+      "clockTW": "07:38",
+      "age": "10小時前",
+      "pubTs": 1795822726
+    },
+    {
+      "title": "Anterix考慮大規模出售900MHz頻譜 SpaceX已表達收購興趣",
+      "source": "TradingView",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5fQmZWRkxZQmZ5dGZXcVByTU9PS2hrQmhKR2w2R0stTmxJSVF3SFczbkJ3RWhqbHpOYUJPNTlrTURuU1RPVC1EcXJCUC1qa3hSNFRGQmZxOVlwQVJydDJoUmJRM09Mam8yNkE?oc=5",
+      "tags": [
+        "SPCX"
+      ],
+      "urgent": false,
+      "isOutage": false,
+      "isMacro": false,
+      "affectsWatchlist": true,
+      "affectsHoldings": true,
+      "timeTW": "11/28 07:35",
+      "clockTW": "07:35",
+      "age": "10小時前",
+      "pubTs": 1795822515
+    }
+  ]
+}
