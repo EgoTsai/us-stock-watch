@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-11-27T20:59:28.341987+00:00",
-  "updatedAtTW": "2026-11-28 04:59:28",
+  "generatedAt": "2026-11-28T07:24:38.923455+00:00",
+  "updatedAtTW": "2026-11-28 15:24:38",
   "refreshIntervalSeconds": 45,
   "marketSession": {
     "statusText": "台股週末休市 · 顯示週五收盤報價",
     "sessionCode": "WEEKEND",
-    "etTime": "2026-11-27 15:59 ET",
-    "twTime": "2026-11-28 04:59 台灣時間"
+    "etTime": "2026-11-28 02:24 ET",
+    "twTime": "2026-11-28 15:24 台灣時間"
   },
   "indices": [
     {
